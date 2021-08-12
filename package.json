@@ -1,0 +1,28 @@
+{
+  "name": "meeovi-oscar",
+  "version": "1.0.0",
+  "description": "Backend for Meeovi.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bastianhilton/djangooscar-meeovi.git"
+  },
+  "keywords": [
+    "meeovi"
+  ],
+  "author": "The Meeovi Company",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bastianhilton/djangooscar-meeovi/issues"
+  },
+  "homepage": "https://github.com/bastianhilton/djangooscar-meeovi#readme",
+  "devDependencies": {
+    "prisma": "^2.28.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^2.28.0"
+  }
+}
