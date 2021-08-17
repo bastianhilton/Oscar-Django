@@ -1,5 +1,7 @@
 from django.db import models
+from django.utils.timezone import now
 
+# Create your models here.
 
 class AddressCountry(models.Model):
     iso_3166_1_a2 = models.CharField(primary_key=True, max_length=2)
@@ -10,10 +12,8 @@ class AddressCountry(models.Model):
     display_order = models.SmallIntegerField()
     is_shipping_country = models.BooleanField()
 
-    class Meta:
-        managed = False
-        db_table = 'address_country'
-
+    def __str__(self):
+        return self.address_country
 
 class AddressUseraddress(models.Model):
     title = models.CharField(max_length=64)
@@ -37,10 +37,8 @@ class AddressUseraddress(models.Model):
     user = models.ForeignKey('AuthUser', models.DO_NOTHING)
     num_orders_as_billing_address = models.IntegerField()
 
-    class Meta:
-        managed = False
-        db_table = 'address_useraddress'
-        unique_together = (('user', 'hash'),)
+    def __str__(self):
+        return self.address_useraddress        
 
 
 class AdvancedFiltersAdvancedfilter(models.Model):
@@ -51,29 +49,23 @@ class AdvancedFiltersAdvancedfilter(models.Model):
     created_by = models.ForeignKey('AuthUser', models.DO_NOTHING)
     created_at = models.DateTimeField(blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'advanced_filters_advancedfilter'
-
+    def __str__(self):
+        return self.advanced_filters_advancedfilter
 
 class AdvancedFiltersAdvancedfilterGroups(models.Model):
     advancedfilter = models.ForeignKey(AdvancedFiltersAdvancedfilter, models.DO_NOTHING)
     group = models.ForeignKey('AuthGroup', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'advanced_filters_advancedfilter_groups'
-        unique_together = (('advancedfilter', 'group'),)
+    def __str__(self):
+        return self.advanced_filters_advancedfilter_groups        
 
 
 class AdvancedFiltersAdvancedfilterUsers(models.Model):
     advancedfilter = models.ForeignKey(AdvancedFiltersAdvancedfilter, models.DO_NOTHING)
     user = models.ForeignKey('AuthUser', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'advanced_filters_advancedfilter_users'
-        unique_together = (('advancedfilter', 'user'),)
+    def __str__(self):
+        return self.advanced_filters_advancedfilter_users        
 
 
 class AnalyticsProductrecord(models.Model):
@@ -83,20 +75,16 @@ class AnalyticsProductrecord(models.Model):
     score = models.FloatField()
     product = models.ForeignKey('CatalogueProduct', models.DO_NOTHING, unique=True)
 
-    class Meta:
-        managed = False
-        db_table = 'analytics_productrecord'
-
+    def __str__(self):
+        return self.analytics_productrecord
 
 class AnalyticsUserproductview(models.Model):
     date_created = models.DateTimeField()
     product = models.ForeignKey('CatalogueProduct', models.DO_NOTHING)
     user = models.ForeignKey('AuthUser', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'analytics_userproductview'
-
+    def __str__(self):
+        return self.analytics_userproductview
 
 class AnalyticsUserrecord(models.Model):
     num_product_views = models.IntegerField()
@@ -108,20 +96,16 @@ class AnalyticsUserrecord(models.Model):
     date_last_order = models.DateTimeField(blank=True, null=True)
     user = models.ForeignKey('AuthUser', models.DO_NOTHING, unique=True)
 
-    class Meta:
-        managed = False
-        db_table = 'analytics_userrecord'
-
+    def __str__(self):
+        return self.analytics_userrecord
 
 class AnalyticsUsersearch(models.Model):
     query = models.CharField(max_length=255)
     date_created = models.DateTimeField()
     user = models.ForeignKey('AuthUser', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'analytics_usersearch'
-
+    def __str__(self):
+        return self.analytics_usersearch
 
 class AnnouncementsAnnouncement(models.Model):
     title = models.CharField(max_length=50)
@@ -134,48 +118,38 @@ class AnnouncementsAnnouncement(models.Model):
     publish_end = models.DateTimeField(blank=True, null=True)
     creator = models.ForeignKey('AuthUser', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'announcements_announcement'
-
+    def __str__(self):
+        return self.announcements_announcement
 
 class AnnouncementsDismissal(models.Model):
     dismissed_at = models.DateTimeField()
     announcement = models.ForeignKey(AnnouncementsAnnouncement, models.DO_NOTHING)
     user = models.ForeignKey('AuthUser', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'announcements_dismissal'
-
+    def __str__(self):
+        return self.announcements_dismissal
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
-    class Meta:
-        managed = False
-        db_table = 'auth_group'
-
+    def __str__(self):
+        return self.auth_group
 
 class AuthGroupPermissions(models.Model):
     group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
     permission = models.ForeignKey('AuthPermission', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'auth_group_permissions'
-        unique_together = (('group', 'permission'),)
+    def __str__(self):
+        return self.auth_group_permissions        
 
 
 class AuthPermission(models.Model):
     name = models.CharField(max_length=255)
-    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING)
+    content_type = models.ForeignKey('DjangoContent', models.DO_NOTHING)
     codename = models.CharField(max_length=100)
 
-    class Meta:
-        managed = False
-        db_table = 'auth_permission'
-        unique_together = (('content_type', 'codename'),)
+    def __str__(self):
+        return self.auth_permission        
 
 
 class AuthUser(models.Model):
@@ -190,29 +164,23 @@ class AuthUser(models.Model):
     is_active = models.BooleanField()
     date_joined = models.DateTimeField()
 
-    class Meta:
-        managed = False
-        db_table = 'auth_user'
-
+    def __str__(self):
+        return self.auth_user
 
 class AuthUserGroups(models.Model):
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
     group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'auth_user_groups'
-        unique_together = (('user', 'group'),)
+    def __str__(self):
+        return self.auth_user_groups        
 
 
 class AuthUserUserPermissions(models.Model):
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
     permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'auth_user_user_permissions'
-        unique_together = (('user', 'permission'),)
+    def __str__(self):
+        return self.auth_user_user_permissions        
 
 
 class BasketBasket(models.Model):
@@ -222,19 +190,15 @@ class BasketBasket(models.Model):
     date_submitted = models.DateTimeField(blank=True, null=True)
     owner = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'basket_basket'
-
+    def __str__(self):
+        return self.basket_basket
 
 class BasketBasketVouchers(models.Model):
     basket = models.ForeignKey(BasketBasket, models.DO_NOTHING)
     voucher = models.ForeignKey('VoucherVoucher', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'basket_basket_vouchers'
-        unique_together = (('basket', 'voucher'),)
+    def __str__(self):
+        return self.basket_basket_vouchers        
 
 
 class BasketLine(models.Model):
@@ -249,10 +213,8 @@ class BasketLine(models.Model):
     stockrecord = models.ForeignKey('PartnerStockrecord', models.DO_NOTHING)
     date_updated = models.DateTimeField()
 
-    class Meta:
-        managed = False
-        db_table = 'basket_line'
-        unique_together = (('basket', 'line_reference'),)
+    def __str__(self):
+        return self.basket_line        
 
 
 class BasketLineattribute(models.Model):
@@ -260,10 +222,8 @@ class BasketLineattribute(models.Model):
     line = models.ForeignKey(BasketLine, models.DO_NOTHING)
     option = models.ForeignKey('CatalogueOption', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'basket_lineattribute'
-
+    def __str__(self):
+        return self.basket_lineattribute
 
 class Bootstrap4AlertsBootstrap4Alerts(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -272,10 +232,8 @@ class Bootstrap4AlertsBootstrap4Alerts(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_alerts_bootstrap4alerts'
-
+    def __str__(self):
+        return self.bootstrap4_alerts_bootstrap4alerts
 
 class Bootstrap4BadgeBootstrap4Badge(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -284,10 +242,8 @@ class Bootstrap4BadgeBootstrap4Badge(models.Model):
     badge_pills = models.BooleanField()
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_badge_bootstrap4badge'
-
+    def __str__(self):
+        return self.bootstrap4_badge_bootstrap4badge
 
 class Bootstrap4CardBootstrap4Card(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -299,10 +255,8 @@ class Bootstrap4CardBootstrap4Card(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_card_bootstrap4card'
-
+    def __str__(self):
+        return self.bootstrap4_card_bootstrap4card
 
 class Bootstrap4CardBootstrap4Cardinner(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -310,10 +264,8 @@ class Bootstrap4CardBootstrap4Cardinner(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_card_bootstrap4cardinner'
-
+    def __str__(self):
+        return self.bootstrap4_card_bootstrap4cardinner
 
 class Bootstrap4CarouselBootstrap4Carousel(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -329,10 +281,8 @@ class Bootstrap4CarouselBootstrap4Carousel(models.Model):
     attributes = models.TextField()
     carousel_aspect_ratio = models.CharField(max_length=255)
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_carousel_bootstrap4carousel'
-
+    def __str__(self):
+        return self.bootstrap4_carousel_bootstrap4carousel
 
 class Bootstrap4CarouselBootstrap4Carouselslide(models.Model):
     template = models.CharField(max_length=255)
@@ -350,10 +300,8 @@ class Bootstrap4CarouselBootstrap4Carouselslide(models.Model):
     internal_link = models.ForeignKey('CmsPage', models.DO_NOTHING, blank=True, null=True)
     file_link = models.ForeignKey('FilerFile', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_carousel_bootstrap4carouselslide'
-
+    def __str__(self):
+        return self.bootstrap4_carousel_bootstrap4carouselslide
 
 class Bootstrap4CollapseBootstrap4Collapse(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -361,10 +309,8 @@ class Bootstrap4CollapseBootstrap4Collapse(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_collapse_bootstrap4collapse'
-
+    def __str__(self):
+        return self.bootstrap4_collapse_bootstrap4collapse
 
 class Bootstrap4CollapseBootstrap4Collapsecontainer(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -372,10 +318,8 @@ class Bootstrap4CollapseBootstrap4Collapsecontainer(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_collapse_bootstrap4collapsecontainer'
-
+    def __str__(self):
+        return self.bootstrap4_collapse_bootstrap4collapsecontainer
 
 class Bootstrap4CollapseBootstrap4Collapsetrigger(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -383,10 +327,8 @@ class Bootstrap4CollapseBootstrap4Collapsetrigger(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_collapse_bootstrap4collapsetrigger'
-
+    def __str__(self):
+        return self.bootstrap4_collapse_bootstrap4collapsetrigger
 
 class Bootstrap4ContentBootstrap4Blockquote(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -395,10 +337,8 @@ class Bootstrap4ContentBootstrap4Blockquote(models.Model):
     quote_alignment = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_content_bootstrap4blockquote'
-
+    def __str__(self):
+        return self.bootstrap4_content_bootstrap4blockquote
 
 class Bootstrap4ContentBootstrap4Code(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -406,10 +346,8 @@ class Bootstrap4ContentBootstrap4Code(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_content_bootstrap4code'
-
+    def __str__(self):
+        return self.bootstrap4_content_bootstrap4code
 
 class Bootstrap4ContentBootstrap4Figure(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -417,10 +355,8 @@ class Bootstrap4ContentBootstrap4Figure(models.Model):
     figure_alignment = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_content_bootstrap4figure'
-
+    def __str__(self):
+        return self.bootstrap4_content_bootstrap4figure
 
 class Bootstrap4GridBootstrap4Gridcolumn(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -454,10 +390,8 @@ class Bootstrap4GridBootstrap4Gridcolumn(models.Model):
     xl_offset = models.IntegerField(blank=True, null=True)
     xs_offset = models.IntegerField(blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_grid_bootstrap4gridcolumn'
-
+    def __str__(self):
+        return self.bootstrap4_grid_bootstrap4gridcolumn
 
 class Bootstrap4GridBootstrap4Gridcontainer(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -465,10 +399,8 @@ class Bootstrap4GridBootstrap4Gridcontainer(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_grid_bootstrap4gridcontainer'
-
+    def __str__(self):
+        return self.bootstrap4_grid_bootstrap4gridcontainer
 
 class Bootstrap4GridBootstrap4Gridrow(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -478,10 +410,8 @@ class Bootstrap4GridBootstrap4Gridrow(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_grid_bootstrap4gridrow'
-
+    def __str__(self):
+        return self.bootstrap4_grid_bootstrap4gridrow
 
 class Bootstrap4JumbotronBootstrap4Jumbotron(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -489,10 +419,8 @@ class Bootstrap4JumbotronBootstrap4Jumbotron(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_jumbotron_bootstrap4jumbotron'
-
+    def __str__(self):
+        return self.bootstrap4_jumbotron_bootstrap4jumbotron
 
 class Bootstrap4LinkBootstrap4Link(models.Model):
     template = models.CharField(max_length=255)
@@ -514,10 +442,8 @@ class Bootstrap4LinkBootstrap4Link(models.Model):
     icon_right = models.CharField(max_length=255)
     file_link = models.ForeignKey('FilerFile', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_link_bootstrap4link'
-
+    def __str__(self):
+        return self.bootstrap4_link_bootstrap4link
 
 class Bootstrap4ListgroupBootstrap4Listgroup(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -525,10 +451,8 @@ class Bootstrap4ListgroupBootstrap4Listgroup(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_listgroup_bootstrap4listgroup'
-
+    def __str__(self):
+        return self.bootstrap4_listgroup_bootstrap4listgroup
 
 class Bootstrap4ListgroupBootstrap4Listgroupitem(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -537,30 +461,24 @@ class Bootstrap4ListgroupBootstrap4Listgroupitem(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_listgroup_bootstrap4listgroupitem'
-
+    def __str__(self):
+        return self.bootstrap4_listgroup_bootstrap4listgroupitem
 
 class Bootstrap4MediaBootstrap4Media(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_media_bootstrap4media'
-
+    def __str__(self):
+        return self.bootstrap4_media_bootstrap4media
 
 class Bootstrap4MediaBootstrap4Mediabody(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_media_bootstrap4mediabody'
-
+    def __str__(self):
+        return self.bootstrap4_media_bootstrap4mediabody
 
 class Bootstrap4PictureBootstrap4Picture(models.Model):
     template = models.CharField(max_length=255)
@@ -586,10 +504,8 @@ class Bootstrap4PictureBootstrap4Picture(models.Model):
     thumbnail_options = models.ForeignKey('FilerThumbnailoption', models.DO_NOTHING, blank=True, null=True)
     use_responsive_image = models.CharField(max_length=7)
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_picture_bootstrap4picture'
-
+    def __str__(self):
+        return self.bootstrap4_picture_bootstrap4picture
 
 class Bootstrap4TabsBootstrap4Tab(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -601,10 +517,8 @@ class Bootstrap4TabsBootstrap4Tab(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_tabs_bootstrap4tab'
-
+    def __str__(self):
+        return self.bootstrap4_tabs_bootstrap4tab
 
 class Bootstrap4TabsBootstrap4Tabitem(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -612,10 +526,8 @@ class Bootstrap4TabsBootstrap4Tabitem(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_tabs_bootstrap4tabitem'
-
+    def __str__(self):
+        return self.bootstrap4_tabs_bootstrap4tabitem
 
 class Bootstrap4UtilitiesBootstrap4Spacing(models.Model):
     cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
@@ -626,28 +538,22 @@ class Bootstrap4UtilitiesBootstrap4Spacing(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'bootstrap4_utilities_bootstrap4spacing'
-
+    def __str__(self):
+        return self.bootstrap4_utilities_bootstrap4spacing
 
 class CatalogueAttributeoption(models.Model):
     option = models.CharField(max_length=255)
     group = models.ForeignKey('CatalogueAttributeoptiongroup', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_attributeoption'
-        unique_together = (('group', 'option'),)
+    def __str__(self):
+        return self.catalogue_attributeoption        
 
 
 class CatalogueAttributeoptiongroup(models.Model):
     name = models.CharField(max_length=128)
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_attributeoptiongroup'
-
+    def __str__(self):
+        return self.catalogue_attributeoptiongroup
 
 class CatalogueCategory(models.Model):
     path = models.CharField(unique=True, max_length=255)
@@ -662,10 +568,8 @@ class CatalogueCategory(models.Model):
     meta_description = models.TextField(blank=True, null=True)
     meta_title = models.CharField(max_length=255, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_category'
-
+    def __str__(self):
+        return self.catalogue_category
 
 class CatalogueOption(models.Model):
     name = models.CharField(max_length=128)
@@ -673,10 +577,8 @@ class CatalogueOption(models.Model):
     type = models.CharField(max_length=255)
     required = models.BooleanField()
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_option'
-
+    def __str__(self):
+        return self.catalogue_option
 
 class CatalogueProduct(models.Model):
     structure = models.CharField(max_length=10)
@@ -694,19 +596,15 @@ class CatalogueProduct(models.Model):
     meta_description = models.TextField(blank=True, null=True)
     meta_title = models.CharField(max_length=255, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_product'
-
+    def __str__(self):
+        return self.catalogue_product
 
 class CatalogueProductProductOptions(models.Model):
     product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
     option = models.ForeignKey(CatalogueOption, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_product_product_options'
-        unique_together = (('product', 'option'),)
+    def __str__(self):
+        return self.catalogue_product_product_options        
 
 
 class CatalogueProductattribute(models.Model):
@@ -717,10 +615,8 @@ class CatalogueProductattribute(models.Model):
     option_group = models.ForeignKey(CatalogueAttributeoptiongroup, models.DO_NOTHING, blank=True, null=True)
     product_class = models.ForeignKey('CatalogueProductclass', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_productattribute'
-
+    def __str__(self):
+        return self.catalogue_productattribute
 
 class CatalogueProductattributevalue(models.Model):
     value_text = models.TextField(blank=True, null=True)
@@ -733,35 +629,28 @@ class CatalogueProductattributevalue(models.Model):
     value_image = models.CharField(max_length=255, blank=True, null=True)
     entity_object_id = models.IntegerField(blank=True, null=True)
     attribute = models.ForeignKey(CatalogueProductattribute, models.DO_NOTHING)
-    entity_content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
+    entity_content_type = models.ForeignKey('DjangoContent', models.DO_NOTHING, blank=True, null=True)
     product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
     value_option = models.ForeignKey(CatalogueAttributeoption, models.DO_NOTHING, blank=True, null=True)
     value_datetime = models.DateTimeField(blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_productattributevalue'
-        unique_together = (('attribute', 'product'),)
+    def __str__(self):
+        return self.catalogue_productattributevalue        
 
 
 class CatalogueProductattributevalueValueMultiOption(models.Model):
     productattributevalue = models.ForeignKey(CatalogueProductattributevalue, models.DO_NOTHING)
     attributeoption = models.ForeignKey(CatalogueAttributeoption, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_productattributevalue_value_multi_option'
-        unique_together = (('productattributevalue', 'attributeoption'),)
-
+    def __str__(self):
+        return self.catalogue_productattributevalue_value_multi_option        
 
 class CatalogueProductcategory(models.Model):
     category = models.ForeignKey(CatalogueCategory, models.DO_NOTHING)
     product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_productcategory'
-        unique_together = (('product', 'category'),)
+    def __str__(self):
+        return self.catalogue_productcategory        
 
 
 class CatalogueProductclass(models.Model):
@@ -770,19 +659,15 @@ class CatalogueProductclass(models.Model):
     requires_shipping = models.BooleanField()
     track_stock = models.BooleanField()
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_productclass'
-
+    def __str__(self):
+        return self.catalogue_productclass
 
 class CatalogueProductclassOptions(models.Model):
     productclass = models.ForeignKey(CatalogueProductclass, models.DO_NOTHING)
     option = models.ForeignKey(CatalogueOption, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_productclass_options'
-        unique_together = (('productclass', 'option'),)
+    def __str__(self):
+        return self.catalogue_productclass_options        
 
 
 class CatalogueProductimage(models.Model):
@@ -792,20 +677,16 @@ class CatalogueProductimage(models.Model):
     date_created = models.DateTimeField()
     product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_productimage'
-
+    def __str__(self):
+        return self.catalogue_productimage
 
 class CatalogueProductrecommendation(models.Model):
     ranking = models.SmallIntegerField()
     primary = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
     recommendation = models.ForeignKey(CatalogueProduct, models.DO_NOTHING, related_name='+',)
 
-    class Meta:
-        managed = False
-        db_table = 'catalogue_productrecommendation'
-        unique_together = (('primary', 'recommendation'),)
+    def __str__(self):
+        return self.catalogue_productrecommendation        
 
 
 class CmsAliaspluginmodel(models.Model):
@@ -813,10 +694,8 @@ class CmsAliaspluginmodel(models.Model):
     plugin = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING,  related_name='+', blank=True, null=True)
     alias_placeholder = models.ForeignKey('CmsPlaceholder', models.DO_NOTHING, related_name='+', blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_aliaspluginmodel'
-
+    def __str__(self):
+        return self.cms_aliaspluginmodel
 
 class CmsCmsplugin(models.Model):
     position = models.SmallIntegerField()
@@ -830,10 +709,8 @@ class CmsCmsplugin(models.Model):
     numchild = models.IntegerField()
     path = models.CharField(unique=True, max_length=255)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_cmsplugin'
-
+    def __str__(self):
+        return self.cms_cmsplugin
 
 class CmsGlobalpagepermission(models.Model):
     can_change = models.BooleanField()
@@ -848,19 +725,15 @@ class CmsGlobalpagepermission(models.Model):
     group = models.ForeignKey(AuthGroup, models.DO_NOTHING, blank=True, null=True)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_globalpagepermission'
-
+    def __str__(self):
+        return self.cms_globalpagepermission
 
 class CmsGlobalpagepermissionSites(models.Model):
     globalpagepermission = models.ForeignKey(CmsGlobalpagepermission, models.DO_NOTHING)
     site = models.ForeignKey('DjangoSite', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_globalpagepermission_sites'
-        unique_together = (('globalpagepermission', 'site'),)
+    def __str__(self):
+        return self.cms_globalpagepermission_sites        
 
 
 class CmsPage(models.Model):
@@ -887,20 +760,16 @@ class CmsPage(models.Model):
     is_page_type = models.BooleanField()
     node = models.ForeignKey('CmsTreenode', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_page'
-        unique_together = (('node', 'publisher_is_draft'),)
+    def __str__(self):
+        return self.cms_page        
 
 
 class CmsPagePlaceholders(models.Model):
     page = models.ForeignKey(CmsPage, models.DO_NOTHING)
     placeholder = models.ForeignKey('CmsPlaceholder', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_page_placeholders'
-        unique_together = (('page', 'placeholder'),)
+    def __str__(self):
+        return self.cms_page_placeholders        
 
 
 class CmsPagepermission(models.Model):
@@ -917,47 +786,37 @@ class CmsPagepermission(models.Model):
     page = models.ForeignKey(CmsPage, models.DO_NOTHING, blank=True, null=True)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_pagepermission'
-
+    def __str__(self):
+        return self.cms_pagepermission
 
 class CmsPageuser(models.Model):
     user_ptr = models.ForeignKey(AuthUser, models.DO_NOTHING, primary_key=True)
     created_by = models.ForeignKey(AuthUser, models.DO_NOTHING, related_name='+', )
 
-    class Meta:
-        managed = False
-        db_table = 'cms_pageuser'
-
+    def __str__(self):
+        return self.cms_pageuser
 
 class CmsPageusergroup(models.Model):
     group_ptr = models.ForeignKey(AuthGroup, models.DO_NOTHING, primary_key=True)
     created_by = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_pageusergroup'
-
+    def __str__(self):
+        return self.cms_pageusergroup
 
 class CmsPlaceholder(models.Model):
     slot = models.CharField(max_length=255)
     default_width = models.SmallIntegerField(blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_placeholder'
-
+    def __str__(self):
+        return self.cms_placeholder
 
 class CmsPlaceholderreference(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     name = models.CharField(max_length=255)
     placeholder_ref = models.ForeignKey(CmsPlaceholder, models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_placeholderreference'
-
+    def __str__(self):
+        return self.cms_placeholderreference
 
 class CmsStaticplaceholder(models.Model):
     name = models.CharField(max_length=255)
@@ -968,10 +827,8 @@ class CmsStaticplaceholder(models.Model):
     public = models.ForeignKey(CmsPlaceholder, models.DO_NOTHING, related_name='+', blank=True, null=True)
     site = models.ForeignKey('DjangoSite', models.DO_NOTHING, related_name='+', blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_staticplaceholder'
-        unique_together = (('code', 'site'),)
+    def __str__(self):
+        return self.cms_staticplaceholder        
 
 
 class CmsTitle(models.Model):
@@ -991,10 +848,8 @@ class CmsTitle(models.Model):
     page = models.ForeignKey(CmsPage, models.DO_NOTHING)
     publisher_public = models.ForeignKey('self', models.DO_NOTHING, unique=True, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_title'
-        unique_together = (('language', 'page'),)
+    def __str__(self):
+        return self.cms_title        
 
 
 class CmsTreenode(models.Model):
@@ -1004,28 +859,22 @@ class CmsTreenode(models.Model):
     parent = models.ForeignKey('self', models.DO_NOTHING, blank=True, null=True)
     site = models.ForeignKey('DjangoSite', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_treenode'
-
+    def __str__(self):
+        return self.cms_treenode
 
 class CmsUrlconfrevision(models.Model):
     revision = models.CharField(max_length=255)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_urlconfrevision'
-
+    def __str__(self):
+        return self.cms_urlconfrevision
 
 class CmsUsersettings(models.Model):
     language = models.CharField(max_length=10)
     clipboard = models.ForeignKey(CmsPlaceholder, models.DO_NOTHING, blank=True, null=True)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING, unique=True)
 
-    class Meta:
-        managed = False
-        db_table = 'cms_usersettings'
-
+    def __str__(self):
+        return self.cms_usersettings
 
 class CommunicationCommunicationeventtype(models.Model):
     code = models.CharField(unique=True, max_length=128)
@@ -1038,10 +887,8 @@ class CommunicationCommunicationeventtype(models.Model):
     date_created = models.DateTimeField()
     date_updated = models.DateTimeField()
 
-    class Meta:
-        managed = False
-        db_table = 'communication_communicationeventtype'
-
+    def __str__(self):
+        return self.communication_communicationeventtype
 
 class CommunicationEmail(models.Model):
     subject = models.TextField()
@@ -1051,10 +898,8 @@ class CommunicationEmail(models.Model):
     user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
     email = models.CharField(max_length=254, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'communication_email'
-
+    def __str__(self):
+        return self.communication_email
 
 class CommunicationNotification(models.Model):
     subject = models.CharField(max_length=255)
@@ -1065,10 +910,8 @@ class CommunicationNotification(models.Model):
     recipient = models.ForeignKey(AuthUser, models.DO_NOTHING)
     sender = models.ForeignKey(AuthUser, models.DO_NOTHING, related_name='+', blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'communication_notification'
-
+    def __str__(self):
+        return self.communication_notification
 
 class CustomerProductalert(models.Model):
     email = models.CharField(max_length=254)
@@ -1081,10 +924,8 @@ class CustomerProductalert(models.Model):
     product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'customer_productalert'
-
+    def __str__(self):
+        return self.customer_productalert
 
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
@@ -1092,22 +933,18 @@ class DjangoAdminLog(models.Model):
     object_repr = models.CharField(max_length=200)
     action_flag = models.SmallIntegerField()
     change_message = models.TextField()
-    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
+    content_type = models.ForeignKey('DjangoContent', models.DO_NOTHING, blank=True, null=True)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'django_admin_log'
+    def __str__(self):
+        return self.django_admin_log
 
-
-class DjangoContentType(models.Model):
+class DjangoContent(models.Model):
     app_label = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
 
-    class Meta:
-        managed = False
-        db_table = 'django_content_type'
-        unique_together = (('app_label', 'model'),)
+    def __str__(self):
+        return self.django_content_type        
 
 
 class DjangoFlatpage(models.Model):
@@ -1118,19 +955,15 @@ class DjangoFlatpage(models.Model):
     template_name = models.CharField(max_length=70)
     registration_required = models.BooleanField()
 
-    class Meta:
-        managed = False
-        db_table = 'django_flatpage'
-
+    def __str__(self):
+        return self.django_flatpage
 
 class DjangoFlatpageSites(models.Model):
     flatpage = models.ForeignKey(DjangoFlatpage, models.DO_NOTHING)
     site = models.ForeignKey('DjangoSite', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'django_flatpage_sites'
-        unique_together = (('flatpage', 'site'),)
+    def __str__(self):
+        return self.django_flatpage_sites        
 
 
 class DjangoMigrations(models.Model):
@@ -1138,29 +971,23 @@ class DjangoMigrations(models.Model):
     name = models.CharField(max_length=255)
     applied = models.DateTimeField()
 
-    class Meta:
-        managed = False
-        db_table = 'django_migrations'
-
+    def __str__(self):
+        return self.django_migrations
 
 class DjangoSession(models.Model):
     session_key = models.CharField(primary_key=True, max_length=40)
     session_data = models.TextField()
     expire_date = models.DateTimeField()
 
-    class Meta:
-        managed = False
-        db_table = 'django_session'
-
+    def __str__(self):
+        return self.django_session
 
 class DjangoSite(models.Model):
     domain = models.CharField(unique=True, max_length=100)
     name = models.CharField(max_length=50)
 
-    class Meta:
-        managed = False
-        db_table = 'django_site'
-
+    def __str__(self):
+        return self.django_site
 
 class DjangocmsBlogAuthorentriesplugin(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
@@ -1169,19 +996,15 @@ class DjangocmsBlogAuthorentriesplugin(models.Model):
     current_site = models.BooleanField()
     template_folder = models.CharField(max_length=200)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_authorentriesplugin'
-
+    def __str__(self):
+        return self.djangocms_blog_authorentriesplugin
 
 class DjangocmsBlogAuthorentriespluginAuthors(models.Model):
     authorentriesplugin = models.ForeignKey(DjangocmsBlogAuthorentriesplugin, models.DO_NOTHING)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_authorentriesplugin_authors'
-        unique_together = (('authorentriesplugin', 'user'),)
+    def __str__(self):
+        return self.djangocms_blog_authorentriesplugin_authors        
 
 
 class DjangocmsBlogBlogcategory(models.Model):
@@ -1190,10 +1013,8 @@ class DjangocmsBlogBlogcategory(models.Model):
     parent = models.ForeignKey('self', models.DO_NOTHING, blank=True, null=True)
     app_config = models.ForeignKey('DjangocmsBlogBlogconfig', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_blogcategory'
-
+    def __str__(self):
+        return self.djangocms_blog_blogcategory
 
 class DjangocmsBlogBlogcategoryTranslation(models.Model):
     language_code = models.CharField(max_length=15)
@@ -1202,10 +1023,8 @@ class DjangocmsBlogBlogcategoryTranslation(models.Model):
     master = models.ForeignKey(DjangocmsBlogBlogcategory, models.DO_NOTHING, blank=True, null=True)
     meta_description = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_blogcategory_translation'
-        unique_together = (('language_code', 'master'), ('language_code', 'slug'),)
+    def __str__(self):
+        return self.djangocms_blog_blogcategory_translation        
 
 
 class DjangocmsBlogBlogconfig(models.Model):
@@ -1213,10 +1032,8 @@ class DjangocmsBlogBlogconfig(models.Model):
     namespace = models.CharField(unique=True, max_length=100)
     app_data = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_blogconfig'
-
+    def __str__(self):
+        return self.djangocms_blog_blogconfig
 
 class DjangocmsBlogBlogconfigTranslation(models.Model):
     language_code = models.CharField(max_length=15)
@@ -1224,10 +1041,8 @@ class DjangocmsBlogBlogconfigTranslation(models.Model):
     master = models.ForeignKey(DjangocmsBlogBlogconfig, models.DO_NOTHING, blank=True, null=True)
     object_name = models.CharField(max_length=234)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_blogconfig_translation'
-        unique_together = (('language_code', 'master'),)
+    def __str__(self):
+        return self.djangocms_blog_blogconfig_translation        
 
 
 class DjangocmsBlogGenericblogplugin(models.Model):
@@ -1236,10 +1051,8 @@ class DjangocmsBlogGenericblogplugin(models.Model):
     current_site = models.BooleanField()
     template_folder = models.CharField(max_length=200)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_genericblogplugin'
-
+    def __str__(self):
+        return self.djangocms_blog_genericblogplugin
 
 class DjangocmsBlogLatestpostsplugin(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
@@ -1248,19 +1061,15 @@ class DjangocmsBlogLatestpostsplugin(models.Model):
     current_site = models.BooleanField()
     template_folder = models.CharField(max_length=200)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_latestpostsplugin'
-
+    def __str__(self):
+        return self.djangocms_blog_latestpostsplugin
 
 class DjangocmsBlogLatestpostspluginCategories(models.Model):
     latestpostsplugin = models.ForeignKey(DjangocmsBlogLatestpostsplugin, models.DO_NOTHING)
     blogcategory = models.ForeignKey(DjangocmsBlogBlogcategory, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_latestpostsplugin_categories'
-        unique_together = (('latestpostsplugin', 'blogcategory'),)
+    def __str__(self):
+        return self.djangocms_blog_latestpostsplugin_categories        
 
 
 class DjangocmsBlogPost(models.Model):
@@ -1281,19 +1090,15 @@ class DjangocmsBlogPost(models.Model):
     date_featured = models.DateTimeField(blank=True, null=True)
     media = models.ForeignKey(CmsPlaceholder, models.DO_NOTHING, related_name='+', blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_post'
-
+    def __str__(self):
+        return self.djangocms_blog_post
 
 class DjangocmsBlogPostCategories(models.Model):
     post = models.ForeignKey(DjangocmsBlogPost, models.DO_NOTHING)
     blogcategory = models.ForeignKey(DjangocmsBlogBlogcategory, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_post_categories'
-        unique_together = (('post', 'blogcategory'),)
+    def __str__(self):
+        return self.djangocms_blog_post_categories        
 
 
 class DjangocmsBlogPostRelated(models.Model):
@@ -1301,20 +1106,16 @@ class DjangocmsBlogPostRelated(models.Model):
     to_post = models.ForeignKey(DjangocmsBlogPost, models.DO_NOTHING, related_name='+',)
     sort_value = models.IntegerField()
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_post_related'
-        unique_together = (('from_post', 'to_post'),)
+    def __str__(self):
+        return self.djangocms_blog_post_related        
 
 
 class DjangocmsBlogPostSites(models.Model):
     post = models.ForeignKey(DjangocmsBlogPost, models.DO_NOTHING)
     site = models.ForeignKey(DjangoSite, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_post_sites'
-        unique_together = (('post', 'site'),)
+    def __str__(self):
+        return self.djangocms_blog_post_sites        
 
 
 class DjangocmsBlogPostTranslation(models.Model):
@@ -1329,10 +1130,8 @@ class DjangocmsBlogPostTranslation(models.Model):
     master = models.ForeignKey(DjangocmsBlogPost, models.DO_NOTHING, blank=True, null=True)
     subtitle = models.CharField(max_length=767)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_blog_post_translation'
-        unique_together = (('language_code', 'master'), ('language_code', 'slug'),)
+    def __str__(self):
+        return self.djangocms_blog_post_translation        
 
 
 class DjangocmsFileFile(models.Model):
@@ -1345,10 +1144,8 @@ class DjangocmsFileFile(models.Model):
     template = models.CharField(max_length=255)
     show_file_size = models.BooleanField()
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_file_file'
-
+    def __str__(self):
+        return self.djangocms_file_file
 
 class DjangocmsFileFolder(models.Model):
     template = models.CharField(max_length=255)
@@ -1358,10 +1155,8 @@ class DjangocmsFileFolder(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     folder_src = models.ForeignKey('FilerFolder', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_file_folder'
-
+    def __str__(self):
+        return self.djangocms_file_folder
 
 class DjangocmsGooglemapGooglemap(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
@@ -1385,10 +1180,8 @@ class DjangocmsGooglemapGooglemap(models.Model):
     scale_control = models.BooleanField()
     template = models.CharField(max_length=255)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_googlemap_googlemap'
-
+    def __str__(self):
+        return self.djangocms_googlemap_googlemap
 
 class DjangocmsGooglemapGooglemapmarker(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
@@ -1400,10 +1193,8 @@ class DjangocmsGooglemapGooglemapmarker(models.Model):
     info_content = models.TextField()
     icon = models.ForeignKey('FilerImage', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_googlemap_googlemapmarker'
-
+    def __str__(self):
+        return self.djangocms_googlemap_googlemapmarker
 
 class DjangocmsGooglemapGooglemaproute(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
@@ -1412,10 +1203,8 @@ class DjangocmsGooglemapGooglemaproute(models.Model):
     destination = models.CharField(max_length=255)
     travel_mode = models.CharField(max_length=255)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_googlemap_googlemaproute'
-
+    def __str__(self):
+        return self.djangocms_googlemap_googlemaproute
 
 class DjangocmsHistoryPlaceholderaction(models.Model):
     action = models.CharField(max_length=30)
@@ -1426,10 +1215,8 @@ class DjangocmsHistoryPlaceholderaction(models.Model):
     operation = models.ForeignKey('DjangocmsHistoryPlaceholderoperation', models.DO_NOTHING)
     placeholder = models.ForeignKey(CmsPlaceholder, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_history_placeholderaction'
-        unique_together = (('operation', 'order'),)
+    def __str__(self):
+        return self.djangocms_history_placeholderaction        
 
 
 class DjangocmsHistoryPlaceholderoperation(models.Model):
@@ -1444,10 +1231,8 @@ class DjangocmsHistoryPlaceholderoperation(models.Model):
     site = models.ForeignKey(DjangoSite, models.DO_NOTHING)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_history_placeholderoperation'
-
+    def __str__(self):
+        return self.djangocms_history_placeholderoperation
 
 class DjangocmsIconIcon(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
@@ -1456,10 +1241,8 @@ class DjangocmsIconIcon(models.Model):
     label = models.CharField(max_length=255)
     attributes = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_icon_icon'
-
+    def __str__(self):
+        return self.djangocms_icon_icon
 
 class DjangocmsLinkLink(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
@@ -1474,10 +1257,8 @@ class DjangocmsLinkLink(models.Model):
     template = models.CharField(max_length=255)
     file_link = models.ForeignKey('FilerFile', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_link_link'
-
+    def __str__(self):
+        return self.djangocms_link_link
 
 class DjangocmsMapsMaps(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
@@ -1506,10 +1287,8 @@ class DjangocmsMapsMaps(models.Model):
     layers_control = models.BooleanField()
     scale_bar = models.BooleanField()
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_maps_maps'
-
+    def __str__(self):
+        return self.djangocms_maps_maps
 
 class DjangocmsPicturePicture(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
@@ -1532,10 +1311,8 @@ class DjangocmsPicturePicture(models.Model):
     template = models.CharField(max_length=255)
     use_responsive_image = models.CharField(max_length=7)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_picture_picture'
-
+    def __str__(self):
+        return self.djangocms_picture_picture
 
 class DjangocmsStyleStyle(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
@@ -1555,19 +1332,15 @@ class DjangocmsStyleStyle(models.Model):
     label = models.CharField(max_length=255)
     template = models.CharField(max_length=255)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_style_style'
-
+    def __str__(self):
+        return self.djangocms_style_style
 
 class DjangocmsTextCkeditorText(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     body = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_text_ckeditor_text'
-
+    def __str__(self):
+        return self.djangocms_text_ckeditor_text
 
 class DjangocmsVideoVideoplayer(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
@@ -1578,10 +1351,8 @@ class DjangocmsVideoVideoplayer(models.Model):
     template = models.CharField(max_length=255)
     parameters = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_video_videoplayer'
-
+    def __str__(self):
+        return self.djangocms_video_videoplayer
 
 class DjangocmsVideoVideosource(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
@@ -1590,10 +1361,8 @@ class DjangocmsVideoVideosource(models.Model):
     attributes = models.TextField()
     source_file = models.ForeignKey('FilerFile', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_video_videosource'
-
+    def __str__(self):
+        return self.djangocms_video_videosource
 
 class DjangocmsVideoVideotrack(models.Model):
     cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
@@ -1603,20 +1372,16 @@ class DjangocmsVideoVideotrack(models.Model):
     attributes = models.TextField()
     src = models.ForeignKey('FilerFile', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'djangocms_video_videotrack'
-
+    def __str__(self):
+        return self.djangocms_video_videotrack
 
 class EasyThumbnailsSource(models.Model):
     storage_hash = models.CharField(max_length=40)
     name = models.CharField(max_length=255)
     modified = models.DateTimeField()
 
-    class Meta:
-        managed = False
-        db_table = 'easy_thumbnails_source'
-        unique_together = (('storage_hash', 'name'),)
+    def __str__(self):
+        return self.easy_thumbnails_source        
 
 
 class EasyThumbnailsThumbnail(models.Model):
@@ -1625,10 +1390,8 @@ class EasyThumbnailsThumbnail(models.Model):
     modified = models.DateTimeField()
     source = models.ForeignKey(EasyThumbnailsSource, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'easy_thumbnails_thumbnail'
-        unique_together = (('storage_hash', 'name', 'source'),)
+    def __str__(self):
+        return self.easy_thumbnails_thumbnail        
 
 
 class EasyThumbnailsThumbnaildimensions(models.Model):
@@ -1636,27 +1399,21 @@ class EasyThumbnailsThumbnaildimensions(models.Model):
     width = models.IntegerField(blank=True, null=True)
     height = models.IntegerField(blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'easy_thumbnails_thumbnaildimensions'
-
+    def __str__(self):
+        return self.easy_thumbnails_thumbnaildimensions
 
 class FilerClipboard(models.Model):
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'filer_clipboard'
-
+    def __str__(self):
+        return self.filer_clipboard
 
 class FilerClipboarditem(models.Model):
     clipboard = models.ForeignKey(FilerClipboard, models.DO_NOTHING)
     file = models.ForeignKey('FilerFile', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'filer_clipboarditem'
-
+    def __str__(self):
+        return self.filer_clipboarditem
 
 class FilerFile(models.Model):
     file = models.CharField(max_length=255, blank=True, null=True)
@@ -1671,13 +1428,11 @@ class FilerFile(models.Model):
     is_public = models.BooleanField()
     folder = models.ForeignKey('FilerFolder', models.DO_NOTHING, blank=True, null=True)
     owner = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    polymorphic_ctype = models.ForeignKey(DjangoContentType, models.DO_NOTHING, blank=True, null=True)
+    polymorphic_ctype = models.ForeignKey(DjangoContent, models.DO_NOTHING, blank=True, null=True)
     mime_type = models.CharField(max_length=255)
 
-    class Meta:
-        managed = False
-        db_table = 'filer_file'
-
+    def __str__(self):
+        return self.filer_file
 
 class FilerFolder(models.Model):
     name = models.CharField(max_length=255)
@@ -1691,10 +1446,8 @@ class FilerFolder(models.Model):
     owner = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
     parent = models.ForeignKey('self', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'filer_folder'
-        unique_together = (('parent', 'name'),)
+    def __str__(self):
+        return self.filer_folder        
 
 
 class FilerFolderpermission(models.Model):
@@ -1707,10 +1460,8 @@ class FilerFolderpermission(models.Model):
     group = models.ForeignKey(AuthGroup, models.DO_NOTHING, blank=True, null=True)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'filer_folderpermission'
-
+    def __str__(self):
+        return self.filer_folderpermission
 
 class FilerImage(models.Model):
     file_ptr = models.ForeignKey(FilerFile, models.DO_NOTHING, primary_key=True)
@@ -1724,10 +1475,8 @@ class FilerImage(models.Model):
     must_always_publish_copyright = models.BooleanField()
     subject_location = models.CharField(max_length=64)
 
-    class Meta:
-        managed = False
-        db_table = 'filer_image'
-
+    def __str__(self):
+        return self.filer_image
 
 class FilerThumbnailoption(models.Model):
     name = models.CharField(max_length=100)
@@ -1736,20 +1485,16 @@ class FilerThumbnailoption(models.Model):
     crop = models.BooleanField()
     upscale = models.BooleanField()
 
-    class Meta:
-        managed = False
-        db_table = 'filer_thumbnailoption'
-
+    def __str__(self):
+        return self.filer_thumbnailoption
 
 class MenusCachekey(models.Model):
     language = models.CharField(max_length=255)
     site = models.IntegerField()
     key = models.CharField(max_length=255)
 
-    class Meta:
-        managed = False
-        db_table = 'menus_cachekey'
-
+    def __str__(self):
+        return self.menus_cachekey
 
 class OfferBenefit(models.Model):
     type = models.CharField(max_length=128)
@@ -1758,10 +1503,8 @@ class OfferBenefit(models.Model):
     proxy_class = models.CharField(max_length=255, blank=True, null=True)
     range = models.ForeignKey('OfferRange', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'offer_benefit'
-
+    def __str__(self):
+        return self.offer_benefit
 
 class OfferCondition(models.Model):
     type = models.CharField(max_length=128)
@@ -1769,10 +1512,8 @@ class OfferCondition(models.Model):
     proxy_class = models.CharField(max_length=255, blank=True, null=True)
     range = models.ForeignKey('OfferRange', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'offer_condition'
-
+    def __str__(self):
+        return self.offer_condition
 
 class OfferConditionaloffer(models.Model):
     name = models.CharField(unique=True, max_length=128)
@@ -1796,19 +1537,15 @@ class OfferConditionaloffer(models.Model):
     condition = models.ForeignKey(OfferCondition, models.DO_NOTHING)
     exclusive = models.BooleanField()
 
-    class Meta:
-        managed = False
-        db_table = 'offer_conditionaloffer'
-
+    def __str__(self):
+        return self.offer_conditionaloffer
 
 class OfferConditionalofferCombinations(models.Model):
     from_conditionaloffer = models.ForeignKey(OfferConditionaloffer, models.DO_NOTHING)
     to_conditionaloffer = models.ForeignKey(OfferConditionaloffer, models.DO_NOTHING, related_name='+',)
 
-    class Meta:
-        managed = False
-        db_table = 'offer_conditionaloffer_combinations'
-        unique_together = (('from_conditionaloffer', 'to_conditionaloffer'),)
+    def __str__(self):
+        return self.offer_conditionaloffer_combinations        
 
 
 class OfferRange(models.Model):
@@ -1820,39 +1557,31 @@ class OfferRange(models.Model):
     proxy_class = models.CharField(unique=True, max_length=255, blank=True, null=True)
     date_created = models.DateTimeField()
 
-    class Meta:
-        managed = False
-        db_table = 'offer_range'
-
+    def __str__(self):
+        return self.offer_range
 
 class OfferRangeClasses(models.Model):
     range = models.ForeignKey(OfferRange, models.DO_NOTHING)
     productclass = models.ForeignKey(CatalogueProductclass, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'offer_range_classes'
-        unique_together = (('range', 'productclass'),)
+    def __str__(self):
+        return self.offer_range_classes        
 
 
 class OfferRangeExcludedProducts(models.Model):
     range = models.ForeignKey(OfferRange, models.DO_NOTHING)
     product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'offer_range_excluded_products'
-        unique_together = (('range', 'product'),)
+    def __str__(self):
+        return self.offer_range_excluded_products        
 
 
 class OfferRangeIncludedCategories(models.Model):
     range = models.ForeignKey(OfferRange, models.DO_NOTHING)
     category = models.ForeignKey(CatalogueCategory, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'offer_range_included_categories'
-        unique_together = (('range', 'category'),)
+    def __str__(self):
+        return self.offer_range_included_categories        
 
 
 class OfferRangeproduct(models.Model):
@@ -1860,10 +1589,8 @@ class OfferRangeproduct(models.Model):
     product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
     range = models.ForeignKey(OfferRange, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'offer_rangeproduct'
-        unique_together = (('range', 'product'),)
+    def __str__(self):
+        return self.offer_rangeproduct        
 
 
 class OfferRangeproductfileupload(models.Model):
@@ -1879,10 +1606,8 @@ class OfferRangeproductfileupload(models.Model):
     range = models.ForeignKey(OfferRange, models.DO_NOTHING)
     uploaded_by = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'offer_rangeproductfileupload'
-
+    def __str__(self):
+        return self.offer_rangeproductfileupload
 
 class OrderBillingaddress(models.Model):
     title = models.CharField(max_length=64)
@@ -1897,20 +1622,16 @@ class OrderBillingaddress(models.Model):
     search_text = models.TextField()
     country = models.ForeignKey(AddressCountry, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'order_billingaddress'
-
+    def __str__(self):
+        return self.order_billingaddress
 
 class OrderCommunicationevent(models.Model):
     date_created = models.DateTimeField()
     event_type = models.ForeignKey(CommunicationCommunicationeventtype, models.DO_NOTHING)
     order = models.ForeignKey('OrderOrder', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'order_communicationevent'
-
+    def __str__(self):
+        return self.order_communicationevent
 
 class OrderLine(models.Model):
     partner_name = models.CharField(max_length=128)
@@ -1932,10 +1653,8 @@ class OrderLine(models.Model):
     product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING, blank=True, null=True)
     stockrecord = models.ForeignKey('PartnerStockrecord', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'order_line'
-
+    def __str__(self):
+        return self.order_line
 
 class OrderLineattribute(models.Model):
     type = models.CharField(max_length=128)
@@ -1943,10 +1662,8 @@ class OrderLineattribute(models.Model):
     line = models.ForeignKey(OrderLine, models.DO_NOTHING)
     option = models.ForeignKey(CatalogueOption, models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'order_lineattribute'
-
+    def __str__(self):
+        return self.order_lineattribute
 
 class OrderLineprice(models.Model):
     quantity = models.IntegerField()
@@ -1957,10 +1674,8 @@ class OrderLineprice(models.Model):
     line = models.ForeignKey(OrderLine, models.DO_NOTHING)
     order = models.ForeignKey('OrderOrder', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'order_lineprice'
-
+    def __str__(self):
+        return self.order_lineprice
 
 class OrderOrder(models.Model):
     number = models.CharField(unique=True, max_length=128)
@@ -1980,10 +1695,8 @@ class OrderOrder(models.Model):
     site = models.ForeignKey(DjangoSite, models.DO_NOTHING, blank=True, null=True)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'order_order'
-
+    def __str__(self):
+        return self.order_order
 
 class OrderOrderdiscount(models.Model):
     category = models.CharField(max_length=64)
@@ -1996,10 +1709,8 @@ class OrderOrderdiscount(models.Model):
     message = models.TextField()
     order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'order_orderdiscount'
-
+    def __str__(self):
+        return self.order_orderdiscount
 
 class OrderOrdernote(models.Model):
     note_type = models.CharField(max_length=128)
@@ -2009,10 +1720,8 @@ class OrderOrdernote(models.Model):
     order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'order_ordernote'
-
+    def __str__(self):
+        return self.order_ordernote
 
 class OrderOrderstatuschange(models.Model):
     old_status = models.CharField(max_length=100)
@@ -2020,10 +1729,8 @@ class OrderOrderstatuschange(models.Model):
     date_created = models.DateTimeField()
     order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'order_orderstatuschange'
-
+    def __str__(self):
+        return self.order_orderstatuschange
 
 class OrderPaymentevent(models.Model):
     amount = models.DecimalField(max_digits=12, decimal_places=2)
@@ -2033,30 +1740,24 @@ class OrderPaymentevent(models.Model):
     order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
     shipping_event = models.ForeignKey('OrderShippingevent', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'order_paymentevent'
-
+    def __str__(self):
+        return self.order_paymentevent
 
 class OrderPaymenteventquantity(models.Model):
     quantity = models.IntegerField()
     event = models.ForeignKey(OrderPaymentevent, models.DO_NOTHING)
     line = models.ForeignKey(OrderLine, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'order_paymenteventquantity'
-        unique_together = (('event', 'line'),)
+    def __str__(self):
+        return self.order_paymenteventquantity        
 
 
 class OrderPaymenteventtype(models.Model):
     name = models.CharField(unique=True, max_length=128)
     code = models.CharField(unique=True, max_length=128)
 
-    class Meta:
-        managed = False
-        db_table = 'order_paymenteventtype'
-
+    def __str__(self):
+        return self.order_paymenteventtype
 
 class OrderShippingaddress(models.Model):
     title = models.CharField(max_length=64)
@@ -2073,10 +1774,8 @@ class OrderShippingaddress(models.Model):
     notes = models.TextField()
     country = models.ForeignKey(AddressCountry, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'order_shippingaddress'
-
+    def __str__(self):
+        return self.order_shippingaddress
 
 class OrderShippingevent(models.Model):
     notes = models.TextField()
@@ -2084,30 +1783,24 @@ class OrderShippingevent(models.Model):
     event_type = models.ForeignKey('OrderShippingeventtype', models.DO_NOTHING)
     order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'order_shippingevent'
-
+    def __str__(self):
+        return self.order_shippingevent
 
 class OrderShippingeventquantity(models.Model):
     quantity = models.IntegerField()
     event = models.ForeignKey(OrderShippingevent, models.DO_NOTHING)
     line = models.ForeignKey(OrderLine, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'order_shippingeventquantity'
-        unique_together = (('event', 'line'),)
+    def __str__(self):
+        return self.order_shippingeventquantity        
 
 
 class OrderShippingeventtype(models.Model):
     name = models.CharField(unique=True, max_length=255)
     code = models.CharField(unique=True, max_length=128)
 
-    class Meta:
-        managed = False
-        db_table = 'order_shippingeventtype'
-
+    def __str__(self):
+        return self.order_shippingeventtype
 
 class OrderSurcharge(models.Model):
     name = models.CharField(max_length=128)
@@ -2116,10 +1809,8 @@ class OrderSurcharge(models.Model):
     excl_tax = models.DecimalField(max_digits=12, decimal_places=2)
     order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'order_surcharge'
-
+    def __str__(self):
+        return self.order_surcharge
 
 class OscarInvoicesInvoice(models.Model):
     number = models.CharField(unique=True, max_length=128)
@@ -2128,10 +1819,8 @@ class OscarInvoicesInvoice(models.Model):
     legal_entity = models.ForeignKey('OscarInvoicesLegalentity', models.DO_NOTHING)
     order = models.ForeignKey(OrderOrder, models.DO_NOTHING, unique=True, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'oscar_invoices_invoice'
-
+    def __str__(self):
+        return self.oscar_invoices_invoice
 
 class OscarInvoicesLegalentity(models.Model):
     shop_name = models.CharField(max_length=255, blank=True, null=True)
@@ -2141,10 +1830,8 @@ class OscarInvoicesLegalentity(models.Model):
     email = models.CharField(max_length=254, blank=True, null=True)
     web_site = models.CharField(max_length=200, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'oscar_invoices_legalentity'
-
+    def __str__(self):
+        return self.oscar_invoices_legalentity
 
 class OscarInvoicesLegalentityaddress(models.Model):
     title = models.CharField(max_length=64)
@@ -2162,36 +1849,28 @@ class OscarInvoicesLegalentityaddress(models.Model):
     country = models.ForeignKey(AddressCountry, models.DO_NOTHING)
     legal_entity = models.ForeignKey(OscarInvoicesLegalentity, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'oscar_invoices_legalentityaddress'
-
+    def __str__(self):
+        return self.oscar_invoices_legalentityaddress
 
 class OscarapiApikey(models.Model):
     key = models.CharField(unique=True, max_length=255)
 
-    class Meta:
-        managed = False
-        db_table = 'oscarapi_apikey'
-
+    def __str__(self):
+        return self.oscarapi_apikey
 
 class PartnerPartner(models.Model):
     code = models.CharField(unique=True, max_length=128)
     name = models.CharField(max_length=128)
 
-    class Meta:
-        managed = False
-        db_table = 'partner_partner'
-
+    def __str__(self):
+        return self.partner_partner
 
 class PartnerPartnerUsers(models.Model):
     partner = models.ForeignKey(PartnerPartner, models.DO_NOTHING)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'partner_partner_users'
-        unique_together = (('partner', 'user'),)
+    def __str__(self):
+        return self.partner_partner_users        
 
 
 class PartnerPartneraddress(models.Model):
@@ -2208,10 +1887,8 @@ class PartnerPartneraddress(models.Model):
     country = models.ForeignKey(AddressCountry, models.DO_NOTHING)
     partner = models.ForeignKey(PartnerPartner, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'partner_partneraddress'
-
+    def __str__(self):
+        return self.partner_partneraddress
 
 class PartnerStockalert(models.Model):
     threshold = models.IntegerField()
@@ -2220,10 +1897,8 @@ class PartnerStockalert(models.Model):
     date_closed = models.DateTimeField(blank=True, null=True)
     stockrecord = models.ForeignKey('PartnerStockrecord', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'partner_stockalert'
-
+    def __str__(self):
+        return self.partner_stockalert
 
 class PartnerStockrecord(models.Model):
     partner_sku = models.CharField(max_length=128)
@@ -2237,10 +1912,8 @@ class PartnerStockrecord(models.Model):
     partner = models.ForeignKey(PartnerPartner, models.DO_NOTHING)
     product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'partner_stockrecord'
-        unique_together = (('partner', 'partner_sku'),)
+    def __str__(self):
+        return self.partner_stockrecord        
 
 
 class PaymentBankcard(models.Model):
@@ -2251,10 +1924,8 @@ class PaymentBankcard(models.Model):
     partner_reference = models.CharField(max_length=255)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'payment_bankcard'
-
+    def __str__(self):
+        return self.payment_bankcard
 
 class PaymentSource(models.Model):
     currency = models.CharField(max_length=12)
@@ -2266,19 +1937,15 @@ class PaymentSource(models.Model):
     order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
     source_type = models.ForeignKey('PaymentSourcetype', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'payment_source'
-
+    def __str__(self):
+        return self.payment_source
 
 class PaymentSourcetype(models.Model):
     name = models.CharField(max_length=128)
     code = models.CharField(unique=True, max_length=128)
 
-    class Meta:
-        managed = False
-        db_table = 'payment_sourcetype'
-
+    def __str__(self):
+        return self.payment_sourcetype
 
 class PaymentTransaction(models.Model):
     txn_type = models.CharField(max_length=128)
@@ -2288,10 +1955,8 @@ class PaymentTransaction(models.Model):
     date_created = models.DateTimeField()
     source = models.ForeignKey(PaymentSource, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'payment_transaction'
-
+    def __str__(self):
+        return self.payment_transaction
 
 class PaypalExpresstransaction(models.Model):
     raw_request = models.TextField()
@@ -2308,10 +1973,8 @@ class PaypalExpresstransaction(models.Model):
     error_code = models.CharField(max_length=32, blank=True, null=True)
     error_message = models.CharField(max_length=256, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'paypal_expresstransaction'
-
+    def __str__(self):
+        return self.paypal_expresstransaction
 
 class PaypalPayflowtransaction(models.Model):
     raw_request = models.TextField()
@@ -2331,10 +1994,8 @@ class PaypalPayflowtransaction(models.Model):
     avsaddr = models.CharField(max_length=1, blank=True, null=True)
     avszip = models.CharField(max_length=1, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'paypal_payflowtransaction'
-
+    def __str__(self):
+        return self.paypal_payflowtransaction
 
 class PhotologueGallery(models.Model):
     date_added = models.DateTimeField()
@@ -2343,30 +2004,24 @@ class PhotologueGallery(models.Model):
     description = models.TextField()
     is_public = models.BooleanField()
 
-    class Meta:
-        managed = False
-        db_table = 'photologue_gallery'
-
+    def __str__(self):
+        return self.photologue_gallery
 
 class PhotologueGalleryPhotos(models.Model):
     sort_value = models.IntegerField()
     gallery = models.ForeignKey(PhotologueGallery, models.DO_NOTHING)
     photo = models.ForeignKey('PhotologuePhoto', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'photologue_gallery_photos'
-        unique_together = (('gallery', 'photo'),)
+    def __str__(self):
+        return self.photologue_gallery_photos        
 
 
 class PhotologueGallerySites(models.Model):
     gallery = models.ForeignKey(PhotologueGallery, models.DO_NOTHING)
     site = models.ForeignKey(DjangoSite, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'photologue_gallery_sites'
-        unique_together = (('gallery', 'site'),)
+    def __str__(self):
+        return self.photologue_gallery_sites        
 
 
 class PhotologuePhoto(models.Model):
@@ -2381,19 +2036,15 @@ class PhotologuePhoto(models.Model):
     is_public = models.BooleanField()
     effect = models.ForeignKey('PhotologuePhotoeffect', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'photologue_photo'
-
+    def __str__(self):
+        return self.photologue_photo
 
 class PhotologuePhotoSites(models.Model):
     photo = models.ForeignKey(PhotologuePhoto, models.DO_NOTHING)
     site = models.ForeignKey(DjangoSite, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'photologue_photo_sites'
-        unique_together = (('photo', 'site'),)
+    def __str__(self):
+        return self.photologue_photo_sites        
 
 
 class PhotologuePhotoeffect(models.Model):
@@ -2409,10 +2060,8 @@ class PhotologuePhotoeffect(models.Model):
     reflection_strength = models.FloatField()
     background_color = models.CharField(max_length=7)
 
-    class Meta:
-        managed = False
-        db_table = 'photologue_photoeffect'
-
+    def __str__(self):
+        return self.photologue_photoeffect
 
 class PhotologuePhotosize(models.Model):
     name = models.CharField(unique=True, max_length=40)
@@ -2426,10 +2075,8 @@ class PhotologuePhotosize(models.Model):
     effect = models.ForeignKey(PhotologuePhotoeffect, models.DO_NOTHING, blank=True, null=True)
     watermark = models.ForeignKey('PhotologueWatermark', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'photologue_photosize'
-
+    def __str__(self):
+        return self.photologue_photosize
 
 class PhotologueWatermark(models.Model):
     name = models.CharField(unique=True, max_length=30)
@@ -2438,10 +2085,8 @@ class PhotologueWatermark(models.Model):
     style = models.CharField(max_length=5)
     opacity = models.FloatField()
 
-    class Meta:
-        managed = False
-        db_table = 'photologue_watermark'
-
+    def __str__(self):
+        return self.photologue_watermark
 
 class PinaxBadgesBadgeaward(models.Model):
     awarded_at = models.DateTimeField()
@@ -2449,10 +2094,8 @@ class PinaxBadgesBadgeaward(models.Model):
     level = models.IntegerField()
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'pinax_badges_badgeaward'
-
+    def __str__(self):
+        return self.pinax_badges_badgeaward
 
 class PinaxEventsEvent(models.Model):
     image = models.CharField(max_length=100)
@@ -2467,10 +2110,8 @@ class PinaxEventsEvent(models.Model):
     url = models.TextField()
     secondary_image = models.CharField(max_length=100)
 
-    class Meta:
-        managed = False
-        db_table = 'pinax_events_event'
-
+    def __str__(self):
+        return self.pinax_events_event
 
 class PinaxMessagesMessage(models.Model):
     sent_at = models.DateTimeField()
@@ -2478,18 +2119,14 @@ class PinaxMessagesMessage(models.Model):
     sender = models.ForeignKey(AuthUser, models.DO_NOTHING)
     thread = models.ForeignKey('PinaxMessagesThread', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'pinax_messages_message'
-
+    def __str__(self):
+        return self.pinax_messages_message
 
 class PinaxMessagesThread(models.Model):
     subject = models.CharField(max_length=150)
 
-    class Meta:
-        managed = False
-        db_table = 'pinax_messages_thread'
-
+    def __str__(self):
+        return self.pinax_messages_thread
 
 class PinaxMessagesUserthread(models.Model):
     unread = models.BooleanField()
@@ -2497,10 +2134,8 @@ class PinaxMessagesUserthread(models.Model):
     thread = models.ForeignKey(PinaxMessagesThread, models.DO_NOTHING)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'pinax_messages_userthread'
-
+    def __str__(self):
+        return self.pinax_messages_userthread
 
 class ReviewsProductreview(models.Model):
     score = models.SmallIntegerField()
@@ -2516,10 +2151,8 @@ class ReviewsProductreview(models.Model):
     product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING, blank=True, null=True)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'reviews_productreview'
-        unique_together = (('product', 'user'),)
+    def __str__(self):
+        return self.reviews_productreview        
 
 
 class ReviewsVote(models.Model):
@@ -2528,10 +2161,8 @@ class ReviewsVote(models.Model):
     review = models.ForeignKey(ReviewsProductreview, models.DO_NOTHING)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'reviews_vote'
-        unique_together = (('user', 'review'),)
+    def __str__(self):
+        return self.reviews_vote        
 
 
 class ShippingOrderanditemcharges(models.Model):
@@ -2542,19 +2173,15 @@ class ShippingOrderanditemcharges(models.Model):
     price_per_item = models.DecimalField(max_digits=12, decimal_places=2)
     free_shipping_threshold = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'shipping_orderanditemcharges'
-
+    def __str__(self):
+        return self.shipping_orderanditemcharges
 
 class ShippingOrderanditemchargesCountries(models.Model):
     orderanditemcharges = models.ForeignKey(ShippingOrderanditemcharges, models.DO_NOTHING)
     country = models.ForeignKey(AddressCountry, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'shipping_orderanditemcharges_countries'
-        unique_together = (('orderanditemcharges', 'country'),)
+    def __str__(self):
+        return self.shipping_orderanditemcharges_countries        
 
 
 class ShippingWeightband(models.Model):
@@ -2562,10 +2189,8 @@ class ShippingWeightband(models.Model):
     charge = models.DecimalField(max_digits=12, decimal_places=2)
     method = models.ForeignKey('ShippingWeightbased', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'shipping_weightband'
-
+    def __str__(self):
+        return self.shipping_weightband
 
 class ShippingWeightbased(models.Model):
     code = models.CharField(unique=True, max_length=128)
@@ -2573,39 +2198,31 @@ class ShippingWeightbased(models.Model):
     description = models.TextField()
     default_weight = models.DecimalField(max_digits=12, decimal_places=3)
 
-    class Meta:
-        managed = False
-        db_table = 'shipping_weightbased'
-
+    def __str__(self):
+        return self.shipping_weightbased
 
 class ShippingWeightbasedCountries(models.Model):
     weightbased = models.ForeignKey(ShippingWeightbased, models.DO_NOTHING)
     country = models.ForeignKey(AddressCountry, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'shipping_weightbased_countries'
-        unique_together = (('weightbased', 'country'),)
+    def __str__(self):
+        return self.shipping_weightbased_countries        
 
 
 class TaggitTag(models.Model):
     name = models.CharField(unique=True, max_length=100)
     slug = models.CharField(unique=True, max_length=100)
 
-    class Meta:
-        managed = False
-        db_table = 'taggit_tag'
-
+    def __str__(self):
+        return self.taggit_tag
 
 class TaggitTaggeditem(models.Model):
     object_id = models.IntegerField()
-    content_type = models.ForeignKey(DjangoContentType, models.DO_NOTHING)
+    content_type = models.ForeignKey(DjangoContent, models.DO_NOTHING)
     tag = models.ForeignKey(TaggitTag, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'taggit_taggeditem'
-        unique_together = (('content_type', 'object_id', 'tag'),)
+    def __str__(self):
+        return self.taggit_taggeditem        
 
 
 class TestimonialsTestimonial(models.Model):
@@ -2615,19 +2232,15 @@ class TestimonialsTestimonial(models.Model):
     added = models.DateTimeField()
     active = models.BooleanField()
 
-    class Meta:
-        managed = False
-        db_table = 'testimonials_testimonial'
-
+    def __str__(self):
+        return self.testimonials_testimonial
 
 class ThumbnailKvstore(models.Model):
     key = models.CharField(primary_key=True, max_length=200)
     value = models.TextField()
 
-    class Meta:
-        managed = False
-        db_table = 'thumbnail_kvstore'
-
+    def __str__(self):
+        return self.thumbnail_kvstore
 
 class VoucherVoucher(models.Model):
     name = models.CharField(max_length=128)
@@ -2641,19 +2254,15 @@ class VoucherVoucher(models.Model):
     date_created = models.DateTimeField()
     voucher_set = models.ForeignKey('VoucherVoucherset', models.DO_NOTHING, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'voucher_voucher'
-
+    def __str__(self):
+        return self.voucher_voucher
 
 class VoucherVoucherOffers(models.Model):
     voucher = models.ForeignKey(VoucherVoucher, models.DO_NOTHING)
     conditionaloffer = models.ForeignKey(OfferConditionaloffer, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'voucher_voucher_offers'
-        unique_together = (('voucher', 'conditionaloffer'),)
+    def __str__(self):
+        return self.voucher_voucher_offers        
 
 
 class VoucherVoucherapplication(models.Model):
@@ -2662,10 +2271,8 @@ class VoucherVoucherapplication(models.Model):
     user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
     voucher = models.ForeignKey(VoucherVoucher, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'voucher_voucherapplication'
-
+    def __str__(self):
+        return self.voucher_voucherapplication
 
 class VoucherVoucherset(models.Model):
     name = models.CharField(max_length=100)
@@ -2677,10 +2284,8 @@ class VoucherVoucherset(models.Model):
     end_datetime = models.DateTimeField()
     offer = models.ForeignKey(OfferConditionaloffer, models.DO_NOTHING, unique=True, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'voucher_voucherset'
-
+    def __str__(self):
+        return self.voucher_voucherset
 
 class WishlistsLine(models.Model):
     quantity = models.IntegerField()
@@ -2688,10 +2293,8 @@ class WishlistsLine(models.Model):
     product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING, blank=True, null=True)
     wishlist = models.ForeignKey('WishlistsWishlist', models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'wishlists_line'
-        unique_together = (('wishlist', 'product'),)
+    def __str__(self):
+        return self.wishlists_line        
 
 
 class WishlistsWishlist(models.Model):
@@ -2701,6 +2304,5 @@ class WishlistsWishlist(models.Model):
     date_created = models.DateTimeField()
     owner = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
-    class Meta:
-        managed = False
-        db_table = 'wishlists_wishlist'
+    def __str__(self):
+        return self.wishlists_wishlist

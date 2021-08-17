@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+
 from oscar.defaults import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,25 +32,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-
-
-
-
-
 ROOT_URLCONF = 'shop.urls'
-
-
 
 WSGI_APPLICATION = 'shop.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -237,7 +227,7 @@ INSTALLED_APPS = [
     'aldryn_search',
     'rest_framework',
     'oscarapi',
-    "ariadne_django",
+    'ariadne.contrib.django',
     'paypal',
     'djangocms_maps',
     'oscar_invoices',
@@ -251,8 +241,6 @@ INSTALLED_APPS = [
     'pinax.testimonials',
     'photologue',
     'corsheaders',
-    'slick_reporting',
-    'crispy_forms',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -390,3 +378,4 @@ REST_FRAMEWORK = {
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 SECURE_SSL_REDIRECT = False
+

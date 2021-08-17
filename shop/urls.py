@@ -1,39 +1,26 @@
-from django.apps import apps
+from ariadne.asgi import GraphQL
+from channels.http import AsgiHandler
+from channels.routing import URLRouter
 from cms.sitemaps import CMSSitemap
+from django.apps import apps
 from django.conf import settings
+from django.conf.urls import url
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.sitemaps.views import sitemap
-from django.urls import include, path
-from django.conf.urls import url
-from django.views.decorators.csrf import csrf_exempt
-
-from django.views.i18n import JavaScriptCatalog
 from django.contrib.auth.models import User
+from django.contrib.sitemaps.views import sitemap
+from django.urls import include, path, re_path
+from django.views.decorators.csrf import csrf_exempt
+from django.views.i18n import JavaScriptCatalog
+from ariadne.contrib.django.views import GraphQLView
 from rest_framework import routers, serializers, viewsets
-from channels.http import AsgiHandler
-from channels.routing import URLRouter
-from django.urls import path, re_path
 
-# Serializers define the API representation.
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'is_staff']
+from .schema import schema
 
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-# Routers provide an easy way of automatically determining the URL conf.
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
 admin.autodiscover()
+
+schema = ...
 
 urlpatterns = [
     path("sitemap.xml", sitemap, {"sitemaps": {"cmspages": CMSSitemap}}),
@@ -45,7 +32,13 @@ urlpatterns = [
     url(r"^messages/", include("pinax.messages.urls", namespace="pinax_messages")),
     url(r'^photologue/', include('photologue.urls', namespace='photologue')),
     path('api-auth/', include('rest_framework.urls')),
+    path('graphql/', GraphQLView.as_view(schema=schema), name='graphql'),
 ]
+
+application = URLRouter([
+    path("graphql/", GraphQL(schema, debug=True)),
+    re_path(r"", AsgiHandler),
+])
 
 
 urlpatterns += i18n_patterns(path("admin/", admin.site.urls), path("", include("cms.urls")))

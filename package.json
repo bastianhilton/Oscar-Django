@@ -19,10 +19,6 @@
     "url": "https://github.com/bastianhilton/djangooscar-meeovi/issues"
   },
   "homepage": "https://github.com/bastianhilton/djangooscar-meeovi#readme",
-  "devDependencies": {
-    "prisma": "^2.28.0"
-  },
   "dependencies": {
-    "@prisma/client": "^2.28.0"
   }
 }
