@@ -1,4 +1,6 @@
 adyen
+absolute
+aldryn-forms
 aldryn-search
 black
 bleach
@@ -6,6 +8,7 @@ celery
 channels
 chardet
 dj-email-url
+django-admin-sortable2
 django-app-enabler
 django-bootstrap3
 django-cache-url
@@ -25,12 +28,15 @@ django-registration-redux
 django-reversion
 django-shortuuidfield
 django-timezone-field
+djangocms-audio
 djangocms-blog
 djangocms-bootstrap4
+djangocms-charts
 djangocms-file
 djangocms-googlemap
 djangocms-installer
 djangocms-maps
+djangocms-named-menus
 djangocms-page-meta
 djangocms-style
 djangocms-video
@@ -38,6 +44,7 @@ fake-factory
 flake8
 google-api-python-client
 graphene-django
+graphql-core==3.0.3
 graphqlclient
 gunicorn
 isort

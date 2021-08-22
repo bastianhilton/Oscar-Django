@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'ruynfepj-$l0v7faw8&%$zm!-an-gy=hymjy1b@ce&@^t+f%%f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True 
 
 ALLOWED_HOSTS = []
 
@@ -178,6 +178,8 @@ INSTALLED_APPS = [
     'djangocms_style',
     'djangocms_googlemap',
     'djangocms_video',
+    'djangocms_audio',
+    'djangocms_charts',
     'shop',
     'django.contrib.flatpages',
 
@@ -241,6 +243,10 @@ INSTALLED_APPS = [
     'pinax.testimonials',
     'photologue',
     'corsheaders',
+    'absolute',
+    'aldryn_forms',
+    'aldryn_forms.contrib.email_notifications',
+    'emailit',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -294,9 +300,9 @@ CMS_PLACEHOLDER_CONF = {}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'meeovioscar',
-        'USER': 'postgres',
-        'PASSWORD': 'Libra1986',
+        'NAME': 'alternatecms', # Please change Me
+        'USER': 'testuser',
+        'PASSWORD': 'Tester2021', # Please change Me
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -379,3 +385,8 @@ SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 SECURE_SSL_REDIRECT = False
 
+DJANGOCMS_AUDIO_ALLOWED_EXTENSIONS = ['mp3', 'ogg', 'wav']
+
+DJANGOCMS_PICTURE_NESTING = True
+
+DJANGOCMS_CHARTS_CACHE = 'djangocms_charts'

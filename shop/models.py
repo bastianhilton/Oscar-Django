@@ -33,8 +33,8 @@ class AddressUseraddress(models.Model):
     num_orders_as_shipping_address = models.IntegerField()
     hash = models.CharField(max_length=255)
     date_created = models.DateTimeField()
-    country = models.ForeignKey(AddressCountry, models.DO_NOTHING)
-    user = models.ForeignKey('AuthUser', models.DO_NOTHING)
+    country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
+    user = models.OneToOneField('AuthUser', models.DO_NOTHING)
     num_orders_as_billing_address = models.IntegerField()
 
     def __str__(self):
@@ -46,23 +46,23 @@ class AdvancedFiltersAdvancedfilter(models.Model):
     url = models.CharField(max_length=255)
     b64_query = models.CharField(max_length=2048)
     model = models.CharField(max_length=64, blank=True, null=True)
-    created_by = models.ForeignKey('AuthUser', models.DO_NOTHING)
+    created_by = models.OneToOneField('AuthUser', models.DO_NOTHING)
     created_at = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
         return self.advanced_filters_advancedfilter
 
 class AdvancedFiltersAdvancedfilterGroups(models.Model):
-    advancedfilter = models.ForeignKey(AdvancedFiltersAdvancedfilter, models.DO_NOTHING)
-    group = models.ForeignKey('AuthGroup', models.DO_NOTHING)
+    advancedfilter = models.OneToOneField(AdvancedFiltersAdvancedfilter, models.DO_NOTHING)
+    group = models.OneToOneField('AuthGroup', models.DO_NOTHING)
 
     def __str__(self):
         return self.advanced_filters_advancedfilter_groups        
 
 
 class AdvancedFiltersAdvancedfilterUsers(models.Model):
-    advancedfilter = models.ForeignKey(AdvancedFiltersAdvancedfilter, models.DO_NOTHING)
-    user = models.ForeignKey('AuthUser', models.DO_NOTHING)
+    advancedfilter = models.OneToOneField(AdvancedFiltersAdvancedfilter, models.DO_NOTHING)
+    user = models.OneToOneField('AuthUser', models.DO_NOTHING)
 
     def __str__(self):
         return self.advanced_filters_advancedfilter_users        
@@ -73,15 +73,15 @@ class AnalyticsProductrecord(models.Model):
     num_basket_additions = models.IntegerField()
     num_purchases = models.IntegerField()
     score = models.FloatField()
-    product = models.ForeignKey('CatalogueProduct', models.DO_NOTHING, unique=True)
+    product = models.OneToOneField('CatalogueProduct', models.DO_NOTHING, unique=True)
 
     def __str__(self):
         return self.analytics_productrecord
 
 class AnalyticsUserproductview(models.Model):
     date_created = models.DateTimeField()
-    product = models.ForeignKey('CatalogueProduct', models.DO_NOTHING)
-    user = models.ForeignKey('AuthUser', models.DO_NOTHING)
+    product = models.OneToOneField('CatalogueProduct', models.DO_NOTHING)
+    user = models.OneToOneField('AuthUser', models.DO_NOTHING)
 
     def __str__(self):
         return self.analytics_userproductview
@@ -94,7 +94,7 @@ class AnalyticsUserrecord(models.Model):
     num_order_items = models.IntegerField()
     total_spent = models.DecimalField(max_digits=12, decimal_places=2)
     date_last_order = models.DateTimeField(blank=True, null=True)
-    user = models.ForeignKey('AuthUser', models.DO_NOTHING, unique=True)
+    user = models.OneToOneField('AuthUser', models.DO_NOTHING, unique=True)
 
     def __str__(self):
         return self.analytics_userrecord
@@ -102,7 +102,7 @@ class AnalyticsUserrecord(models.Model):
 class AnalyticsUsersearch(models.Model):
     query = models.CharField(max_length=255)
     date_created = models.DateTimeField()
-    user = models.ForeignKey('AuthUser', models.DO_NOTHING)
+    user = models.OneToOneField('AuthUser', models.DO_NOTHING)
 
     def __str__(self):
         return self.analytics_usersearch
@@ -116,15 +116,15 @@ class AnnouncementsAnnouncement(models.Model):
     dismissal_type = models.IntegerField()
     publish_start = models.DateTimeField()
     publish_end = models.DateTimeField(blank=True, null=True)
-    creator = models.ForeignKey('AuthUser', models.DO_NOTHING)
+    creator = models.OneToOneField('AuthUser', models.DO_NOTHING)
 
     def __str__(self):
         return self.announcements_announcement
 
 class AnnouncementsDismissal(models.Model):
     dismissed_at = models.DateTimeField()
-    announcement = models.ForeignKey(AnnouncementsAnnouncement, models.DO_NOTHING)
-    user = models.ForeignKey('AuthUser', models.DO_NOTHING)
+    announcement = models.OneToOneField(AnnouncementsAnnouncement, models.DO_NOTHING)
+    user = models.OneToOneField('AuthUser', models.DO_NOTHING)
 
     def __str__(self):
         return self.announcements_dismissal
@@ -136,8 +136,8 @@ class AuthGroup(models.Model):
         return self.auth_group
 
 class AuthGroupPermissions(models.Model):
-    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
-    permission = models.ForeignKey('AuthPermission', models.DO_NOTHING)
+    group = models.OneToOneField(AuthGroup, models.DO_NOTHING)
+    permission = models.OneToOneField('AuthPermission', models.DO_NOTHING)
 
     def __str__(self):
         return self.auth_group_permissions        
@@ -145,7 +145,7 @@ class AuthGroupPermissions(models.Model):
 
 class AuthPermission(models.Model):
     name = models.CharField(max_length=255)
-    content_type = models.ForeignKey('DjangoContent', models.DO_NOTHING)
+    content_type = models.OneToOneField('DjangoContent', models.DO_NOTHING)
     codename = models.CharField(max_length=100)
 
     def __str__(self):
@@ -168,16 +168,16 @@ class AuthUser(models.Model):
         return self.auth_user
 
 class AuthUserGroups(models.Model):
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
-    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING)
+    group = models.OneToOneField(AuthGroup, models.DO_NOTHING)
 
     def __str__(self):
         return self.auth_user_groups        
 
 
 class AuthUserUserPermissions(models.Model):
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
-    permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING)
+    permission = models.OneToOneField(AuthPermission, models.DO_NOTHING)
 
     def __str__(self):
         return self.auth_user_user_permissions        
@@ -188,14 +188,14 @@ class BasketBasket(models.Model):
     date_created = models.DateTimeField()
     date_merged = models.DateTimeField(blank=True, null=True)
     date_submitted = models.DateTimeField(blank=True, null=True)
-    owner = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    owner = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.basket_basket
 
 class BasketBasketVouchers(models.Model):
-    basket = models.ForeignKey(BasketBasket, models.DO_NOTHING)
-    voucher = models.ForeignKey('VoucherVoucher', models.DO_NOTHING)
+    basket = models.OneToOneField(BasketBasket, models.DO_NOTHING)
+    voucher = models.OneToOneField('VoucherVoucher', models.DO_NOTHING)
 
     def __str__(self):
         return self.basket_basket_vouchers        
@@ -208,9 +208,9 @@ class BasketLine(models.Model):
     price_excl_tax = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True)
     price_incl_tax = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True)
     date_created = models.DateTimeField()
-    basket = models.ForeignKey(BasketBasket, models.DO_NOTHING)
-    product = models.ForeignKey('CatalogueProduct', models.DO_NOTHING)
-    stockrecord = models.ForeignKey('PartnerStockrecord', models.DO_NOTHING)
+    basket = models.OneToOneField(BasketBasket, models.DO_NOTHING)
+    product = models.OneToOneField('CatalogueProduct', models.DO_NOTHING)
+    stockrecord = models.OneToOneField('PartnerStockrecord', models.DO_NOTHING)
     date_updated = models.DateTimeField()
 
     def __str__(self):
@@ -219,14 +219,14 @@ class BasketLine(models.Model):
 
 class BasketLineattribute(models.Model):
     value = models.CharField(max_length=255)
-    line = models.ForeignKey(BasketLine, models.DO_NOTHING)
-    option = models.ForeignKey('CatalogueOption', models.DO_NOTHING)
+    line = models.OneToOneField(BasketLine, models.DO_NOTHING)
+    option = models.OneToOneField('CatalogueOption', models.DO_NOTHING)
 
     def __str__(self):
         return self.basket_lineattribute
 
 class Bootstrap4AlertsBootstrap4Alerts(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     alert_context = models.CharField(max_length=255)
     alert_dismissable = models.BooleanField()
     tag_type = models.CharField(max_length=255)
@@ -236,7 +236,7 @@ class Bootstrap4AlertsBootstrap4Alerts(models.Model):
         return self.bootstrap4_alerts_bootstrap4alerts
 
 class Bootstrap4BadgeBootstrap4Badge(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     badge_text = models.CharField(max_length=255)
     badge_context = models.CharField(max_length=255)
     badge_pills = models.BooleanField()
@@ -246,7 +246,7 @@ class Bootstrap4BadgeBootstrap4Badge(models.Model):
         return self.bootstrap4_badge_bootstrap4badge
 
 class Bootstrap4CardBootstrap4Card(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     card_type = models.CharField(max_length=255)
     card_context = models.CharField(max_length=255)
     card_alignment = models.CharField(max_length=255)
@@ -259,7 +259,7 @@ class Bootstrap4CardBootstrap4Card(models.Model):
         return self.bootstrap4_card_bootstrap4card
 
 class Bootstrap4CardBootstrap4Cardinner(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     inner_type = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
@@ -268,7 +268,7 @@ class Bootstrap4CardBootstrap4Cardinner(models.Model):
         return self.bootstrap4_card_bootstrap4cardinner
 
 class Bootstrap4CarouselBootstrap4Carousel(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     template = models.CharField(max_length=255)
     carousel_interval = models.IntegerField()
     carousel_controls = models.BooleanField()
@@ -293,18 +293,18 @@ class Bootstrap4CarouselBootstrap4Carouselslide(models.Model):
     phone = models.CharField(max_length=255)
     target = models.CharField(max_length=255)
     attributes = models.TextField()
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     carousel_content = models.TextField()
     tag_type = models.CharField(max_length=255)
-    carousel_image = models.ForeignKey('FilerImage', models.DO_NOTHING, blank=True, null=True)
-    internal_link = models.ForeignKey('CmsPage', models.DO_NOTHING, blank=True, null=True)
-    file_link = models.ForeignKey('FilerFile', models.DO_NOTHING, blank=True, null=True)
+    carousel_image = models.OneToOneField('FilerImage', models.DO_NOTHING, blank=True, null=True)
+    internal_link = models.OneToOneField('CmsPage', models.DO_NOTHING, blank=True, null=True)
+    file_link = models.OneToOneField('FilerFile', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.bootstrap4_carousel_bootstrap4carouselslide
 
 class Bootstrap4CollapseBootstrap4Collapse(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     siblings = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
@@ -313,7 +313,7 @@ class Bootstrap4CollapseBootstrap4Collapse(models.Model):
         return self.bootstrap4_collapse_bootstrap4collapse
 
 class Bootstrap4CollapseBootstrap4Collapsecontainer(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     identifier = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
@@ -322,7 +322,7 @@ class Bootstrap4CollapseBootstrap4Collapsecontainer(models.Model):
         return self.bootstrap4_collapse_bootstrap4collapsecontainer
 
 class Bootstrap4CollapseBootstrap4Collapsetrigger(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     identifier = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
@@ -331,7 +331,7 @@ class Bootstrap4CollapseBootstrap4Collapsetrigger(models.Model):
         return self.bootstrap4_collapse_bootstrap4collapsetrigger
 
 class Bootstrap4ContentBootstrap4Blockquote(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     quote_content = models.TextField()
     quote_origin = models.TextField()
     quote_alignment = models.CharField(max_length=255)
@@ -341,7 +341,7 @@ class Bootstrap4ContentBootstrap4Blockquote(models.Model):
         return self.bootstrap4_content_bootstrap4blockquote
 
 class Bootstrap4ContentBootstrap4Code(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     code_content = models.TextField()
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
@@ -350,7 +350,7 @@ class Bootstrap4ContentBootstrap4Code(models.Model):
         return self.bootstrap4_content_bootstrap4code
 
 class Bootstrap4ContentBootstrap4Figure(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     figure_caption = models.CharField(max_length=255)
     figure_alignment = models.CharField(max_length=255)
     attributes = models.TextField()
@@ -359,7 +359,7 @@ class Bootstrap4ContentBootstrap4Figure(models.Model):
         return self.bootstrap4_content_bootstrap4figure
 
 class Bootstrap4GridBootstrap4Gridcolumn(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     column_type = models.CharField(max_length=255)
     column_alignment = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
@@ -394,7 +394,7 @@ class Bootstrap4GridBootstrap4Gridcolumn(models.Model):
         return self.bootstrap4_grid_bootstrap4gridcolumn
 
 class Bootstrap4GridBootstrap4Gridcontainer(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     container_type = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
@@ -403,7 +403,7 @@ class Bootstrap4GridBootstrap4Gridcontainer(models.Model):
         return self.bootstrap4_grid_bootstrap4gridcontainer
 
 class Bootstrap4GridBootstrap4Gridrow(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     vertical_alignment = models.CharField(max_length=255)
     horizontal_alignment = models.CharField(max_length=255)
     gutters = models.BooleanField()
@@ -414,7 +414,7 @@ class Bootstrap4GridBootstrap4Gridrow(models.Model):
         return self.bootstrap4_grid_bootstrap4gridrow
 
 class Bootstrap4JumbotronBootstrap4Jumbotron(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     fluid = models.BooleanField()
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
@@ -431,22 +431,22 @@ class Bootstrap4LinkBootstrap4Link(models.Model):
     phone = models.CharField(max_length=255)
     target = models.CharField(max_length=255)
     attributes = models.TextField()
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     link_type = models.CharField(max_length=255)
     link_context = models.CharField(max_length=255)
     link_size = models.CharField(max_length=255)
     link_outline = models.BooleanField()
     link_block = models.BooleanField()
-    internal_link = models.ForeignKey('CmsPage', models.DO_NOTHING, blank=True, null=True)
+    internal_link = models.OneToOneField('CmsPage', models.DO_NOTHING, blank=True, null=True)
     icon_left = models.CharField(max_length=255)
     icon_right = models.CharField(max_length=255)
-    file_link = models.ForeignKey('FilerFile', models.DO_NOTHING, blank=True, null=True)
+    file_link = models.OneToOneField('FilerFile', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.bootstrap4_link_bootstrap4link
 
 class Bootstrap4ListgroupBootstrap4Listgroup(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     list_group_flush = models.BooleanField()
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
@@ -455,7 +455,7 @@ class Bootstrap4ListgroupBootstrap4Listgroup(models.Model):
         return self.bootstrap4_listgroup_bootstrap4listgroup
 
 class Bootstrap4ListgroupBootstrap4Listgroupitem(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     list_context = models.CharField(max_length=255)
     list_state = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
@@ -465,7 +465,7 @@ class Bootstrap4ListgroupBootstrap4Listgroupitem(models.Model):
         return self.bootstrap4_listgroup_bootstrap4listgroupitem
 
 class Bootstrap4MediaBootstrap4Media(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
@@ -473,7 +473,7 @@ class Bootstrap4MediaBootstrap4Media(models.Model):
         return self.bootstrap4_media_bootstrap4media
 
 class Bootstrap4MediaBootstrap4Mediabody(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
 
@@ -495,20 +495,20 @@ class Bootstrap4PictureBootstrap4Picture(models.Model):
     use_no_cropping = models.BooleanField()
     use_crop = models.BooleanField()
     use_upscale = models.BooleanField()
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     picture_fluid = models.BooleanField()
     picture_rounded = models.BooleanField()
     picture_thumbnail = models.BooleanField()
-    link_page = models.ForeignKey('CmsPage', models.DO_NOTHING, blank=True, null=True)
-    picture = models.ForeignKey('FilerImage', models.DO_NOTHING, blank=True, null=True)
-    thumbnail_options = models.ForeignKey('FilerThumbnailoption', models.DO_NOTHING, blank=True, null=True)
+    link_page = models.OneToOneField('CmsPage', models.DO_NOTHING, blank=True, null=True)
+    picture = models.OneToOneField('FilerImage', models.DO_NOTHING, blank=True, null=True)
+    thumbnail_options = models.OneToOneField('FilerThumbnailoption', models.DO_NOTHING, blank=True, null=True)
     use_responsive_image = models.CharField(max_length=7)
 
     def __str__(self):
         return self.bootstrap4_picture_bootstrap4picture
 
 class Bootstrap4TabsBootstrap4Tab(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     template = models.CharField(max_length=255)
     tab_type = models.CharField(max_length=255)
     tab_alignment = models.CharField(max_length=255)
@@ -521,7 +521,7 @@ class Bootstrap4TabsBootstrap4Tab(models.Model):
         return self.bootstrap4_tabs_bootstrap4tab
 
 class Bootstrap4TabsBootstrap4Tabitem(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     tab_title = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
@@ -530,7 +530,7 @@ class Bootstrap4TabsBootstrap4Tabitem(models.Model):
         return self.bootstrap4_tabs_bootstrap4tabitem
 
 class Bootstrap4UtilitiesBootstrap4Spacing(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     space_property = models.CharField(max_length=255)
     space_sides = models.CharField(max_length=255)
     space_size = models.CharField(max_length=255)
@@ -543,7 +543,7 @@ class Bootstrap4UtilitiesBootstrap4Spacing(models.Model):
 
 class CatalogueAttributeoption(models.Model):
     option = models.CharField(max_length=255)
-    group = models.ForeignKey('CatalogueAttributeoptiongroup', models.DO_NOTHING)
+    group = models.OneToOneField('CatalogueAttributeoptiongroup', models.DO_NOTHING)
 
     def __str__(self):
         return self.catalogue_attributeoption        
@@ -590,8 +590,8 @@ class CatalogueProduct(models.Model):
     date_created = models.DateTimeField()
     date_updated = models.DateTimeField()
     is_discountable = models.BooleanField()
-    parent = models.ForeignKey('self', models.DO_NOTHING, blank=True, null=True)
-    product_class = models.ForeignKey('CatalogueProductclass', models.DO_NOTHING, blank=True, null=True)
+    parent = models.OneToOneField('self', models.DO_NOTHING, blank=True, null=True)
+    product_class = models.OneToOneField('CatalogueProductclass', models.DO_NOTHING, blank=True, null=True)
     is_public = models.BooleanField()
     meta_description = models.TextField(blank=True, null=True)
     meta_title = models.CharField(max_length=255, blank=True, null=True)
@@ -600,8 +600,8 @@ class CatalogueProduct(models.Model):
         return self.catalogue_product
 
 class CatalogueProductProductOptions(models.Model):
-    product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
-    option = models.ForeignKey(CatalogueOption, models.DO_NOTHING)
+    product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
+    option = models.OneToOneField(CatalogueOption, models.DO_NOTHING)
 
     def __str__(self):
         return self.catalogue_product_product_options        
@@ -612,8 +612,8 @@ class CatalogueProductattribute(models.Model):
     code = models.CharField(max_length=128)
     type = models.CharField(max_length=20)
     required = models.BooleanField()
-    option_group = models.ForeignKey(CatalogueAttributeoptiongroup, models.DO_NOTHING, blank=True, null=True)
-    product_class = models.ForeignKey('CatalogueProductclass', models.DO_NOTHING, blank=True, null=True)
+    option_group = models.OneToOneField(CatalogueAttributeoptiongroup, models.DO_NOTHING, blank=True, null=True)
+    product_class = models.OneToOneField('CatalogueProductclass', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.catalogue_productattribute
@@ -628,10 +628,10 @@ class CatalogueProductattributevalue(models.Model):
     value_file = models.CharField(max_length=255, blank=True, null=True)
     value_image = models.CharField(max_length=255, blank=True, null=True)
     entity_object_id = models.IntegerField(blank=True, null=True)
-    attribute = models.ForeignKey(CatalogueProductattribute, models.DO_NOTHING)
-    entity_content_type = models.ForeignKey('DjangoContent', models.DO_NOTHING, blank=True, null=True)
-    product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
-    value_option = models.ForeignKey(CatalogueAttributeoption, models.DO_NOTHING, blank=True, null=True)
+    attribute = models.OneToOneField(CatalogueProductattribute, models.DO_NOTHING)
+    entity_content_type = models.OneToOneField('DjangoContent', models.DO_NOTHING, blank=True, null=True)
+    product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
+    value_option = models.OneToOneField(CatalogueAttributeoption, models.DO_NOTHING, blank=True, null=True)
     value_datetime = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
@@ -639,15 +639,15 @@ class CatalogueProductattributevalue(models.Model):
 
 
 class CatalogueProductattributevalueValueMultiOption(models.Model):
-    productattributevalue = models.ForeignKey(CatalogueProductattributevalue, models.DO_NOTHING)
-    attributeoption = models.ForeignKey(CatalogueAttributeoption, models.DO_NOTHING)
+    productattributevalue = models.OneToOneField(CatalogueProductattributevalue, models.DO_NOTHING)
+    attributeoption = models.OneToOneField(CatalogueAttributeoption, models.DO_NOTHING)
 
     def __str__(self):
         return self.catalogue_productattributevalue_value_multi_option        
 
 class CatalogueProductcategory(models.Model):
-    category = models.ForeignKey(CatalogueCategory, models.DO_NOTHING)
-    product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
+    category = models.OneToOneField(CatalogueCategory, models.DO_NOTHING)
+    product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
 
     def __str__(self):
         return self.catalogue_productcategory        
@@ -663,8 +663,8 @@ class CatalogueProductclass(models.Model):
         return self.catalogue_productclass
 
 class CatalogueProductclassOptions(models.Model):
-    productclass = models.ForeignKey(CatalogueProductclass, models.DO_NOTHING)
-    option = models.ForeignKey(CatalogueOption, models.DO_NOTHING)
+    productclass = models.OneToOneField(CatalogueProductclass, models.DO_NOTHING)
+    option = models.OneToOneField(CatalogueOption, models.DO_NOTHING)
 
     def __str__(self):
         return self.catalogue_productclass_options        
@@ -675,24 +675,24 @@ class CatalogueProductimage(models.Model):
     caption = models.CharField(max_length=200)
     display_order = models.IntegerField()
     date_created = models.DateTimeField()
-    product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
+    product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
 
     def __str__(self):
         return self.catalogue_productimage
 
 class CatalogueProductrecommendation(models.Model):
     ranking = models.SmallIntegerField()
-    primary = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
-    recommendation = models.ForeignKey(CatalogueProduct, models.DO_NOTHING, related_name='+',)
+    primary = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
+    recommendation = models.OneToOneField(CatalogueProduct, models.DO_NOTHING, related_name='+',)
 
     def __str__(self):
         return self.catalogue_productrecommendation        
 
 
 class CmsAliaspluginmodel(models.Model):
-    cmsplugin_ptr = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING,  related_name='+', primary_key=True)
-    plugin = models.ForeignKey('CmsCmsplugin', models.DO_NOTHING,  related_name='+', blank=True, null=True)
-    alias_placeholder = models.ForeignKey('CmsPlaceholder', models.DO_NOTHING, related_name='+', blank=True, null=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING,  related_name='+', primary_key=True)
+    plugin = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING,  related_name='+', blank=True, null=True)
+    alias_placeholder = models.OneToOneField('CmsPlaceholder', models.DO_NOTHING, related_name='+', blank=True, null=True)
 
     def __str__(self):
         return self.cms_aliaspluginmodel
@@ -703,8 +703,8 @@ class CmsCmsplugin(models.Model):
     plugin_type = models.CharField(max_length=50)
     creation_date = models.DateTimeField()
     changed_date = models.DateTimeField()
-    parent = models.ForeignKey('self', models.DO_NOTHING, blank=True, null=True)
-    placeholder = models.ForeignKey('CmsPlaceholder', models.DO_NOTHING, blank=True, null=True)
+    parent = models.OneToOneField('self', models.DO_NOTHING, blank=True, null=True)
+    placeholder = models.OneToOneField('CmsPlaceholder', models.DO_NOTHING, blank=True, null=True)
     depth = models.IntegerField()
     numchild = models.IntegerField()
     path = models.CharField(unique=True, max_length=255)
@@ -722,15 +722,15 @@ class CmsGlobalpagepermission(models.Model):
     can_move_page = models.BooleanField()
     can_view = models.BooleanField()
     can_recover_page = models.BooleanField()
-    group = models.ForeignKey(AuthGroup, models.DO_NOTHING, blank=True, null=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    group = models.OneToOneField(AuthGroup, models.DO_NOTHING, blank=True, null=True)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.cms_globalpagepermission
 
 class CmsGlobalpagepermissionSites(models.Model):
-    globalpagepermission = models.ForeignKey(CmsGlobalpagepermission, models.DO_NOTHING)
-    site = models.ForeignKey('DjangoSite', models.DO_NOTHING)
+    globalpagepermission = models.OneToOneField(CmsGlobalpagepermission, models.DO_NOTHING)
+    site = models.OneToOneField('DjangoSite', models.DO_NOTHING)
 
     def __str__(self):
         return self.cms_globalpagepermission_sites        
@@ -756,17 +756,17 @@ class CmsPage(models.Model):
     publisher_is_draft = models.BooleanField()
     languages = models.CharField(max_length=255, blank=True, null=True)
     xframe_options = models.IntegerField()
-    publisher_public = models.ForeignKey('self', models.DO_NOTHING, unique=True, blank=True, null=True)
+    publisher_public = models.OneToOneField('self', models.DO_NOTHING, unique=True, blank=True, null=True)
     is_page_type = models.BooleanField()
-    node = models.ForeignKey('CmsTreenode', models.DO_NOTHING)
+    node = models.OneToOneField('CmsTreenode', models.DO_NOTHING)
 
     def __str__(self):
         return self.cms_page        
 
 
 class CmsPagePlaceholders(models.Model):
-    page = models.ForeignKey(CmsPage, models.DO_NOTHING)
-    placeholder = models.ForeignKey('CmsPlaceholder', models.DO_NOTHING)
+    page = models.OneToOneField(CmsPage, models.DO_NOTHING)
+    placeholder = models.OneToOneField('CmsPlaceholder', models.DO_NOTHING)
 
     def __str__(self):
         return self.cms_page_placeholders        
@@ -782,23 +782,23 @@ class CmsPagepermission(models.Model):
     can_move_page = models.BooleanField()
     can_view = models.BooleanField()
     grant_on = models.IntegerField()
-    group = models.ForeignKey(AuthGroup, models.DO_NOTHING, blank=True, null=True)
-    page = models.ForeignKey(CmsPage, models.DO_NOTHING, blank=True, null=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    group = models.OneToOneField(AuthGroup, models.DO_NOTHING, blank=True, null=True)
+    page = models.OneToOneField(CmsPage, models.DO_NOTHING, blank=True, null=True)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.cms_pagepermission
 
 class CmsPageuser(models.Model):
-    user_ptr = models.ForeignKey(AuthUser, models.DO_NOTHING, primary_key=True)
-    created_by = models.ForeignKey(AuthUser, models.DO_NOTHING, related_name='+', )
+    user_ptr = models.OneToOneField(AuthUser, models.DO_NOTHING, primary_key=True)
+    created_by = models.OneToOneField(AuthUser, models.DO_NOTHING, related_name='+', )
 
     def __str__(self):
         return self.cms_pageuser
 
 class CmsPageusergroup(models.Model):
-    group_ptr = models.ForeignKey(AuthGroup, models.DO_NOTHING, primary_key=True)
-    created_by = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    group_ptr = models.OneToOneField(AuthGroup, models.DO_NOTHING, primary_key=True)
+    created_by = models.OneToOneField(AuthUser, models.DO_NOTHING)
 
     def __str__(self):
         return self.cms_pageusergroup
@@ -811,9 +811,9 @@ class CmsPlaceholder(models.Model):
         return self.cms_placeholder
 
 class CmsPlaceholderreference(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     name = models.CharField(max_length=255)
-    placeholder_ref = models.ForeignKey(CmsPlaceholder, models.DO_NOTHING, blank=True, null=True)
+    placeholder_ref = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.cms_placeholderreference
@@ -823,9 +823,9 @@ class CmsStaticplaceholder(models.Model):
     code = models.CharField(max_length=255)
     dirty = models.BooleanField()
     creation_method = models.CharField(max_length=20)
-    draft = models.ForeignKey(CmsPlaceholder, models.DO_NOTHING,  related_name='+', blank=True, null=True)
-    public = models.ForeignKey(CmsPlaceholder, models.DO_NOTHING, related_name='+', blank=True, null=True)
-    site = models.ForeignKey('DjangoSite', models.DO_NOTHING, related_name='+', blank=True, null=True)
+    draft = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING,  related_name='+', blank=True, null=True)
+    public = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING, related_name='+', blank=True, null=True)
+    site = models.OneToOneField('DjangoSite', models.DO_NOTHING, related_name='+', blank=True, null=True)
 
     def __str__(self):
         return self.cms_staticplaceholder        
@@ -845,8 +845,8 @@ class CmsTitle(models.Model):
     published = models.BooleanField()
     publisher_is_draft = models.BooleanField()
     publisher_state = models.SmallIntegerField()
-    page = models.ForeignKey(CmsPage, models.DO_NOTHING)
-    publisher_public = models.ForeignKey('self', models.DO_NOTHING, unique=True, blank=True, null=True)
+    page = models.OneToOneField(CmsPage, models.DO_NOTHING)
+    publisher_public = models.OneToOneField('self', models.DO_NOTHING, unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.cms_title        
@@ -856,8 +856,8 @@ class CmsTreenode(models.Model):
     path = models.CharField(unique=True, max_length=255)
     depth = models.IntegerField()
     numchild = models.IntegerField()
-    parent = models.ForeignKey('self', models.DO_NOTHING, blank=True, null=True)
-    site = models.ForeignKey('DjangoSite', models.DO_NOTHING)
+    parent = models.OneToOneField('self', models.DO_NOTHING, blank=True, null=True)
+    site = models.OneToOneField('DjangoSite', models.DO_NOTHING)
 
     def __str__(self):
         return self.cms_treenode
@@ -870,8 +870,8 @@ class CmsUrlconfrevision(models.Model):
 
 class CmsUsersettings(models.Model):
     language = models.CharField(max_length=10)
-    clipboard = models.ForeignKey(CmsPlaceholder, models.DO_NOTHING, blank=True, null=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING, unique=True)
+    clipboard = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING, blank=True, null=True)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING, unique=True)
 
     def __str__(self):
         return self.cms_usersettings
@@ -895,7 +895,7 @@ class CommunicationEmail(models.Model):
     body_text = models.TextField()
     body_html = models.TextField()
     date_sent = models.DateTimeField()
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
     email = models.CharField(max_length=254, blank=True, null=True)
 
     def __str__(self):
@@ -907,8 +907,8 @@ class CommunicationNotification(models.Model):
     location = models.CharField(max_length=32)
     date_sent = models.DateTimeField()
     date_read = models.DateTimeField(blank=True, null=True)
-    recipient = models.ForeignKey(AuthUser, models.DO_NOTHING)
-    sender = models.ForeignKey(AuthUser, models.DO_NOTHING, related_name='+', blank=True, null=True)
+    recipient = models.OneToOneField(AuthUser, models.DO_NOTHING)
+    sender = models.OneToOneField(AuthUser, models.DO_NOTHING, related_name='+', blank=True, null=True)
 
     def __str__(self):
         return self.communication_notification
@@ -921,8 +921,8 @@ class CustomerProductalert(models.Model):
     date_confirmed = models.DateTimeField(blank=True, null=True)
     date_cancelled = models.DateTimeField(blank=True, null=True)
     date_closed = models.DateTimeField(blank=True, null=True)
-    product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.customer_productalert
@@ -933,8 +933,8 @@ class DjangoAdminLog(models.Model):
     object_repr = models.CharField(max_length=200)
     action_flag = models.SmallIntegerField()
     change_message = models.TextField()
-    content_type = models.ForeignKey('DjangoContent', models.DO_NOTHING, blank=True, null=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    content_type = models.OneToOneField('DjangoContent', models.DO_NOTHING, blank=True, null=True)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING)
 
     def __str__(self):
         return self.django_admin_log
@@ -959,8 +959,8 @@ class DjangoFlatpage(models.Model):
         return self.django_flatpage
 
 class DjangoFlatpageSites(models.Model):
-    flatpage = models.ForeignKey(DjangoFlatpage, models.DO_NOTHING)
-    site = models.ForeignKey('DjangoSite', models.DO_NOTHING)
+    flatpage = models.OneToOneField(DjangoFlatpage, models.DO_NOTHING)
+    site = models.OneToOneField('DjangoSite', models.DO_NOTHING)
 
     def __str__(self):
         return self.django_flatpage_sites        
@@ -990,9 +990,9 @@ class DjangoSite(models.Model):
         return self.django_site
 
 class DjangocmsBlogAuthorentriesplugin(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     latest_posts = models.IntegerField()
-    app_config = models.ForeignKey('DjangocmsBlogBlogconfig', models.DO_NOTHING, blank=True, null=True)
+    app_config = models.OneToOneField('DjangocmsBlogBlogconfig', models.DO_NOTHING, blank=True, null=True)
     current_site = models.BooleanField()
     template_folder = models.CharField(max_length=200)
 
@@ -1000,8 +1000,8 @@ class DjangocmsBlogAuthorentriesplugin(models.Model):
         return self.djangocms_blog_authorentriesplugin
 
 class DjangocmsBlogAuthorentriespluginAuthors(models.Model):
-    authorentriesplugin = models.ForeignKey(DjangocmsBlogAuthorentriesplugin, models.DO_NOTHING)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    authorentriesplugin = models.OneToOneField(DjangocmsBlogAuthorentriesplugin, models.DO_NOTHING)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING)
 
     def __str__(self):
         return self.djangocms_blog_authorentriesplugin_authors        
@@ -1010,8 +1010,8 @@ class DjangocmsBlogAuthorentriespluginAuthors(models.Model):
 class DjangocmsBlogBlogcategory(models.Model):
     date_created = models.DateTimeField()
     date_modified = models.DateTimeField()
-    parent = models.ForeignKey('self', models.DO_NOTHING, blank=True, null=True)
-    app_config = models.ForeignKey('DjangocmsBlogBlogconfig', models.DO_NOTHING, blank=True, null=True)
+    parent = models.OneToOneField('self', models.DO_NOTHING, blank=True, null=True)
+    app_config = models.OneToOneField('DjangocmsBlogBlogconfig', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.djangocms_blog_blogcategory
@@ -1020,7 +1020,7 @@ class DjangocmsBlogBlogcategoryTranslation(models.Model):
     language_code = models.CharField(max_length=15)
     name = models.CharField(max_length=752)
     slug = models.CharField(max_length=752)
-    master = models.ForeignKey(DjangocmsBlogBlogcategory, models.DO_NOTHING, blank=True, null=True)
+    master = models.OneToOneField(DjangocmsBlogBlogcategory, models.DO_NOTHING, blank=True, null=True)
     meta_description = models.TextField()
 
     def __str__(self):
@@ -1038,7 +1038,7 @@ class DjangocmsBlogBlogconfig(models.Model):
 class DjangocmsBlogBlogconfigTranslation(models.Model):
     language_code = models.CharField(max_length=15)
     app_title = models.CharField(max_length=234)
-    master = models.ForeignKey(DjangocmsBlogBlogconfig, models.DO_NOTHING, blank=True, null=True)
+    master = models.OneToOneField(DjangocmsBlogBlogconfig, models.DO_NOTHING, blank=True, null=True)
     object_name = models.CharField(max_length=234)
 
     def __str__(self):
@@ -1046,8 +1046,8 @@ class DjangocmsBlogBlogconfigTranslation(models.Model):
 
 
 class DjangocmsBlogGenericblogplugin(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
-    app_config = models.ForeignKey(DjangocmsBlogBlogconfig, models.DO_NOTHING, blank=True, null=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    app_config = models.OneToOneField(DjangocmsBlogBlogconfig, models.DO_NOTHING, blank=True, null=True)
     current_site = models.BooleanField()
     template_folder = models.CharField(max_length=200)
 
@@ -1055,9 +1055,9 @@ class DjangocmsBlogGenericblogplugin(models.Model):
         return self.djangocms_blog_genericblogplugin
 
 class DjangocmsBlogLatestpostsplugin(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     latest_posts = models.IntegerField()
-    app_config = models.ForeignKey(DjangocmsBlogBlogconfig, models.DO_NOTHING, blank=True, null=True)
+    app_config = models.OneToOneField(DjangocmsBlogBlogconfig, models.DO_NOTHING, blank=True, null=True)
     current_site = models.BooleanField()
     template_folder = models.CharField(max_length=200)
 
@@ -1065,8 +1065,8 @@ class DjangocmsBlogLatestpostsplugin(models.Model):
         return self.djangocms_blog_latestpostsplugin
 
 class DjangocmsBlogLatestpostspluginCategories(models.Model):
-    latestpostsplugin = models.ForeignKey(DjangocmsBlogLatestpostsplugin, models.DO_NOTHING)
-    blogcategory = models.ForeignKey(DjangocmsBlogBlogcategory, models.DO_NOTHING)
+    latestpostsplugin = models.OneToOneField(DjangocmsBlogLatestpostsplugin, models.DO_NOTHING)
+    blogcategory = models.OneToOneField(DjangocmsBlogBlogcategory, models.DO_NOTHING)
 
     def __str__(self):
         return self.djangocms_blog_latestpostsplugin_categories        
@@ -1079,31 +1079,31 @@ class DjangocmsBlogPost(models.Model):
     date_published_end = models.DateTimeField(blank=True, null=True)
     publish = models.BooleanField()
     enable_comments = models.BooleanField()
-    author = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    content = models.ForeignKey(CmsPlaceholder, models.DO_NOTHING, related_name='+', blank=True, null=True)
-    main_image = models.ForeignKey('FilerImage', models.DO_NOTHING, related_name='+', blank=True, null=True)
-    app_config = models.ForeignKey(DjangocmsBlogBlogconfig, models.DO_NOTHING, related_name='+', blank=True, null=True)
-    main_image_full = models.ForeignKey('FilerThumbnailoption', models.DO_NOTHING, related_name='+', blank=True, null=True)
-    main_image_thumbnail = models.ForeignKey('FilerThumbnailoption', models.DO_NOTHING, related_name='+', blank=True, null=True)
-    liveblog = models.ForeignKey(CmsPlaceholder, models.DO_NOTHING, related_name='+', blank=True, null=True)
+    author = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    content = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING, related_name='+', blank=True, null=True)
+    main_image = models.OneToOneField('FilerImage', models.DO_NOTHING, related_name='+', blank=True, null=True)
+    app_config = models.OneToOneField(DjangocmsBlogBlogconfig, models.DO_NOTHING, related_name='+', blank=True, null=True)
+    main_image_full = models.OneToOneField('FilerThumbnailoption', models.DO_NOTHING, related_name='+', blank=True, null=True)
+    main_image_thumbnail = models.OneToOneField('FilerThumbnailoption', models.DO_NOTHING, related_name='+', blank=True, null=True)
+    liveblog = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING, related_name='+', blank=True, null=True)
     enable_liveblog = models.BooleanField()
     date_featured = models.DateTimeField(blank=True, null=True)
-    media = models.ForeignKey(CmsPlaceholder, models.DO_NOTHING, related_name='+', blank=True, null=True)
+    media = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING, related_name='+', blank=True, null=True)
 
     def __str__(self):
         return self.djangocms_blog_post
 
 class DjangocmsBlogPostCategories(models.Model):
-    post = models.ForeignKey(DjangocmsBlogPost, models.DO_NOTHING)
-    blogcategory = models.ForeignKey(DjangocmsBlogBlogcategory, models.DO_NOTHING)
+    post = models.OneToOneField(DjangocmsBlogPost, models.DO_NOTHING)
+    blogcategory = models.OneToOneField(DjangocmsBlogBlogcategory, models.DO_NOTHING)
 
     def __str__(self):
         return self.djangocms_blog_post_categories        
 
 
 class DjangocmsBlogPostRelated(models.Model):
-    from_post = models.ForeignKey(DjangocmsBlogPost, models.DO_NOTHING, related_name='+',)
-    to_post = models.ForeignKey(DjangocmsBlogPost, models.DO_NOTHING, related_name='+',)
+    from_post = models.OneToOneField(DjangocmsBlogPost, models.DO_NOTHING, related_name='+',)
+    to_post = models.OneToOneField(DjangocmsBlogPost, models.DO_NOTHING, related_name='+',)
     sort_value = models.IntegerField()
 
     def __str__(self):
@@ -1111,8 +1111,8 @@ class DjangocmsBlogPostRelated(models.Model):
 
 
 class DjangocmsBlogPostSites(models.Model):
-    post = models.ForeignKey(DjangocmsBlogPost, models.DO_NOTHING)
-    site = models.ForeignKey(DjangoSite, models.DO_NOTHING)
+    post = models.OneToOneField(DjangocmsBlogPost, models.DO_NOTHING)
+    site = models.OneToOneField(DjangoSite, models.DO_NOTHING)
 
     def __str__(self):
         return self.djangocms_blog_post_sites        
@@ -1127,7 +1127,7 @@ class DjangocmsBlogPostTranslation(models.Model):
     meta_keywords = models.TextField()
     meta_title = models.CharField(max_length=2000)
     post_text = models.TextField()
-    master = models.ForeignKey(DjangocmsBlogPost, models.DO_NOTHING, blank=True, null=True)
+    master = models.OneToOneField(DjangocmsBlogPost, models.DO_NOTHING, blank=True, null=True)
     subtitle = models.CharField(max_length=767)
 
     def __str__(self):
@@ -1135,11 +1135,11 @@ class DjangocmsBlogPostTranslation(models.Model):
 
 
 class DjangocmsFileFile(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     file_name = models.CharField(max_length=255)
     link_target = models.CharField(max_length=255)
     link_title = models.CharField(max_length=255)
-    file_src = models.ForeignKey('FilerFile', models.DO_NOTHING, blank=True, null=True)
+    file_src = models.OneToOneField('FilerFile', models.DO_NOTHING, blank=True, null=True)
     attributes = models.TextField()
     template = models.CharField(max_length=255)
     show_file_size = models.BooleanField()
@@ -1152,14 +1152,14 @@ class DjangocmsFileFolder(models.Model):
     link_target = models.CharField(max_length=255)
     show_file_size = models.BooleanField()
     attributes = models.TextField()
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
-    folder_src = models.ForeignKey('FilerFolder', models.DO_NOTHING, blank=True, null=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    folder_src = models.OneToOneField('FilerFolder', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.djangocms_file_folder
 
 class DjangocmsGooglemapGooglemap(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     title = models.CharField(max_length=255)
     zoom = models.SmallIntegerField()
     lat = models.FloatField(blank=True, null=True)
@@ -1184,20 +1184,20 @@ class DjangocmsGooglemapGooglemap(models.Model):
         return self.djangocms_googlemap_googlemap
 
 class DjangocmsGooglemapGooglemapmarker(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     title = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     lat = models.FloatField(blank=True, null=True)
     lng = models.FloatField(blank=True, null=True)
     show_content = models.BooleanField()
     info_content = models.TextField()
-    icon = models.ForeignKey('FilerImage', models.DO_NOTHING, blank=True, null=True)
+    icon = models.OneToOneField('FilerImage', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.djangocms_googlemap_googlemapmarker
 
 class DjangocmsGooglemapGooglemaproute(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     title = models.CharField(max_length=255)
     origin = models.CharField(max_length=255)
     destination = models.CharField(max_length=255)
@@ -1212,8 +1212,8 @@ class DjangocmsHistoryPlaceholderaction(models.Model):
     post_action_data = models.TextField()
     language = models.CharField(max_length=15)
     order = models.IntegerField()
-    operation = models.ForeignKey('DjangocmsHistoryPlaceholderoperation', models.DO_NOTHING)
-    placeholder = models.ForeignKey(CmsPlaceholder, models.DO_NOTHING)
+    operation = models.OneToOneField('DjangocmsHistoryPlaceholderoperation', models.DO_NOTHING, verbose_name='history')
+    placeholder = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING)
 
     def __str__(self):
         return self.djangocms_history_placeholderaction        
@@ -1228,14 +1228,14 @@ class DjangocmsHistoryPlaceholderoperation(models.Model):
     date_created = models.DateTimeField()
     is_applied = models.BooleanField()
     is_archived = models.BooleanField()
-    site = models.ForeignKey(DjangoSite, models.DO_NOTHING)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    site = models.OneToOneField(DjangoSite, models.DO_NOTHING)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING)
 
     def __str__(self):
         return self.djangocms_history_placeholderoperation
 
 class DjangocmsIconIcon(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     icon = models.CharField(max_length=255)
     template = models.CharField(max_length=255)
     label = models.CharField(max_length=255)
@@ -1245,23 +1245,23 @@ class DjangocmsIconIcon(models.Model):
         return self.djangocms_icon_icon
 
 class DjangocmsLinkLink(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     name = models.CharField(max_length=255)
     external_link = models.CharField(max_length=2040)
     anchor = models.CharField(max_length=255)
     mailto = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
     target = models.CharField(max_length=255)
-    internal_link = models.ForeignKey(CmsPage, models.DO_NOTHING, blank=True, null=True)
+    internal_link = models.OneToOneField(CmsPage, models.DO_NOTHING, blank=True, null=True)
     attributes = models.TextField()
     template = models.CharField(max_length=255)
-    file_link = models.ForeignKey('FilerFile', models.DO_NOTHING, blank=True, null=True)
+    file_link = models.OneToOneField('FilerFile', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.djangocms_link_link
 
 class DjangocmsMapsMaps(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     map_provider = models.CharField(max_length=16)
     title = models.CharField(max_length=100, blank=True, null=True)
     address = models.CharField(max_length=150)
@@ -1291,13 +1291,13 @@ class DjangocmsMapsMaps(models.Model):
         return self.djangocms_maps_maps
 
 class DjangocmsPicturePicture(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     link_url = models.CharField(max_length=2040, blank=True, null=True)
     alignment = models.CharField(max_length=255)
-    link_page = models.ForeignKey(CmsPage, models.DO_NOTHING, blank=True, null=True)
+    link_page = models.OneToOneField(CmsPage, models.DO_NOTHING, blank=True, null=True)
     height = models.IntegerField(blank=True, null=True)
     width = models.IntegerField(blank=True, null=True)
-    picture = models.ForeignKey('FilerImage', models.DO_NOTHING, blank=True, null=True)
+    picture = models.OneToOneField('FilerImage', models.DO_NOTHING, blank=True, null=True)
     attributes = models.TextField()
     caption_text = models.TextField(blank=True, null=True)
     link_attributes = models.TextField()
@@ -1306,7 +1306,7 @@ class DjangocmsPicturePicture(models.Model):
     use_crop = models.BooleanField()
     use_no_cropping = models.BooleanField()
     use_upscale = models.BooleanField()
-    thumbnail_options = models.ForeignKey('FilerThumbnailoption', models.DO_NOTHING, blank=True, null=True)
+    thumbnail_options = models.OneToOneField('FilerThumbnailoption', models.DO_NOTHING, blank=True, null=True)
     external_picture = models.CharField(max_length=255, blank=True, null=True)
     template = models.CharField(max_length=255)
     use_responsive_image = models.CharField(max_length=7)
@@ -1315,7 +1315,7 @@ class DjangocmsPicturePicture(models.Model):
         return self.djangocms_picture_picture
 
 class DjangocmsStyleStyle(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     class_name = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     padding_left = models.SmallIntegerField(blank=True, null=True)
@@ -1336,16 +1336,16 @@ class DjangocmsStyleStyle(models.Model):
         return self.djangocms_style_style
 
 class DjangocmsTextCkeditorText(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     body = models.TextField()
 
     def __str__(self):
         return self.djangocms_text_ckeditor_text
 
 class DjangocmsVideoVideoplayer(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     embed_link = models.CharField(max_length=255)
-    poster = models.ForeignKey('FilerImage', models.DO_NOTHING, blank=True, null=True)
+    poster = models.OneToOneField('FilerImage', models.DO_NOTHING, blank=True, null=True)
     attributes = models.TextField()
     label = models.CharField(max_length=255)
     template = models.CharField(max_length=255)
@@ -1355,22 +1355,22 @@ class DjangocmsVideoVideoplayer(models.Model):
         return self.djangocms_video_videoplayer
 
 class DjangocmsVideoVideosource(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     text_title = models.CharField(max_length=255)
     text_description = models.TextField()
     attributes = models.TextField()
-    source_file = models.ForeignKey('FilerFile', models.DO_NOTHING, blank=True, null=True)
+    source_file = models.OneToOneField('FilerFile', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.djangocms_video_videosource
 
 class DjangocmsVideoVideotrack(models.Model):
-    cmsplugin_ptr = models.ForeignKey(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     kind = models.CharField(max_length=255)
     srclang = models.CharField(max_length=255)
     label = models.CharField(max_length=255)
     attributes = models.TextField()
-    src = models.ForeignKey('FilerFile', models.DO_NOTHING, blank=True, null=True)
+    src = models.OneToOneField('FilerFile', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.djangocms_video_videotrack
@@ -1388,14 +1388,14 @@ class EasyThumbnailsThumbnail(models.Model):
     storage_hash = models.CharField(max_length=40)
     name = models.CharField(max_length=255)
     modified = models.DateTimeField()
-    source = models.ForeignKey(EasyThumbnailsSource, models.DO_NOTHING)
+    source = models.OneToOneField(EasyThumbnailsSource, models.DO_NOTHING)
 
     def __str__(self):
         return self.easy_thumbnails_thumbnail        
 
 
 class EasyThumbnailsThumbnaildimensions(models.Model):
-    thumbnail = models.ForeignKey(EasyThumbnailsThumbnail, models.DO_NOTHING, unique=True)
+    thumbnail = models.OneToOneField(EasyThumbnailsThumbnail, models.DO_NOTHING, unique=True)
     width = models.IntegerField(blank=True, null=True)
     height = models.IntegerField(blank=True, null=True)
 
@@ -1403,14 +1403,14 @@ class EasyThumbnailsThumbnaildimensions(models.Model):
         return self.easy_thumbnails_thumbnaildimensions
 
 class FilerClipboard(models.Model):
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING)
 
     def __str__(self):
         return self.filer_clipboard
 
 class FilerClipboarditem(models.Model):
-    clipboard = models.ForeignKey(FilerClipboard, models.DO_NOTHING)
-    file = models.ForeignKey('FilerFile', models.DO_NOTHING)
+    clipboard = models.OneToOneField(FilerClipboard, models.DO_NOTHING)
+    file = models.OneToOneField('FilerFile', models.DO_NOTHING)
 
     def __str__(self):
         return self.filer_clipboarditem
@@ -1426,9 +1426,9 @@ class FilerFile(models.Model):
     uploaded_at = models.DateTimeField()
     modified_at = models.DateTimeField()
     is_public = models.BooleanField()
-    folder = models.ForeignKey('FilerFolder', models.DO_NOTHING, blank=True, null=True)
-    owner = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    polymorphic_ctype = models.ForeignKey(DjangoContent, models.DO_NOTHING, blank=True, null=True)
+    folder = models.OneToOneField('FilerFolder', models.DO_NOTHING, blank=True, null=True)
+    owner = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    polymorphic_ctype = models.OneToOneField(DjangoContent, models.DO_NOTHING, blank=True, null=True)
     mime_type = models.CharField(max_length=255)
 
     def __str__(self):
@@ -1443,8 +1443,8 @@ class FilerFolder(models.Model):
     rght = models.IntegerField()
     tree_id = models.IntegerField()
     level = models.IntegerField()
-    owner = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    parent = models.ForeignKey('self', models.DO_NOTHING, blank=True, null=True)
+    owner = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    parent = models.OneToOneField('self', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.filer_folder        
@@ -1456,15 +1456,15 @@ class FilerFolderpermission(models.Model):
     can_edit = models.SmallIntegerField(blank=True, null=True)
     can_read = models.SmallIntegerField(blank=True, null=True)
     can_add_children = models.SmallIntegerField(blank=True, null=True)
-    folder = models.ForeignKey(FilerFolder, models.DO_NOTHING, blank=True, null=True)
-    group = models.ForeignKey(AuthGroup, models.DO_NOTHING, blank=True, null=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    folder = models.OneToOneField(FilerFolder, models.DO_NOTHING, blank=True, null=True)
+    group = models.OneToOneField(AuthGroup, models.DO_NOTHING, blank=True, null=True)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.filer_folderpermission
 
 class FilerImage(models.Model):
-    file_ptr = models.ForeignKey(FilerFile, models.DO_NOTHING, primary_key=True)
+    file_ptr = models.OneToOneField(FilerFile, models.DO_NOTHING, primary_key=True)
     field_height = models.IntegerField(db_column='_height', blank=True, null=True)  # Field renamed because it started with '_'.
     field_width = models.IntegerField(db_column='_width', blank=True, null=True)  # Field renamed because it started with '_'.
     date_taken = models.DateTimeField(blank=True, null=True)
@@ -1501,7 +1501,7 @@ class OfferBenefit(models.Model):
     value = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True)
     max_affected_items = models.IntegerField(blank=True, null=True)
     proxy_class = models.CharField(max_length=255, blank=True, null=True)
-    range = models.ForeignKey('OfferRange', models.DO_NOTHING, blank=True, null=True)
+    range = models.OneToOneField('OfferRange', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.offer_benefit
@@ -1510,7 +1510,7 @@ class OfferCondition(models.Model):
     type = models.CharField(max_length=128)
     value = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True)
     proxy_class = models.CharField(max_length=255, blank=True, null=True)
-    range = models.ForeignKey('OfferRange', models.DO_NOTHING, blank=True, null=True)
+    range = models.OneToOneField('OfferRange', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.offer_condition
@@ -1533,16 +1533,16 @@ class OfferConditionaloffer(models.Model):
     num_orders = models.IntegerField()
     redirect_url = models.CharField(max_length=200)
     date_created = models.DateTimeField()
-    benefit = models.ForeignKey(OfferBenefit, models.DO_NOTHING)
-    condition = models.ForeignKey(OfferCondition, models.DO_NOTHING)
+    benefit = models.OneToOneField(OfferBenefit, models.DO_NOTHING)
+    condition = models.OneToOneField(OfferCondition, models.DO_NOTHING)
     exclusive = models.BooleanField()
 
     def __str__(self):
         return self.offer_conditionaloffer
 
 class OfferConditionalofferCombinations(models.Model):
-    from_conditionaloffer = models.ForeignKey(OfferConditionaloffer, models.DO_NOTHING)
-    to_conditionaloffer = models.ForeignKey(OfferConditionaloffer, models.DO_NOTHING, related_name='+',)
+    from_conditionaloffer = models.OneToOneField(OfferConditionaloffer, models.DO_NOTHING)
+    to_conditionaloffer = models.OneToOneField(OfferConditionaloffer, models.DO_NOTHING, related_name='+',)
 
     def __str__(self):
         return self.offer_conditionaloffer_combinations        
@@ -1561,24 +1561,24 @@ class OfferRange(models.Model):
         return self.offer_range
 
 class OfferRangeClasses(models.Model):
-    range = models.ForeignKey(OfferRange, models.DO_NOTHING)
-    productclass = models.ForeignKey(CatalogueProductclass, models.DO_NOTHING)
+    range = models.OneToOneField(OfferRange, models.DO_NOTHING)
+    productclass = models.OneToOneField(CatalogueProductclass, models.DO_NOTHING)
 
     def __str__(self):
         return self.offer_range_classes        
 
 
 class OfferRangeExcludedProducts(models.Model):
-    range = models.ForeignKey(OfferRange, models.DO_NOTHING)
-    product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
+    range = models.OneToOneField(OfferRange, models.DO_NOTHING)
+    product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
 
     def __str__(self):
         return self.offer_range_excluded_products        
 
 
 class OfferRangeIncludedCategories(models.Model):
-    range = models.ForeignKey(OfferRange, models.DO_NOTHING)
-    category = models.ForeignKey(CatalogueCategory, models.DO_NOTHING)
+    range = models.OneToOneField(OfferRange, models.DO_NOTHING)
+    category = models.OneToOneField(CatalogueCategory, models.DO_NOTHING)
 
     def __str__(self):
         return self.offer_range_included_categories        
@@ -1586,8 +1586,8 @@ class OfferRangeIncludedCategories(models.Model):
 
 class OfferRangeproduct(models.Model):
     display_order = models.IntegerField()
-    product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
-    range = models.ForeignKey(OfferRange, models.DO_NOTHING)
+    product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
+    range = models.OneToOneField(OfferRange, models.DO_NOTHING)
 
     def __str__(self):
         return self.offer_rangeproduct        
@@ -1603,8 +1603,8 @@ class OfferRangeproductfileupload(models.Model):
     num_new_skus = models.IntegerField(blank=True, null=True)
     num_unknown_skus = models.IntegerField(blank=True, null=True)
     num_duplicate_skus = models.IntegerField(blank=True, null=True)
-    range = models.ForeignKey(OfferRange, models.DO_NOTHING)
-    uploaded_by = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    range = models.OneToOneField(OfferRange, models.DO_NOTHING)
+    uploaded_by = models.OneToOneField(AuthUser, models.DO_NOTHING)
 
     def __str__(self):
         return self.offer_rangeproductfileupload
@@ -1620,15 +1620,15 @@ class OrderBillingaddress(models.Model):
     state = models.CharField(max_length=255)
     postcode = models.CharField(max_length=64)
     search_text = models.TextField()
-    country = models.ForeignKey(AddressCountry, models.DO_NOTHING)
+    country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
 
     def __str__(self):
         return self.order_billingaddress
 
 class OrderCommunicationevent(models.Model):
     date_created = models.DateTimeField()
-    event_type = models.ForeignKey(CommunicationCommunicationeventtype, models.DO_NOTHING)
-    order = models.ForeignKey('OrderOrder', models.DO_NOTHING)
+    event_type = models.OneToOneField(CommunicationCommunicationeventtype, models.DO_NOTHING)
+    order = models.OneToOneField('OrderOrder', models.DO_NOTHING)
 
     def __str__(self):
         return self.order_communicationevent
@@ -1648,10 +1648,10 @@ class OrderLine(models.Model):
     unit_price_incl_tax = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True)
     unit_price_excl_tax = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True)
     status = models.CharField(max_length=255)
-    order = models.ForeignKey('OrderOrder', models.DO_NOTHING)
-    partner = models.ForeignKey('PartnerPartner', models.DO_NOTHING, blank=True, null=True)
-    product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING, blank=True, null=True)
-    stockrecord = models.ForeignKey('PartnerStockrecord', models.DO_NOTHING, blank=True, null=True)
+    order = models.OneToOneField('OrderOrder', models.DO_NOTHING)
+    partner = models.OneToOneField('PartnerPartner', models.DO_NOTHING, blank=True, null=True)
+    product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING, blank=True, null=True)
+    stockrecord = models.OneToOneField('PartnerStockrecord', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.order_line
@@ -1659,8 +1659,8 @@ class OrderLine(models.Model):
 class OrderLineattribute(models.Model):
     type = models.CharField(max_length=128)
     value = models.CharField(max_length=255)
-    line = models.ForeignKey(OrderLine, models.DO_NOTHING)
-    option = models.ForeignKey(CatalogueOption, models.DO_NOTHING, blank=True, null=True)
+    line = models.OneToOneField(OrderLine, models.DO_NOTHING)
+    option = models.OneToOneField(CatalogueOption, models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.order_lineattribute
@@ -1671,8 +1671,8 @@ class OrderLineprice(models.Model):
     price_excl_tax = models.DecimalField(max_digits=12, decimal_places=2)
     shipping_incl_tax = models.DecimalField(max_digits=12, decimal_places=2)
     shipping_excl_tax = models.DecimalField(max_digits=12, decimal_places=2)
-    line = models.ForeignKey(OrderLine, models.DO_NOTHING)
-    order = models.ForeignKey('OrderOrder', models.DO_NOTHING)
+    line = models.OneToOneField(OrderLine, models.DO_NOTHING)
+    order = models.OneToOneField('OrderOrder', models.DO_NOTHING)
 
     def __str__(self):
         return self.order_lineprice
@@ -1689,11 +1689,11 @@ class OrderOrder(models.Model):
     status = models.CharField(max_length=100)
     guest_email = models.CharField(max_length=254)
     date_placed = models.DateTimeField()
-    basket = models.ForeignKey(BasketBasket, models.DO_NOTHING, blank=True, null=True)
-    billing_address = models.ForeignKey(OrderBillingaddress, models.DO_NOTHING, blank=True, null=True)
-    shipping_address = models.ForeignKey('OrderShippingaddress', models.DO_NOTHING, blank=True, null=True)
-    site = models.ForeignKey(DjangoSite, models.DO_NOTHING, blank=True, null=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    basket = models.OneToOneField(BasketBasket, models.DO_NOTHING, blank=True, null=True)
+    billing_address = models.OneToOneField(OrderBillingaddress, models.DO_NOTHING, blank=True, null=True)
+    shipping_address = models.OneToOneField('OrderShippingaddress', models.DO_NOTHING, blank=True, null=True)
+    site = models.OneToOneField(DjangoSite, models.DO_NOTHING, blank=True, null=True)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.order_order
@@ -1707,7 +1707,7 @@ class OrderOrderdiscount(models.Model):
     frequency = models.IntegerField(blank=True, null=True)
     amount = models.DecimalField(max_digits=12, decimal_places=2)
     message = models.TextField()
-    order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
+    order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
 
     def __str__(self):
         return self.order_orderdiscount
@@ -1717,8 +1717,8 @@ class OrderOrdernote(models.Model):
     message = models.TextField()
     date_created = models.DateTimeField()
     date_updated = models.DateTimeField()
-    order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.order_ordernote
@@ -1727,7 +1727,7 @@ class OrderOrderstatuschange(models.Model):
     old_status = models.CharField(max_length=100)
     new_status = models.CharField(max_length=100)
     date_created = models.DateTimeField()
-    order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
+    order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
 
     def __str__(self):
         return self.order_orderstatuschange
@@ -1736,17 +1736,17 @@ class OrderPaymentevent(models.Model):
     amount = models.DecimalField(max_digits=12, decimal_places=2)
     reference = models.CharField(max_length=128)
     date_created = models.DateTimeField()
-    event_type = models.ForeignKey('OrderPaymenteventtype', models.DO_NOTHING)
-    order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
-    shipping_event = models.ForeignKey('OrderShippingevent', models.DO_NOTHING, blank=True, null=True)
+    event_type = models.OneToOneField('OrderPaymenteventtype', models.DO_NOTHING)
+    order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
+    shipping_event = models.OneToOneField('OrderShippingevent', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.order_paymentevent
 
 class OrderPaymenteventquantity(models.Model):
     quantity = models.IntegerField()
-    event = models.ForeignKey(OrderPaymentevent, models.DO_NOTHING)
-    line = models.ForeignKey(OrderLine, models.DO_NOTHING)
+    event = models.OneToOneField(OrderPaymentevent, models.DO_NOTHING)
+    line = models.OneToOneField(OrderLine, models.DO_NOTHING)
 
     def __str__(self):
         return self.order_paymenteventquantity        
@@ -1772,7 +1772,7 @@ class OrderShippingaddress(models.Model):
     search_text = models.TextField()
     phone_number = models.CharField(max_length=128)
     notes = models.TextField()
-    country = models.ForeignKey(AddressCountry, models.DO_NOTHING)
+    country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
 
     def __str__(self):
         return self.order_shippingaddress
@@ -1780,16 +1780,16 @@ class OrderShippingaddress(models.Model):
 class OrderShippingevent(models.Model):
     notes = models.TextField()
     date_created = models.DateTimeField()
-    event_type = models.ForeignKey('OrderShippingeventtype', models.DO_NOTHING)
-    order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
+    event_type = models.OneToOneField('OrderShippingeventtype', models.DO_NOTHING)
+    order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
 
     def __str__(self):
         return self.order_shippingevent
 
 class OrderShippingeventquantity(models.Model):
     quantity = models.IntegerField()
-    event = models.ForeignKey(OrderShippingevent, models.DO_NOTHING)
-    line = models.ForeignKey(OrderLine, models.DO_NOTHING)
+    event = models.OneToOneField(OrderShippingevent, models.DO_NOTHING)
+    line = models.OneToOneField(OrderLine, models.DO_NOTHING)
 
     def __str__(self):
         return self.order_shippingeventquantity        
@@ -1807,7 +1807,7 @@ class OrderSurcharge(models.Model):
     code = models.CharField(max_length=128)
     incl_tax = models.DecimalField(max_digits=12, decimal_places=2)
     excl_tax = models.DecimalField(max_digits=12, decimal_places=2)
-    order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
+    order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
 
     def __str__(self):
         return self.order_surcharge
@@ -1816,8 +1816,8 @@ class OscarInvoicesInvoice(models.Model):
     number = models.CharField(unique=True, max_length=128)
     notes = models.TextField(blank=True, null=True)
     document = models.CharField(max_length=255, blank=True, null=True)
-    legal_entity = models.ForeignKey('OscarInvoicesLegalentity', models.DO_NOTHING)
-    order = models.ForeignKey(OrderOrder, models.DO_NOTHING, unique=True, blank=True, null=True)
+    legal_entity = models.OneToOneField('OscarInvoicesLegalentity', models.DO_NOTHING, verbose_name='invoices')
+    order = models.OneToOneField(OrderOrder, models.DO_NOTHING, unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.oscar_invoices_invoice
@@ -1846,8 +1846,8 @@ class OscarInvoicesLegalentityaddress(models.Model):
     search_text = models.TextField()
     phone_number = models.CharField(max_length=128)
     fax_number = models.CharField(max_length=128)
-    country = models.ForeignKey(AddressCountry, models.DO_NOTHING)
-    legal_entity = models.ForeignKey(OscarInvoicesLegalentity, models.DO_NOTHING)
+    country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
+    legal_entity = models.OneToOneField(OscarInvoicesLegalentity, models.DO_NOTHING)
 
     def __str__(self):
         return self.oscar_invoices_legalentityaddress
@@ -1866,8 +1866,8 @@ class PartnerPartner(models.Model):
         return self.partner_partner
 
 class PartnerPartnerUsers(models.Model):
-    partner = models.ForeignKey(PartnerPartner, models.DO_NOTHING)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    partner = models.OneToOneField(PartnerPartner, models.DO_NOTHING)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING)
 
     def __str__(self):
         return self.partner_partner_users        
@@ -1884,8 +1884,8 @@ class PartnerPartneraddress(models.Model):
     state = models.CharField(max_length=255)
     postcode = models.CharField(max_length=64)
     search_text = models.TextField()
-    country = models.ForeignKey(AddressCountry, models.DO_NOTHING)
-    partner = models.ForeignKey(PartnerPartner, models.DO_NOTHING)
+    country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
+    partner = models.OneToOneField(PartnerPartner, models.DO_NOTHING)
 
     def __str__(self):
         return self.partner_partneraddress
@@ -1895,7 +1895,7 @@ class PartnerStockalert(models.Model):
     status = models.CharField(max_length=128)
     date_created = models.DateTimeField()
     date_closed = models.DateTimeField(blank=True, null=True)
-    stockrecord = models.ForeignKey('PartnerStockrecord', models.DO_NOTHING)
+    stockrecord = models.OneToOneField('PartnerStockrecord', models.DO_NOTHING)
 
     def __str__(self):
         return self.partner_stockalert
@@ -1909,8 +1909,8 @@ class PartnerStockrecord(models.Model):
     low_stock_threshold = models.IntegerField(blank=True, null=True)
     date_created = models.DateTimeField()
     date_updated = models.DateTimeField()
-    partner = models.ForeignKey(PartnerPartner, models.DO_NOTHING)
-    product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING)
+    partner = models.OneToOneField(PartnerPartner, models.DO_NOTHING)
+    product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
 
     def __str__(self):
         return self.partner_stockrecord        
@@ -1922,7 +1922,7 @@ class PaymentBankcard(models.Model):
     number = models.CharField(max_length=32)
     expiry_date = models.DateField()
     partner_reference = models.CharField(max_length=255)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING)
 
     def __str__(self):
         return self.payment_bankcard
@@ -1934,8 +1934,8 @@ class PaymentSource(models.Model):
     amount_refunded = models.DecimalField(max_digits=12, decimal_places=2)
     reference = models.CharField(max_length=255)
     label = models.CharField(max_length=128)
-    order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
-    source_type = models.ForeignKey('PaymentSourcetype', models.DO_NOTHING)
+    order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
+    source_type = models.OneToOneField('PaymentSourcetype', models.DO_NOTHING)
 
     def __str__(self):
         return self.payment_source
@@ -1953,7 +1953,7 @@ class PaymentTransaction(models.Model):
     reference = models.CharField(max_length=128)
     status = models.CharField(max_length=128)
     date_created = models.DateTimeField()
-    source = models.ForeignKey(PaymentSource, models.DO_NOTHING)
+    source = models.OneToOneField(PaymentSource, models.DO_NOTHING)
 
     def __str__(self):
         return self.payment_transaction
@@ -2009,16 +2009,16 @@ class PhotologueGallery(models.Model):
 
 class PhotologueGalleryPhotos(models.Model):
     sort_value = models.IntegerField()
-    gallery = models.ForeignKey(PhotologueGallery, models.DO_NOTHING)
-    photo = models.ForeignKey('PhotologuePhoto', models.DO_NOTHING)
+    gallery = models.OneToOneField(PhotologueGallery, models.DO_NOTHING)
+    photo = models.OneToOneField('PhotologuePhoto', models.DO_NOTHING)
 
     def __str__(self):
         return self.photologue_gallery_photos        
 
 
 class PhotologueGallerySites(models.Model):
-    gallery = models.ForeignKey(PhotologueGallery, models.DO_NOTHING)
-    site = models.ForeignKey(DjangoSite, models.DO_NOTHING)
+    gallery = models.OneToOneField(PhotologueGallery, models.DO_NOTHING)
+    site = models.OneToOneField(DjangoSite, models.DO_NOTHING)
 
     def __str__(self):
         return self.photologue_gallery_sites        
@@ -2034,14 +2034,14 @@ class PhotologuePhoto(models.Model):
     caption = models.TextField()
     date_added = models.DateTimeField()
     is_public = models.BooleanField()
-    effect = models.ForeignKey('PhotologuePhotoeffect', models.DO_NOTHING, blank=True, null=True)
+    effect = models.OneToOneField('PhotologuePhotoeffect', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.photologue_photo
 
 class PhotologuePhotoSites(models.Model):
-    photo = models.ForeignKey(PhotologuePhoto, models.DO_NOTHING)
-    site = models.ForeignKey(DjangoSite, models.DO_NOTHING)
+    photo = models.OneToOneField(PhotologuePhoto, models.DO_NOTHING)
+    site = models.OneToOneField(DjangoSite, models.DO_NOTHING)
 
     def __str__(self):
         return self.photologue_photo_sites        
@@ -2072,8 +2072,8 @@ class PhotologuePhotosize(models.Model):
     crop = models.BooleanField()
     pre_cache = models.BooleanField()
     increment_count = models.BooleanField()
-    effect = models.ForeignKey(PhotologuePhotoeffect, models.DO_NOTHING, blank=True, null=True)
-    watermark = models.ForeignKey('PhotologueWatermark', models.DO_NOTHING, blank=True, null=True)
+    effect = models.OneToOneField(PhotologuePhotoeffect, models.DO_NOTHING, blank=True, null=True)
+    watermark = models.OneToOneField('PhotologueWatermark', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.photologue_photosize
@@ -2092,7 +2092,7 @@ class PinaxBadgesBadgeaward(models.Model):
     awarded_at = models.DateTimeField()
     slug = models.CharField(max_length=255)
     level = models.IntegerField()
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING)
 
     def __str__(self):
         return self.pinax_badges_badgeaward
@@ -2116,8 +2116,8 @@ class PinaxEventsEvent(models.Model):
 class PinaxMessagesMessage(models.Model):
     sent_at = models.DateTimeField()
     content = models.TextField()
-    sender = models.ForeignKey(AuthUser, models.DO_NOTHING)
-    thread = models.ForeignKey('PinaxMessagesThread', models.DO_NOTHING)
+    sender = models.OneToOneField(AuthUser, models.DO_NOTHING)
+    thread = models.OneToOneField('PinaxMessagesThread', models.DO_NOTHING, verbose_name='messages')
 
     def __str__(self):
         return self.pinax_messages_message
@@ -2131,8 +2131,8 @@ class PinaxMessagesThread(models.Model):
 class PinaxMessagesUserthread(models.Model):
     unread = models.BooleanField()
     deleted = models.BooleanField()
-    thread = models.ForeignKey(PinaxMessagesThread, models.DO_NOTHING)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    thread = models.OneToOneField(PinaxMessagesThread, models.DO_NOTHING)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING)
 
     def __str__(self):
         return self.pinax_messages_userthread
@@ -2148,8 +2148,8 @@ class ReviewsProductreview(models.Model):
     total_votes = models.IntegerField()
     delta_votes = models.IntegerField()
     date_created = models.DateTimeField()
-    product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING, blank=True, null=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING, blank=True, null=True)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.reviews_productreview        
@@ -2158,8 +2158,8 @@ class ReviewsProductreview(models.Model):
 class ReviewsVote(models.Model):
     delta = models.SmallIntegerField()
     date_created = models.DateTimeField()
-    review = models.ForeignKey(ReviewsProductreview, models.DO_NOTHING)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    review = models.OneToOneField(ReviewsProductreview, models.DO_NOTHING)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING)
 
     def __str__(self):
         return self.reviews_vote        
@@ -2177,8 +2177,8 @@ class ShippingOrderanditemcharges(models.Model):
         return self.shipping_orderanditemcharges
 
 class ShippingOrderanditemchargesCountries(models.Model):
-    orderanditemcharges = models.ForeignKey(ShippingOrderanditemcharges, models.DO_NOTHING)
-    country = models.ForeignKey(AddressCountry, models.DO_NOTHING)
+    orderanditemcharges = models.OneToOneField(ShippingOrderanditemcharges, models.DO_NOTHING)
+    country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
 
     def __str__(self):
         return self.shipping_orderanditemcharges_countries        
@@ -2187,7 +2187,7 @@ class ShippingOrderanditemchargesCountries(models.Model):
 class ShippingWeightband(models.Model):
     upper_limit = models.DecimalField(max_digits=12, decimal_places=3)
     charge = models.DecimalField(max_digits=12, decimal_places=2)
-    method = models.ForeignKey('ShippingWeightbased', models.DO_NOTHING)
+    method = models.OneToOneField('ShippingWeightbased', models.DO_NOTHING)
 
     def __str__(self):
         return self.shipping_weightband
@@ -2202,8 +2202,8 @@ class ShippingWeightbased(models.Model):
         return self.shipping_weightbased
 
 class ShippingWeightbasedCountries(models.Model):
-    weightbased = models.ForeignKey(ShippingWeightbased, models.DO_NOTHING)
-    country = models.ForeignKey(AddressCountry, models.DO_NOTHING)
+    weightbased = models.OneToOneField(ShippingWeightbased, models.DO_NOTHING)
+    country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
 
     def __str__(self):
         return self.shipping_weightbased_countries        
@@ -2218,8 +2218,8 @@ class TaggitTag(models.Model):
 
 class TaggitTaggeditem(models.Model):
     object_id = models.IntegerField()
-    content_type = models.ForeignKey(DjangoContent, models.DO_NOTHING)
-    tag = models.ForeignKey(TaggitTag, models.DO_NOTHING)
+    content_type = models.OneToOneField(DjangoContent, models.DO_NOTHING)
+    tag = models.OneToOneField(TaggitTag, models.DO_NOTHING)
 
     def __str__(self):
         return self.taggit_taggeditem        
@@ -2252,14 +2252,14 @@ class VoucherVoucher(models.Model):
     num_orders = models.IntegerField()
     total_discount = models.DecimalField(max_digits=12, decimal_places=2)
     date_created = models.DateTimeField()
-    voucher_set = models.ForeignKey('VoucherVoucherset', models.DO_NOTHING, blank=True, null=True)
+    voucher_set = models.OneToOneField('VoucherVoucherset', models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.voucher_voucher
 
 class VoucherVoucherOffers(models.Model):
-    voucher = models.ForeignKey(VoucherVoucher, models.DO_NOTHING)
-    conditionaloffer = models.ForeignKey(OfferConditionaloffer, models.DO_NOTHING)
+    voucher = models.OneToOneField(VoucherVoucher, models.DO_NOTHING)
+    conditionaloffer = models.OneToOneField(OfferConditionaloffer, models.DO_NOTHING)
 
     def __str__(self):
         return self.voucher_voucher_offers        
@@ -2267,9 +2267,9 @@ class VoucherVoucherOffers(models.Model):
 
 class VoucherVoucherapplication(models.Model):
     date_created = models.DateTimeField()
-    order = models.ForeignKey(OrderOrder, models.DO_NOTHING)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    voucher = models.ForeignKey(VoucherVoucher, models.DO_NOTHING)
+    order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
+    user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    voucher = models.OneToOneField(VoucherVoucher, models.DO_NOTHING)
 
     def __str__(self):
         return self.voucher_voucherapplication
@@ -2282,7 +2282,7 @@ class VoucherVoucherset(models.Model):
     date_created = models.DateTimeField()
     start_datetime = models.DateTimeField()
     end_datetime = models.DateTimeField()
-    offer = models.ForeignKey(OfferConditionaloffer, models.DO_NOTHING, unique=True, blank=True, null=True)
+    offer = models.OneToOneField(OfferConditionaloffer, models.DO_NOTHING, unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.voucher_voucherset
@@ -2290,8 +2290,8 @@ class VoucherVoucherset(models.Model):
 class WishlistsLine(models.Model):
     quantity = models.IntegerField()
     title = models.CharField(max_length=255)
-    product = models.ForeignKey(CatalogueProduct, models.DO_NOTHING, blank=True, null=True)
-    wishlist = models.ForeignKey('WishlistsWishlist', models.DO_NOTHING)
+    product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING, blank=True, null=True)
+    wishlist = models.OneToOneField('WishlistsWishlist', models.DO_NOTHING)
 
     def __str__(self):
         return self.wishlists_line        
@@ -2302,7 +2302,7 @@ class WishlistsWishlist(models.Model):
     key = models.CharField(unique=True, max_length=6)
     visibility = models.CharField(max_length=20)
     date_created = models.DateTimeField()
-    owner = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    owner = models.OneToOneField(AuthUser, models.DO_NOTHING)
 
     def __str__(self):
         return self.wishlists_wishlist
