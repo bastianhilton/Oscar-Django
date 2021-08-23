@@ -17,6 +17,7 @@ django-countries
 django-crispy-forms
 django-enumfields
 django-extensions
+django-flatblocks
 django-import-export
 django-jazzmin
 django-jinja

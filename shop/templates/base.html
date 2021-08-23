@@ -1,4 +1,5 @@
 {% load cms_tags menu_tags sekizai_tags %}
+{% load flatblocks %}
 <!doctype html>
 <html>
     <head>
@@ -33,6 +34,7 @@
         <div class="container">
             <ul class="nav">
                 {% show_menu 0 100 100 100 %}
+                {% flatblock "page.info" %}
             </ul>
             {% block content %}{% endblock content %}
         </div>

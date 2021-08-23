@@ -15,7 +15,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.i18n import JavaScriptCatalog
 from ariadne.contrib.django.views import GraphQLView
 from rest_framework import routers, serializers, viewsets
-
+from flatblocks.views import edit
+from django.contrib.auth.decorators import login_required
 from .schema import schema
 
 admin.autodiscover()
@@ -33,6 +34,8 @@ urlpatterns = [
     url(r'^photologue/', include('photologue.urls', namespace='photologue')),
     path('api-auth/', include('rest_framework.urls')),
     path('graphql/', GraphQLView.as_view(schema=schema), name='graphql'),
+    url(r'^flatblocks/(?P<pk>\d+)/edit/$', login_required(edit),
+        name='flatblocks-edit'),
 ]
 
 application = URLRouter([

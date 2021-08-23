@@ -247,6 +247,7 @@ INSTALLED_APPS = [
     'aldryn_forms',
     'aldryn_forms.contrib.email_notifications',
     'emailit',
+    'flatblocks',
 ]
 
 AUTHENTICATION_BACKENDS = (
