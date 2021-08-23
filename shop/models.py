@@ -954,6 +954,7 @@ class DjangoFlatpage(models.Model):
     enable_comments = models.BooleanField()
     template_name = models.CharField(max_length=70)
     registration_required = models.BooleanField()
+    verbose_name = 'Pages'
 
     def __str__(self):
         return self.django_flatpage
@@ -1031,6 +1032,7 @@ class DjangocmsBlogBlogconfig(models.Model):
     type = models.CharField(max_length=100)
     namespace = models.CharField(unique=True, max_length=100)
     app_data = models.TextField()
+    verbose_name = 'Blog'
 
     def __str__(self):
         return self.djangocms_blog_blogconfig
@@ -1430,6 +1432,7 @@ class FilerFile(models.Model):
     owner = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
     polymorphic_ctype = models.OneToOneField(DjangoContent, models.DO_NOTHING, blank=True, null=True)
     mime_type = models.CharField(max_length=255)
+    verbose_name = 'File System'
 
     def __str__(self):
         return self.filer_file
@@ -1854,6 +1857,7 @@ class OscarInvoicesLegalentityaddress(models.Model):
 
 class OscarapiApikey(models.Model):
     key = models.CharField(unique=True, max_length=255)
+    verbose_name = 'Alternate CMS API'
 
     def __str__(self):
         return self.oscarapi_apikey
@@ -2093,6 +2097,7 @@ class PinaxBadgesBadgeaward(models.Model):
     slug = models.CharField(max_length=255)
     level = models.IntegerField()
     user = models.OneToOneField(AuthUser, models.DO_NOTHING)
+    verbose_name = 'Badges'
 
     def __str__(self):
         return self.pinax_badges_badgeaward
@@ -2109,6 +2114,7 @@ class PinaxEventsEvent(models.Model):
     title = models.CharField(max_length=200)
     url = models.TextField()
     secondary_image = models.CharField(max_length=100)
+    verbose_name = 'Events'
 
     def __str__(self):
         return self.pinax_events_event
@@ -2118,6 +2124,7 @@ class PinaxMessagesMessage(models.Model):
     content = models.TextField()
     sender = models.OneToOneField(AuthUser, models.DO_NOTHING)
     thread = models.OneToOneField('PinaxMessagesThread', models.DO_NOTHING, verbose_name='messages')
+    verbose_name = 'Messages'
 
     def __str__(self):
         return self.pinax_messages_message
@@ -2212,6 +2219,7 @@ class ShippingWeightbasedCountries(models.Model):
 class TaggitTag(models.Model):
     name = models.CharField(unique=True, max_length=100)
     slug = models.CharField(unique=True, max_length=100)
+    verbose_name = 'Tags'
 
     def __str__(self):
         return self.taggit_tag

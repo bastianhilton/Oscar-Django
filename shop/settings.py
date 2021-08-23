@@ -16,6 +16,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 
 from oscar.defaults import *
+import logging
+logging.basicConfig(filename='client_application.log', level=logging.DEBUG)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -136,6 +138,8 @@ MIDDLEWARE = [
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.contrib.auth.middleware.RemoteUserMiddleware',
+    'windows_auth.middleware.UserSyncMiddleware',
 ]
 
 INSTALLED_APPS = [
@@ -248,12 +252,14 @@ INSTALLED_APPS = [
     'aldryn_forms.contrib.email_notifications',
     'emailit',
     'flatblocks',
+    'windows_auth',
 ]
 
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',
     'django.contrib.auth.backends.ModelBackend',
     'pinax.announcements.auth_backends.AnnouncementPermissionsBackend',
+    'windows_auth.backends.WindowsAuthBackend',
 )
 
 HAYSTACK_CONNECTIONS = {
@@ -391,3 +397,37 @@ DJANGOCMS_AUDIO_ALLOWED_EXTENSIONS = ['mp3', 'ogg', 'wav']
 DJANGOCMS_PICTURE_NESTING = True
 
 DJANGOCMS_CHARTS_CACHE = 'djangocms_charts'
+
+WAUTH_DOMAINS = {
+    "EXAMPLE": {  # this is your domain's NetBIOS Name, same as in "EXAMPLE\\username" login scheme
+        "SERVER": "example.local",  # the FQDN of the DC server, usually is the FQDN of the domain itself
+        "SEARCH_BASE": "DC=example,DC=local",  # the default Search Base to use when searching
+        "USERNAME": "EXAMPLE\\bind_account",  # username of the account used to authenticate your Django project to Active Directory
+        "PASSWORD": "<super secret>",  # password for the binding account
+        'handlers': {
+            'console': {
+                'class': 'logging.StreamHandler',
+                'level': 'WARNING',
+            },
+            'file': {
+                'level': 'INFO',
+                'class': 'logging.handlers.RotatingFileHandler',
+                'maxBytes': 2 ** 20 * 100,  # 100MB
+                'backupCount': 10,
+                'filename': BASE_DIR / 'logs' / 'debug.log',
+            },
+            'ldap': {
+                'level': 'INFO',
+                'class': 'logging.handlers.RotatingFileHandler',
+                'maxBytes': 2 ** 20 * 100,  # 100MB
+                'backupCount': 10,
+                'filename': BASE_DIR / 'logs' / 'ldap.log',
+            },
+            'mail_admins': {
+                'level': 'ERROR',
+                'class': 'django.utils.log.AdminEmailHandler',
+                'include_html': True,
+            },
+        },
+    }
+}

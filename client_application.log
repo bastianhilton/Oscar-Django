@@ -1,0 +1,24 @@
+WARNING:wauth:relation "windows_auth_ldapuser" does not exist
+LINE 1: SELECT (1) AS "a" FROM "windows_auth_ldapuser" WHERE NOT ("w...
+                               ^
+
+DEBUG:wauth:Binding LDAP connection for domain EXAMPLE: 0:00:09.147501
+ERROR:wauth:Failed to preload connection to domain EXAMPLE.
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\apps.py", line 50, in ready
+    manager = get_ldap_manager(domain)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 122, in get_ldap_manager
+    _ldap_connections[domain] = LDAPManager(domain, settings=settings)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 20, in __init__
+    self._conn = self._create_connection()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 45, in _create_connection
+    return Connection(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 363, in __init__
+    self._do_auto_bind()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 387, in _do_auto_bind
+    self.open(read_server_info=False)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\sync.py", line 57, in open
+    BaseStrategy.open(self, reset_usage, read_server_info)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\base.py", line 154, in open
+    raise LDAPSocketOpenError('invalid server address')
+ldap3.core.exceptions.LDAPSocketOpenError: invalid server address
