@@ -1,0 +1,8 @@
+@import 'chartjs-sass';
+
+//Set default colors - from angluar js version of chartjs - random colors thereafter for 10 in total
+@include chart_colors(($Blue, $Light_Grey, $Red, $Green, $Yellow, $Grey, $Dark_Grey), 20);
+
+
+
+

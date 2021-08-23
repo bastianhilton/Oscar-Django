@@ -18,6 +18,7 @@ from rest_framework import routers, serializers, viewsets
 from flatblocks.views import edit
 from django.contrib.auth.decorators import login_required
 from .schema import schema
+import debug_toolbar
 
 admin.autodiscover()
 
@@ -36,6 +37,7 @@ urlpatterns = [
     path('graphql/', GraphQLView.as_view(schema=schema), name='graphql'),
     url(r'^flatblocks/(?P<pk>\d+)/edit/$', login_required(edit),
         name='flatblocks-edit'),
+    path('__debug__/', include(debug_toolbar.urls)),
 ]
 
 application = URLRouter([

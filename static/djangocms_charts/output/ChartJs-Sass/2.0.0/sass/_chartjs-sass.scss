@@ -1,0 +1,90 @@
+/*
+     Chartjs - SASS
+     Use CSS formatting for Chartjs
+     Combine with chartjs-sass.js + chartjs-sass-default.css + own custom css
+ */
+
+
+// Default colors - random thereafter, unless specified (from angularjs imlementation)
+$Blue: rgb(151,187,205);
+$Light_Grey: rgb(220,220,220);
+$Red: rgb(247,70,74);
+$Green: rgb(70,191,189);
+$Yellow: rgb(253,180,92);
+$Grey: rgb(148,159,177);
+$Dark_Grey: rgb(77,83,96);
+$White: rgb(255,255,255);
+
+
+/* Mixin to define each chart element based on a base color */
+@mixin chart_colors($base_colors:null, $num_required:null) {
+
+	//Just create the base colors if they are only provided
+    @if $num_required == null {
+        $num_required: length($base_colors);
+    }
+
+    //For each required color
+    @for $i from 1 through $num_required {
+		$base_color: null;
+
+		// Use the base color if provided, or a random color
+		@if $base_colors != null and $i <= length($base_colors) {
+            $base_color: nth($base_colors, $i);
+        } @else {
+            $base_color: getRandomColor();
+        }
+
+        // If there is a parent then add the parent selector as an AND selector
+        $pid: null;
+        @if & {
+            $pid: '&';
+        }
+
+        //Create each id and class with the specified (or random) color
+        $fill_color: rgba($base_color, 0.3);
+        $fill_hover_color: darken($fill_color, 20%);
+        $hover_color: darken($base_color, 20%);
+
+
+		//Line + Radar
+		#{$pid}.line,
+		#{$pid}.scatter,
+		#{$pid}.radar {
+			&.backgroundColor_#{$i} { color: $fill_color; }
+			&.borderColor_#{$i} { color: $base_color; }
+			&.pointBackgroundColor_#{$i} { color: $base_color; }
+			&.pointBorderColor_#{$i} { color: $base_color; }
+			&.hoverBackgroundColor_#{$i} { color: $hover_color; }
+			&.hoverBorderColor_#{$i} { color: $hover_color; }
+			&.pointHoverBackgroundColor_#{$i} { color: $hover_color; }
+			&.pointHoverBorderColor_#{$i} { color: $hover_color; }
+		}
+		// Bar
+        #{$pid}.bar,
+		#{$pid}.horizontalBar,
+		#{$pid}.pie,
+		#{$pid}.doughnut {
+            &.backgroundColor_#{$i} { color: $base_color; }
+			&.borderColor_#{$i} { color: $base_color; }
+			&.hoverBackgroundColor_#{$i} { color: $hover_color; }
+        	&.hoverBorderColor_#{$i} { color: $hover_color; }
+		}
+
+		#{$pid}.polarArea,
+		#{$pid}.bubble, {
+			&.backgroundColor_#{$i} { color: $fill_color; }
+			&.borderColor_#{$i} { color: $base_color; }
+			&.hoverBackgroundColor_#{$i} { color: $fill_hover_color; }
+        	&.hoverBorderColor_#{$i} { color: $hover_color; }
+		}
+    }
+}
+
+@function getRandomColor(){
+    $red: random(256)-1;
+    $green: random(256)-1;
+    $blue: random(256)-1;
+    @return rgb($red, $green, $blue);
+}
+

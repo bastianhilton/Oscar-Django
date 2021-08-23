@@ -140,6 +140,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.RemoteUserMiddleware',
     'windows_auth.middleware.UserSyncMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 INSTALLED_APPS = [
@@ -253,6 +254,8 @@ INSTALLED_APPS = [
     'emailit',
     'flatblocks',
     'windows_auth',
+    'debug_toolbar',
+    'django_countries',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -431,3 +434,7 @@ WAUTH_DOMAINS = {
         },
     }
 }
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]

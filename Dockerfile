@@ -1,11 +1,25 @@
 FROM python:3.8
+ENV PYTHONUNBUFFERED 1
 
-WORKDIR /usr/src/alternatecms
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get install -y nodejs
 
-COPY . .
+COPY ./requirements.txt /requirements.txt
+RUN pip3 install -r /requirements.txt
 
-RUN pip install -r requirements.txt
+RUN groupadd -r django && useradd -r -g django django
+COPY . /app
+RUN chown -R django /app
 
-EXPOSE 8000
+WORKDIR /app
 
-CMD ["django", "run", "-h", "0.0.0.0"]
+RUN make install
+
+USER django
+
+RUN make build_sandbox
+
+RUN cp --remove-destination /app/src/oscar/static/oscar/img/image_not_found.jpg /app/sandbox/public/media/
+
+WORKDIR /app/sandbox/
+CMD uwsgi --ini uwsgi.ini
