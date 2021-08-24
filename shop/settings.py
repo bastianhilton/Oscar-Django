@@ -139,7 +139,6 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.RemoteUserMiddleware',
-    'windows_auth.middleware.UserSyncMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django_keycloak.middleware.BaseKeycloakMiddleware',
 ]
@@ -264,7 +263,6 @@ AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',
     'django.contrib.auth.backends.ModelBackend',
     'pinax.announcements.auth_backends.AnnouncementPermissionsBackend',
-    'windows_auth.backends.WindowsAuthBackend',
     'django_keycloak.auth.backends.KeycloakAuthorizationCodeBackend',
 )
 
