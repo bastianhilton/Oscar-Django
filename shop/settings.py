@@ -254,10 +254,10 @@ INSTALLED_APPS = [
     'aldryn_forms.contrib.email_notifications',
     'emailit',
     'flatblocks',
-    'windows_auth',
     'debug_toolbar',
     'django_countries',
-    'django_keycloak.apps.KeycloakAppConfig'
+    'django_keycloak.apps.KeycloakAppConfig',
+    'django_windows_tools',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -406,44 +406,6 @@ DJANGOCMS_PICTURE_NESTING = True
 
 DJANGOCMS_CHARTS_CACHE = 'djangocms_charts'
 
-WAUTH_DOMAINS = {
-    "EXAMPLE": {  # this is your domain's NetBIOS Name, same as in "EXAMPLE\\username" login scheme
-        "SERVER": "example.local",  # the FQDN of the DC server, usually is the FQDN of the domain itself
-        "SEARCH_BASE": "DC=example,DC=local",  # the default Search Base to use when searching
-        "USERNAME": "EXAMPLE\\bind_account",  # username of the account used to authenticate your Django project to Active Directory
-        "PASSWORD": "<super secret>",  # password for the binding account
-        'handlers': {
-            'console': {
-                'class': 'logging.StreamHandler',
-                'level': 'WARNING',
-            },
-            'file': {
-                'level': 'INFO',
-                'class': 'logging.handlers.RotatingFileHandler',
-                'maxBytes': 2 ** 20 * 100,  # 100MB
-                'backupCount': 10,
-                'filename': BASE_DIR / 'logs' / 'debug.log',
-            },
-            'ldap': {
-                'level': 'INFO',
-                'class': 'logging.handlers.RotatingFileHandler',
-                'maxBytes': 2 ** 20 * 100,  # 100MB
-                'backupCount': 10,
-                'filename': BASE_DIR / 'logs' / 'ldap.log',
-            },
-            'mail_admins': {
-                'level': 'ERROR',
-                'class': 'django.utils.log.AdminEmailHandler',
-                'include_html': True,
-            },
-        },
-    }
-}
-
 INTERNAL_IPS = [
     '127.0.0.1',
-]
-
-PASSWORD_HASHERS = [
-    'django_keycloak.hashers.PBKDF2SHA512PasswordHasher',
 ]

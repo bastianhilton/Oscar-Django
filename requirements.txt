@@ -116,3 +116,4 @@ ipython>=7.12,<8
 # Country data
 pycountry
 django-keycloak
+django-windows-tools
