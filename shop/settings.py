@@ -141,6 +141,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.RemoteUserMiddleware',
     'windows_auth.middleware.UserSyncMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django_keycloak.middleware.BaseKeycloakMiddleware',
 ]
 
 INSTALLED_APPS = [
@@ -256,6 +257,7 @@ INSTALLED_APPS = [
     'windows_auth',
     'debug_toolbar',
     'django_countries',
+    'django_keycloak.apps.KeycloakAppConfig'
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -263,7 +265,10 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'pinax.announcements.auth_backends.AnnouncementPermissionsBackend',
     'windows_auth.backends.WindowsAuthBackend',
+    'django_keycloak.auth.backends.KeycloakAuthorizationCodeBackend',
 )
+
+LOGIN_URL = 'keycloak_login'
 
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -437,4 +442,8 @@ WAUTH_DOMAINS = {
 
 INTERNAL_IPS = [
     '127.0.0.1',
+]
+
+PASSWORD_HASHERS = [
+    'django_keycloak.hashers.PBKDF2SHA512PasswordHasher',
 ]

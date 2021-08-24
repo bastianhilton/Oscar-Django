@@ -115,3 +115,4 @@ ipython>=7.12,<8
 
 # Country data
 pycountry
+django_keycloak.apps.KeycloakAppConfig

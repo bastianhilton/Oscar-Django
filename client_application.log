@@ -648,3 +648,213 @@ Traceback (most recent call last):
     raise LDAPSocketOpenError('invalid server address')
 ldap3.core.exceptions.LDAPSocketOpenError: invalid server address
 INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:wauth:Binding LDAP connection for domain EXAMPLE: 0:00:09.168551
+ERROR:wauth:Failed to preload connection to domain EXAMPLE.
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\apps.py", line 51, in ready
+    manager = get_ldap_manager(domain)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 122, in get_ldap_manager
+    _ldap_connections[domain] = LDAPManager(domain, settings=settings)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 20, in __init__
+    self._conn = self._create_connection()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 45, in _create_connection
+    return Connection(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 363, in __init__
+    self._do_auto_bind()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 387, in _do_auto_bind
+    self.open(read_server_info=False)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\sync.py", line 57, in open
+    BaseStrategy.open(self, reset_usage, read_server_info)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\base.py", line 154, in open
+    raise LDAPSocketOpenError('invalid server address')
+ldap3.core.exceptions.LDAPSocketOpenError: invalid server address
+DEBUG:wauth:Binding LDAP connection for domain EXAMPLE: 0:00:09.161482
+ERROR:wauth:Failed to preload connection to domain EXAMPLE.
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\apps.py", line 51, in ready
+    manager = get_ldap_manager(domain)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 122, in get_ldap_manager
+    _ldap_connections[domain] = LDAPManager(domain, settings=settings)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 20, in __init__
+    self._conn = self._create_connection()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 45, in _create_connection
+    return Connection(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 363, in __init__
+    self._do_auto_bind()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 387, in _do_auto_bind
+    self.open(read_server_info=False)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\sync.py", line 57, in open
+    BaseStrategy.open(self, reset_usage, read_server_info)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\base.py", line 154, in open
+    raise LDAPSocketOpenError('invalid server address')
+ldap3.core.exceptions.LDAPSocketOpenError: invalid server address
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+DEBUG:wauth:Binding LDAP connection for domain EXAMPLE: 0:00:09.182966
+ERROR:wauth:Failed to preload connection to domain EXAMPLE.
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\apps.py", line 51, in ready
+    manager = get_ldap_manager(domain)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 122, in get_ldap_manager
+    _ldap_connections[domain] = LDAPManager(domain, settings=settings)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 20, in __init__
+    self._conn = self._create_connection()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 45, in _create_connection
+    return Connection(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 363, in __init__
+    self._do_auto_bind()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 387, in _do_auto_bind
+    self.open(read_server_info=False)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\sync.py", line 57, in open
+    BaseStrategy.open(self, reset_usage, read_server_info)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\base.py", line 154, in open
+    raise LDAPSocketOpenError('invalid server address')
+ldap3.core.exceptions.LDAPSocketOpenError: invalid server address
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+DEBUG:wauth:Binding LDAP connection for domain EXAMPLE: 0:00:09.148365
+ERROR:wauth:Failed to preload connection to domain EXAMPLE.
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\apps.py", line 51, in ready
+    manager = get_ldap_manager(domain)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 122, in get_ldap_manager
+    _ldap_connections[domain] = LDAPManager(domain, settings=settings)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 20, in __init__
+    self._conn = self._create_connection()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 45, in _create_connection
+    return Connection(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 363, in __init__
+    self._do_auto_bind()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 387, in _do_auto_bind
+    self.open(read_server_info=False)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\sync.py", line 57, in open
+    BaseStrategy.open(self, reset_usage, read_server_info)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\base.py", line 154, in open
+    raise LDAPSocketOpenError('invalid server address')
+ldap3.core.exceptions.LDAPSocketOpenError: invalid server address
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+DEBUG:wauth:Binding LDAP connection for domain EXAMPLE: 0:00:09.180608
+ERROR:wauth:Failed to preload connection to domain EXAMPLE.
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\apps.py", line 51, in ready
+    manager = get_ldap_manager(domain)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 122, in get_ldap_manager
+    _ldap_connections[domain] = LDAPManager(domain, settings=settings)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 20, in __init__
+    self._conn = self._create_connection()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 45, in _create_connection
+    return Connection(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 363, in __init__
+    self._do_auto_bind()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 387, in _do_auto_bind
+    self.open(read_server_info=False)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\sync.py", line 57, in open
+    BaseStrategy.open(self, reset_usage, read_server_info)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\base.py", line 154, in open
+    raise LDAPSocketOpenError('invalid server address')
+ldap3.core.exceptions.LDAPSocketOpenError: invalid server address
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+DEBUG:wauth:Binding LDAP connection for domain EXAMPLE: 0:00:09.208700
+ERROR:wauth:Failed to preload connection to domain EXAMPLE.
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\apps.py", line 51, in ready
+    manager = get_ldap_manager(domain)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 122, in get_ldap_manager
+    _ldap_connections[domain] = LDAPManager(domain, settings=settings)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 20, in __init__
+    self._conn = self._create_connection()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 45, in _create_connection
+    return Connection(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 363, in __init__
+    self._do_auto_bind()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 387, in _do_auto_bind
+    self.open(read_server_info=False)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\sync.py", line 57, in open
+    BaseStrategy.open(self, reset_usage, read_server_info)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\base.py", line 154, in open
+    raise LDAPSocketOpenError('invalid server address')
+ldap3.core.exceptions.LDAPSocketOpenError: invalid server address
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:wauth:Binding LDAP connection for domain EXAMPLE: 0:00:09.146277
+ERROR:wauth:Failed to preload connection to domain EXAMPLE.
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\apps.py", line 51, in ready
+    manager = get_ldap_manager(domain)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 122, in get_ldap_manager
+    _ldap_connections[domain] = LDAPManager(domain, settings=settings)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 20, in __init__
+    self._conn = self._create_connection()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 45, in _create_connection
+    return Connection(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 363, in __init__
+    self._do_auto_bind()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 387, in _do_auto_bind
+    self.open(read_server_info=False)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\sync.py", line 57, in open
+    BaseStrategy.open(self, reset_usage, read_server_info)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\base.py", line 154, in open
+    raise LDAPSocketOpenError('invalid server address')
+ldap3.core.exceptions.LDAPSocketOpenError: invalid server address
+DEBUG:wauth:Binding LDAP connection for domain EXAMPLE: 0:00:09.165208
+ERROR:wauth:Failed to preload connection to domain EXAMPLE.
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\apps.py", line 51, in ready
+    manager = get_ldap_manager(domain)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 122, in get_ldap_manager
+    _ldap_connections[domain] = LDAPManager(domain, settings=settings)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 20, in __init__
+    self._conn = self._create_connection()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 45, in _create_connection
+    return Connection(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 363, in __init__
+    self._do_auto_bind()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 387, in _do_auto_bind
+    self.open(read_server_info=False)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\sync.py", line 57, in open
+    BaseStrategy.open(self, reset_usage, read_server_info)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\base.py", line 154, in open
+    raise LDAPSocketOpenError('invalid server address')
+ldap3.core.exceptions.LDAPSocketOpenError: invalid server address
+DEBUG:wauth:Binding LDAP connection for domain EXAMPLE: 0:00:09.183353
+ERROR:wauth:Failed to preload connection to domain EXAMPLE.
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\apps.py", line 51, in ready
+    manager = get_ldap_manager(domain)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 122, in get_ldap_manager
+    _ldap_connections[domain] = LDAPManager(domain, settings=settings)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 20, in __init__
+    self._conn = self._create_connection()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 45, in _create_connection
+    return Connection(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 363, in __init__
+    self._do_auto_bind()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 387, in _do_auto_bind
+    self.open(read_server_info=False)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\sync.py", line 57, in open
+    BaseStrategy.open(self, reset_usage, read_server_info)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\base.py", line 154, in open
+    raise LDAPSocketOpenError('invalid server address')
+ldap3.core.exceptions.LDAPSocketOpenError: invalid server address
+DEBUG:wauth:Binding LDAP connection for domain EXAMPLE: 0:00:09.232551
+ERROR:wauth:Failed to preload connection to domain EXAMPLE.
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\apps.py", line 51, in ready
+    manager = get_ldap_manager(domain)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 122, in get_ldap_manager
+    _ldap_connections[domain] = LDAPManager(domain, settings=settings)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 20, in __init__
+    self._conn = self._create_connection()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\windows_auth\ldap.py", line 45, in _create_connection
+    return Connection(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 363, in __init__
+    self._do_auto_bind()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\core\connection.py", line 387, in _do_auto_bind
+    self.open(read_server_info=False)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\sync.py", line 57, in open
+    BaseStrategy.open(self, reset_usage, read_server_info)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ldap3\strategy\base.py", line 154, in open
+    raise LDAPSocketOpenError('invalid server address')
+ldap3.core.exceptions.LDAPSocketOpenError: invalid server address
+INFO:django.utils.autoreload:Watching for file changes with StatReloader

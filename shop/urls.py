@@ -38,6 +38,7 @@ urlpatterns = [
     url(r'^flatblocks/(?P<pk>\d+)/edit/$', login_required(edit),
         name='flatblocks-edit'),
     path('__debug__/', include(debug_toolbar.urls)),
+    url(r'^keycloak/', include('django_keycloak.urls')),
 ]
 
 application = URLRouter([
