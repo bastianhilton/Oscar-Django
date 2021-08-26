@@ -32,7 +32,7 @@ SECRET_KEY = 'ruynfepj-$l0v7faw8&%$zm!-an-gy=hymjy1b@ce&@^t+f%%f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 ROOT_URLCONF = 'shop.urls'
@@ -139,8 +139,8 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.RemoteUserMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'django_keycloak.middleware.BaseKeycloakMiddleware',
+    'django_otp.middleware.OTPMiddleware',
+    'two_factor.middleware.threadlocals.ThreadLocals',
 ]
 
 INSTALLED_APPS = [
@@ -252,11 +252,18 @@ INSTALLED_APPS = [
     'aldryn_forms',
     'aldryn_forms.contrib.email_notifications',
     'emailit',
-    'flatblocks',
-    'debug_toolbar',
-    'django_countries',
-    'django_keycloak.apps.KeycloakAppConfig',
-    'django_windows_tools',
+    'django_measurement', 
+    'gdpr_assist',
+    'payments',
+    'newsletter',
+    'slick_reporting',
+    'crispy_forms',
+    'captcha',
+    'django_otp',
+    'django_otp.plugins.otp_static',
+    'django_otp.plugins.otp_totp',
+    'two_factor',
+    'otp_yubikey',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -318,8 +325,14 @@ DATABASES = {
         'PASSWORD': 'Tester2021', # Please change Me
         'HOST': 'localhost',
         'PORT': '5432',
-    }
+    },
+    'gdpr_log': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'gdpr-log.sqlite3'),
+    },
 }
+
+DATABASE_ROUTERS = ['gdpr_assist.routers.EventLogRouter']
 
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
@@ -407,3 +420,71 @@ DJANGOCMS_CHARTS_CACHE = 'djangocms_charts'
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+PAYMENT_HOST = 'localhost:8000'
+PAYMENT_USES_SSL = False
+PAYMENT_MODEL = 'shop.Payment'
+PAYMENT_VARIANTS = {
+    'default': ('payments.dummy.DummyProvider', {}),
+    'authorizenet': ('payments.authorizenet.AuthorizeNetProvider', {
+        'login_id': '1234login',
+        'transaction_key': '1234567890abcdef',
+        'endpoint': 'https://test.authorize.net/gateway/transact.dll'}),
+    'braintree': ('payments.braintree.BraintreeProvider', {
+        'merchant_id': '112233445566',
+        'public_key': '1234567890abcdef',
+        'private_key': 'abcdef123456',
+        'sandbox': True}),
+    'coinbase': ('payments.coinbase.CoinbaseProvider', {
+        'key': '123abcd',
+        'secret': 'abcd1234',
+        'endpoint': 'sandbox.coinbase.com'}),
+    'cybersource': ('payments.cybersource.CyberSourceProvider', {
+        'merchant_id': 'example',
+        'password': '1234567890abcdef',
+        'capture': False,
+        'sandbox': True}),
+    'dotpay': ('payments.dotpay.DotpayProvider', {
+        'seller_id': '123',
+        'pin': '0000',
+        'lock': True,
+        'endpoint': 'https://ssl.dotpay.pl/test_payment/'}),
+    'paypal': ('payments.paypal.PaypalProvider', {
+        'client_id': 'user@example.com',
+        'secret': 'iseedeadpeople',
+        'endpoint': 'https://api.sandbox.paypal.com',
+        'capture': False}),
+    'paypal': ('payments.paypal.PaypalCardProvider', {
+        'client_id': 'user@example.com',
+        'secret': 'iseedeadpeople'}),
+    'sage': ('payments.sagepay.SagepayProvider', {
+        'vendor': 'example',
+        'encryption_key': '1234567890abcdef',
+        'endpoint': 'https://test.sagepay.com/Simulator/VSPFormGateway.asp'}),
+    'sage': ('payments.sofort.SofortProvider', {
+        'id': '123456',
+        'key': '1234567890abcdef',
+        'project_id': '654321',
+        'endpoint': 'https://api.sofort.com/api/xml'}),
+    'stripe': ('payments.stripe.StripeProvider', {
+        'secret_key': 'sk_test_123456',
+        'public_key': 'pk_test_123456'})    
+        }
+
+NEWSLETTER_THUMBNAIL = 'sorl-thumbnail'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+SLICK_REPORTING_FORM_MEDIA = {
+'css': {
+    'all': (
+        'https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css',
+    )
+},
+'js': (
+    'https://code.jquery.com/jquery-3.3.1.slim.min.js',
+    'https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js',
+    'https://code.highcharts.com/highcharts.js',
+    )
+}

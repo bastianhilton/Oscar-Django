@@ -1,6 +1,10 @@
 from django.db import models
 from django.utils.timezone import now
+from decimal import Decimal
+from django.utils.translation import gettext as _
 
+from payments import PurchasedItem
+from payments.models import BasePayment
 # Create your models here.
 
 class AddressCountry(models.Model):
@@ -1919,6 +1923,18 @@ class PartnerStockrecord(models.Model):
     def __str__(self):
         return self.partner_stockrecord        
 
+class Payment(BasePayment):
+
+    def get_failure_url(self):
+        return 'http://example.com/failure/'
+
+    def get_success_url(self):
+        return 'http://example.com/success/'
+
+    def get_purchased_items(self):
+        # you'll probably want to retrieve these from an associated order
+        yield PurchasedItem(name='The Hound of the Baskervilles', sku='BSKV',
+                            quantity=9, price=Decimal(10), currency='USD')
 
 class PaymentBankcard(models.Model):
     card_type = models.CharField(max_length=128)
@@ -2171,6 +2187,49 @@ class ReviewsVote(models.Model):
     def __str__(self):
         return self.reviews_vote        
 
+class Client(models.Model):
+    slug = models.SlugField(_('Code'), max_length=50, unique=True, db_index=True, blank=True)
+    name = models.CharField(_('Name'), max_length=255, unique=True, db_index=True)
+
+
+    class Meta:
+        verbose_name = _('Client')
+        verbose_name_plural = _('Clients')
+
+    def __str__(self):
+        return self.name
+
+
+class Product(models.Model):
+    slug = models.SlugField(_('Code'), max_length=50, unique=True, db_index=True)
+    name = models.CharField(_('Name'), max_length=255, unique=True, db_index=True)
+
+    class Meta:
+        verbose_name = _('Product')
+        verbose_name_plural = _('Products')
+
+    def __str__(self):
+        return self.name
+
+class SalesLineTransaction(models.Model):
+    """
+    Sales Log
+    """
+    slug = models.SlugField(_('Code'), max_length=50, db_index=True, validators=[], blank=True)
+    transaction_date = models.DateTimeField(_('Date'), db_index=True)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.DecimalField(_('Quantity'), max_digits=19, decimal_places=2, default=0)
+    price = models.DecimalField(_('Price'), max_digits=19, decimal_places=2, default=0)
+    value = models.DecimalField(_('Value'), max_digits=19, decimal_places=2, default=0)
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        self.value = self.price * self.quantity
+        super().save(force_insert, force_update, using, update_fields)
+
+    class Meta:
+        verbose_name = _('Sale log')
+        verbose_name_plural = _('Sales logs')
 
 class ShippingOrderanditemcharges(models.Model):
     code = models.CharField(unique=True, max_length=128)

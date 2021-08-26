@@ -15,10 +15,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.i18n import JavaScriptCatalog
 from ariadne.contrib.django.views import GraphQLView
 from rest_framework import routers, serializers, viewsets
-from flatblocks.views import edit
 from django.contrib.auth.decorators import login_required
+from two_factor.gateways.twilio.urls import urlpatterns as tf_twilio_urls
+from two_factor.urls import urlpatterns as tf_urls
+
 from .schema import schema
-import debug_toolbar
 
 admin.autodiscover()
 
@@ -35,10 +36,11 @@ urlpatterns = [
     url(r'^photologue/', include('photologue.urls', namespace='photologue')),
     path('api-auth/', include('rest_framework.urls')),
     path('graphql/', GraphQLView.as_view(schema=schema), name='graphql'),
-    url(r'^flatblocks/(?P<pk>\d+)/edit/$', login_required(edit),
-        name='flatblocks-edit'),
-    path('__debug__/', include(debug_toolbar.urls)),
-    url(r'^keycloak/', include('django_keycloak.urls')),
+    path('payments/', include('payments.urls')),
+    path('newsletter/', include('newsletter.urls')),
+    path('captcha/', include('captcha.urls')),
+    path('', include(tf_urls)),
+    path('', include(tf_twilio_urls)),
 ]
 
 application = URLRouter([
