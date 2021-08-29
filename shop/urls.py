@@ -19,7 +19,7 @@ from django.contrib.auth.decorators import login_required
 from two_factor.gateways.twilio.urls import urlpatterns as tf_twilio_urls
 from two_factor.urls import urlpatterns as tf_urls
 
-from .schema import schema
+##from .schema import schema
 
 admin.autodiscover()
 

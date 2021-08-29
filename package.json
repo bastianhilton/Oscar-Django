@@ -1,24 +1,29 @@
 {
-  "name": "meeovi-oscar",
+  "name": "alternatecms",
   "version": "1.0.0",
-  "description": "Backend for Meeovi.com",
+  "description": "Content Management System for small to large businesses.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bastianhilton/djangooscar-meeovi.git"
+    "url": "git+https://github.com/bastianhilton/alternate-cms.git"
   },
   "keywords": [
-    "meeovi"
+    "alternate"
   ],
   "author": "The Meeovi Company",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bastianhilton/djangooscar-meeovi/issues"
+    "url": "https://github.com/bastianhilton/alternate-cms/issues"
   },
-  "homepage": "https://github.com/bastianhilton/djangooscar-meeovi#readme",
+  "homepage": "https://github.com/bastianhilton/alternate-cms#readme",
   "dependencies": {
+    "@graphql-mesh/cli": "^0.38.0",
+    "@graphql-mesh/graphql": "^0.18.10",
+    "@graphql-mesh/mysql": "^0.12.9",
+    "@graphql-mesh/postgraphile": "^0.14.0",
+    "graphql": "^15.5.1"
   }
 }

@@ -1,0 +1,17 @@
+sources:
+  #- name: Alternate
+  #  handler:
+  #    graphql:
+  #      endpoint: http://my-service-url:3000/graphql
+  - name: Alternate
+    handler:
+      postgraphile:
+        connectionString: postgres://testuser:Tester2021@localhost/alternatecms
+  #- name: Alternate
+  #  handler:
+  #    mysql:
+  #      host: localhost
+  #      port: 3306
+  #      user: root
+  #      password: passwd
+  #      database: employees

@@ -270,10 +270,7 @@ AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',
     'django.contrib.auth.backends.ModelBackend',
     'pinax.announcements.auth_backends.AnnouncementPermissionsBackend',
-    'django_keycloak.auth.backends.KeycloakAuthorizationCodeBackend',
 )
-
-LOGIN_URL = 'keycloak_login'
 
 HAYSTACK_CONNECTIONS = {
     'default': {
