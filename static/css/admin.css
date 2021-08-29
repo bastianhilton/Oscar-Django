@@ -1,0 +1,5 @@
+/********************** Main CSS ************/
+
+#content-main .col-lg-9 {
+    max-width: 70% !important;
+}

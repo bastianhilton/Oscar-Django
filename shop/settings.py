@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from django.conf.global_settings import LANGUAGES as DJANGO_LANGUAGES
 
 from oscar.defaults import *
 import logging
@@ -32,7 +33,7 @@ SECRET_KEY = 'ruynfepj-$l0v7faw8&%$zm!-an-gy=hymjy1b@ce&@^t+f%%f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 # Application definition
 ROOT_URLCONF = 'shop.urls'
@@ -70,10 +71,12 @@ LANGUAGE_CODE = 'en'
 TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
-
+LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
 USE_L10N = True
-
 USE_TZ = True
+
+# English default
+LANGUAGES = DJANGO_LANGUAGES
 
 
 # Static files (CSS, JavaScript, Images)
@@ -256,8 +259,6 @@ INSTALLED_APPS = [
     'gdpr_assist',
     'payments',
     'newsletter',
-    'slick_reporting',
-    'crispy_forms',
     'captcha',
     'django_otp',
     'django_otp.plugins.otp_static',
@@ -379,20 +380,38 @@ MAPS_PROVIDERS = [
 PINAX_EVENTS_IMAGE_THUMBNAIL_SPEC = "pinax.events.specs.ImageThumbnail"
 PINAX_EVENTS_SECONDARY_IMAGE_THUMBNAIL_SPEC = "pinax.events.specs.SecondaryImageThumbnail"
 
+JAZZMIN_UI_TWEAKS = {
+    "theme": "cosmo",
+    "sidebar_nav_flat_style": True,
+    "footer_small_text": True,
+    "button_classes": {
+        "primary": "btn-outline-primary",
+        "secondary": "btn-outline-secondary",
+        "info": "btn-outline-info",
+        "warning": "btn-outline-warning",
+        "danger": "btn-outline-danger",
+        "success": "btn-outline-success",
+    },
+}
+
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
     "site_title": "Alternate CMS",
-
-    # Title on the brand, and login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    # The model admin to search from the search bar, search bar omitted if excluded
+    "search_model": "auth.User",
+    "usermenu_links": [
+        {"name": "Support", "url": "https://docs.alternatecms.com", "new_window": True},
+        {"model": "auth.user"}
+    ],
+    "changeform_format": "horizontal_tabs",
+    "navigation_expanded": True,
+    "language_chooser": True,
+    "hide_apps": ["Charts", "flatpages"],
     "site_header": "Alternate CMS",
-
-    # Relative path to a favicon for your site, will default to site_logo if absent (ideally 32x32 px)
+    "show_ui_builder": True,
     "site_icon": None,
 
-    # Welcome text on the login screen
     "welcome_sign": "Welcome to the Back Office",
-
-    # Copyright on the footer
     "copyright": "The Meeovi Company",
 }
 
@@ -414,11 +433,7 @@ DJANGOCMS_PICTURE_NESTING = True
 
 DJANGOCMS_CHARTS_CACHE = 'djangocms_charts'
 
-INTERNAL_IPS = [
-    '127.0.0.1',
-]
-
-PAYMENT_HOST = 'localhost:8000'
+PAYMENT_HOST = '0.0.0.0:8000'
 PAYMENT_USES_SSL = False
 PAYMENT_MODEL = 'shop.Payment'
 PAYMENT_VARIANTS = {
@@ -469,19 +484,3 @@ PAYMENT_VARIANTS = {
         }
 
 NEWSLETTER_THUMBNAIL = 'sorl-thumbnail'
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
-SLICK_REPORTING_FORM_MEDIA = {
-'css': {
-    'all': (
-        'https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css',
-        'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css',
-    )
-},
-'js': (
-    'https://code.jquery.com/jquery-3.3.1.slim.min.js',
-    'https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js',
-    'https://code.highcharts.com/highcharts.js',
-    )
-}

@@ -18,14 +18,16 @@ from rest_framework import routers, serializers, viewsets
 from django.contrib.auth.decorators import login_required
 from two_factor.gateways.twilio.urls import urlpatterns as tf_twilio_urls
 from two_factor.urls import urlpatterns as tf_urls
+from django.conf.urls.i18n import i18n_patterns
 
-##from .schema import schema
+#from .schema import schema
 
 admin.autodiscover()
 
 schema = ...
 
 urlpatterns = [
+    url(r'^i18n/', include('django.conf.urls.i18n')),
     path("sitemap.xml", sitemap, {"sitemaps": {"cmspages": CMSSitemap}}),
     path('', include(apps.get_app_config('oscar').urls[0])),
     url(r'^taggit_autosuggest/', include('taggit_autosuggest.urls')),

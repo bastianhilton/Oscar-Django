@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.timezone import now
 from decimal import Decimal
 from django.utils.translation import gettext as _
+from django.contrib.auth.models import User
 
 from payments import PurchasedItem
 from payments.models import BasePayment
