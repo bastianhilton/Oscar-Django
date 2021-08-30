@@ -2284,3 +2284,83 @@ Traceback (most recent call last):
   File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 544, in unclosed_block_tag
     raise self.error(token, msg)
 django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 3: 'block'. Looking for one of: endblock.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/admin/~/static/admin/css/custom.css
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:jazzmin.utils:books not found when generating links
+WARNING:jazzmin.utils:books not found when generating links
+WARNING:django.request:Not Found: /en/admin/reports/
+WARNING:jazzmin.utils:books not found when generating links
+WARNING:jazzmin.utils:books not found when generating links
+WARNING:jazzmin.utils:books not found when generating links
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/logo.png/
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/static/logo.png/
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\Lib\site-packages\simpleui\admin.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\Lib\site-packages\simpleui\admin.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\Lib\site-packages\simpleui\admin.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/

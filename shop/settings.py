@@ -13,7 +13,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path
+from pathlib import Path 
 from django.conf.global_settings import LANGUAGES as DJANGO_LANGUAGES
 
 from oscar.defaults import *
@@ -22,7 +22,6 @@ logging.basicConfig(filename='client_application.log', level=logging.DEBUG)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -96,6 +95,7 @@ SITE_ID = 1
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
         'DIRS': [os.path.join(BASE_DIR, 'shop', 'templates'),],
         'OPTIONS': {
             'context_processors': [
@@ -114,10 +114,6 @@ TEMPLATES = [
                 'oscar.apps.checkout.context_processors.checkout',
                 'oscar.apps.communication.notifications.context_processors.notifications',
                 'oscar.core.context_processors.metadata',
-            ],
-            'loaders': [
-                'django.template.loaders.filesystem.Loader',
-                'django.template.loaders.app_directories.Loader'
             ],
         },
     },
@@ -147,7 +143,7 @@ MIDDLEWARE = [
 ]
 
 INSTALLED_APPS = [
-    'jazzmin',
+    'simpleui',
     'djangocms_admin_style',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -187,7 +183,6 @@ INSTALLED_APPS = [
     'djangocms_googlemap',
     'djangocms_video',
     'djangocms_audio',
-    'djangocms_charts',
     'shop',
     'django.contrib.flatpages',
 
@@ -239,9 +234,7 @@ INSTALLED_APPS = [
     'oscarapi',
     'ariadne.contrib.django',
     'paypal',
-    'djangocms_maps',
     'oscar_invoices',
-    'import_export',
     'pinax.badges',
     'pinax.messages',
     'pinax.announcements',
@@ -265,6 +258,7 @@ INSTALLED_APPS = [
     'django_otp.plugins.otp_totp',
     'two_factor',
     'otp_yubikey',
+    'djangocms_history',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -345,75 +339,13 @@ META_USE_TWITTER_PROPERTIES=True
 META_USE_GOOGLEPLUS_PROPERTIES=True # django-meta 1.x+
 META_USE_SCHEMAORG_PROPERTIES=True  # django-meta 2.x+
 
-OSCAR_DASHBOARD_NAVIGATION.append(
-    {
-        'label': 'Accounts',
-        'icon': 'fas fa-globe',
-        'children': [
-            {
-                'label': 'Accounts',
-                'url_name': 'accounts_dashboard:accounts-list',
-            },
-            {
-                'label': 'Transfers',
-                'url_name': 'accounts_dashboard:transfers-list',
-            },
-            {
-                'label': 'Deferred income report',
-                'url_name': 'accounts_dashboard:report-deferred-income',
-            },
-            {
-                'label': 'Profit/loss report',
-                'url_name': 'accounts_dashboard:report-profit-loss',
-            },
-        ]
-    })
-
-MAPS_PROVIDERS = [
-    ('mapbox' , ('Mapbox OSM (API key required)')),
-    ('bingmaps' , ('Bing Maps (API key required)')),
-    ('googlemaps' , ('Google Maps (API key required)')),
-    ('here' , ('HERE WeGo (API key required)')),
-    ('viamichelin' , ('ViaMichelin (API key required)')),
-]
-
 PINAX_EVENTS_IMAGE_THUMBNAIL_SPEC = "pinax.events.specs.ImageThumbnail"
 PINAX_EVENTS_SECONDARY_IMAGE_THUMBNAIL_SPEC = "pinax.events.specs.SecondaryImageThumbnail"
 
-JAZZMIN_UI_TWEAKS = {
-    "theme": "cosmo",
-    "sidebar_nav_flat_style": True,
-    "footer_small_text": True,
-    "button_classes": {
-        "primary": "btn-outline-primary",
-        "secondary": "btn-outline-secondary",
-        "info": "btn-outline-info",
-        "warning": "btn-outline-warning",
-        "danger": "btn-outline-danger",
-        "success": "btn-outline-success",
-    },
-}
-
-JAZZMIN_SETTINGS = {
-    # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "Alternate CMS",
-    # The model admin to search from the search bar, search bar omitted if excluded
-    "search_model": "auth.User",
-    "usermenu_links": [
-        {"name": "Support", "url": "https://docs.alternatecms.com", "new_window": True},
-        {"model": "auth.user"}
-    ],
-    "changeform_format": "horizontal_tabs",
-    "navigation_expanded": True,
-    "language_chooser": True,
-    "hide_apps": ["Charts", "flatpages"],
-    "site_header": "Alternate CMS",
-    "show_ui_builder": True,
-    "site_icon": None,
-
-    "welcome_sign": "Welcome to the Back Office",
-    "copyright": "The Meeovi Company",
-}
+SIMPLEUI_HOME_INFO = True
+SIMPLEUI_HOME_QUICK = False
+SIMPLEUI_HOME_ACTION = True
+SIMPLEUI_HOME_TITLE = 'AlternateCMS'
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -430,8 +362,6 @@ SECURE_SSL_REDIRECT = False
 DJANGOCMS_AUDIO_ALLOWED_EXTENSIONS = ['mp3', 'ogg', 'wav']
 
 DJANGOCMS_PICTURE_NESTING = True
-
-DJANGOCMS_CHARTS_CACHE = 'djangocms_charts'
 
 PAYMENT_HOST = '0.0.0.0:8000'
 PAYMENT_USES_SSL = False
