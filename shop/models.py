@@ -45,6 +45,183 @@ class AddressUseraddress(models.Model):
     def __str__(self):
         return self.address_useraddress        
 
+class AldrynFormsEmailfieldplugin(models.Model):
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    label = models.CharField(max_length=255)
+    required = models.BooleanField()
+    required_message = models.TextField(blank=True, null=True)
+    placeholder_text = models.CharField(max_length=255)
+    help_text = models.TextField(blank=True, null=True)
+    min_value = models.IntegerField(blank=True, null=True)
+    max_value = models.IntegerField(blank=True, null=True)
+    custom_classes = models.CharField(max_length=255)
+    email_send_notification = models.BooleanField()
+    email_subject = models.CharField(max_length=255)
+    email_body = models.TextField()
+    attributes = models.TextField()
+    initial_value = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        managed = False
+        db_table = 'aldryn_forms_emailfieldplugin'
+
+
+class AldrynFormsFieldplugin(models.Model):
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True, verbose_name = "Forms")
+    label = models.CharField(max_length=255)
+    required = models.BooleanField()
+    required_message = models.TextField(blank=True, null=True)
+    placeholder_text = models.CharField(max_length=255)
+    help_text = models.TextField(blank=True, null=True)
+    min_value = models.IntegerField(blank=True, null=True)
+    max_value = models.IntegerField(blank=True, null=True)
+    custom_classes = models.CharField(max_length=255)
+    attributes = models.TextField()
+    initial_value = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        managed = False
+        db_table = 'aldryn_forms_fieldplugin'
+    
+
+class AldrynFormsFieldsetplugin(models.Model):
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    legend = models.CharField(max_length=255)
+    custom_classes = models.CharField(max_length=255)
+
+    class Meta:
+        managed = False
+        db_table = 'aldryn_forms_fieldsetplugin'
+
+
+class AldrynFormsFileuploadfieldplugin(models.Model):
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    label = models.CharField(max_length=255)
+    required = models.BooleanField()
+    required_message = models.TextField(blank=True, null=True)
+    placeholder_text = models.CharField(max_length=255)
+    help_text = models.TextField(blank=True, null=True)
+    min_value = models.IntegerField(blank=True, null=True)
+    max_value = models.IntegerField(blank=True, null=True)
+    custom_classes = models.CharField(max_length=255)
+    max_size = models.BigIntegerField(blank=True, null=True)
+    upload_to = models.ForeignKey('FilerFolder', models.DO_NOTHING)
+    attributes = models.TextField()
+    initial_value = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        managed = False
+        db_table = 'aldryn_forms_fileuploadfieldplugin'
+
+
+class AldrynFormsFormbuttonplugin(models.Model):
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    label = models.CharField(max_length=255)
+    custom_classes = models.CharField(max_length=255)
+
+    class Meta:
+        managed = False
+        db_table = 'aldryn_forms_formbuttonplugin'
+
+
+class AldrynFormsFormplugin(models.Model):
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    name = models.CharField(max_length=255)
+    error_message = models.TextField(blank=True, null=True)
+    success_message = models.TextField(blank=True, null=True)
+    redirect_type = models.CharField(max_length=20)
+    url = models.CharField(max_length=200, blank=True, null=True)
+    custom_classes = models.CharField(max_length=255)
+    form_template = models.CharField(max_length=255)
+    redirect_page = models.ForeignKey('CmsPage', models.DO_NOTHING, blank=True, null=True)
+    action_backend = models.CharField(max_length=15)
+    form_attributes = models.TextField()
+    is_enable_autofill_from_url_params = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'aldryn_forms_formplugin'
+
+
+class AldrynFormsFormpluginRecipients(models.Model):
+    formplugin = models.ForeignKey(AldrynFormsFormplugin, models.DO_NOTHING)
+    user = models.ForeignKey('AuthUser', models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'aldryn_forms_formplugin_recipients'
+        unique_together = (('formplugin', 'user'),)
+
+
+class AldrynFormsFormsubmission(models.Model):
+    name = models.CharField(max_length=255)
+    data = models.TextField()
+    recipients = models.TextField()
+    language = models.CharField(max_length=10)
+    form_url = models.CharField(max_length=255)
+    sent_at = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'aldryn_forms_formsubmission'
+
+
+class AldrynFormsImageuploadfieldplugin(models.Model):
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    label = models.CharField(max_length=255)
+    required = models.BooleanField()
+    required_message = models.TextField(blank=True, null=True)
+    placeholder_text = models.CharField(max_length=255)
+    help_text = models.TextField(blank=True, null=True)
+    min_value = models.IntegerField(blank=True, null=True)
+    max_value = models.IntegerField(blank=True, null=True)
+    custom_classes = models.CharField(max_length=255)
+    max_size = models.BigIntegerField(blank=True, null=True)
+    max_width = models.IntegerField(blank=True, null=True)
+    max_height = models.IntegerField(blank=True, null=True)
+    upload_to = models.ForeignKey('FilerFolder', models.DO_NOTHING)
+    attributes = models.TextField()
+    initial_value = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        managed = False
+        db_table = 'aldryn_forms_imageuploadfieldplugin'
+
+
+class AldrynFormsOption(models.Model):
+    value = models.CharField(max_length=255)
+    default_value = models.BooleanField()
+    field = models.ForeignKey(AldrynFormsFieldplugin, models.DO_NOTHING)
+    position = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'aldryn_forms_option'
+
+
+class AldrynFormsTextareafieldplugin(models.Model):
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    label = models.CharField(max_length=255)
+    required = models.BooleanField()
+    required_message = models.TextField(blank=True, null=True)
+    placeholder_text = models.CharField(max_length=255)
+    help_text = models.TextField(blank=True, null=True)
+    min_value = models.IntegerField(blank=True, null=True)
+    max_value = models.IntegerField(blank=True, null=True)
+    custom_classes = models.CharField(max_length=255)
+    text_area_columns = models.IntegerField(blank=True, null=True)
+    text_area_rows = models.IntegerField(blank=True, null=True)
+    attributes = models.TextField()
+    initial_value = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        managed = False
+        db_table = 'aldryn_forms_textareafieldplugin'
 
 class AdvancedFiltersAdvancedfilter(models.Model):
     title = models.CharField(max_length=255)
@@ -761,13 +938,12 @@ class CmsPage(models.Model):
     publisher_is_draft = models.BooleanField()
     languages = models.CharField(max_length=255, blank=True, null=True)
     xframe_options = models.IntegerField()
-    publisher_public = models.OneToOneField('self', models.DO_NOTHING, unique=True, blank=True, null=True)
+    publisher_public = models.OneToOneField('self', models.DO_NOTHING, unique=True, blank=True, null=True, verbose_name = 'Content Management')
     is_page_type = models.BooleanField()
     node = models.OneToOneField('CmsTreenode', models.DO_NOTHING)
 
     def __str__(self):
         return self.cms_page        
-
 
 class CmsPagePlaceholders(models.Model):
     page = models.OneToOneField(CmsPage, models.DO_NOTHING)
@@ -1004,6 +1180,8 @@ class DjangocmsBlogAuthorentriesplugin(models.Model):
 
     def __str__(self):
         return self.djangocms_blog_authorentriesplugin
+    class Meta:
+        verbose_name = 'Blog'
 
 class DjangocmsBlogAuthorentriespluginAuthors(models.Model):
     authorentriesplugin = models.OneToOneField(DjangocmsBlogAuthorentriesplugin, models.DO_NOTHING)
@@ -1441,6 +1619,8 @@ class FilerFile(models.Model):
 
     def __str__(self):
         return self.filer_file
+    class Meta:
+        verbose_name = 'File Management'
 
 class FilerFolder(models.Model):
     name = models.CharField(max_length=255)
@@ -1861,8 +2041,7 @@ class OscarInvoicesLegalentityaddress(models.Model):
         return self.oscar_invoices_legalentityaddress
 
 class OscarapiApikey(models.Model):
-    key = models.CharField(unique=True, max_length=255)
-    verbose_name = 'Alternate CMS API'
+    key = models.CharField(unique=True, max_length=255, verbose_name = 'AlternateCMS API')
 
     def __str__(self):
         return self.oscarapi_apikey
@@ -2118,6 +2297,8 @@ class PinaxBadgesBadgeaward(models.Model):
 
     def __str__(self):
         return self.pinax_badges_badgeaward
+    class Meta:
+        verbose_name = 'Badges'
 
 class PinaxEventsEvent(models.Model):
     image = models.CharField(max_length=100)
@@ -2135,6 +2316,8 @@ class PinaxEventsEvent(models.Model):
 
     def __str__(self):
         return self.pinax_events_event
+    class Meta:
+        verbose_name = 'Events'
 
 class PinaxMessagesMessage(models.Model):
     sent_at = models.DateTimeField()
@@ -2145,6 +2328,8 @@ class PinaxMessagesMessage(models.Model):
 
     def __str__(self):
         return self.pinax_messages_message
+    class Meta:
+        verbose_name = 'Messages'
 
 class PinaxMessagesThread(models.Model):
     subject = models.CharField(max_length=150)

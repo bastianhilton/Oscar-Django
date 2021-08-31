@@ -2364,3 +2364,37 @@ INFO:django.utils.autoreload:Watching for file changes with StatReloader
 INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\Lib\site-packages\simpleui\admin.py changed, reloading.
 INFO:django.utils.autoreload:Watching for file changes with StatReloader
 WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\Lib\site-packages\simpleui\admin.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\Lib\site-packages\simpleui\admin.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\Lib\site-packages\cms\apps.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\Lib\site-packages\djangocms_blog\apps.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\Lib\site-packages\filer\apps.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\Lib\site-packages\oscarapi\apps.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\models.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\models.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\models.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\models.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\models.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\models.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\models.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\models.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
