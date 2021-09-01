@@ -9,10 +9,15 @@ To change database, go to shop/settings.py file and update database section with
 You will also need Git, Text Editor such as Visual Studio Code, and Python 3
 
 git clone https://github.com/bastianhilton/Alternate-CMS.git
+
 cd Alternate-CMS
+
 pip install -r requirements.txt
+
 python manage.py migrate
+
 python manage.py createsuperuser
+
 python manage.py runserver
 
 Frontend is located at localhost:8000

@@ -241,6 +241,16 @@ AUTHENTICATION_BACKENDS = (
     'pinax.announcements.auth_backends.AnnouncementPermissionsBackend',
 )
 
+ADMINS = (
+    ('John Lennon', 'jlennon@example.com'),
+    ('Paul McCartney', 'pmacca@example.com'),
+)
+
+MANAGERS = (
+    ('George Harrison', 'gharrison@example.com'),
+    ('Ringo Starr', 'ringo@example.com'),
+)
+
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
@@ -287,7 +297,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'alternatecms', # Please change Me
-        'USER': 'testuser',
+        'USER': 'testuser', # Please change Me
         'PASSWORD': 'Tester2021', # Please change Me
         'HOST': 'localhost',
         'PORT': '5432',
@@ -317,7 +327,7 @@ PINAX_EVENTS_IMAGE_THUMBNAIL_SPEC = "pinax.events.specs.ImageThumbnail"
 PINAX_EVENTS_SECONDARY_IMAGE_THUMBNAIL_SPEC = "pinax.events.specs.SecondaryImageThumbnail"
 
 SIMPLEUI_HOME_INFO = True
-SIMPLEUI_HOME_QUICK = False
+SIMPLEUI_HOME_QUICK = True
 SIMPLEUI_HOME_ACTION = True
 SIMPLEUI_HOME_TITLE = 'AlternateCMS'
 

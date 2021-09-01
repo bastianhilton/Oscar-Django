@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect
 from django.template.response import TemplateResponse
 from payments import get_payment_model, RedirectNeeded
-from .models import MySalesItems
 
 def payment_details(request, payment_id):
     payment = get_object_or_404(get_payment_model(), id=payment_id)

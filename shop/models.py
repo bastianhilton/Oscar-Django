@@ -87,7 +87,7 @@ class AldrynFormsFieldplugin(models.Model):
     
 
 class AldrynFormsFieldsetplugin(models.Model):
-    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
+    cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True, verbose_name = "Forms")
     legend = models.CharField(max_length=255)
     custom_classes = models.CharField(max_length=255)
 
@@ -938,12 +938,14 @@ class CmsPage(models.Model):
     publisher_is_draft = models.BooleanField()
     languages = models.CharField(max_length=255, blank=True, null=True)
     xframe_options = models.IntegerField()
-    publisher_public = models.OneToOneField('self', models.DO_NOTHING, unique=True, blank=True, null=True, verbose_name = 'Content Management')
+    publisher_public = models.OneToOneField('self', models.DO_NOTHING, unique=True, blank=True, null=True)
     is_page_type = models.BooleanField()
-    node = models.OneToOneField('CmsTreenode', models.DO_NOTHING)
+    node = models.OneToOneField('CmsTreenode', models.DO_NOTHING, verbose_name='Content Management')
 
     def __str__(self):
-        return self.cms_page        
+        return self.cms_page    
+    class Meta:
+        verbose_name='content Management'    
 
 class CmsPagePlaceholders(models.Model):
     page = models.OneToOneField(CmsPage, models.DO_NOTHING)
