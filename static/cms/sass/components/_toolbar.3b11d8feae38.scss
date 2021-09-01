@@ -1,0 +1,625 @@
+//##############################################################################
+// TOOLBAR
+
+.cms-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: z(toolbar, base);
+    min-height: $toolbar-height;
+    margin-top: 0;
+    background-color: $white;
+    backface-visibility: hidden;
+    &:after {
+        position: absolute;
+        content: '';
+        box-shadow: $toolbar-shadow;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        margin-top: -1px;
+        z-index: z(default);
+        clip: rect(0, auto, 10px, 0);
+        background: $toolbar-border !important;
+        @at-root .cms-structure-mode-structure & {
+            right: $toolbar-height - 1px;
+        }
+    }
+
+    .cms-toolbar-left {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: z(toolbar, left);
+    }
+    .cms-toolbar-right {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: z(toolbar, right);
+        padding-right: $toolbar-height;
+    }
+
+    .cms-toolbar-left .cms-toolbar-item {
+        margin-right: $toolbar-left-space;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .cms-toolbar-right .cms-toolbar-item {
+        margin-right: $toolbar-right-space;
+    }
+
+    // items
+    .cms-toolbar-item {
+        float: left;
+    }
+}
+
+@at-root .cms-toolbar-non-sticky {
+    position: static !important;
+    .cms .cms-toolbar {
+        position: absolute;
+    }
+}
+
+
+//###########################################################
+// #TOOLBAR/debug#
+&.cms-toolbar-debug {
+    .cms-debug-bar {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: z(debug);
+        height: $toolbar-debug-height;
+        background-color: $toolbar-debug-bgcolor;
+        z-index: 30;
+
+        @at-root .cms-structure-mode-structure & {
+            right: $toolbar-height;
+        }
+    }
+    .cms-toolbar .cms-btn-action {
+        background-color: $toolbar-debug-bgcolor;
+        border-color: $toolbar-debug-bgcolor;
+        color: $black;
+        &:active,
+        &:focus {
+            background-color: $toolbar-debug-bgcolor;
+            border-color: $toolbar-debug-bgcolor;
+            color: black;
+        }
+    }
+}
+
+//###########################################################
+// #TOOLBAR/navigation#
+.cms-toolbar-item-navigation {
+    li {
+        position: relative;
+        float: left;
+    }
+    li a {
+        float: left;
+        color: $toolbar-menu-item-color;
+        padding: $toolbar-menu-item-padding;
+        line-height: $toolbar-height;
+        height: $toolbar-height;
+        cursor: default;
+    }
+    li ul {
+        display: none;
+    }
+    > li:first-child > a span {
+        font-weight: 600;
+    }
+    .cms-icon {
+        display: none;
+        position: absolute;
+        top: 50%;
+        right: 7px;
+        margin-top: -($toolbar-dropdown-item-icon-size / 2);
+        font-size: $toolbar-dropdown-item-icon-size;
+        transform: rotate(180deg);
+    }
+
+    // hover effect
+    .cms-toolbar-item-navigation-hover {
+        ul {
+            display: block;
+            position: absolute;
+            top: $toolbar-height;
+            left: 0;
+            min-width: $toolbar-dropdown-min-width;
+            padding: $toolbar-dropdown-padding;
+            border: 1px solid $white;
+            border-top: none;
+            border-radius: 0 0 $toolbar-dropdown-border-radius $toolbar-dropdown-border-radius;
+            background-color: $toolbar-dropdown-bgcolor;
+            box-shadow: $toolbar-dropdown-shadow;
+        }
+        ul li {
+            float: none;
+        }
+        ul li a {
+            display: block;
+            float: none;
+            white-space: nowrap;
+            line-height: $toolbar-dropdown-item-height;
+            height: $toolbar-dropdown-item-height;
+            padding: $toolbar-dropdown-item-padding;
+            cursor: pointer;
+        }
+        ul ul {
+            border-top: 1px solid $gray-lightest;
+            border-radius: 0 $toolbar-dropdown-border-radius $toolbar-dropdown-border-radius 0;
+        }
+
+        // second level
+        .cms-toolbar-item-navigation-children {
+            ul {
+                display: none;
+                top: -(nth($toolbar-dropdown-padding, 1) + 1px);
+                left: 100%;
+            }
+            > a {
+                cursor: default;
+            }
+            > a span {
+                display: block;
+                .cms-icon {
+                    display: block;
+                }
+
+            }
+        }
+
+        // anchor hover
+        > a {
+            color: $toolbar-menu-item-hover-color !important;
+            background: $toolbar-menu-item-hover-bgcolor;
+        }
+
+        // add active style
+        .cms-toolbar-item-navigation-active > a {
+            font-weight: 800;
+        }
+    }
+
+    .cms-toolbar-item-navigation-break {
+        @include hide-content();
+        height: 1px;
+        margin: 0 0 4px;
+        padding: 0 0 4px;
+        border-bottom: 1px solid $gray-lighter;
+    }
+
+    .cms-toolbar-item-navigation-disabled {
+        a {
+            cursor: default !important;
+            opacity: 0.2;
+            &,
+            &:hover,
+            &:active,
+            &:focus {
+                color: $toolbar-menu-item-color !important;
+                background: none !important;
+                box-shadow: none;
+            }
+        }
+        ul {
+            display: none !important;
+        }
+    }
+}
+
+.cms-toolbar-more {
+    display: none;
+
+    .cms-toolbar-item-navigation-children {
+        padding: 0;
+    }
+
+    .cms-toolbar-item {
+        float: none;
+        margin: $toolbar-menu-item-padding !important;
+        overflow: hidden;
+        margin-top: 5px;
+        margin-bottom: 8px;
+    }
+    .cms-toolbar-item-cms-mode-switcher a {
+        float: left !important;
+        width: 50%;
+    }
+    .cms-toolbar-item-buttons {
+        .cms-btn {
+            text-align: center;
+        }
+    }
+
+    .cms-btn {
+        color: $btn-default-color;
+    }
+    .cms-btn-action {
+        color: $btn-action-color;
+    }
+    .cms-more-buttons + .cms-toolbar-item-navigation-children {
+        padding-top: 8px;
+        border-top: 1px solid $gray-lighter;
+    }
+}
+.cms-toolbar-item-navigation .cms-toolbar-item-navigation-hover .cms-more-dropdown-full {
+    position: fixed;
+    width: 100%;
+    // 100vw is better because if the user's content exceeds the viewport width
+    // the dropdown will also go out of the screen, which is not ideal, esp. on mobile
+    width: 100vw;
+    top: $toolbar-height;
+    bottom: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    .cms-icon {
+        display: none !important;
+    }
+
+    > li {
+        border-bottom: 1px solid $gray-lighter;
+    }
+
+    .cms-more-buttons {
+        border-bottom: none;
+    }
+
+    li a:not(.cms-btn) {
+        color: $toolbar-menu-item-color !important;
+        background: transparent !important;
+    }
+    li a {
+        position: relative;
+        line-height: 1.4 * $toolbar-dropdown-item-height;
+        height: 1.4 * $toolbar-dropdown-item-height;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    ul {
+        display: block !important;
+        border: none;
+        box-shadow: none;
+        position: relative;
+        left: 0;
+        top: 0;
+        border-radius: 0;
+        margin-left: 20px;
+    }
+}
+.cms-toolbar-item-cms-mode-switcher {
+    // display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $toolbar-height;
+    height: $toolbar-height;
+    margin-right: 0 !important;
+
+    .cms-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-top: 0 !important;
+        border-right: 0 !important;
+        width: $toolbar-height;
+        height: $toolbar-height - 1px;
+        display: block;
+        border-radius: 0;
+        border-bottom: 0;
+        clip: rect(0, $toolbar-height, $toolbar-height, 0px);
+        .cms-icon {
+            position: absolute;
+            left: $toolbar-height / 2;
+            top: $toolbar-height / 2;
+            margin-left: -10px;
+            margin-top: -9px;
+            font-size: 20px !important;
+        }
+        &.cms-btn-active {
+            height: $toolbar-height;
+            &,
+            &:active,
+            &:focus {
+                border-color: $toolbar-border !important;
+                background-color: $structure-bgcolor !important;
+            }
+        }
+    }
+}
+
+//###########################################################
+// #TOOLBAR/dialog#
+.cms-messages {
+    display: none;
+    position: fixed;
+    top: $toolbar-height;
+    z-index: z(messages);
+    color: $messages-color;
+    font-size: $messages-font-size;
+    font-weight: $messages-font-weight;
+    line-height: $messages-line-height;
+    width: $messages-width;
+    min-height: $messages-line-height;
+    margin: 0;
+    padding: $messages-padding;
+    border-radius: 0 0 $messages-border-radius $messages-border-radius;
+    background: rgba($messages-bgcolor, 0.74);
+    transition: top $speed-base;
+    * {
+        color: $messages-color;
+        font-size: $messages-font-size;
+        font-weight: $messages-font-weight;
+        line-height: $messages-line-height;
+    }
+
+    a {
+        color: $color-primary;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    strong {
+        color: lighten($color-primary, 10%);
+        font-weight: $messages-font-weight;
+    }
+    ul {
+        display: inline;
+        color: $messages-color;
+    }
+    ul li {
+        display: inline;
+        color: $messages-color;
+        font-weight: $messages-font-weight;
+    }
+
+    .cms-messages-close {
+        cursor: pointer;
+        display: none;
+        float: right;
+        position: relative;
+        width: $messages-close-area-size;
+        height: $messages-line-height;
+        text-align: right;
+        span {
+            font-size: $messages-close-icon-size;
+        }
+        &:hover span {
+            color: $color-primary;
+        }
+    }
+}
+.cms-messages-error strong {
+    color: $color-danger;
+}
+
+//###########################################################
+// #TOOLBAR/elements/logo#
+.cms-toolbar-item-logo {
+    margin-right: 0 !important;
+
+    a {
+        @extend .cms-icon;
+        @extend .cms-icon-logo;
+        font-size: $toolbar-logo-height;
+        line-height: $toolbar-height;
+        height: $toolbar-height;
+        transition: color $speed-base;
+        padding-left: $toolbar-left-space;
+        padding-right: $toolbar-left-space;
+
+        span {
+            display: none;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $color-primary;
+        }
+    }
+}
+
+// #TOOLBAR/elements/form#
+.cms-form-login {
+    label {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: $toolbar-height;
+        padding-left: $toolbar-left-space;
+        margin: 0;
+        cursor: pointer;
+    }
+    label span {
+        display: inline-block;
+    }
+    input[type="text"],
+    input[type="password"] {
+        display: inline-block;
+        color: $login-form-input-color;
+        font-size: $login-form-input-font-size;
+        height: $login-form-input-height - 2px;
+        line-height: $login-form-input-height - 2px;
+        width: $login-form-input-width;
+        margin: 0;
+        padding: 0 $login-form-input-padding-horizontal;
+        border: 1px solid $login-form-input-border;
+        border-radius: $login-form-input-border-radius;
+        box-shadow: 0 1px 0 $white;
+        text-transform: none;
+
+        &:focus {
+            transition: outline 0.2s;
+            border-color: $color-primary;
+            box-shadow: inset 0 0 2px $gray-lighter;
+        }
+    }
+    input[type="submit"] {
+        display: block;
+        font-size: $login-form-input-font-size - 1px;
+        text-transform: uppercase;
+        height: $login-form-input-height - 2px;
+        line-height: $login-form-input-height - 2px;
+        padding: 0 $login-form-submit-padding-horizontal;
+        &:-moz-focus-inner {
+            border: 0;
+        }
+    }
+
+    .cms-error {
+        color: $color-danger;
+    }
+    .cms-error input {
+        border: 1px solid $color-danger;
+    }
+
+    // overlap with logo when it gets too small
+    @media (max-width: $screen-tablet - 280px) {
+        margin-left: -110px;
+    }
+    // mobile only
+    @media (max-width: $screen-tablet) {
+        position: relative;
+        // remove spaces
+        font-size: 1px;
+        line-height: 0;
+        background: $white;
+        label {
+            position: relative;
+            padding: 0;
+            margin-right: -1px;
+            margin-bottom: -1px;
+        }
+        label span {
+            position: absolute;
+            left: 5px;
+            top: 0;
+            z-index: 1;
+            color: $gray-light;
+        }
+        // setup inputs
+        input[type="text"] {
+            border-radius: $border-radius-base 0 0 $border-radius-base;
+        }
+        input[type="password"] {
+            border-radius: 0;
+        }
+        input[type="text"],
+        input[type="password"] {
+            position: relative;
+            z-index: 10;
+            width: 95px;
+            &:focus,
+            &:valid {
+                background: $white;
+            }
+        }
+        input[type="submit"] {
+            border-radius: 0 $border-radius-base $border-radius-base 0;
+            padding: 0 $login-form-submit-padding-horizontal / 2;
+        }
+    }
+}
+
+// #TOOLBAR/elements/buttongroups#
+.cms-toolbar-item-buttons {
+    $margin: ($toolbar-height - $toolbar-button-height) / 2;
+    margin: $margin 0 $margin;
+
+    a {
+        float: left;
+        line-height: $toolbar-button-height;
+        height: $toolbar-button-height;
+        font-size: $toolbar-button-font-size;
+        padding: 0 $toolbar-button-padding-horizontal;
+    }
+    a:first-child {
+        border-radius: $toolbar-button-border-radius 0 0 $toolbar-button-border-radius;
+    }
+    a:last-child {
+        margin-left: -1px;
+        border-radius: 0 $toolbar-button-border-radius $toolbar-button-border-radius 0;
+    }
+    a:only-child {
+        border-radius: $toolbar-button-border-radius;
+    }
+}
+
+// TODO Reimplement blinking if unpublished content is present
+//###########################################################
+// #TOOLBAR/blocker#
+.cms-screenblock {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: z(screenblock);
+    color: $screenblock-color;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: $screenblock-bgcolor;
+    background: rgba($screenblock-bgcolor, 0.9);
+}
+
+.cms-screenblock-inner {
+    margin-top: $screenblock-inner-position;
+    h1 {
+        font-size: 28px;
+        line-height: 30px;
+    }
+    h1,
+    p {
+        color: $gray-light;
+        text-align: center;
+    }
+    a {
+        color: $white;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+@at-root .cms-scrollbar-measure {
+    position: absolute;
+    top: -9999px;
+    width: 50px;
+    height: 50px;
+    overflow: scroll;
+}
+
+.cms-loading-bar {
+    background: $color-primary;
+
+    position: fixed;
+    z-index: 99999999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+}
+
+.cms-loading-peg {
+    display: block;
+    position: absolute;
+    right: 0px;
+    width: 100px;
+    height: 100%;
+    box-shadow: 0 0 10px #29d, 0 0 5px $color-primary;
+    opacity: 1.0;
+    transform: rotate(3deg) translate(0px, -4px);
+}
