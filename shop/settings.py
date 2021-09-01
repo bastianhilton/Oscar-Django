@@ -4,26 +4,18 @@ DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 
 from pathlib import Path 
 from django.conf.global_settings import LANGUAGES as DJANGO_LANGUAGES
-
 from oscar.defaults import *
 import logging
 logging.basicConfig(filename='client_application.log', level=logging.DEBUG)
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'ruynfepj-$l0v7faw8&%$zm!-an-gy=hymjy1b@ce&@^t+f%%f'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
 
 ALLOWED_HOSTS = []
 
-# Application definition
 ROOT_URLCONF = 'shop.urls'
 
 WSGI_APPLICATION = 'shop.wsgi.application'
@@ -65,58 +57,6 @@ STATICFILES_DIRS = (
 )
 
 SITE_ID = 1
-
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'APP_DIRS': True,
-        'DIRS': [os.path.join(BASE_DIR, 'shop', 'templates'),],
-        'OPTIONS': {
-            'context_processors': [
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.i18n',
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.template.context_processors.media',
-                'django.template.context_processors.csrf',
-                'django.template.context_processors.tz',
-                'sekizai.context_processors.sekizai',
-                'django.template.context_processors.static',
-                'cms.context_processors.cms_settings',
-                'oscar.apps.search.context_processors.search_form',
-                'oscar.apps.checkout.context_processors.checkout',
-                'oscar.apps.communication.notifications.context_processors.notifications',
-                'oscar.core.context_processors.metadata',
-            ],
-        },
-    },
-]
-
-
-MIDDLEWARE = [
-    'cms.middleware.utils.ApphookReloadMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'cms.middleware.user.CurrentUserMiddleware',
-    'cms.middleware.page.CurrentPageMiddleware',
-    'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware',
-    'oscar.apps.basket.middleware.BasketMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.auth.middleware.RemoteUserMiddleware',
-    'django_otp.middleware.OTPMiddleware',
-    'two_factor.middleware.threadlocals.ThreadLocals',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-]
 
 INSTALLED_APPS = [
     'simpleui',
@@ -205,11 +145,8 @@ INSTALLED_APPS = [
     'meta',
     'sortedm2m',
     'djangocms_blog',
-    'aldryn_search',
     'rest_framework',
     'oscarapi',
-    'ariadne.contrib.django',
-    'paypal',
     'oscar_invoices',
     'pinax.badges',
     'pinax.messages',
@@ -221,10 +158,7 @@ INSTALLED_APPS = [
     'photologue',
     'corsheaders',
     'absolute',
-    'aldryn_forms',
-    'aldryn_forms.contrib.email_notifications',
     'emailit',
-    'django_measurement', 
     'gdpr_assist',
     'payments',
     'newsletter',
@@ -237,6 +171,59 @@ INSTALLED_APPS = [
     'djangocms_history',
 ]
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'DIRS': [os.path.join(BASE_DIR, 'shop', 'templates'),],
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.template.context_processors.media',
+                'django.template.context_processors.csrf',
+                'django.template.context_processors.tz',
+                'sekizai.context_processors.sekizai',
+                'django.template.context_processors.static',
+                'cms.context_processors.cms_settings',
+                'oscar.apps.search.context_processors.search_form',
+                'oscar.apps.checkout.context_processors.checkout',
+                'oscar.apps.communication.notifications.context_processors.notifications',
+                'oscar.core.context_processors.metadata',
+            ],
+        },
+    },
+]
+
+
+MIDDLEWARE = [
+    'cms.middleware.utils.ApphookReloadMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
+    'oscar.apps.basket.middleware.BasketMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.auth.middleware.RemoteUserMiddleware',
+    'django_otp.middleware.OTPMiddleware',
+    'two_factor.middleware.threadlocals.ThreadLocals',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+
+
+
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',
     'django.contrib.auth.backends.ModelBackend',
@@ -244,13 +231,13 @@ AUTHENTICATION_BACKENDS = (
 )
 
 ADMINS = (
-    ('John Lennon', 'jlennon@example.com'),
-    ('Paul McCartney', 'pmacca@example.com'),
+    ('John Lennon', 'jlennon@example.com'), # Change this to your Admins
+    ('Paul McCartney', 'pmacca@example.com'), # Change this to your Admins
 )
 
 MANAGERS = (
-    ('George Harrison', 'gharrison@example.com'),
-    ('Ringo Starr', 'ringo@example.com'),
+    ('George Harrison', 'gharrison@example.com'), # Change this to your Managers
+    ('Ringo Starr', 'ringo@example.com'), # Change this to your Managers
 )
 
 HAYSTACK_CONNECTIONS = {
@@ -318,6 +305,7 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
 META_SITE_PROTOCOL = 'https'  # set 'http' for non ssl enabled websites
 META_USE_SITES = True
 META_USE_OG_PROPERTIES=True
