@@ -114,6 +114,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.RemoteUserMiddleware',
     'django_otp.middleware.OTPMiddleware',
     'two_factor.middleware.threadlocals.ThreadLocals',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 INSTALLED_APPS = [
@@ -398,3 +399,5 @@ PAYMENT_VARIANTS = {
         }
 
 NEWSLETTER_THUMBNAIL = 'sorl-thumbnail'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
