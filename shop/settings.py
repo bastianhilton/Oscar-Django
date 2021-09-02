@@ -14,7 +14,7 @@ SECRET_KEY = 'ruynfepj-$l0v7faw8&%$zm!-an-gy=hymjy1b@ce&@^t+f%%f'
 
 DEBUG = True 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 ROOT_URLCONF = 'shop.urls'
 

@@ -2442,3 +2442,7 @@ INFO:django.utils.autoreload:Watching for file changes with StatReloader
 INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
 INFO:django.utils.autoreload:Watching for file changes with StatReloader
 INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
