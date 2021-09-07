@@ -1,4 +1,5 @@
-Alternate CMS
+# Alternate CMS
+
 To get started with this project you will need the following on your system:
 
 Project supports Windows, Linux, and Mac (tested on Windows)
