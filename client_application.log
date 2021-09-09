@@ -3209,3 +3209,141 @@ Traceback (most recent call last):
   File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 84, in __init__
     assert isinstance(
 AssertionError: A Schema is required to be provided to GraphQLView.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 84, in __init__
+    assert isinstance(
+AssertionError: A Schema is required to be provided to GraphQLView.
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 84, in __init__
+    assert isinstance(
+AssertionError: A Schema is required to be provided to GraphQLView.
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 84, in __init__
+    assert isinstance(
+AssertionError: A Schema is required to be provided to GraphQLView.
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\urls.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1129, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 474, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 54, in pre_sql_setup
+    self.setup_query()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 45, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 240, in get_select
+    related_klass_infos = self.get_related_selections(select)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 936, in get_related_selections
+    raise FieldError(
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'AddressCountry'. Choices are: addressuseraddress, orderbillingaddress, ordershippingaddress, oscarinvoiceslegalentityaddress, partnerpartneraddress, shippingorderanditemchargescountries, shippingweightbasedcountries
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1129, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 474, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 54, in pre_sql_setup
+    self.setup_query()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 45, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 240, in get_select
+    related_klass_infos = self.get_related_selections(select)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 936, in get_related_selections
+    raise FieldError(
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'AddressCountry'. Choices are: addressuseraddress, orderbillingaddress, ordershippingaddress, oscarinvoiceslegalentityaddress, partnerpartneraddress, shippingorderanditemchargescountries, shippingweightbasedcountries
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1129, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 474, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 54, in pre_sql_setup
+    self.setup_query()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 45, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 240, in get_select
+    related_klass_infos = self.get_related_selections(select)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 936, in get_related_selections
+    raise FieldError(
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'AddressCountry'. Choices are: addressuseraddress, orderbillingaddress, ordershippingaddress, oscarinvoiceslegalentityaddress, partnerpartneraddress, shippingorderanditemchargescountries, shippingweightbasedcountries
+

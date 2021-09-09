@@ -21,11 +21,7 @@ from two_factor.gateways.twilio.urls import urlpatterns as tf_twilio_urls
 from two_factor.urls import urlpatterns as tf_urls
 from django.conf.urls.i18n import i18n_patterns
 
-from shop.schema import schema
-
 admin.autodiscover()
-
-schema = ...
 
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
@@ -37,7 +33,7 @@ urlpatterns = [
     url(r"^messages/", include("pinax.messages.urls", namespace="pinax_messages")),
     url(r'^photologue/', include('photologue.urls', namespace='photologue')),
     path('api-auth/', include('rest_framework.urls')),
-    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
+    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),
     path('payments/', include('payments.urls')),
     path('newsletter/', include('newsletter.urls')),
     path('captcha/', include('captcha.urls')),
