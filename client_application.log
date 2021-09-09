@@ -2464,4 +2464,748 @@ INFO:django.utils.autoreload:Watching for file changes with StatReloader
 INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
 INFO:django.utils.autoreload:Watching for file changes with StatReloader
 INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloaderINFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 189, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\utils\deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\middleware\locale.py", line 21, in process_request
+    language = translation.get_language_from_request(request, check_path=i18n_patterns_used)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\utils\translation\__init__.py", line 236, in get_language_from_request
+    return _trans.get_language_from_request(request, check_path)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\utils\translation\trans_real.py", line 532, in get_language_from_request
+    lang_code = request.session.get(LANGUAGE_SESSION_KEY)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 65, in get
+    return self._session.get(key, default)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 194, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\contrib\sessions\backends\db.py", line 44, in load
+    return self.decode(s.session_data) if s else {}
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 100, in decode
+    encoded_data = base64.b64decode(session_data.encode('ascii'))
+  File "c:\python39\lib\base64.py", line 87, in b64decode
+    return binascii.a2b_base64(s)
+binascii.Error: Incorrect padding
+ERROR:django.request:Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 189, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\utils\deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\middleware\locale.py", line 21, in process_request
+    language = translation.get_language_from_request(request, check_path=i18n_patterns_used)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\utils\translation\__init__.py", line 236, in get_language_from_request
+    return _trans.get_language_from_request(request, check_path)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\utils\translation\trans_real.py", line 532, in get_language_from_request
+    lang_code = request.session.get(LANGUAGE_SESSION_KEY)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 65, in get
+    return self._session.get(key, default)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 194, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\contrib\sessions\backends\db.py", line 44, in load
+    return self.decode(s.session_data) if s else {}
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 100, in decode
+    encoded_data = base64.b64decode(session_data.encode('ascii'))
+  File "c:\python39\lib\base64.py", line 87, in b64decode
+    return binascii.a2b_base64(s)
+binascii.Error: Incorrect padding
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
 INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\urls.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\graphql_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/graphql/
+WARNING:django.request:Not Found: /en/graphql/
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\python39\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'django_root'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'django_root.schema.schema' for Graphene setting 'SCHEMA'. ModuleNotFoundError: No module named 'django_root'.
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\python39\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'django_root'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'django_root.schema.schema' for Graphene setting 'SCHEMA'. ModuleNotFoundError: No module named 'django_root'.
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\python39\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'django_root'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'django_root.schema.schema' for Graphene setting 'SCHEMA'. ModuleNotFoundError: No module named 'django_root'.
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\python39\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py", line 1, in <module>
+    from ariadne import QueryType, make_executable_schema
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ariadne\__init__.py", line 1, in <module>
+    from .enums import EnumType
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\ariadne\enums.py", line 5, in <module>
+    from graphql.type import GraphQLEnumType, GraphQLNamedType, GraphQLSchema
+ImportError: cannot import name 'GraphQLNamedType' from 'graphql.type' (C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphql\type\__init__.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'shop.schema.schema' for Graphene setting 'SCHEMA'. ImportError: cannot import name 'GraphQLNamedType' from 'graphql.type' (C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphql\type\__init__.py).
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 75, in import_from_string
+    return getattr(module, class_name)
+AttributeError: module 'shop' has no attribute 'schema'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'shop.schema' for Graphene setting 'SCHEMA'. AttributeError: module 'shop' has no attribute 'schema'.
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 75, in import_from_string
+    return getattr(module, class_name)
+AttributeError: module 'shop' has no attribute 'schema'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'shop.schema' for Graphene setting 'SCHEMA'. AttributeError: module 'shop' has no attribute 'schema'.
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\python39\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1027, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 961, in _sanity_check
+ValueError: Empty module name
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\local_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 75, in import_from_string
+    return getattr(module, class_name)
+AttributeError: module 'shop' has no attribute 'schema'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'shop.schema' for Graphene setting 'SCHEMA'. AttributeError: module 'shop' has no attribute 'schema'.
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 75, in import_from_string
+    return getattr(module, class_name)
+AttributeError: module 'shop' has no attribute 'schema'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'shop.schema' for Graphene setting 'SCHEMA'. AttributeError: module 'shop' has no attribute 'schema'.
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 75, in import_from_string
+    return getattr(module, class_name)
+AttributeError: module 'shop' has no attribute 'schema'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'shop.schema' for Graphene setting 'SCHEMA'. AttributeError: module 'shop' has no attribute 'schema'.
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 75, in import_from_string
+    return getattr(module, class_name)
+AttributeError: module 'shop' has no attribute 'schema'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'shop.schema' for Graphene setting 'SCHEMA'. AttributeError: module 'shop' has no attribute 'schema'.
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\python39\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py", line 207, in <module>
+    query = QueryType()
+NameError: name 'QueryType' is not defined
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\urls.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\python39\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 981, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'shop.schema.schema'; 'shop.schema' is not a package
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'shop.schema.schema.schema' for Graphene setting 'SCHEMA'. ModuleNotFoundError: No module named 'shop.schema.schema'; 'shop.schema' is not a package.
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\urls.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\python39\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 981, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'shop.schema.schema'; 'shop.schema' is not a package
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'shop.schema.schema.schema' for Graphene setting 'SCHEMA'. ModuleNotFoundError: No module named 'shop.schema.schema'; 'shop.schema' is not a package.
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\urls.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\python39\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 981, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'shop.schema.schema'; 'shop.schema' is not a package
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'shop.schema.schema.schema' for Graphene setting 'SCHEMA'. ModuleNotFoundError: No module named 'shop.schema.schema'; 'shop.schema' is not a package.
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\urls.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 84, in __init__
+    assert isinstance(
+AssertionError: A Schema is required to be provided to GraphQLView.
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\urls.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 84, in __init__
+    assert isinstance(
+AssertionError: A Schema is required to be provided to GraphQLView.
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 84, in __init__
+    assert isinstance(
+AssertionError: A Schema is required to be provided to GraphQLView.
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 84, in __init__
+    assert isinstance(
+AssertionError: A Schema is required to be provided to GraphQLView.

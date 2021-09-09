@@ -2,6 +2,7 @@ from channels.http import AsgiHandler
 from channels.routing import URLRouter
 from cms.sitemaps import CMSSitemap
 from django.apps import apps
+import debug_toolbar
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.i18n import i18n_patterns
@@ -13,12 +14,14 @@ from django.urls import include, path, re_path
 from django.views.decorators.csrf import csrf_exempt
 from django.views.i18n import JavaScriptCatalog
 from rest_framework import routers, serializers, viewsets
+from django.views.decorators.csrf import csrf_exempt
+from graphene_django.views import GraphQLView
 from django.contrib.auth.decorators import login_required
 from two_factor.gateways.twilio.urls import urlpatterns as tf_twilio_urls
 from two_factor.urls import urlpatterns as tf_urls
 from django.conf.urls.i18n import i18n_patterns
 
-#from .schema import schema
+from shop.schema import schema
 
 admin.autodiscover()
 
@@ -34,11 +37,13 @@ urlpatterns = [
     url(r"^messages/", include("pinax.messages.urls", namespace="pinax_messages")),
     url(r'^photologue/', include('photologue.urls', namespace='photologue')),
     path('api-auth/', include('rest_framework.urls')),
+    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
     path('payments/', include('payments.urls')),
     path('newsletter/', include('newsletter.urls')),
     path('captcha/', include('captcha.urls')),
     path('', include(tf_urls)),
     path('', include(tf_twilio_urls)),
+    path('__debug__/', include(debug_toolbar.urls)),
 ]
 
 application = URLRouter([
