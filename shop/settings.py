@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 'ruynfepj-$l0v7faw8&%$zm!-an-gy=hymjy1b@ce&@^t+f%%f'
 
-DEBUG = False 
+DEBUG = True 
 
 ALLOWED_HOSTS = ['*']
 
@@ -99,6 +99,7 @@ INSTALLED_APPS = [
     'djangocms_googlemap',
     'djangocms_video',
     'djangocms_audio',
+    "graphene_django",
     'shop',
     'django.contrib.flatpages',
 
@@ -169,7 +170,6 @@ INSTALLED_APPS = [
     'two_factor',
     'otp_yubikey',
     'djangocms_history',
-    "graphene_django",
 ]
 
 TEMPLATES = [
@@ -222,8 +222,6 @@ MIDDLEWARE = [
     'two_factor.middleware.threadlocals.ThreadLocals',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
-
-
 
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',
@@ -399,7 +397,7 @@ GRAPHENE = {
 from .customization import *
 from .graphql_settings import *
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+#try:
+#    from .local_settings import *
+#except ImportError:
+#    pass

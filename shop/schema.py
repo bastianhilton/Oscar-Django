@@ -1,11 +1,13 @@
 import graphene
+from graphene import relay, ObjectType
 from graphene_django import DjangoObjectType
+from graphene_django.filter import DjangoFilterConnectionField
 from .models import *
 
 class AddressCountryType(DjangoObjectType):
-    class Meta:
+  class Meta:
       model = AddressCountry
-      fields = (
+      filter_fields = {
         "iso_3166_1_a2",
         "iso_3166_1_a3",
         "iso_3166_1_numeric",
@@ -13,12 +15,13 @@ class AddressCountryType(DjangoObjectType):
         "name",
         "display_order",
         "is_shipping_country",
-    )
+   }
+  interfaces = (relay.Node,)
 
 class AddressUseraddressType(DjangoObjectType):
-    class Meta:
+  class Meta:
       model = AddressUseraddress
-      fields = (
+      filter_fields = {
         "title", 
         "first_name",
         "last_name",
@@ -39,61 +42,67 @@ class AddressUseraddressType(DjangoObjectType):
         "country",
         "user",
         "num_orders_as_billing_address",
-    )
+   }
+  interfaces = (relay.Node,)
 
 class AdvancedFiltersAdvancedfilterType(DjangoObjectType):
-    class Meta:
+  class Meta:
       model = AdvancedFiltersAdvancedfilter
-      fields = (
+      filter_fields = {
         "title",
         "url",
         "b64_query",
         "model",
         "created_by",
         "created_at",
-    )
+   }
+  interfaces = (relay.Node,)
 
 class AdvancedFiltersAdvancedfilterGroupsType(DjangoObjectType):
-    class Meta:
+  class Meta:
         model = AdvancedFiltersAdvancedfilterGroups
-        fields = (
+        filter_fields = {
         "advancedfilter",
         "group",
-    )
+   }
+  interfaces = (relay.Node,)
 
 class AdvancedFiltersAdvancedfilterUsersType(DjangoObjectType):
-    class Meta:
+  class Meta:
         model = AdvancedFiltersAdvancedfilterUsers
-        fields = (
+        filter_fields = {
         "advancedfilter",
         "user",
-    )
+   }
+  interfaces = (relay.Node,)
 
 class AnalyticsProductrecordType(DjangoObjectType):
-    class Meta:
+  class Meta:
         model = AnalyticsProductrecord
-        fields = (
+        filter_fields = {
         "num_views",
         "num_basket_additions",
         "num_purchases",
         "score",
         "product",
-    )
+   }
+  interfaces = (relay.Node,)
 
 
 class AnalyticsUserproductviewType(DjangoObjectType):
-    class Meta:
+  class Meta:
         model = AnalyticsUserproductview
-        fields = (
+        filter_fields = {
         "date_created",
         "product",
         "user",
-    )
+   }
+  interfaces = (relay.Node,)
 
 class AnalyticsUserrecordType(DjangoObjectType):
-    class Meta:
+  class Meta:
       model = AnalyticsUserrecord
-      fields = (
+      filter_fields = {
         "num_product_views",
         "num_basket_additions",
         "num_orders",
@@ -102,22 +111,24 @@ class AnalyticsUserrecordType(DjangoObjectType):
         "total_spent",
         "date_last_order",
         "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class AnalyticsUsersearchType(DjangoObjectType):
   class Meta:
       model = AnalyticsUsersearch
-      fields = (
+      filter_fields = {
         "query",
         "date_created",
         "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 
 class AnnouncementsAnnouncementType(DjangoObjectType):
   class Meta:
       model = AnnouncementsAnnouncement
-      fields = (
+      filter_fields = {
     "title",
     "content",
     "creation_date",
@@ -127,46 +138,50 @@ class AnnouncementsAnnouncementType(DjangoObjectType):
     "publish_start",
     "publish_end",
     "creator",
-)
+   }
+  interfaces = (relay.Node,)
 
 class AnnouncementsDismissalType(DjangoObjectType):
   class Meta:
       model = AnnouncementsDismissal
-      fields = (
+      filter_fields = {
     "dismissed_at",
     "announcement",
     "user",
-
-)
+   }
+  interfaces = (relay.Node,)
 
 class AuthGroupType(DjangoObjectType):
   class Meta:
      model = AuthGroup
-     fields = (
+     filter_fields = {
         "name",
-)
+   }
+  interfaces = (relay.Node,)
 
 class AuthGroupPermissionsType(DjangoObjectType):
   class Meta:
      model = AuthGroupPermissions
-     fields = (
+     filter_fields = {
         "group",
         "permission",
-)
+   }
+  interfaces = (relay.Node,)
 
 class AuthPermissionType(DjangoObjectType):
   class Meta:
      model = AuthPermission
-     fields = (
+     filter_fields = {
     "name",
     "content_type",
     "codename",
-)
+   }
+  interfaces = (relay.Node,)
 
 class AuthUserType(DjangoObjectType):
   class Meta:
      model = AuthUser
-     fields = (
+     filter_fields = {
     "password",
     "last_login",
     "is_superuser",
@@ -177,47 +192,52 @@ class AuthUserType(DjangoObjectType):
     "is_staff",
     "is_active",
     "date_joined",
-)
+   }
+  interfaces = (relay.Node,)
 
 class AuthUserGroupsType(DjangoObjectType):
   class Meta:
      model = AuthUserGroups
-     fields = (
+     filter_fields = {
     "user",
     "group",
-)
+   }
+  interfaces = (relay.Node,)
 
 class AuthUserUserPermissionsType(DjangoObjectType):
   class Meta:
      model = AuthUserUserPermissions
-     fields = (
+     filter_fields = {
     "user",
     "permission",
-)
+   }
+  interfaces = (relay.Node,)
 
 class BasketBasketType(DjangoObjectType):
   class Meta:
      model = BasketBasket
-     fields = (
+     filter_fields = {
     "status",
     "date_created",
     "date_merged",
     "date_submitted",
     "owner",
-)
+   }
+  interfaces = (relay.Node,)
 
 class BasketBasketVouchersType(DjangoObjectType):
   class Meta:
      model = BasketBasketVouchers
-     fields = (
+     filter_fields = {
     "basket",
     "voucher",
-)
+   }
+  interfaces = (relay.Node,)
 
 class BasketLineType(DjangoObjectType):
   class Meta:
      model = BasketLine
-     fields = (
+     filter_fields = {
     "line_reference",
     "quantity",
     "price_currency",
@@ -228,43 +248,47 @@ class BasketLineType(DjangoObjectType):
     "product",
     "stockrecord",
     "date_updated",
-)
+   }
+  interfaces = (relay.Node,)
 
 class BasketLineattributeType(DjangoObjectType):
   class Meta:
      model = BasketLineattribute
-     fields = (
+     filter_fields = {
     "value",
     "line",
     "option",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4AlertsBootstrap4AlertsType(DjangoObjectType):
   class Meta:
      model = Bootstrap4AlertsBootstrap4Alerts
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "alert_context",
     "alert_dismissable",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4BadgeBootstrap4BadgeType(DjangoObjectType):
   class Meta:
      model = Bootstrap4BadgeBootstrap4Badge
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "badge_text",
     "badge_context",
     "badge_pills",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4CardBootstrap4CardType(DjangoObjectType):
   class Meta:
      model = Bootstrap4CardBootstrap4Card
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "card_type",
     "card_context",
@@ -273,22 +297,24 @@ class Bootstrap4CardBootstrap4CardType(DjangoObjectType):
     "card_text_color",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4CardBootstrap4CardinnerType(DjangoObjectType):
   class Meta:
      model = Bootstrap4CardBootstrap4Cardinner
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "inner_type",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4CarouselBootstrap4CarouselType(DjangoObjectType):
   class Meta:
      model = Bootstrap4CarouselBootstrap4Carousel
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "template",
     "carousel_interval",
@@ -301,12 +327,13 @@ class Bootstrap4CarouselBootstrap4CarouselType(DjangoObjectType):
     "tag_type",
     "attributes",
     "carousel_aspect_ratio",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4CarouselBootstrap4CarouselslideType(DjangoObjectType):
   class Meta:
      model = Bootstrap4CarouselBootstrap4Carouselslide
-     fields = (
+     filter_fields = {
     "template",
     "name",
     "external_link",
@@ -321,73 +348,80 @@ class Bootstrap4CarouselBootstrap4CarouselslideType(DjangoObjectType):
     "carousel_image",
     "internal_link",
     "file_link",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4CollapseBootstrap4CollapseType(DjangoObjectType):
   class Meta:
      model = Bootstrap4CollapseBootstrap4Collapse
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "siblings",
     "tag_type",
     "attributes",
-    )
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4CollapseBootstrap4CollapsecontainerType(DjangoObjectType):
   class Meta:
      model = Bootstrap4CollapseBootstrap4Collapsecontainer
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "identifier",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4CollapseBootstrap4CollapsetriggerType(DjangoObjectType):
   class Meta:
      model = Bootstrap4CollapseBootstrap4Collapsetrigger
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "identifier",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4ContentBootstrap4BlockquoteType(DjangoObjectType):
   class Meta:
      model = Bootstrap4ContentBootstrap4Blockquote
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "quote_content",
     "quote_origin",
     "quote_alignment",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4ContentBootstrap4CodeType(DjangoObjectType):
   class Meta:
      model = Bootstrap4ContentBootstrap4Code
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "code_content",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4ContentBootstrap4FigureType(DjangoObjectType):
   class Meta:
      model = Bootstrap4ContentBootstrap4Figure
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "figure_caption",
     "figure_alignment",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4GridBootstrap4GridcolumnType(DjangoObjectType):
   class Meta:
      model = Bootstrap4GridBootstrap4Gridcolumn
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "column_type",
     "column_alignment",
@@ -418,44 +452,48 @@ class Bootstrap4GridBootstrap4GridcolumnType(DjangoObjectType):
     "sm_offset",
     "xl_offset",
     "xs_offset",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4GridBootstrap4GridcontainerType(DjangoObjectType):
   class Meta:
      model = Bootstrap4GridBootstrap4Gridcontainer
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "container_type",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4GridBootstrap4GridrowType(DjangoObjectType):
   class Meta:
      model = Bootstrap4GridBootstrap4Gridrow
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "vertical_alignment",
     "horizontal_alignment",
     "gutters",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4JumbotronBootstrap4JumbotronType(DjangoObjectType):
   class Meta:
      model = Bootstrap4JumbotronBootstrap4Jumbotron
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "fluid",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4LinkBootstrap4LinkType(DjangoObjectType):
   class Meta:
      model = Bootstrap4LinkBootstrap4Link
-     fields = (
+     filter_fields = {
     "template",
     "name",
     "external_link",
@@ -474,51 +512,56 @@ class Bootstrap4LinkBootstrap4LinkType(DjangoObjectType):
     "icon_left",
     "icon_right",
     "file_link",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4ListgroupBootstrap4ListgroupType(DjangoObjectType):
   class Meta:
      model = Bootstrap4ListgroupBootstrap4Listgroup
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "list_group_flush",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4ListgroupBootstrap4ListgroupitemType(DjangoObjectType):
   class Meta:
      model = Bootstrap4ListgroupBootstrap4Listgroupitem
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "list_context",
     "list_state",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4MediaBootstrap4MediaType(DjangoObjectType):
   class Meta:
      model = Bootstrap4MediaBootstrap4Media
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4MediaBootstrap4MediabodyType(DjangoObjectType):
   class Meta:
      model = Bootstrap4MediaBootstrap4Mediabody
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4PictureBootstrap4PictureType(DjangoObjectType):
   class Meta:
      model = Bootstrap4PictureBootstrap4Picture
-     fields = (
+     filter_fields = {
     "template",
     "external_picture",
     "width",
@@ -541,12 +584,13 @@ class Bootstrap4PictureBootstrap4PictureType(DjangoObjectType):
     "picture",
     "thumbnail_options",
     "use_responsive_image",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4TabsBootstrap4TabType(DjangoObjectType):
   class Meta:
      model = Bootstrap4TabsBootstrap4Tab
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "template",
     "tab_type",
@@ -555,22 +599,24 @@ class Bootstrap4TabsBootstrap4TabType(DjangoObjectType):
     "tab_effect",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4TabsBootstrap4TabitemType(DjangoObjectType):
   class Meta:
      model = Bootstrap4TabsBootstrap4Tabitem
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "tab_title",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class Bootstrap4UtilitiesBootstrap4SpacingType(DjangoObjectType):
   class Meta:
      model = Bootstrap4UtilitiesBootstrap4Spacing
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "space_property",
     "space_sides",
@@ -578,27 +624,30 @@ class Bootstrap4UtilitiesBootstrap4SpacingType(DjangoObjectType):
     "space_device",
     "tag_type",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueAttributeoptionType(DjangoObjectType):
   class Meta:
      model = CatalogueAttributeoption
-     fields = (
+     filter_fields = {
     "option",
     "group",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueAttributeoptiongroupType(DjangoObjectType):
   class Meta:
      model = CatalogueAttributeoptiongroup
-     fields = (
+     filter_fields = {
     "name",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueCategoryType(DjangoObjectType):
   class Meta:
      model = CatalogueCategory
-     fields = (
+     filter_fields = {
     "path",
     "depth",
     "numchild",
@@ -610,22 +659,24 @@ class CatalogueCategoryType(DjangoObjectType):
     "is_public",
     "meta_description",
     "meta_title",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueOptionType(DjangoObjectType):
   class Meta: 
      model = CatalogueOption
-     fields = (
+     filter_fields = {
     "name",
     "code",
     "type",
     "required",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueProductType(DjangoObjectType):
   class Meta:
      model = CatalogueProduct
-     fields = (
+     filter_fields = {
     "structure",
     "upc",
     "title",
@@ -640,32 +691,35 @@ class CatalogueProductType(DjangoObjectType):
     "is_public",
     "meta_description",
     "meta_title",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueProductProductOptionsType(DjangoObjectType):
   class Meta:
      model = CatalogueProductProductOptions
-     fields = (
+     filter_fields = {
     "product",
     "option",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueProductattributeType(DjangoObjectType):
   class Meta:
      model = CatalogueProductattribute
-     fields = (
+     filter_fields = {
     "name",
     "code",
     "type",
     "required",
     "option_group",
     "product_class",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueProductattributevalueType(DjangoObjectType):
   class Meta:
      model = CatalogueProductattributevalue
-     fields = (
+     filter_fields = {
     "value_text",
     "value_integer",
     "value_boolean",
@@ -680,56 +734,61 @@ class CatalogueProductattributevalueType(DjangoObjectType):
     "product",
     "value_option",
     "value_datetime",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueProductattributevalueValueMultiOptionType(DjangoObjectType):
   class Meta:
      model = CatalogueProductattributevalueValueMultiOption
-     fields = (
+     filter_fields = {
     "productattributevalue",
     "attributeoption",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueProductcategoryType(DjangoObjectType):
   class Meta:
      model = CatalogueProductcategory
-     fields = (
+     filter_fields = {
     "category",
     "product",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueProductclassType(DjangoObjectType):
-    class Meta:
+  class Meta:
      model = CatalogueProductclass
-     fields = (
+     filter_fields = {
     "name",
     "slug",
     "requires_shipping",
     "track_stock",
-     )
+     }
 
 class CatalogueProductclassOptionsType(DjangoObjectType):
-    class Meta:
+  class Meta:
      model = CatalogueProductclassOptions
-     fields = (
+     filter_fields = {
     "productclass",
     "option",
-    )
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueOptionType(DjangoObjectType):
-    class Meta:
+  class Meta:
      model = CatalogueOption
-     fields = (
+     filter_fields = {
     "name",
     "code",
     "type",
     "required",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueProductType(DjangoObjectType):
-    class Meta:
+  class Meta:
      model = CatalogueProduct
-     fields = (
+     filter_fields = {
     "structure",
     "upc",
     "title",
@@ -744,41 +803,45 @@ class CatalogueProductType(DjangoObjectType):
     "is_public",
     "meta_description",
     "meta_title",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueProductimageType(DjangoObjectType):
   class Meta:
      model = CatalogueProductimage
-     fields = (
+     filter_fields = {
     "original",
     "caption",
     "display_order",
     "date_created",
     "product",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CatalogueProductrecommendationType(DjangoObjectType):
   class Meta:
      model = CatalogueProductrecommendation
-     fields = (
+     filter_fields = {
     "ranking",
     "primary",
     "recommendation",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsAliaspluginmodelType(DjangoObjectType):
   class Meta:
      model = CmsAliaspluginmodel
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "plugin",
     "alias_placeholder",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsCmspluginType(DjangoObjectType):
   class Meta:
      model = CmsCmsplugin
-     fields = (
+     filter_fields = {
     "position",
     "language",
     "plugin_type",
@@ -789,12 +852,13 @@ class CmsCmspluginType(DjangoObjectType):
     "depth",
     "numchild",
     "path",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsGlobalpagepermissionType(DjangoObjectType):
   class Meta:
      model = CmsGlobalpagepermission
-     fields = (
+     filter_fields = {
     "can_change",
     "can_add",
     "can_delete",
@@ -806,20 +870,22 @@ class CmsGlobalpagepermissionType(DjangoObjectType):
     "can_recover_page",
     "group",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsGlobalpagepermissionSitesType(DjangoObjectType):
   class Meta:
      model = CmsGlobalpagepermissionSites
-     fields = (
+     filter_fields = {
     "globalpagepermission",
     "site",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsPageType(DjangoObjectType):
   class Meta:
      model = CmsPage
-     fields = (
+     filter_fields = {
     "created_by",
     "changed_by",
     "creation_date",
@@ -842,20 +908,22 @@ class CmsPageType(DjangoObjectType):
     "publisher_public",
     "is_page_type",
     "node",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsPagePlaceholdersType(DjangoObjectType):
   class Meta:
      model = CmsPagePlaceholders
-     fields = (
+     filter_fields = {
     "page",
     "placeholder",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsPagepermissionType(DjangoObjectType):
   class Meta:
      model = CmsPagepermission
-     fields = (
+     filter_fields = {
     "can_change",
     "can_add",
     "can_delete",
@@ -868,45 +936,50 @@ class CmsPagepermissionType(DjangoObjectType):
     "group",
     "page",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsPageuserType(DjangoObjectType):
   class Meta:
      model = CmsPageuser
-     fields = (
+     filter_fields = {
     "user_ptr",
     "created_by",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsPageusergroupType(DjangoObjectType):
   class Meta:
      model = CmsPageusergroup
-     fields = (
+     filter_fields = {
     "group_ptr",
     "created_by",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsPlaceholderType(DjangoObjectType):
   class Meta:
      model = CmsPlaceholder
-     fields = (
+     filter_fields = {
     "slot",
     "default_width",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsPlaceholderreferenceType(DjangoObjectType):
   class Meta:
      model = CmsPlaceholderreference
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "name",
     "placeholder_ref",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsStaticplaceholderType(DjangoObjectType):
   class Meta:
      model = CmsStaticplaceholder
-     fields = (
+     filter_fields = {
     "name",
     "code",
     "dirty",
@@ -914,12 +987,13 @@ class CmsStaticplaceholderType(DjangoObjectType):
     "draft",
     "public",
     "site",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsTitleType(DjangoObjectType):
   class Meta:
      model = CmsTitle
-     fields = (
+     filter_fields = {
     "language",
     "title",
     "page_title",
@@ -935,39 +1009,43 @@ class CmsTitleType(DjangoObjectType):
     "publisher_state",
     "page",
     "publisher_public",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsTreenodeType(DjangoObjectType):
   class Meta:
      model = CmsTreenode
-     fields = (
+     filter_fields = {
     "path",
     "depth",
     "numchild",
     "parent",
     "site",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsUrlconfrevisionType(DjangoObjectType):
   class Meta:
      model = CmsUrlconfrevision
-     fields = (
+     filter_fields = {
     "revision",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CmsUsersettingsType(DjangoObjectType):
   class Meta:
      model = CmsUsersettings
-     fields = (
+     filter_fields = {
     "language",
     "clipboard",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CommunicationCommunicationeventtypeType(DjangoObjectType):
   class Meta:
      model = CommunicationCommunicationeventtype
-     fields = (
+     filter_fields = {
     "code",
     "name",
     "category",
@@ -977,24 +1055,26 @@ class CommunicationCommunicationeventtypeType(DjangoObjectType):
     "sms_template",
     "date_created",
     "date_updated",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CommunicationEmailType(DjangoObjectType):
   class Meta:
      model = CommunicationEmail
-     fields = (
+     filter_fields = {
     "subject",
     "body_text",
     "body_html",
     "date_sent",
     "user",
     "email",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CommunicationNotificationType(DjangoObjectType):
   class Meta:
      model = CommunicationNotification
-     fields = (
+     filter_fields = {
     "subject",
     "body",
     "location",
@@ -1002,12 +1082,13 @@ class CommunicationNotificationType(DjangoObjectType):
     "date_read",
     "recipient",
     "sender",
-)
+   }
+  interfaces = (relay.Node,)
 
 class CustomerProductalertType(DjangoObjectType):
   class Meta:
      model = CustomerProductalert
-     fields = (
+     filter_fields = {
     "email",
     "key",
     "status",
@@ -1017,12 +1098,13 @@ class CustomerProductalertType(DjangoObjectType):
     "date_closed",
     "product",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangoAdminLogType(DjangoObjectType):
   class Meta:
      model = DjangoAdminLog
-     fields = (
+     filter_fields = {
     "action_time",
     "object_id",
     "object_repr",
@@ -1030,154 +1112,170 @@ class DjangoAdminLogType(DjangoObjectType):
     "change_message",
     "content_type",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangoContentType(DjangoObjectType):
   class Meta:
      model = DjangoContent
-     fields = (
+     filter_fields = {
     "app_label",
     "model",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangoFlatpageType(DjangoObjectType):
   class Meta:
      model = DjangoFlatpage
-     fields = (
+     filter_fields = {
     "url",
     "title",
     "content",
     "enable_comments",
     "template_name",
     "registration_required",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangoFlatpageSitesType(DjangoObjectType):
   class Meta:
      model = DjangoFlatpageSites
-     fields = (
+     filter_fields = {
     "flatpage",
     "site",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangoMigrationsType(DjangoObjectType):
   class Meta:
      model = DjangoMigrations
-     fields = (
+     filter_fields = {
     "app",
     "name",
     "applied",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangoSessionType(DjangoObjectType):
   class Meta:
      model = DjangoSession
-     fields = (
+     filter_fields = {
     "session_key",
     "session_data",
     "expire_date",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangoSiteType(DjangoObjectType):
   class Meta:
      model = DjangoSite
-     fields = (
+     filter_fields = {
     "domain",
     "name",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogAuthorentriespluginType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogAuthorentriesplugin
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "latest_posts",
     "app_config",
     "current_site",
     "template_folder",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogAuthorentriespluginAuthorsType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogAuthorentriespluginAuthors
-     fields = (
+     filter_fields = {
     "authorentriesplugin",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogBlogcategoryType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogBlogcategory
-     fields = (
+     filter_fields = {
     "date_created",
     "date_modified",
     "parent",
     "app_config",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogBlogcategoryTranslationType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogBlogcategoryTranslation
-     fields = (
+     filter_fields = {
     "language_code",
     "name",
     "slug",
     "master",
     "meta_description",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogBlogconfigType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogBlogconfig
-     fields = (
+     filter_fields = {
     "type",
     "namespace",
     "app_data",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogBlogconfigTranslationType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogBlogconfigTranslation
-     fields = (
+     filter_fields = {
     "language_code",
     "app_title",
     "master",
     "object_name",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogGenericblogpluginType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogGenericblogplugin
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "app_config",
     "current_site",
     "template_folder",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogLatestpostspluginType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogLatestpostsplugin
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "latest_posts",
     "app_config",
     "current_site",
     "template_folder",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogLatestpostspluginCategoriesType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogLatestpostspluginCategories
-     fields = (
+     filter_fields = {
     "latestpostsplugin",
     "blogcategory",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogPostType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogPost
-     fields = (
+     filter_fields = {
     "date_created",
     "date_modified",
     "date_published",
@@ -1194,37 +1292,41 @@ class DjangocmsBlogPostType(DjangoObjectType):
     "enable_liveblog",
     "date_featured",
     "media",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogPostCategoriesType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogPostCategories
-     fields = (
+     filter_fields = {
     "post",
     "blogcategory",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogPostRelatedType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogPostRelated
-     fields = (
+     filter_fields = {
     "from_post",
     "to_post",
     "sort_value",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogPostSitesType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogPostSites
-     fields = (
+     filter_fields = {
     "post",
     "site",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsBlogPostTranslationType(DjangoObjectType):
   class Meta:
      model = DjangocmsBlogPostTranslation
-     fields = (
+     filter_fields = {
     "language_code",
     "title",
     "slug",
@@ -1234,12 +1336,13 @@ class DjangocmsBlogPostTranslationType(DjangoObjectType):
     "meta_title",
     "post_text",
     "master",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsFileFileType(DjangoObjectType):
   class Meta:
      model = DjangocmsFileFile
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "file_name",
     "link_target",
@@ -1248,24 +1351,26 @@ class DjangocmsFileFileType(DjangoObjectType):
     "attributes",
     "template",
     "show_file_size",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsFileFolderType(DjangoObjectType):
   class Meta: 
      model = DjangocmsFileFolder
-     fields = (
+     filter_fields = {
     "template",
     "link_target",
     "show_file_size",
     "attributes",
     "cmsplugin_ptr",
     "folder_src",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsGooglemapGooglemapType(DjangoObjectType):
   class Meta:
      model = DjangocmsGooglemapGooglemap
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "title",
     "zoom",
@@ -1286,12 +1391,13 @@ class DjangocmsGooglemapGooglemapType(DjangoObjectType):
     "rotate_control",
     "scale_control",
     "template",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsGooglemapGooglemapmarkerType(DjangoObjectType):
   class Meta:
      model = DjangocmsGooglemapGooglemapmarker
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "title",
     "address",
@@ -1300,23 +1406,25 @@ class DjangocmsGooglemapGooglemapmarkerType(DjangoObjectType):
     "show_content",
     "info_content",
     "icon",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsGooglemapGooglemaprouteType(DjangoObjectType):
   class Meta:
      model = DjangocmsGooglemapGooglemaproute
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "title",
     "origin",
     "destination",
     "travel_mode",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsHistoryPlaceholderactionType(DjangoObjectType):
   class Meta:
      model = DjangocmsHistoryPlaceholderaction
-     fields = (
+     filter_fields = {
     "action",
     "pre_action_data",
     "post_action_data",
@@ -1324,12 +1432,13 @@ class DjangocmsHistoryPlaceholderactionType(DjangoObjectType):
     "order",
     "operation",
     "placeholder",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsHistoryPlaceholderoperationType(DjangoObjectType):
   class Meta:
      model = DjangocmsHistoryPlaceholderoperation
-     fields = (
+     filter_fields = {
     "operation_type",
     "token",
     "origin",
@@ -1340,23 +1449,25 @@ class DjangocmsHistoryPlaceholderoperationType(DjangoObjectType):
     "is_archived",
     "site",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsIconIconType(DjangoObjectType):
   class Meta:
      model = DjangocmsIconIcon
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "icon",
     "template",
     "label",
     "attributes",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsLinkLinkType(DjangoObjectType):
   class Meta:
      model = DjangocmsLinkLink
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "name",
     "external_link",
@@ -1368,12 +1479,13 @@ class DjangocmsLinkLinkType(DjangoObjectType):
     "attributes",
     "template",
     "file_link",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsMapsMapsType(DjangoObjectType):
   class Meta:
      model = DjangocmsMapsMaps
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "map_provider",
     "title",
@@ -1399,12 +1511,13 @@ class DjangocmsMapsMapsType(DjangoObjectType):
     "street_view_control",
     "layers_control",
     "scale_bar",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsPicturePictureType(DjangoObjectType):
   class Meta:
      model = DjangocmsPicturePicture
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "link_url",
     "alignment",
@@ -1424,12 +1537,13 @@ class DjangocmsPicturePictureType(DjangoObjectType):
     "external_picture",
     "template",
     "use_responsive_image",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsStyleStyleType(DjangoObjectType):
   class Meta:
      model = DjangocmsStyleStyle
-     fields = (
+     filter_fields = {
         "cmsplugin_ptr",
         "class_name",
         "tag_type",
@@ -1446,20 +1560,22 @@ class DjangocmsStyleStyleType(DjangoObjectType):
         "id_name",
         "label",
         "template",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsTextCkeditorTextType(DjangoObjectType):
   class Meta:
      model = DjangocmsTextCkeditorText
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "body",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsVideoVideoplayerType(DjangoObjectType):
   class Meta:
      model = DjangocmsVideoVideoplayer
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "embed_link",
     "poster",
@@ -1467,78 +1583,86 @@ class DjangocmsVideoVideoplayerType(DjangoObjectType):
     "label",
     "template",
     "parameters",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsVideoVideosourceType(DjangoObjectType):
   class Meta:
      model = DjangocmsVideoVideosource
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "text_title",
     "text_description",
     "attributes",
     "source_file",
-)
+   }
+  interfaces = (relay.Node,)
 
 class DjangocmsVideoVideotrackType(DjangoObjectType):
   class Meta:
      model = DjangocmsVideoVideotrack
-     fields = (
+     filter_fields = {
     "cmsplugin_ptr",
     "kind",
     "srclang",
     "label",
     "attributes",
     "src",
-)
+   }
+  interfaces = (relay.Node,)
 
 class EasyThumbnailsSourceType(DjangoObjectType):
   class Meta:
      model = EasyThumbnailsSource
-     fields = (
+     filter_fields = {
     "storage_hash",
     "name",
     "modified",
-)
+   }
+  interfaces = (relay.Node,)
 
 class EasyThumbnailsThumbnailType(DjangoObjectType):
   class Meta:
      model = EasyThumbnailsThumbnail
-     fields = (
+     filter_fields = {
     "storage_hash",
     "name",
     "modified",
     "source",
-)
+   }
+  interfaces = (relay.Node,)
 
 class EasyThumbnailsThumbnaildimensionsType(DjangoObjectType):
   class Meta:
      model = EasyThumbnailsThumbnaildimensions
-     fields = (
+     filter_fields = {
     "thumbnail",
     "width",
     "height",
-)
+   }
+  interfaces = (relay.Node,)
 
 class FilerClipboardType(DjangoObjectType):
   class Meta:
      model = FilerClipboard
-     fields = (
+     filter_fields = {
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class FilerClipboarditemType(DjangoObjectType):
   class Meta:
      model = FilerClipboarditem
-     fields = (
+     filter_fields = {
     "clipboard",
     "file",
-)
+   }
+  interfaces = (relay.Node,)
 
 class FilerFileType(DjangoObjectType):
   class Meta:
      model = FilerFile
-     fields = (
+     filter_fields = {
     "file",
     "field_file_size",
     "sha1",
@@ -1553,12 +1677,13 @@ class FilerFileType(DjangoObjectType):
     "owner",
     "polymorphic_ctype",
     "mime_type",
-)
+   }
+  interfaces = (relay.Node,)
 
 class FilerFolderType(DjangoObjectType):
   class Meta:
      model = FilerFolder
-     fields = (
+     filter_fields = {
     "name",
     "uploaded_at",
     "created_at",
@@ -1569,12 +1694,13 @@ class FilerFolderType(DjangoObjectType):
     "level",
     "owner",
     "parent",
-)
+   }
+  interfaces = (relay.Node,)
 
 class FilerFolderpermissionType(DjangoObjectType):
   class Meta:
      model = FilerFolderpermission
-     fields = (
+     filter_fields = {
     "type",
     "everybody",
     "can_edit",
@@ -1583,12 +1709,13 @@ class FilerFolderpermissionType(DjangoObjectType):
     "folder",
     "group",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class FilerImageType(DjangoObjectType):
   class Meta:
      model = FilerImage
-     fields = (
+     filter_fields = {
     "file_ptr",
     "field_height",
     "field_width",
@@ -1599,52 +1726,57 @@ class FilerImageType(DjangoObjectType):
     "must_always_publish_author_credit",
     "must_always_publish_copyright",
     "subject_location", 
-)
+}
+  interfaces = (relay.Node,)
 
 class FilerThumbnailoptionType(DjangoObjectType):
   class Meta:
      model = FilerThumbnailoption
-     fields = (
+     filter_fields = {
     "name",
     "width",
     "height",
     "crop",
     "upscale",
-)
+   }
+  interfaces = (relay.Node,)
 
 class MenusCachekeyType(DjangoObjectType):
   class Meta:
      model = MenusCachekey
-     fields = (
+     filter_fields = {
     "language",
     "site",
     "key",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OfferBenefitType(DjangoObjectType):
   class Meta:
      model = OfferBenefit
-     fields = (
+     filter_fields = {
     "type",
     "value",
     "max_affected_items",
     "proxy_class",
     "range",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OfferConditionType(DjangoObjectType):
   class Meta:
      model = OfferCondition
-     fields = (
+     filter_fields = {
     "type",
     "value",
     "proxy_class",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OfferConditionalofferType(DjangoObjectType):
   class Meta:
      model = OfferConditionaloffer
-     fields = (
+     filter_fields = {
     "name",
     "slug",
     "description",
@@ -1665,20 +1797,22 @@ class OfferConditionalofferType(DjangoObjectType):
     "benefit",
     "condition",
     "exclusive",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OfferConditionalofferCombinationsType(DjangoObjectType):
   class Meta:
      model = OfferConditionalofferCombinations
-     fields = (
+     filter_fields = {
     "from_conditionaloffer",
     "to_conditionaloffer",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OfferRangeType(DjangoObjectType):
-    class Meta:
+  class Meta:
      model = OfferRange
-     fields = (
+     filter_fields = {
     "name",
     "slug",
     "description",
@@ -1686,43 +1820,48 @@ class OfferRangeType(DjangoObjectType):
     "includes_all_products",
     "proxy_class",
     "date_created",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OfferRangeClassesType(DjangoObjectType):
-    class Meta:
+  class Meta:
      model = OfferRangeClasses
-     fields = (
+     filter_fields = {
     "range",
     "productclass",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OfferRangeExcludedProductsType(DjangoObjectType):
   class Meta:
      model = OfferRangeExcludedProducts
-     fields = (
+     filter_fields = {
     "range",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OfferRangeIncludedCategoriesType(DjangoObjectType):
   class Meta:
      model = OfferRangeIncludedCategories
-     fields = (
+     filter_fields = {
     "range",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OfferRangeproductType(DjangoObjectType):
   class Meta:
      model = OfferRangeproduct
-     fields = (
+     filter_fields = {
     "display_order",
     "product",
     "range", 
-)
+}
+  interfaces = (relay.Node,)
 
 class OfferRangeproductfileuploadType(DjangoObjectType):
   class Meta:
      model = OfferRangeproductfileupload
-     fields = (
+     filter_fields = {
     "filepath",
     "size",
     "date_uploaded",
@@ -1733,12 +1872,13 @@ class OfferRangeproductfileuploadType(DjangoObjectType):
     "num_unknown_skus",
     "num_duplicate_skus",
     "range",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderBillingaddressType(DjangoObjectType):
   class Meta:
      model = OrderBillingaddress
-     fields = (
+     filter_fields = {
     "title", 
     "first_name",
     "last_name",
@@ -1750,21 +1890,23 @@ class OrderBillingaddressType(DjangoObjectType):
     "postcode", 
     "search_text",
     "country",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderCommunicationeventType(DjangoObjectType):
-    class Meta:
+  class Meta:
      model = OrderCommunicationevent
-     fields = (
+     filter_fields = {
         "date_created",
         "event_type",
         "order",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderLineType(DjangoObjectType):
   class Meta:
      model = OrderLine
-     fields = (
+     filter_fields = {
     "partner_name",
     "partner_sku",
     "partner_line_reference",
@@ -1783,22 +1925,24 @@ class OrderLineType(DjangoObjectType):
     "partner",
     "product",
     "stockrecord",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderLineattributeType(DjangoObjectType):
   class Meta:
      model = OrderLineattribute
-     fields = (
+     filter_fields = {
     "type",
     "value",
     "line",
     "option",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderLinepriceType(DjangoObjectType):
   class Meta:
      model = OrderLineprice
-     fields = (
+     filter_fields = {
     "quantity",
     "price_incl_tax",
     "price_excl_tax",
@@ -1806,12 +1950,13 @@ class OrderLinepriceType(DjangoObjectType):
     "shipping_excl_tax",
     "line",
     "order",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderOrderType(DjangoObjectType):
   class Meta:
      model = OrderOrder
-     fields = (
+     filter_fields = {
     "number",
     "currency",
     "total_incl_tax",
@@ -1828,12 +1973,13 @@ class OrderOrderType(DjangoObjectType):
     "shipping_address",
     "site",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderOrderdiscountType(DjangoObjectType):
   class Meta:
      model = OrderOrderdiscount
-     fields = (
+     filter_fields = {
     "category", 
     "offer_id",
     "offer_name",
@@ -1843,63 +1989,69 @@ class OrderOrderdiscountType(DjangoObjectType):
     "amount",
     "message",
     "order",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderOrdernoteType(DjangoObjectType):
   class Meta:
      model = OrderOrdernote
-     fields = (
+     filter_fields = {
     "note_type",
     "message",
     "date_created",
     "date_updated",
     "order",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderOrderstatuschangeType(DjangoObjectType):
   class Meta:
      model = OrderOrderstatuschange
-     fields = (
+     filter_fields = {
     "old_status",
     "new_status",
     "date_created",
     "order",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderPaymenteventType(DjangoObjectType):
   class Meta:
      model = OrderPaymentevent
-     fields = (
+     filter_fields = {
     "amount",
     "reference",
     "date_created",
     "event_type",
     "order",
     "shipping_event",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderPaymenteventquantityType(DjangoObjectType):
   class Meta:
      model = OrderPaymenteventquantity
-     fields = (
+     filter_fields = {
     "quantity",
     "event",
     "line",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderPaymenteventtypeType(DjangoObjectType):
   class Meta:
      model = OrderPaymenteventtype
-     fields = (
+     filter_fields = {
     "name",
     "code",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderShippingaddressType(DjangoObjectType):
   class Meta:
      model = OrderShippingaddress
-     fields = (
+     filter_fields = {
     "title", 
     "first_name",
     "last_name",
@@ -1913,72 +2065,79 @@ class OrderShippingaddressType(DjangoObjectType):
     "phone_number",
     "notes",
     "country",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderShippingeventType(DjangoObjectType):
   class Meta:
      model = OrderShippingevent
-     fields = (
+     filter_fields = {
     "notes",
     "date_created",
     "event_type",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderShippingeventquantityType(DjangoObjectType):
   class Meta:
      model = OrderShippingeventquantity
-     fields = (
+     filter_fields = {
     "quantity",
     "event",
     "line",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderShippingeventtypeType(DjangoObjectType):
   class Meta:
      model = OrderShippingeventtype
-     fields = (
+     filter_fields = {
     "name",
     "code",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OrderSurchargeType(DjangoObjectType):
   class Meta:
      model = OrderSurcharge
-     fields = (
+     filter_fields = {
     "name",
     "code",
     "incl_tax",
     "excl_tax",
     "order",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OscarInvoicesInvoiceType(DjangoObjectType):
   class Meta:
      model = OscarInvoicesInvoice
-     fields = (
+     filter_fields = {
     "number",
     "notes",
     "document",
     "legal_entity",
     "order",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OscarInvoicesLegalentityType(DjangoObjectType):
   class Meta:
      model = OscarInvoicesLegalentity
-     fields = (
+     filter_fields = {
     "shop_name",
     "business_name",
     "vat_number",
     "logo",
     "email",
     "web_site",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OscarInvoicesLegalentityaddressType(DjangoObjectType):
   class Meta:
      model = OscarInvoicesLegalentityaddress
-     fields = (
+     filter_fields = {
     "title", 
     "first_name",
     "last_name",
@@ -1993,35 +2152,39 @@ class OscarInvoicesLegalentityaddressType(DjangoObjectType):
     "fax_number",
     "country",
     "legal_entity",
-)
+   }
+  interfaces = (relay.Node,)
 
 class OscarapiApikeyType(DjangoObjectType):
   class Meta:
      model = OscarapiApikey
-     fields = (
+     filter_fields = {
     "key",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PartnerPartnerType(DjangoObjectType):
   class Meta:
      model = PartnerPartner
-     fields = (
+     filter_fields = {
     "code",
     "name",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PartnerPartnerUsersType(DjangoObjectType):
   class Meta:
      model = PartnerPartnerUsers
-     fields = (
+     filter_fields = {
     "partner",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PartnerPartneraddressType(DjangoObjectType):
   class Meta:
      model = PartnerPartneraddress
-     fields = (
+     filter_fields = {
     "title", 
     "first_name",
     "last_name",
@@ -2034,23 +2197,25 @@ class PartnerPartneraddressType(DjangoObjectType):
     "search_text",
     "country",
     "partner",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PartnerStockalertType(DjangoObjectType):
   class Meta:
      model = PartnerStockalert
-     fields = (
+     filter_fields = {
     "threshold",
     "status",
     "date_created",
     "date_closed",
     "stockrecord",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PartnerStockrecordType(DjangoObjectType):
   class Meta:
      model = PartnerStockrecord
-     fields = (
+     filter_fields = {
     "partner_sku",
     "price_currency",
     "price",
@@ -2061,24 +2226,26 @@ class PartnerStockrecordType(DjangoObjectType):
     "date_updated",
     "partner",
     "product",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PaymentBankcardType(DjangoObjectType):
   class Meta:
      model = PaymentBankcard
-     fields = (
+     filter_fields = {
     "card_type",
     "name",
     "number",
     "expiry_date",
     "partner_reference",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PaymentSourceType(DjangoObjectType):
   class Meta:
      model = PaymentSource
-     fields = (
+     filter_fields = {
     "currency",
     "amount_allocated",
     "amount_debited",
@@ -2087,32 +2254,35 @@ class PaymentSourceType(DjangoObjectType):
     "label",
     "order",
     "source_type",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PaymentSourcetypeType(DjangoObjectType):
   class Meta:
      model = PaymentSourcetype
-     fields = (
+     filter_fields = {
     "name",
     "code",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PaymentTransactionType(DjangoObjectType):
   class Meta:
      model = PaymentTransaction
-     fields = (
+     filter_fields = {
     "txn_type",
     "amount",
     "reference",
     "status",
     "date_created",
     "source",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PaypalExpresstransactionType(DjangoObjectType):
   class Meta:
      model = PaypalExpresstransaction
-     fields = (
+     filter_fields = {
     "raw_request",
     "raw_response",
     "response_time",
@@ -2126,12 +2296,13 @@ class PaypalExpresstransactionType(DjangoObjectType):
     "token",
     "error_code",
     "error_message",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PaypalPayflowtransactionType(DjangoObjectType):
   class Meta:
      model = PaypalPayflowtransaction
-     fields = (
+     filter_fields = {
     "raw_request",
     "raw_response",
     "response_time",
@@ -2148,40 +2319,44 @@ class PaypalPayflowtransactionType(DjangoObjectType):
     "cvv2match",
     "avsaddr",
     "avszip",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PhotologueGalleryType(DjangoObjectType):
   class Meta:
      model = PhotologueGallery
-     fields = (
+     filter_fields = {
     "date_added",
     "title",
     "slug",
     "description",
     "is_public",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PhotologueGalleryPhotosType(DjangoObjectType):
   class Meta:
      model = PhotologueGalleryPhotos
-     fields = (
+     filter_fields = {
     "sort_value",
     "gallery",
     "photo",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PhotologueGallerySitesType(DjangoObjectType):
   class Meta:
      model = PhotologueGallerySites
-     fields = (
+     filter_fields = {
     "gallery",
     "site",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PhotologuePhotoType(DjangoObjectType):
   class Meta:
      model = PhotologuePhoto
-     fields = (
+     filter_fields = {
     "image",
     "date_taken",
     "view_count",
@@ -2192,20 +2367,22 @@ class PhotologuePhotoType(DjangoObjectType):
     "date_added",
     "is_public",
     "effect",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PhotologuePhotoSitesType(DjangoObjectType):
   class Meta:
      model = PhotologuePhotoSites
-     fields = (
+     filter_fields = {
     "photo",
     "site",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PhotologuePhotoeffectType(DjangoObjectType):
   class Meta:
      model = PhotologuePhotoeffect
-     fields = (
+     filter_fields = {
     "name",
     "description",
     "transpose_method",
@@ -2217,12 +2394,13 @@ class PhotologuePhotoeffectType(DjangoObjectType):
     "reflection_size",
     "reflection_strength",
     "background_color",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PhotologuePhotosizeType(DjangoObjectType):
   class Meta:
      model = PhotologuePhotosize
-     fields = (
+     filter_fields = {
     "name",
     "width",
     "height",
@@ -2233,33 +2411,36 @@ class PhotologuePhotosizeType(DjangoObjectType):
     "increment_count",
     "effect",
     "watermark",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PhotologueWatermarkType(DjangoObjectType):
   class Meta:
      model = PhotologueWatermark
-     fields = (
+     filter_fields = {
     "name",
     "description",
     "image",
     "style",
     "opacity",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PinaxBadgesBadgeawardType(DjangoObjectType):
   class Meta:
      model = PinaxBadgesBadgeaward
-     fields = (
+     filter_fields = {
     "awarded_at",
     "slug",
     "level",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PinaxEventsEventType(DjangoObjectType):
   class Meta:
      model = PinaxEventsEvent
-     fields = (
+     filter_fields = {
     "image",
     "where",
     "what",
@@ -2271,39 +2452,43 @@ class PinaxEventsEventType(DjangoObjectType):
     "title",
     "url",
     "secondary_image",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PinaxMessagesMessageType(DjangoObjectType):
   class Meta:
      model = PinaxMessagesMessage
-     fields = (
+     filter_fields = {
     "sent_at",
     "content",
     "sender",
     "thread",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PinaxMessagesThreadType(DjangoObjectType):
   class Meta:
      model = PinaxMessagesThread
-     fields = (
+     filter_fields = {
     "subject",
-)
+   }
+  interfaces = (relay.Node,)
 
 class PinaxMessagesUserthreadType(DjangoObjectType):
   class Meta:
      model = PinaxMessagesUserthread
-     fields = (
+     filter_fields = {
     "unread",
     "deleted",
     "thread",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class ReviewsProductreviewType(DjangoObjectType):
   class Meta:
      model = ReviewsProductreview
-     fields = (
+     filter_fields = {
     "score",
     "title",
     "body",
@@ -2316,104 +2501,115 @@ class ReviewsProductreviewType(DjangoObjectType):
     "date_created",
     "product",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class ReviewsVoteType(DjangoObjectType):
   class Meta:
      model = ReviewsVote
-     fields = (
+     filter_fields = {
     "delta",
     "date_created",
     "review",
     "user",
-)
+   }
+  interfaces = (relay.Node,)
 
 class ShippingOrderanditemchargesType(DjangoObjectType):
   class Meta:
      model = ShippingOrderanditemcharges
-     fields = (
+     filter_fields = {
     "code",
     "name",
     "description",
     "price_per_order",
     "price_per_item",
     "free_shipping_threshold",
-)
+   }
+  interfaces = (relay.Node,)
 
 class ShippingOrderanditemchargesCountriesType(DjangoObjectType):
   class Meta:
      model = ShippingOrderanditemchargesCountries
-     fields = (
+     filter_fields = {
     "orderanditemcharges",
     "country",
-)
+   }
+  interfaces = (relay.Node,)
 
 class ShippingWeightbandType(DjangoObjectType):
   class Meta:
      model = ShippingWeightband
-     fields = (
+     filter_fields = {
     "upper_limit",
     "method",
-)
+   }
+  interfaces = (relay.Node,)
 
 class ShippingWeightbasedType(DjangoObjectType):
   class Meta:
      model = ShippingWeightbased
-     fields = (
+     filter_fields = {
     "code",
     "name",
     "description",
     "default_weight",
-)
+   }
+  interfaces = (relay.Node,)
 
 class ShippingWeightbasedCountriesType(DjangoObjectType):
   class Meta:
      model = ShippingWeightbasedCountries
-     fields = (
+     filter_fields = {
     "weightbased",
     "country",
-)
+   }
+  interfaces = (relay.Node,)
 
 class TaggitTagType(DjangoObjectType):
   class Meta:
      model = TaggitTag
-     fields = (
+     filter_fields = {
     "name",
     "slug",
-)
+   }
+  interfaces = (relay.Node,)
 
 class TaggitTaggeditemType(DjangoObjectType):
   class Meta:
      model = TaggitTaggeditem
-     fields = (
+     filter_fields = {
     "object_id",
     "content_type",
     "tag",
-)
+   }
+  interfaces = (relay.Node,)
 
 class TestimonialsTestimonialType(DjangoObjectType):
   class Meta:
      model = TestimonialsTestimonial
-     fields = (
+     filter_fields = {
     "text",
     "author",
     "affiliation",
     "added",
     "active",
-)
+   }
+  interfaces = (relay.Node,)
 
 class ThumbnailKvstoreType(DjangoObjectType):
   class Meta:
      model = ThumbnailKvstore
-     fields = (
+     filter_fields = {
     "key",
     "value",
-)
+   }
+  interfaces = (relay.Node,)
 
 class VoucherVoucherType(DjangoObjectType):
   class Meta:
      model = VoucherVoucher
-     fields = (
+     filter_fields = {
     "name",
     "code",
     "usage",
@@ -2424,30 +2620,33 @@ class VoucherVoucherType(DjangoObjectType):
     "total_discount",
     "date_created",
     "voucher_set",
-)
+   }
+  interfaces = (relay.Node,)
 
 class VoucherVoucherOffersType(DjangoObjectType):
   class Meta:
      model = VoucherVoucherOffers
-     fields = (
+     filter_fields = {
     "voucher",
     "conditionaloffer",
-)
+   }
+  interfaces = (relay.Node,)
 
 class VoucherVoucherapplicationType(DjangoObjectType):
   class Meta:
      model = VoucherVoucherapplication
-     fields = (
+     filter_fields = {
     "date_created",
     "order",
     "user",
     "voucher",
-)
+   }
+  interfaces = (relay.Node,)
 
 class VoucherVouchersetType(DjangoObjectType):
   class Meta:
      model = VoucherVoucherset
-     fields = (
+     filter_fields = {
     "name",
     "count",
     "code_length",
@@ -2456,28 +2655,31 @@ class VoucherVouchersetType(DjangoObjectType):
     "start_datetime",
     "end_datetime",
     "offer",
-)
+   }
+  interfaces = (relay.Node,)
 
 class WishlistsLineType(DjangoObjectType):
   class Meta:
      model = WishlistsLine
-     fields = (
+     filter_fields = {
     "quantity",
     "title",
     "product",
     "wishlist",
-)
+   }
+  interfaces = (relay.Node,)
 
 class WishlistsWishlistType(DjangoObjectType):
   class Meta:
      model = WishlistsWishlist
-     fields = (
+     filter_fields = {
         "name",
         "key",
         "visibility",
         "date_created",
         "owner",
-    )
+   }
+  interfaces = (relay.Node,)
 
 class Query(graphene.ObjectType):
   all_AddressCountry = graphene.List(AddressCountryType)

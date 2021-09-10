@@ -3347,3 +3347,581 @@ ERROR:graphql.execution.utils:Traceback (most recent call last):
     raise FieldError(
 django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'AddressCountry'. Choices are: addressuseraddress, orderbillingaddress, ordershippingaddress, oscarinvoiceslegalentityaddress, partnerpartneraddress, shippingorderanditemchargescountries, shippingweightbasedcountries
 
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\users\sehilton\appdata\local\programs\python\python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py", line 5, in <module>
+    class AddressCountryType(DjangoObjectType):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene\utils\subclass_with_meta.py", line 40, in __init_subclass__
+    super_class.__init_subclass_with_meta__(**options)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\types.py", line 88, in __init_subclass_with_meta__
+    super(DjangoObjectType, cls).__init_subclass_with_meta__(_meta=_meta, interfaces=interfaces, **options)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene\types\objecttype.py", line 61, in __init_subclass_with_meta__
+    super(ObjectType, cls).__init_subclass_with_meta__(_meta=_meta, **options)
+TypeError: __init_subclass_with_meta__() got an unexpected keyword argument 'fields'
+WARNING:django.request:Not Found: /en/favicon.ico/
+ERROR:django.request:Internal Server Error: /en/admin/
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
+    response = response.render()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\test\utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\loader_tags.py", line 53, in render
+    result = self.nodelist.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\loader_tags.py", line 188, in render
+    return template.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\test\utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\templatetags\static.py", line 106, in render
+    url = self.url(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\templatetags\static.py", line 103, in url
+    return self.handle_simple(path)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\templatetags\static.py", line 118, in handle_simple
+    return staticfiles_storage.url(path)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\contrib\staticfiles\storage.py", line 153, in url
+    return self._url(self.stored_name, name, force)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\contrib\staticfiles\storage.py", line 132, in _url
+    hashed_name = hashed_name_func(*args)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\contrib\staticfiles\storage.py", line 420, in stored_name
+    raise ValueError("Missing staticfiles manifest entry for '%s'" % clean_name)
+ValueError: Missing staticfiles manifest entry for 'admin/simpleui-x/elementui/theme-chalk/index.css'
+ERROR:django.request:Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
+    response = response.render()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\test\utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\test\utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\test\utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\templatetags\static.py", line 106, in render
+    url = self.url(context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\templatetags\static.py", line 103, in url
+    return self.handle_simple(path)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\templatetags\static.py", line 118, in handle_simple
+    return staticfiles_storage.url(path)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\contrib\staticfiles\storage.py", line 153, in url
+    return self._url(self.stored_name, name, force)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\contrib\staticfiles\storage.py", line 132, in _url
+    hashed_name = hashed_name_func(*args)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\contrib\staticfiles\storage.py", line 420, in stored_name
+    raise ValueError("Missing staticfiles manifest entry for '%s'" % clean_name)
+ValueError: Missing staticfiles manifest entry for 'oscar/favicon.ico'
+WARNING:django.request:Not Found: /en/favicon.ico/
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+WARNING:django.request:Not Found: /en/graphql/
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\users\sehilton\appdata\local\programs\python\python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py", line 5, in <module>
+    class AddressCountryType(DjangoObjectType):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene\utils\subclass_with_meta.py", line 40, in __init_subclass__
+    super_class.__init_subclass_with_meta__(**options)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\types.py", line 88, in __init_subclass_with_meta__
+    super(DjangoObjectType, cls).__init_subclass_with_meta__(_meta=_meta, interfaces=interfaces, **options)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene\types\objecttype.py", line 61, in __init_subclass_with_meta__
+    super(ObjectType, cls).__init_subclass_with_meta__(_meta=_meta, **options)
+TypeError: __init_subclass_with_meta__() got an unexpected keyword argument 'fields'
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\users\sehilton\appdata\local\programs\python\python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py", line 18
+    interfaces = (relay.Node, )
+                              ^
+IndentationError: unindent does not match any outer indentation level
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\users\sehilton\appdata\local\programs\python\python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py", line 18
+    interfaces = (relay.Node, )
+                              ^
+IndentationError: unindent does not match any outer indentation level
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\users\sehilton\appdata\local\programs\python\python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py", line 18
+    interfaces = (relay.Node, )
+                              ^
+IndentationError: unindent does not match any outer indentation level
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\users\sehilton\appdata\local\programs\python\python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py", line 18
+    interfaces = (relay.Node)
+                            ^
+IndentationError: unindent does not match any outer indentation level
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\users\sehilton\appdata\local\programs\python\python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py", line 18
+    interfaces = (relay.Node,)
+                             ^
+IndentationError: unindent does not match any outer indentation level
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\users\sehilton\appdata\local\programs\python\python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py", line 45
+    interfaces = (relay.Node,)
+                             ^
+IndentationError: unindent does not match any outer indentation level
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\users\sehilton\appdata\local\programs\python\python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py", line 124
+    interfaces = (relay.Node,)
+                             ^
+IndentationError: unindent does not match any outer indentation level
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\users\sehilton\appdata\local\programs\python\python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py", line 151
+    )
+    ^
+SyntaxError: closing parenthesis ')' does not match opening parenthesis '{' on line 146
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\users\sehilton\appdata\local\programs\python\python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py", line 765
+    )
+    ^
+SyntaxError: closing parenthesis ')' does not match opening parenthesis '{' on line 760
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\users\sehilton\appdata\local\programs\python\python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py", line 2683, in <module>
+    class Query(graphene.ObjectType):
+NameError: name 'graphene' is not defined
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1129, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 474, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 54, in pre_sql_setup
+    self.setup_query()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 45, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 240, in get_select
+    related_klass_infos = self.get_related_selections(select)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 936, in get_related_selections
+    raise FieldError(
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'AddressCountry'. Choices are: addressuseraddress, orderbillingaddress, ordershippingaddress, oscarinvoiceslegalentityaddress, partnerpartneraddress, shippingorderanditemchargescountries, shippingweightbasedcountries
+
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\graphql_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
