@@ -1,4 +1,3 @@
-import os
 from .settings import *
 
 GRAPHENE_GENERATOR_MODELS = [

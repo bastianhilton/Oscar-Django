@@ -1,4 +1,3 @@
-from django.template.defaultfilters import slugify
 from django.db import models
 from django.utils.timezone import now
 from decimal import Decimal
@@ -17,13 +16,11 @@ class AddressCountry(models.Model):
     name = models.CharField(max_length=128)
     display_order = models.SmallIntegerField()
     is_shipping_country = models.BooleanField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.address_country    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AddressUseraddress(models.Model):
@@ -47,13 +44,11 @@ class AddressUseraddress(models.Model):
     country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
     user = models.OneToOneField('AuthUser', models.DO_NOTHING)
     num_orders_as_billing_address = models.IntegerField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.address_useraddress            
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AldrynFormsEmailfieldplugin(models.Model):
@@ -74,7 +69,6 @@ class AldrynFormsEmailfieldplugin(models.Model):
     name = models.CharField(max_length=255)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -97,7 +91,6 @@ class AldrynFormsFieldplugin(models.Model):
     name = models.CharField(max_length=255)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -111,7 +104,6 @@ class AldrynFormsFieldsetplugin(models.Model):
     custom_classes = models.CharField(max_length=255)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -136,7 +128,6 @@ class AldrynFormsFileuploadfieldplugin(models.Model):
     name = models.CharField(max_length=255)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -150,7 +141,6 @@ class AldrynFormsFormbuttonplugin(models.Model):
     custom_classes = models.CharField(max_length=255)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -173,7 +163,6 @@ class AldrynFormsFormplugin(models.Model):
     is_enable_autofill_from_url_params = models.BooleanField()
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -186,7 +175,6 @@ class AldrynFormsFormpluginRecipients(models.Model):
     user = models.ForeignKey('AuthUser', models.DO_NOTHING)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -204,7 +192,6 @@ class AldrynFormsFormsubmission(models.Model):
     sent_at = models.DateTimeField()
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -231,7 +218,6 @@ class AldrynFormsImageuploadfieldplugin(models.Model):
     name = models.CharField(max_length=255)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -246,7 +232,6 @@ class AldrynFormsOption(models.Model):
     position = models.IntegerField()
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -275,7 +260,6 @@ class AldrynFormsTextareafieldplugin(models.Model):
         db_table = 'aldryn_forms_textareafieldplugin'    
         
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AdvancedFiltersAdvancedfilter(models.Model):
@@ -285,39 +269,33 @@ class AdvancedFiltersAdvancedfilter(models.Model):
     model = models.CharField(max_length=64, blank=True, null=True)
     created_by = models.OneToOneField('AuthUser', models.DO_NOTHING)
     created_at = models.DateTimeField(blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.advanced_filters_advancedfilter    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AdvancedFiltersAdvancedfilterGroups(models.Model):
     advancedfilter = models.OneToOneField(AdvancedFiltersAdvancedfilter, models.DO_NOTHING)
     group = models.OneToOneField('AuthGroup', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.advanced_filters_advancedfilter_groups        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AdvancedFiltersAdvancedfilterUsers(models.Model):
     advancedfilter = models.OneToOneField(AdvancedFiltersAdvancedfilter, models.DO_NOTHING)
     user = models.OneToOneField('AuthUser', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.advanced_filters_advancedfilter_users        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AnalyticsProductrecord(models.Model):
@@ -326,26 +304,22 @@ class AnalyticsProductrecord(models.Model):
     num_purchases = models.IntegerField()
     score = models.FloatField()
     product = models.OneToOneField('CatalogueProduct', models.DO_NOTHING, unique=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.analytics_productrecord    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AnalyticsUserproductview(models.Model):
     date_created = models.DateTimeField()
     product = models.OneToOneField('CatalogueProduct', models.DO_NOTHING)
     user = models.OneToOneField('AuthUser', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.analytics_userproductview    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AnalyticsUserrecord(models.Model):
@@ -357,26 +331,22 @@ class AnalyticsUserrecord(models.Model):
     total_spent = models.DecimalField(max_digits=12, decimal_places=2)
     date_last_order = models.DateTimeField(blank=True, null=True)
     user = models.OneToOneField('AuthUser', models.DO_NOTHING, unique=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.analytics_userrecord    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AnalyticsUsersearch(models.Model):
     query = models.CharField(max_length=255)
     date_created = models.DateTimeField()
     user = models.OneToOneField('AuthUser', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.analytics_usersearch    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AnnouncementsAnnouncement(models.Model):
@@ -389,64 +359,54 @@ class AnnouncementsAnnouncement(models.Model):
     publish_start = models.DateTimeField()
     publish_end = models.DateTimeField(blank=True, null=True)
     creator = models.OneToOneField('AuthUser', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.announcements_announcement    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AnnouncementsDismissal(models.Model):
     dismissed_at = models.DateTimeField()
     announcement = models.OneToOneField(AnnouncementsAnnouncement, models.DO_NOTHING)
     user = models.OneToOneField('AuthUser', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.announcements_dismissal    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.auth_group    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AuthGroupPermissions(models.Model):
     group = models.OneToOneField(AuthGroup, models.DO_NOTHING)
     permission = models.OneToOneField('AuthPermission', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.auth_group_permissions        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AuthPermission(models.Model):
     name = models.CharField(max_length=255)
     content_type = models.OneToOneField('DjangoContent', models.DO_NOTHING)
     codename = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.auth_permission        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AuthUser(models.Model):
@@ -460,39 +420,33 @@ class AuthUser(models.Model):
     is_staff = models.BooleanField()
     is_active = models.BooleanField()
     date_joined = models.DateTimeField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.auth_user    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AuthUserGroups(models.Model):
     user = models.OneToOneField(AuthUser, models.DO_NOTHING)
     group = models.OneToOneField(AuthGroup, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.auth_user_groups        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class AuthUserUserPermissions(models.Model):
     user = models.OneToOneField(AuthUser, models.DO_NOTHING)
     permission = models.OneToOneField(AuthPermission, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.auth_user_user_permissions        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class BasketBasket(models.Model):
@@ -501,26 +455,22 @@ class BasketBasket(models.Model):
     date_merged = models.DateTimeField(blank=True, null=True)
     date_submitted = models.DateTimeField(blank=True, null=True)
     owner = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.basket_basket    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class BasketBasketVouchers(models.Model):
     basket = models.OneToOneField(BasketBasket, models.DO_NOTHING)
     voucher = models.OneToOneField('VoucherVoucher', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.basket_basket_vouchers        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class BasketLine(models.Model):
@@ -534,27 +484,23 @@ class BasketLine(models.Model):
     product = models.OneToOneField('CatalogueProduct', models.DO_NOTHING)
     stockrecord = models.OneToOneField('PartnerStockrecord', models.DO_NOTHING)
     date_updated = models.DateTimeField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.basket_line        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class BasketLineattribute(models.Model):
     value = models.CharField(max_length=255)
     line = models.OneToOneField(BasketLine, models.DO_NOTHING)
     option = models.OneToOneField('CatalogueOption', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.basket_lineattribute    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4AlertsBootstrap4Alerts(models.Model):
@@ -563,13 +509,11 @@ class Bootstrap4AlertsBootstrap4Alerts(models.Model):
     alert_dismissable = models.BooleanField()
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_alerts_bootstrap4alerts    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4BadgeBootstrap4Badge(models.Model):
@@ -578,13 +522,11 @@ class Bootstrap4BadgeBootstrap4Badge(models.Model):
     badge_context = models.CharField(max_length=255)
     badge_pills = models.BooleanField()
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_badge_bootstrap4badge    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4CardBootstrap4Card(models.Model):
@@ -596,13 +538,11 @@ class Bootstrap4CardBootstrap4Card(models.Model):
     card_text_color = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_card_bootstrap4card    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4CardBootstrap4Cardinner(models.Model):
@@ -610,13 +550,11 @@ class Bootstrap4CardBootstrap4Cardinner(models.Model):
     inner_type = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_card_bootstrap4cardinner    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4CarouselBootstrap4Carousel(models.Model):
@@ -632,13 +570,11 @@ class Bootstrap4CarouselBootstrap4Carousel(models.Model):
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
     carousel_aspect_ratio = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_carousel_bootstrap4carousel    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4CarouselBootstrap4Carouselslide(models.Model):
@@ -656,13 +592,11 @@ class Bootstrap4CarouselBootstrap4Carouselslide(models.Model):
     carousel_image = models.OneToOneField('FilerImage', models.DO_NOTHING, blank=True, null=True)
     internal_link = models.OneToOneField('CmsPage', models.DO_NOTHING, blank=True, null=True)
     file_link = models.OneToOneField('FilerFile', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_carousel_bootstrap4carouselslide    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4CollapseBootstrap4Collapse(models.Model):
@@ -670,13 +604,11 @@ class Bootstrap4CollapseBootstrap4Collapse(models.Model):
     siblings = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_collapse_bootstrap4collapse    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4CollapseBootstrap4Collapsecontainer(models.Model):
@@ -684,13 +616,11 @@ class Bootstrap4CollapseBootstrap4Collapsecontainer(models.Model):
     identifier = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_collapse_bootstrap4collapsecontainer    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4CollapseBootstrap4Collapsetrigger(models.Model):
@@ -698,13 +628,11 @@ class Bootstrap4CollapseBootstrap4Collapsetrigger(models.Model):
     identifier = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_collapse_bootstrap4collapsetrigger    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4ContentBootstrap4Blockquote(models.Model):
@@ -713,13 +641,11 @@ class Bootstrap4ContentBootstrap4Blockquote(models.Model):
     quote_origin = models.TextField()
     quote_alignment = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_content_bootstrap4blockquote    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4ContentBootstrap4Code(models.Model):
@@ -727,13 +653,11 @@ class Bootstrap4ContentBootstrap4Code(models.Model):
     code_content = models.TextField()
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_content_bootstrap4code    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4ContentBootstrap4Figure(models.Model):
@@ -741,13 +665,11 @@ class Bootstrap4ContentBootstrap4Figure(models.Model):
     figure_caption = models.CharField(max_length=255)
     figure_alignment = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_content_bootstrap4figure    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4GridBootstrap4Gridcolumn(models.Model):
@@ -781,13 +703,11 @@ class Bootstrap4GridBootstrap4Gridcolumn(models.Model):
     sm_offset = models.IntegerField(blank=True, null=True)
     xl_offset = models.IntegerField(blank=True, null=True)
     xs_offset = models.IntegerField(blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_grid_bootstrap4gridcolumn    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4GridBootstrap4Gridcontainer(models.Model):
@@ -795,13 +715,11 @@ class Bootstrap4GridBootstrap4Gridcontainer(models.Model):
     container_type = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_grid_bootstrap4gridcontainer    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4GridBootstrap4Gridrow(models.Model):
@@ -811,13 +729,11 @@ class Bootstrap4GridBootstrap4Gridrow(models.Model):
     gutters = models.BooleanField()
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_grid_bootstrap4gridrow    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4JumbotronBootstrap4Jumbotron(models.Model):
@@ -825,13 +741,11 @@ class Bootstrap4JumbotronBootstrap4Jumbotron(models.Model):
     fluid = models.BooleanField()
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_jumbotron_bootstrap4jumbotron    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4LinkBootstrap4Link(models.Model):
@@ -853,13 +767,11 @@ class Bootstrap4LinkBootstrap4Link(models.Model):
     icon_left = models.CharField(max_length=255)
     icon_right = models.CharField(max_length=255)
     file_link = models.OneToOneField('FilerFile', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_link_bootstrap4link    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4ListgroupBootstrap4Listgroup(models.Model):
@@ -867,13 +779,11 @@ class Bootstrap4ListgroupBootstrap4Listgroup(models.Model):
     list_group_flush = models.BooleanField()
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_listgroup_bootstrap4listgroup    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4ListgroupBootstrap4Listgroupitem(models.Model):
@@ -882,39 +792,33 @@ class Bootstrap4ListgroupBootstrap4Listgroupitem(models.Model):
     list_state = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_listgroup_bootstrap4listgroupitem    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4MediaBootstrap4Media(models.Model):
     cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_media_bootstrap4media    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4MediaBootstrap4Mediabody(models.Model):
     cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING, primary_key=True)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_media_bootstrap4mediabody    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4PictureBootstrap4Picture(models.Model):
@@ -940,13 +844,11 @@ class Bootstrap4PictureBootstrap4Picture(models.Model):
     picture = models.OneToOneField('FilerImage', models.DO_NOTHING, blank=True, null=True)
     thumbnail_options = models.OneToOneField('FilerThumbnailoption', models.DO_NOTHING, blank=True, null=True)
     use_responsive_image = models.CharField(max_length=7)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_picture_bootstrap4picture    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4TabsBootstrap4Tab(models.Model):
@@ -958,13 +860,11 @@ class Bootstrap4TabsBootstrap4Tab(models.Model):
     tab_effect = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_tabs_bootstrap4tab    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4TabsBootstrap4Tabitem(models.Model):
@@ -972,13 +872,11 @@ class Bootstrap4TabsBootstrap4Tabitem(models.Model):
     tab_title = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_tabs_bootstrap4tabitem    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Bootstrap4UtilitiesBootstrap4Spacing(models.Model):
@@ -989,37 +887,31 @@ class Bootstrap4UtilitiesBootstrap4Spacing(models.Model):
     space_device = models.CharField(max_length=255)
     tag_type = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.bootstrap4_utilities_bootstrap4spacing    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueAttributeoption(models.Model):
     option = models.CharField(max_length=255)
     group = models.OneToOneField('CatalogueAttributeoptiongroup', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_attributeoption        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueAttributeoptiongroup(models.Model):
     name = models.CharField(max_length=128)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_attributeoptiongroup    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueCategory(models.Model):
@@ -1029,18 +921,15 @@ class CatalogueCategory(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     image = models.CharField(max_length=255, blank=True, null=True)
-    slug = models.CharField(max_length=255)
     ancestors_are_public = models.BooleanField()
     is_public = models.BooleanField()
     meta_description = models.TextField(blank=True, null=True)
     meta_title = models.CharField(max_length=255, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_category    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueOption(models.Model):
@@ -1048,20 +937,17 @@ class CatalogueOption(models.Model):
     code = models.CharField(unique=True, max_length=128)
     type = models.CharField(max_length=255)
     required = models.BooleanField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_option    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueProduct(models.Model):
     structure = models.CharField(max_length=10)
     upc = models.CharField(unique=True, max_length=64, blank=True, null=True)
     title = models.CharField(max_length=255)
-    slug = models.CharField(max_length=255)
     description = models.TextField()
     rating = models.FloatField(blank=True, null=True)
     date_created = models.DateTimeField()
@@ -1072,26 +958,22 @@ class CatalogueProduct(models.Model):
     is_public = models.BooleanField()
     meta_description = models.TextField(blank=True, null=True)
     meta_title = models.CharField(max_length=255, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_product    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueProductProductOptions(models.Model):
     product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
     option = models.OneToOneField(CatalogueOption, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_product_product_options        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueProductattribute(models.Model):
@@ -1101,13 +983,11 @@ class CatalogueProductattribute(models.Model):
     required = models.BooleanField()
     option_group = models.OneToOneField(CatalogueAttributeoptiongroup, models.DO_NOTHING, blank=True, null=True)
     product_class = models.OneToOneField('CatalogueProductclass', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_productattribute    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueProductattributevalue(models.Model):
@@ -1125,66 +1005,55 @@ class CatalogueProductattributevalue(models.Model):
     product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
     value_option = models.OneToOneField(CatalogueAttributeoption, models.DO_NOTHING, blank=True, null=True)
     value_datetime = models.DateTimeField(blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_productattributevalue        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueProductattributevalueValueMultiOption(models.Model):
     productattributevalue = models.OneToOneField(CatalogueProductattributevalue, models.DO_NOTHING)
     attributeoption = models.OneToOneField(CatalogueAttributeoption, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_productattributevalue_value_multi_option            
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueProductcategory(models.Model):
     category = models.OneToOneField(CatalogueCategory, models.DO_NOTHING)
     product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_productcategory        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueProductclass(models.Model):
     name = models.CharField(max_length=128)
-    slug = models.CharField(unique=True, max_length=128)
     requires_shipping = models.BooleanField()
     track_stock = models.BooleanField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_productclass    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueProductclassOptions(models.Model):
     productclass = models.OneToOneField(CatalogueProductclass, models.DO_NOTHING)
     option = models.OneToOneField(CatalogueOption, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_productclass_options        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueProductimage(models.Model):
@@ -1193,40 +1062,34 @@ class CatalogueProductimage(models.Model):
     display_order = models.IntegerField()
     date_created = models.DateTimeField()
     product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_productimage    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CatalogueProductrecommendation(models.Model):
     ranking = models.SmallIntegerField()
     primary = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
     recommendation = models.OneToOneField(CatalogueProduct, models.DO_NOTHING, related_name='+',)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.catalogue_productrecommendation        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsAliaspluginmodel(models.Model):
     cmsplugin_ptr = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING,  related_name='+', primary_key=True)
     plugin = models.OneToOneField('CmsCmsplugin', models.DO_NOTHING,  related_name='+', blank=True, null=True)
     alias_placeholder = models.OneToOneField('CmsPlaceholder', models.DO_NOTHING, related_name='+', blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_aliaspluginmodel    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsCmsplugin(models.Model):
@@ -1240,13 +1103,11 @@ class CmsCmsplugin(models.Model):
     depth = models.IntegerField()
     numchild = models.IntegerField()
     path = models.CharField(unique=True, max_length=255)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_cmsplugin    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsGlobalpagepermission(models.Model):
@@ -1261,26 +1122,22 @@ class CmsGlobalpagepermission(models.Model):
     can_recover_page = models.BooleanField()
     group = models.OneToOneField(AuthGroup, models.DO_NOTHING, blank=True, null=True)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_globalpagepermission    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsGlobalpagepermissionSites(models.Model):
     globalpagepermission = models.OneToOneField(CmsGlobalpagepermission, models.DO_NOTHING)
     site = models.OneToOneField('DjangoSite', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_globalpagepermission_sites        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsPage(models.Model):
@@ -1306,7 +1163,6 @@ class CmsPage(models.Model):
     publisher_public = models.OneToOneField('self', models.DO_NOTHING, unique=True, blank=True, null=True)
     is_page_type = models.BooleanField()
     node = models.OneToOneField('CmsTreenode', models.DO_NOTHING, verbose_name='Content Management')
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_page    
@@ -1314,20 +1170,17 @@ class CmsPage(models.Model):
         verbose_name='content Management'        
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsPagePlaceholders(models.Model):
     page = models.OneToOneField(CmsPage, models.DO_NOTHING)
     placeholder = models.OneToOneField('CmsPlaceholder', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_page_placeholders        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsPagepermission(models.Model):
@@ -1343,62 +1196,52 @@ class CmsPagepermission(models.Model):
     group = models.OneToOneField(AuthGroup, models.DO_NOTHING, blank=True, null=True)
     page = models.OneToOneField(CmsPage, models.DO_NOTHING, blank=True, null=True)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_pagepermission    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsPageuser(models.Model):
     user_ptr = models.OneToOneField(AuthUser, models.DO_NOTHING, primary_key=True)
     created_by = models.OneToOneField(AuthUser, models.DO_NOTHING, related_name='+', )
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_pageuser    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsPageusergroup(models.Model):
     group_ptr = models.OneToOneField(AuthGroup, models.DO_NOTHING, primary_key=True)
     created_by = models.OneToOneField(AuthUser, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_pageusergroup    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsPlaceholder(models.Model):
     slot = models.CharField(max_length=255)
     default_width = models.SmallIntegerField(blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_placeholder    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsPlaceholderreference(models.Model):
     cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     name = models.CharField(max_length=255)
     placeholder_ref = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_placeholderreference    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsStaticplaceholder(models.Model):
@@ -1409,14 +1252,12 @@ class CmsStaticplaceholder(models.Model):
     draft = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING,  related_name='+', blank=True, null=True)
     public = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING, related_name='+', blank=True, null=True)
     site = models.OneToOneField('DjangoSite', models.DO_NOTHING, related_name='+', blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_staticplaceholder        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsTitle(models.Model):
@@ -1425,7 +1266,6 @@ class CmsTitle(models.Model):
     page_title = models.CharField(max_length=255, blank=True, null=True)
     menu_title = models.CharField(max_length=255, blank=True, null=True)
     meta_description = models.TextField(blank=True, null=True)
-    slug = models.CharField(max_length=255)
     path = models.CharField(max_length=255)
     has_url_overwrite = models.BooleanField()
     redirect = models.CharField(max_length=2048, blank=True, null=True)
@@ -1435,14 +1275,12 @@ class CmsTitle(models.Model):
     publisher_state = models.SmallIntegerField()
     page = models.OneToOneField(CmsPage, models.DO_NOTHING)
     publisher_public = models.OneToOneField('self', models.DO_NOTHING, unique=True, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_title        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsTreenode(models.Model):
@@ -1451,37 +1289,31 @@ class CmsTreenode(models.Model):
     numchild = models.IntegerField()
     parent = models.OneToOneField('self', models.DO_NOTHING, blank=True, null=True)
     site = models.OneToOneField('DjangoSite', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_treenode    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsUrlconfrevision(models.Model):
     revision = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_urlconfrevision    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CmsUsersettings(models.Model):
     language = models.CharField(max_length=10)
     clipboard = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING, blank=True, null=True)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING, unique=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.cms_usersettings    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CommunicationCommunicationeventtype(models.Model):
@@ -1494,13 +1326,11 @@ class CommunicationCommunicationeventtype(models.Model):
     sms_template = models.CharField(max_length=170, blank=True, null=True)
     date_created = models.DateTimeField()
     date_updated = models.DateTimeField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.communication_communicationeventtype    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CommunicationEmail(models.Model):
@@ -1510,13 +1340,11 @@ class CommunicationEmail(models.Model):
     date_sent = models.DateTimeField()
     user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
     email = models.CharField(max_length=254, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.communication_email    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CommunicationNotification(models.Model):
@@ -1527,13 +1355,11 @@ class CommunicationNotification(models.Model):
     date_read = models.DateTimeField(blank=True, null=True)
     recipient = models.OneToOneField(AuthUser, models.DO_NOTHING)
     sender = models.OneToOneField(AuthUser, models.DO_NOTHING, related_name='+', blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.communication_notification    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class CustomerProductalert(models.Model):
@@ -1546,13 +1372,11 @@ class CustomerProductalert(models.Model):
     date_closed = models.DateTimeField(blank=True, null=True)
     product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.customer_productalert    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangoAdminLog(models.Model):
@@ -1563,26 +1387,22 @@ class DjangoAdminLog(models.Model):
     change_message = models.TextField()
     content_type = models.OneToOneField('DjangoContent', models.DO_NOTHING, blank=True, null=True)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.django_admin_log    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangoContent(models.Model):
     app_label = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.django_content_type        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangoFlatpage(models.Model):
@@ -1593,64 +1413,54 @@ class DjangoFlatpage(models.Model):
     template_name = models.CharField(max_length=70)
     registration_required = models.BooleanField()
     verbose_name = 'Pages'
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.django_flatpage    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangoFlatpageSites(models.Model):
     flatpage = models.OneToOneField(DjangoFlatpage, models.DO_NOTHING)
     site = models.OneToOneField('DjangoSite', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.django_flatpage_sites        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangoMigrations(models.Model):
     app = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     applied = models.DateTimeField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.django_migrations    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangoSession(models.Model):
     session_key = models.CharField(primary_key=True, max_length=40)
     session_data = models.TextField()
     expire_date = models.DateTimeField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.django_session    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangoSite(models.Model):
     domain = models.CharField(unique=True, max_length=100)
     name = models.CharField(max_length=50)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.django_site    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogAuthorentriesplugin(models.Model):
@@ -1659,7 +1469,6 @@ class DjangocmsBlogAuthorentriesplugin(models.Model):
     app_config = models.OneToOneField('DjangocmsBlogBlogconfig', models.DO_NOTHING, blank=True, null=True)
     current_site = models.BooleanField()
     template_folder = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_authorentriesplugin
@@ -1667,20 +1476,17 @@ class DjangocmsBlogAuthorentriesplugin(models.Model):
         verbose_name = 'Blog'    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogAuthorentriespluginAuthors(models.Model):
     authorentriesplugin = models.OneToOneField(DjangocmsBlogAuthorentriesplugin, models.DO_NOTHING)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_authorentriesplugin_authors        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogBlogcategory(models.Model):
@@ -1688,29 +1494,24 @@ class DjangocmsBlogBlogcategory(models.Model):
     date_modified = models.DateTimeField()
     parent = models.OneToOneField('self', models.DO_NOTHING, blank=True, null=True)
     app_config = models.OneToOneField('DjangocmsBlogBlogconfig', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_blogcategory    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogBlogcategoryTranslation(models.Model):
     language_code = models.CharField(max_length=15)
     name = models.CharField(max_length=752)
-    slug = models.CharField(max_length=752)
     master = models.OneToOneField(DjangocmsBlogBlogcategory, models.DO_NOTHING, blank=True, null=True)
     meta_description = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_blogcategory_translation        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogBlogconfig(models.Model):
@@ -1718,13 +1519,11 @@ class DjangocmsBlogBlogconfig(models.Model):
     namespace = models.CharField(unique=True, max_length=100)
     app_data = models.TextField()
     verbose_name = 'Blog'
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_blogconfig    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogBlogconfigTranslation(models.Model):
@@ -1732,14 +1531,12 @@ class DjangocmsBlogBlogconfigTranslation(models.Model):
     app_title = models.CharField(max_length=234)
     master = models.OneToOneField(DjangocmsBlogBlogconfig, models.DO_NOTHING, blank=True, null=True)
     object_name = models.CharField(max_length=234)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_blogconfig_translation        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogGenericblogplugin(models.Model):
@@ -1747,13 +1544,11 @@ class DjangocmsBlogGenericblogplugin(models.Model):
     app_config = models.OneToOneField(DjangocmsBlogBlogconfig, models.DO_NOTHING, blank=True, null=True)
     current_site = models.BooleanField()
     template_folder = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_genericblogplugin    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogLatestpostsplugin(models.Model):
@@ -1762,26 +1557,22 @@ class DjangocmsBlogLatestpostsplugin(models.Model):
     app_config = models.OneToOneField(DjangocmsBlogBlogconfig, models.DO_NOTHING, blank=True, null=True)
     current_site = models.BooleanField()
     template_folder = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_latestpostsplugin    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogLatestpostspluginCategories(models.Model):
     latestpostsplugin = models.OneToOneField(DjangocmsBlogLatestpostsplugin, models.DO_NOTHING)
     blogcategory = models.OneToOneField(DjangocmsBlogBlogcategory, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_latestpostsplugin_categories        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogPost(models.Model):
@@ -1801,59 +1592,50 @@ class DjangocmsBlogPost(models.Model):
     enable_liveblog = models.BooleanField()
     date_featured = models.DateTimeField(blank=True, null=True)
     media = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING, related_name='+', blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_post    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogPostCategories(models.Model):
     post = models.OneToOneField(DjangocmsBlogPost, models.DO_NOTHING)
     blogcategory = models.OneToOneField(DjangocmsBlogBlogcategory, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_post_categories        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogPostRelated(models.Model):
     from_post = models.OneToOneField(DjangocmsBlogPost, models.DO_NOTHING, related_name='+',)
     to_post = models.OneToOneField(DjangocmsBlogPost, models.DO_NOTHING, related_name='+',)
     sort_value = models.IntegerField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_post_related        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogPostSites(models.Model):
     post = models.OneToOneField(DjangocmsBlogPost, models.DO_NOTHING)
     site = models.OneToOneField(DjangoSite, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_post_sites        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsBlogPostTranslation(models.Model):
     language_code = models.CharField(max_length=15)
     title = models.CharField(max_length=752)
-    slug = models.CharField(max_length=752)
     abstract = models.TextField()
     meta_description = models.TextField()
     meta_keywords = models.TextField()
@@ -1861,14 +1643,12 @@ class DjangocmsBlogPostTranslation(models.Model):
     post_text = models.TextField()
     master = models.OneToOneField(DjangocmsBlogPost, models.DO_NOTHING, blank=True, null=True)
     subtitle = models.CharField(max_length=767)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_blog_post_translation        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsFileFile(models.Model):
@@ -1880,13 +1660,11 @@ class DjangocmsFileFile(models.Model):
     attributes = models.TextField()
     template = models.CharField(max_length=255)
     show_file_size = models.BooleanField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_file_file    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsFileFolder(models.Model):
@@ -1896,13 +1674,11 @@ class DjangocmsFileFolder(models.Model):
     attributes = models.TextField()
     cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     folder_src = models.OneToOneField('FilerFolder', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_file_folder    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsGooglemapGooglemap(models.Model):
@@ -1926,13 +1702,11 @@ class DjangocmsGooglemapGooglemap(models.Model):
     rotate_control = models.BooleanField()
     scale_control = models.BooleanField()
     template = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_googlemap_googlemap    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsGooglemapGooglemapmarker(models.Model):
@@ -1944,13 +1718,11 @@ class DjangocmsGooglemapGooglemapmarker(models.Model):
     show_content = models.BooleanField()
     info_content = models.TextField()
     icon = models.OneToOneField('FilerImage', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_googlemap_googlemapmarker    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsGooglemapGooglemaproute(models.Model):
@@ -1959,13 +1731,11 @@ class DjangocmsGooglemapGooglemaproute(models.Model):
     origin = models.CharField(max_length=255)
     destination = models.CharField(max_length=255)
     travel_mode = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_googlemap_googlemaproute    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsHistoryPlaceholderaction(models.Model):
@@ -1976,14 +1746,12 @@ class DjangocmsHistoryPlaceholderaction(models.Model):
     order = models.IntegerField()
     operation = models.OneToOneField('DjangocmsHistoryPlaceholderoperation', models.DO_NOTHING, verbose_name='history')
     placeholder = models.OneToOneField(CmsPlaceholder, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_history_placeholderaction        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsHistoryPlaceholderoperation(models.Model):
@@ -1997,13 +1765,11 @@ class DjangocmsHistoryPlaceholderoperation(models.Model):
     is_archived = models.BooleanField()
     site = models.OneToOneField(DjangoSite, models.DO_NOTHING)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_history_placeholderoperation    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsIconIcon(models.Model):
@@ -2012,13 +1778,11 @@ class DjangocmsIconIcon(models.Model):
     template = models.CharField(max_length=255)
     label = models.CharField(max_length=255)
     attributes = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_icon_icon    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsLinkLink(models.Model):
@@ -2033,13 +1797,11 @@ class DjangocmsLinkLink(models.Model):
     attributes = models.TextField()
     template = models.CharField(max_length=255)
     file_link = models.OneToOneField('FilerFile', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_link_link    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsMapsMaps(models.Model):
@@ -2068,13 +1830,11 @@ class DjangocmsMapsMaps(models.Model):
     street_view_control = models.BooleanField()
     layers_control = models.BooleanField()
     scale_bar = models.BooleanField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_maps_maps    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsPicturePicture(models.Model):
@@ -2097,13 +1857,11 @@ class DjangocmsPicturePicture(models.Model):
     external_picture = models.CharField(max_length=255, blank=True, null=True)
     template = models.CharField(max_length=255)
     use_responsive_image = models.CharField(max_length=7)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_picture_picture    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsStyleStyle(models.Model):
@@ -2123,25 +1881,21 @@ class DjangocmsStyleStyle(models.Model):
     id_name = models.CharField(max_length=255)
     label = models.CharField(max_length=255)
     template = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_style_style    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsTextCkeditorText(models.Model):
     cmsplugin_ptr = models.OneToOneField(CmsCmsplugin, models.DO_NOTHING, primary_key=True)
     body = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_text_ckeditor_text    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsVideoVideoplayer(models.Model):
@@ -2152,13 +1906,11 @@ class DjangocmsVideoVideoplayer(models.Model):
     label = models.CharField(max_length=255)
     template = models.CharField(max_length=255)
     parameters = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_video_videoplayer    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsVideoVideosource(models.Model):
@@ -2167,13 +1919,11 @@ class DjangocmsVideoVideosource(models.Model):
     text_description = models.TextField()
     attributes = models.TextField()
     source_file = models.OneToOneField('FilerFile', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_video_videosource    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class DjangocmsVideoVideotrack(models.Model):
@@ -2183,27 +1933,23 @@ class DjangocmsVideoVideotrack(models.Model):
     label = models.CharField(max_length=255)
     attributes = models.TextField()
     src = models.OneToOneField('FilerFile', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.djangocms_video_videotrack    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class EasyThumbnailsSource(models.Model):
     storage_hash = models.CharField(max_length=40)
     name = models.CharField(max_length=255)
     modified = models.DateTimeField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.easy_thumbnails_source        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class EasyThumbnailsThumbnail(models.Model):
@@ -2211,50 +1957,42 @@ class EasyThumbnailsThumbnail(models.Model):
     name = models.CharField(max_length=255)
     modified = models.DateTimeField()
     source = models.OneToOneField(EasyThumbnailsSource, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.easy_thumbnails_thumbnail        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class EasyThumbnailsThumbnaildimensions(models.Model):
     thumbnail = models.OneToOneField(EasyThumbnailsThumbnail, models.DO_NOTHING, unique=True)
     width = models.IntegerField(blank=True, null=True)
     height = models.IntegerField(blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.easy_thumbnails_thumbnaildimensions    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class FilerClipboard(models.Model):
     user = models.OneToOneField(AuthUser, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.filer_clipboard    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class FilerClipboarditem(models.Model):
     clipboard = models.OneToOneField(FilerClipboard, models.DO_NOTHING)
     file = models.OneToOneField('FilerFile', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.filer_clipboarditem    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class FilerFile(models.Model):
@@ -2273,7 +2011,6 @@ class FilerFile(models.Model):
     polymorphic_ctype = models.OneToOneField(DjangoContent, models.DO_NOTHING, blank=True, null=True)
     mime_type = models.CharField(max_length=255)
     verbose_name = 'File System'
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.filer_file
@@ -2281,7 +2018,6 @@ class FilerFile(models.Model):
         verbose_name = 'File Management'    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class FilerFolder(models.Model):
@@ -2295,14 +2031,12 @@ class FilerFolder(models.Model):
     level = models.IntegerField()
     owner = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
     parent = models.OneToOneField('self', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.filer_folder        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class FilerFolderpermission(models.Model):
@@ -2314,13 +2048,11 @@ class FilerFolderpermission(models.Model):
     folder = models.OneToOneField(FilerFolder, models.DO_NOTHING, blank=True, null=True)
     group = models.OneToOneField(AuthGroup, models.DO_NOTHING, blank=True, null=True)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.filer_folderpermission    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class FilerImage(models.Model):
@@ -2334,13 +2066,11 @@ class FilerImage(models.Model):
     must_always_publish_author_credit = models.BooleanField()
     must_always_publish_copyright = models.BooleanField()
     subject_location = models.CharField(max_length=64)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.filer_image    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class FilerThumbnailoption(models.Model):
@@ -2349,26 +2079,22 @@ class FilerThumbnailoption(models.Model):
     height = models.IntegerField()
     crop = models.BooleanField()
     upscale = models.BooleanField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.filer_thumbnailoption    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class MenusCachekey(models.Model):
     language = models.CharField(max_length=255)
     site = models.IntegerField()
     key = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.menus_cachekey    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OfferBenefit(models.Model):
@@ -2377,13 +2103,11 @@ class OfferBenefit(models.Model):
     max_affected_items = models.IntegerField(blank=True, null=True)
     proxy_class = models.CharField(max_length=255, blank=True, null=True)
     range = models.OneToOneField('OfferRange', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.offer_benefit    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OfferCondition(models.Model):
@@ -2391,18 +2115,15 @@ class OfferCondition(models.Model):
     value = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True)
     proxy_class = models.CharField(max_length=255, blank=True, null=True)
     range = models.OneToOneField('OfferRange', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.offer_condition    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OfferConditionaloffer(models.Model):
     name = models.CharField(unique=True, max_length=128)
-    slug = models.CharField(unique=True, max_length=128)
     description = models.TextField()
     offer_type = models.CharField(max_length=128)
     status = models.CharField(max_length=64)
@@ -2421,96 +2142,81 @@ class OfferConditionaloffer(models.Model):
     benefit = models.OneToOneField(OfferBenefit, models.DO_NOTHING)
     condition = models.OneToOneField(OfferCondition, models.DO_NOTHING)
     exclusive = models.BooleanField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.offer_conditionaloffer    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OfferConditionalofferCombinations(models.Model):
     from_conditionaloffer = models.OneToOneField(OfferConditionaloffer, models.DO_NOTHING)
     to_conditionaloffer = models.OneToOneField(OfferConditionaloffer, models.DO_NOTHING, related_name='+',)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.offer_conditionaloffer_combinations        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OfferRange(models.Model):
     name = models.CharField(unique=True, max_length=128)
-    slug = models.CharField(unique=True, max_length=128)
     description = models.TextField()
     is_public = models.BooleanField()
     includes_all_products = models.BooleanField()
     proxy_class = models.CharField(unique=True, max_length=255, blank=True, null=True)
     date_created = models.DateTimeField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.offer_range    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OfferRangeClasses(models.Model):
     range = models.OneToOneField(OfferRange, models.DO_NOTHING)
     productclass = models.OneToOneField(CatalogueProductclass, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.offer_range_classes        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OfferRangeExcludedProducts(models.Model):
     range = models.OneToOneField(OfferRange, models.DO_NOTHING)
     product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.offer_range_excluded_products        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OfferRangeIncludedCategories(models.Model):
     range = models.OneToOneField(OfferRange, models.DO_NOTHING)
     category = models.OneToOneField(CatalogueCategory, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.offer_range_included_categories        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OfferRangeproduct(models.Model):
     display_order = models.IntegerField()
     product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
     range = models.OneToOneField(OfferRange, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.offer_rangeproduct        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OfferRangeproductfileupload(models.Model):
@@ -2525,13 +2231,11 @@ class OfferRangeproductfileupload(models.Model):
     num_duplicate_skus = models.IntegerField(blank=True, null=True)
     range = models.OneToOneField(OfferRange, models.DO_NOTHING)
     uploaded_by = models.OneToOneField(AuthUser, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.offer_rangeproductfileupload    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderBillingaddress(models.Model):
@@ -2546,26 +2250,22 @@ class OrderBillingaddress(models.Model):
     postcode = models.CharField(max_length=64)
     search_text = models.TextField()
     country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_billingaddress    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderCommunicationevent(models.Model):
     date_created = models.DateTimeField()
     event_type = models.OneToOneField(CommunicationCommunicationeventtype, models.DO_NOTHING)
     order = models.OneToOneField('OrderOrder', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_communicationevent    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderLine(models.Model):
@@ -2587,13 +2287,11 @@ class OrderLine(models.Model):
     partner = models.OneToOneField('PartnerPartner', models.DO_NOTHING, blank=True, null=True)
     product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING, blank=True, null=True)
     stockrecord = models.OneToOneField('PartnerStockrecord', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_line    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderLineattribute(models.Model):
@@ -2601,13 +2299,11 @@ class OrderLineattribute(models.Model):
     value = models.CharField(max_length=255)
     line = models.OneToOneField(OrderLine, models.DO_NOTHING)
     option = models.OneToOneField(CatalogueOption, models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_lineattribute    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderLineprice(models.Model):
@@ -2618,13 +2314,11 @@ class OrderLineprice(models.Model):
     shipping_excl_tax = models.DecimalField(max_digits=12, decimal_places=2)
     line = models.OneToOneField(OrderLine, models.DO_NOTHING)
     order = models.OneToOneField('OrderOrder', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_lineprice    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderOrder(models.Model):
@@ -2644,13 +2338,11 @@ class OrderOrder(models.Model):
     shipping_address = models.OneToOneField('OrderShippingaddress', models.DO_NOTHING, blank=True, null=True)
     site = models.OneToOneField(DjangoSite, models.DO_NOTHING, blank=True, null=True)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_order    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderOrderdiscount(models.Model):
@@ -2663,13 +2355,11 @@ class OrderOrderdiscount(models.Model):
     amount = models.DecimalField(max_digits=12, decimal_places=2)
     message = models.TextField()
     order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_orderdiscount    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderOrdernote(models.Model):
@@ -2679,13 +2369,11 @@ class OrderOrdernote(models.Model):
     date_updated = models.DateTimeField()
     order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_ordernote    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderOrderstatuschange(models.Model):
@@ -2693,13 +2381,11 @@ class OrderOrderstatuschange(models.Model):
     new_status = models.CharField(max_length=100)
     date_created = models.DateTimeField()
     order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_orderstatuschange    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderPaymentevent(models.Model):
@@ -2709,39 +2395,33 @@ class OrderPaymentevent(models.Model):
     event_type = models.OneToOneField('OrderPaymenteventtype', models.DO_NOTHING)
     order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
     shipping_event = models.OneToOneField('OrderShippingevent', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_paymentevent    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderPaymenteventquantity(models.Model):
     quantity = models.IntegerField()
     event = models.OneToOneField(OrderPaymentevent, models.DO_NOTHING)
     line = models.OneToOneField(OrderLine, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_paymenteventquantity        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderPaymenteventtype(models.Model):
     name = models.CharField(unique=True, max_length=128)
     code = models.CharField(unique=True, max_length=128)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_paymenteventtype    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderShippingaddress(models.Model):
@@ -2758,13 +2438,11 @@ class OrderShippingaddress(models.Model):
     phone_number = models.CharField(max_length=128)
     notes = models.TextField()
     country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_shippingaddress    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderShippingevent(models.Model):
@@ -2772,39 +2450,33 @@ class OrderShippingevent(models.Model):
     date_created = models.DateTimeField()
     event_type = models.OneToOneField('OrderShippingeventtype', models.DO_NOTHING)
     order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_shippingevent    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderShippingeventquantity(models.Model):
     quantity = models.IntegerField()
     event = models.OneToOneField(OrderShippingevent, models.DO_NOTHING)
     line = models.OneToOneField(OrderLine, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_shippingeventquantity        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderShippingeventtype(models.Model):
     name = models.CharField(unique=True, max_length=255)
     code = models.CharField(unique=True, max_length=128)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_shippingeventtype    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OrderSurcharge(models.Model):
@@ -2813,13 +2485,11 @@ class OrderSurcharge(models.Model):
     incl_tax = models.DecimalField(max_digits=12, decimal_places=2)
     excl_tax = models.DecimalField(max_digits=12, decimal_places=2)
     order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.order_surcharge    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OscarInvoicesInvoice(models.Model):
@@ -2828,13 +2498,11 @@ class OscarInvoicesInvoice(models.Model):
     document = models.CharField(max_length=255, blank=True, null=True)
     legal_entity = models.OneToOneField('OscarInvoicesLegalentity', models.DO_NOTHING, verbose_name='invoices')
     order = models.OneToOneField(OrderOrder, models.DO_NOTHING, unique=True, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.oscar_invoices_invoice    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OscarInvoicesLegalentity(models.Model):
@@ -2844,13 +2512,11 @@ class OscarInvoicesLegalentity(models.Model):
     logo = models.CharField(max_length=255, blank=True, null=True)
     email = models.CharField(max_length=254, blank=True, null=True)
     web_site = models.CharField(max_length=200, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.oscar_invoices_legalentity    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OscarInvoicesLegalentityaddress(models.Model):
@@ -2868,49 +2534,41 @@ class OscarInvoicesLegalentityaddress(models.Model):
     fax_number = models.CharField(max_length=128)
     country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
     legal_entity = models.OneToOneField(OscarInvoicesLegalentity, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.oscar_invoices_legalentityaddress    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class OscarapiApikey(models.Model):
     key = models.CharField(unique=True, max_length=255, verbose_name = 'AlternateCMS API')
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.oscarapi_apikey    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PartnerPartner(models.Model):
     code = models.CharField(unique=True, max_length=128)
     name = models.CharField(max_length=128)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.partner_partner    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PartnerPartnerUsers(models.Model):
     partner = models.OneToOneField(PartnerPartner, models.DO_NOTHING)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.partner_partner_users        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PartnerPartneraddress(models.Model):
@@ -2926,13 +2584,11 @@ class PartnerPartneraddress(models.Model):
     search_text = models.TextField()
     country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
     partner = models.OneToOneField(PartnerPartner, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.partner_partneraddress    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PartnerStockalert(models.Model):
@@ -2941,13 +2597,11 @@ class PartnerStockalert(models.Model):
     date_created = models.DateTimeField()
     date_closed = models.DateTimeField(blank=True, null=True)
     stockrecord = models.OneToOneField('PartnerStockrecord', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.partner_stockalert    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PartnerStockrecord(models.Model):
@@ -2961,13 +2615,11 @@ class PartnerStockrecord(models.Model):
     date_updated = models.DateTimeField()
     partner = models.OneToOneField(PartnerPartner, models.DO_NOTHING)
     product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.partner_stockrecord            
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Payment(BasePayment):
@@ -2984,7 +2636,6 @@ class Payment(BasePayment):
                             quantity=9, price=Decimal(10), currency='USD')    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PaymentBankcard(models.Model):
@@ -2994,13 +2645,11 @@ class PaymentBankcard(models.Model):
     expiry_date = models.DateField()
     partner_reference = models.CharField(max_length=255)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.payment_bankcard    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PaymentSource(models.Model):
@@ -3012,25 +2661,21 @@ class PaymentSource(models.Model):
     label = models.CharField(max_length=128)
     order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
     source_type = models.OneToOneField('PaymentSourcetype', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.payment_source    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PaymentSourcetype(models.Model):
     name = models.CharField(max_length=128)
     code = models.CharField(unique=True, max_length=128)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.payment_sourcetype    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PaymentTransaction(models.Model):
@@ -3040,13 +2685,11 @@ class PaymentTransaction(models.Model):
     status = models.CharField(max_length=128)
     date_created = models.DateTimeField()
     source = models.OneToOneField(PaymentSource, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.payment_transaction    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PaypalExpresstransaction(models.Model):
@@ -3063,13 +2706,11 @@ class PaypalExpresstransaction(models.Model):
     token = models.CharField(max_length=32, blank=True, null=True)
     error_code = models.CharField(max_length=32, blank=True, null=True)
     error_message = models.CharField(max_length=256, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.paypal_expresstransaction    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PaypalPayflowtransaction(models.Model):
@@ -3089,55 +2730,46 @@ class PaypalPayflowtransaction(models.Model):
     cvv2match = models.CharField(max_length=12, blank=True, null=True)
     avsaddr = models.CharField(max_length=1, blank=True, null=True)
     avszip = models.CharField(max_length=1, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.paypal_payflowtransaction    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PhotologueGallery(models.Model):
     date_added = models.DateTimeField()
     title = models.CharField(unique=True, max_length=250)
-    slug = models.CharField(unique=True, max_length=250)
     description = models.TextField()
     is_public = models.BooleanField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.photologue_gallery    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PhotologueGalleryPhotos(models.Model):
     sort_value = models.IntegerField()
     gallery = models.OneToOneField(PhotologueGallery, models.DO_NOTHING)
     photo = models.OneToOneField('PhotologuePhoto', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.photologue_gallery_photos        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PhotologueGallerySites(models.Model):
     gallery = models.OneToOneField(PhotologueGallery, models.DO_NOTHING)
     site = models.OneToOneField(DjangoSite, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.photologue_gallery_sites        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PhotologuePhoto(models.Model):
@@ -3146,31 +2778,26 @@ class PhotologuePhoto(models.Model):
     view_count = models.IntegerField()
     crop_from = models.CharField(max_length=10)
     title = models.CharField(unique=True, max_length=250)
-    slug = models.CharField(unique=True, max_length=250)
     caption = models.TextField()
     date_added = models.DateTimeField()
     is_public = models.BooleanField()
     effect = models.OneToOneField('PhotologuePhotoeffect', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.photologue_photo    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PhotologuePhotoSites(models.Model):
     photo = models.OneToOneField(PhotologuePhoto, models.DO_NOTHING)
     site = models.OneToOneField(DjangoSite, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.photologue_photo_sites        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PhotologuePhotoeffect(models.Model):
@@ -3185,13 +2812,11 @@ class PhotologuePhotoeffect(models.Model):
     reflection_size = models.FloatField()
     reflection_strength = models.FloatField()
     background_color = models.CharField(max_length=7)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.photologue_photoeffect    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PhotologuePhotosize(models.Model):
@@ -3205,13 +2830,11 @@ class PhotologuePhotosize(models.Model):
     increment_count = models.BooleanField()
     effect = models.OneToOneField(PhotologuePhotoeffect, models.DO_NOTHING, blank=True, null=True)
     watermark = models.OneToOneField('PhotologueWatermark', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.photologue_photosize    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PhotologueWatermark(models.Model):
@@ -3220,22 +2843,18 @@ class PhotologueWatermark(models.Model):
     image = models.CharField(max_length=100)
     style = models.CharField(max_length=5)
     opacity = models.FloatField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.photologue_watermark    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PinaxBadgesBadgeaward(models.Model):
     awarded_at = models.DateTimeField()
-    slug = models.CharField(max_length=255)
     level = models.IntegerField()
     user = models.OneToOneField(AuthUser, models.DO_NOTHING)
     verbose_name = 'Badges'
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.pinax_badges_badgeaward
@@ -3243,7 +2862,6 @@ class PinaxBadgesBadgeaward(models.Model):
         verbose_name = 'Badges'    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PinaxEventsEvent(models.Model):
@@ -3259,7 +2877,6 @@ class PinaxEventsEvent(models.Model):
     url = models.TextField()
     secondary_image = models.CharField(max_length=100)
     verbose_name = 'Events'
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.pinax_events_event
@@ -3267,7 +2884,6 @@ class PinaxEventsEvent(models.Model):
         verbose_name = 'Events'    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PinaxMessagesMessage(models.Model):
@@ -3276,7 +2892,6 @@ class PinaxMessagesMessage(models.Model):
     sender = models.OneToOneField(AuthUser, models.DO_NOTHING)
     thread = models.OneToOneField('PinaxMessagesThread', models.DO_NOTHING, verbose_name='messages')
     verbose_name = 'Messages'
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.pinax_messages_message
@@ -3284,18 +2899,15 @@ class PinaxMessagesMessage(models.Model):
         verbose_name = 'Messages'    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PinaxMessagesThread(models.Model):
     subject = models.CharField(max_length=150)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.pinax_messages_thread    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class PinaxMessagesUserthread(models.Model):
@@ -3303,13 +2915,11 @@ class PinaxMessagesUserthread(models.Model):
     deleted = models.BooleanField()
     thread = models.OneToOneField(PinaxMessagesThread, models.DO_NOTHING)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.pinax_messages_userthread    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class ReviewsProductreview(models.Model):
@@ -3325,14 +2935,12 @@ class ReviewsProductreview(models.Model):
     date_created = models.DateTimeField()
     product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING, blank=True, null=True)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.reviews_productreview        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class ReviewsVote(models.Model):
@@ -3340,54 +2948,45 @@ class ReviewsVote(models.Model):
     date_created = models.DateTimeField()
     review = models.OneToOneField(ReviewsProductreview, models.DO_NOTHING)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.reviews_vote            
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Client(models.Model):
-    slug = models.SlugField(_('Code'), max_length=50, unique=True, db_index=True, blank=True)
     name = models.CharField(_('Name'), max_length=255, unique=True, db_index=True)
 
 
     class Meta:
         verbose_name = _('Client')
         verbose_name_plural = _('Clients')
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.name
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class Product(models.Model):
-    slug = models.SlugField(_('Code'), max_length=50, unique=True, db_index=True)
     name = models.CharField(_('Name'), max_length=255, unique=True, db_index=True)
 
     class Meta:
         verbose_name = _('Product')
         verbose_name_plural = _('Products')
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.name    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class SalesLineTransaction(models.Model):
     """
     Sales Log
     """
-    slug = models.SlugField(_('Code'), max_length=50, db_index=True, validators=[], blank=True)
     transaction_date = models.DateTimeField(_('Date'), db_index=True)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -3406,7 +3005,6 @@ class SalesLineTransaction(models.Model):
         verbose_name_plural = _('Sales logs')    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class ShippingOrderanditemcharges(models.Model):
@@ -3416,39 +3014,33 @@ class ShippingOrderanditemcharges(models.Model):
     price_per_order = models.DecimalField(max_digits=12, decimal_places=2)
     price_per_item = models.DecimalField(max_digits=12, decimal_places=2)
     free_shipping_threshold = models.DecimalField(max_digits=12, decimal_places=2, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.shipping_orderanditemcharges    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class ShippingOrderanditemchargesCountries(models.Model):
     orderanditemcharges = models.OneToOneField(ShippingOrderanditemcharges, models.DO_NOTHING)
     country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.shipping_orderanditemcharges_countries        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class ShippingWeightband(models.Model):
     upper_limit = models.DecimalField(max_digits=12, decimal_places=3)
     charge = models.DecimalField(max_digits=12, decimal_places=2)
     method = models.OneToOneField('ShippingWeightbased', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.shipping_weightband    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class ShippingWeightbased(models.Model):
@@ -3456,53 +3048,44 @@ class ShippingWeightbased(models.Model):
     name = models.CharField(unique=True, max_length=128)
     description = models.TextField()
     default_weight = models.DecimalField(max_digits=12, decimal_places=3)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.shipping_weightbased    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class ShippingWeightbasedCountries(models.Model):
     weightbased = models.OneToOneField(ShippingWeightbased, models.DO_NOTHING)
     country = models.OneToOneField(AddressCountry, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.shipping_weightbased_countries        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class TaggitTag(models.Model):
     name = models.CharField(unique=True, max_length=100)
-    slug = models.CharField(unique=True, max_length=100)
     verbose_name = 'Tags'
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.taggit_tag    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class TaggitTaggeditem(models.Model):
     object_id = models.IntegerField()
     content_type = models.OneToOneField(DjangoContent, models.DO_NOTHING)
     tag = models.OneToOneField(TaggitTag, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.taggit_taggeditem        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class TestimonialsTestimonial(models.Model):
@@ -3511,25 +3094,21 @@ class TestimonialsTestimonial(models.Model):
     affiliation = models.CharField(max_length=100)
     added = models.DateTimeField()
     active = models.BooleanField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.testimonials_testimonial    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class ThumbnailKvstore(models.Model):
     key = models.CharField(primary_key=True, max_length=200)
     value = models.TextField()
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.thumbnail_kvstore    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class VoucherVoucher(models.Model):
@@ -3543,26 +3122,22 @@ class VoucherVoucher(models.Model):
     total_discount = models.DecimalField(max_digits=12, decimal_places=2)
     date_created = models.DateTimeField()
     voucher_set = models.OneToOneField('VoucherVoucherset', models.DO_NOTHING, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.voucher_voucher    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class VoucherVoucherOffers(models.Model):
     voucher = models.OneToOneField(VoucherVoucher, models.DO_NOTHING)
     conditionaloffer = models.OneToOneField(OfferConditionaloffer, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.voucher_voucher_offers        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class VoucherVoucherapplication(models.Model):
@@ -3570,13 +3145,11 @@ class VoucherVoucherapplication(models.Model):
     order = models.OneToOneField(OrderOrder, models.DO_NOTHING)
     user = models.OneToOneField(AuthUser, models.DO_NOTHING, blank=True, null=True)
     voucher = models.OneToOneField(VoucherVoucher, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.voucher_voucherapplication    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class VoucherVoucherset(models.Model):
@@ -3588,13 +3161,11 @@ class VoucherVoucherset(models.Model):
     start_datetime = models.DateTimeField()
     end_datetime = models.DateTimeField()
     offer = models.OneToOneField(OfferConditionaloffer, models.DO_NOTHING, unique=True, blank=True, null=True)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.voucher_voucherset    
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class WishlistsLine(models.Model):
@@ -3602,14 +3173,12 @@ class WishlistsLine(models.Model):
     title = models.CharField(max_length=255)
     product = models.OneToOneField(CatalogueProduct, models.DO_NOTHING, blank=True, null=True)
     wishlist = models.OneToOneField('WishlistsWishlist', models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.wishlists_line        
     
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 class WishlistsWishlist(models.Model):
@@ -3618,7 +3187,6 @@ class WishlistsWishlist(models.Model):
     visibility = models.CharField(max_length=20)
     date_created = models.DateTimeField()
     owner = models.OneToOneField(AuthUser, models.DO_NOTHING)
-    slug = models.SlugField(max_length=32, default='', blank=True)
 
     def __str__(self):
         return self.wishlists_wishlist

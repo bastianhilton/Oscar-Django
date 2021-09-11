@@ -2884,615 +2884,1840 @@ class Query(graphene.ObjectType):
   all_WishlistsWishlist = graphene.List(WishlistsWishlistType)
 
   def resolve_all_AddressCountry(root, info):		
-     return AddressCountry.objects.select_related("AddressCountry").all()
+     return AddressCountry.objects.prefetch_related("AddressCountry").all()
 
   def resolve_all_AddressUseraddress(root, info):		
-     return AddressUseraddress.objects.select_related("AddressUseraddress").all()
+     return AddressUseraddress.objects.prefetch_related("AddressUseraddress").all()
 
   def resolve_all_AdvancedFiltersAdvancedfilter(root, info):		
-     return AdvancedFiltersAdvancedfilter.objects.select_related("AdvancedFiltersAdvancedfilter").all()
+     return AdvancedFiltersAdvancedfilter.objects.prefetch_related("AdvancedFiltersAdvancedfilter").all()
 
   def resolve_all_AdvancedFiltersAdvancedfilterGroups(root, info):		
-     return AdvancedFiltersAdvancedfilterGroups.objects.select_related("AdvancedFiltersAdvancedfilterGroups").all()
+     return AdvancedFiltersAdvancedfilterGroups.objects.prefetch_related("AdvancedFiltersAdvancedfilterGroups").all()
 
   def resolve_all_AdvancedFiltersAdvancedfilterUsers(root, info):		
-     return AdvancedFiltersAdvancedfilterUsers.objects.select_related("AdvancedFiltersAdvancedfilterUsers").all()
+     return AdvancedFiltersAdvancedfilterUsers.objects.prefetch_related("AdvancedFiltersAdvancedfilterUsers").all()
 
   def resolve_all_AnalyticsProductrecord(root, info):		
-     return AnalyticsProductrecord.objects.select_related("AnalyticsProductrecord").all()
+     return AnalyticsProductrecord.objects.prefetch_related("AnalyticsProductrecord").all()
 
   def resolve_all_AnalyticsUserproductview(root, info):		
-     return AnalyticsUserproductview.objects.select_related("AnalyticsUserproductview").all()
+     return AnalyticsUserproductview.objects.prefetch_related("AnalyticsUserproductview").all()
 
   def resolve_all_AnalyticsUserrecord(root, info):		
-     return AnalyticsUserrecord.objects.select_related("AnalyticsUserrecord").all()
+     return AnalyticsUserrecord.objects.prefetch_related("AnalyticsUserrecord").all()
 
   def resolve_all_AnalyticsUsersearch(root, info):		
-     return AnalyticsUsersearch.objects.select_related("AnalyticsUsersearch").all()
+     return AnalyticsUsersearch.objects.prefetch_related("AnalyticsUsersearch").all()
 
   def resolve_all_AnnouncementsAnnouncement(root, info):		
-     return AnnouncementsAnnouncement.objects.select_related("AnnouncementsAnnouncement").all()
+     return AnnouncementsAnnouncement.objects.prefetch_related("AnnouncementsAnnouncement").all()
 
   def resolve_all_AnnouncementsDismissal(root, info):		
-     return AnnouncementsDismissal.objects.select_related("AnnouncementsDismissal").all()
+     return AnnouncementsDismissal.objects.prefetch_related("AnnouncementsDismissal").all()
 
   def resolve_all_AuthGroup(root, info):		
-     return AuthGroup.objects.select_related("AuthGroup").all()
+     return AuthGroup.objects.prefetch_related("AuthGroup").all()
 
   def resolve_all_AuthGroupPermissions(root, info):		
-     return AuthGroupPermissions.objects.select_related("AuthGroupPermissions").all()
+     return AuthGroupPermissions.objects.prefetch_related("AuthGroupPermissions").all()
 
   def resolve_all_AuthPermission(root, info):		
-     return AuthPermission.objects.select_related("AuthPermission").all()
+     return AuthPermission.objects.prefetch_related("AuthPermission").all()
 
   def resolve_all_AuthUser(root, info):		
-     return AuthUser.objects.select_related("AuthUser").all()
+     return AuthUser.objects.prefetch_related("AuthUser").all()
 
   def resolve_all_AuthUserGroups(root, info):		
-     return AuthUserGroups.objects.select_related("AuthUserGroups").all()
+     return AuthUserGroups.objects.prefetch_related("AuthUserGroups").all()
 
   def resolve_all_AuthUserUserPermissions(root, info):		
-     return AuthUserUserPermissions.objects.select_related("AuthUserUserPermissions").all()
+     return AuthUserUserPermissions.objects.prefetch_related("AuthUserUserPermissions").all()
 
   def resolve_all_BasketBasket(root, info):		
-     return BasketBasket.objects.select_related("BasketBasket").all()
+     return BasketBasket.objects.prefetch_related("BasketBasket").all()
 
   def resolve_all_BasketBasketVouchers(root, info):		
-     return BasketBasketVouchers.objects.select_related("BasketBasketVouchers").all()
+     return BasketBasketVouchers.objects.prefetch_related("BasketBasketVouchers").all()
 
   def resolve_all_BasketLine(root, info):		
-     return BasketLine.objects.select_related("BasketLine").all()
+     return BasketLine.objects.prefetch_related("BasketLine").all()
 
   def resolve_all_BasketLineattribute(root, info):		
-     return BasketLineattribute.objects.select_related("BasketLineattribute").all()
+     return BasketLineattribute.objects.prefetch_related("BasketLineattribute").all()
 
   def resolve_all_Bootstrap4AlertsBootstrap4Alerts(root, info):		
-     return Bootstrap4AlertsBootstrap4Alerts.objects.select_related("Bootstrap4AlertsBootstrap4Alerts").all()
+     return Bootstrap4AlertsBootstrap4Alerts.objects.prefetch_related("Bootstrap4AlertsBootstrap4Alerts").all()
 
   def resolve_all_Bootstrap4BadgeBootstrap4Badge(root, info):		
-     return Bootstrap4BadgeBootstrap4Badge.objects.select_related("Bootstrap4BadgeBootstrap4Badge").all()
+     return Bootstrap4BadgeBootstrap4Badge.objects.prefetch_related("Bootstrap4BadgeBootstrap4Badge").all()
 
   def resolve_all_Bootstrap4CardBootstrap4Card(root, info):		
-     return Bootstrap4CardBootstrap4Card.objects.select_related("Bootstrap4CardBootstrap4Card").all()
+     return Bootstrap4CardBootstrap4Card.objects.prefetch_related("Bootstrap4CardBootstrap4Card").all()
 
   def resolve_all_Bootstrap4CardBootstrap4Cardinner(root, info):		
-     return Bootstrap4CardBootstrap4Cardinner.objects.select_related("Bootstrap4CardBootstrap4Cardinner").all()
+     return Bootstrap4CardBootstrap4Cardinner.objects.prefetch_related("Bootstrap4CardBootstrap4Cardinner").all()
 
   def resolve_all_Bootstrap4CarouselBootstrap4Carousel(root, info):		
-     return Bootstrap4CarouselBootstrap4Carousel.objects.select_related("Bootstrap4CarouselBootstrap4Carousel").all()
+     return Bootstrap4CarouselBootstrap4Carousel.objects.prefetch_related("Bootstrap4CarouselBootstrap4Carousel").all()
 
   def resolve_all_Bootstrap4CarouselBootstrap4Carouselslide(root, info):		
-     return Bootstrap4CarouselBootstrap4Carouselslide.objects.select_related("Bootstrap4CarouselBootstrap4Carouselslide").all()
+     return Bootstrap4CarouselBootstrap4Carouselslide.objects.prefetch_related("Bootstrap4CarouselBootstrap4Carouselslide").all()
 
   def resolve_all_Bootstrap4CollapseBootstrap4Collapse(root, info):		
-     return Bootstrap4CollapseBootstrap4Collapse.objects.select_related("Bootstrap4CollapseBootstrap4Collapse").all()
+     return Bootstrap4CollapseBootstrap4Collapse.objects.prefetch_related("Bootstrap4CollapseBootstrap4Collapse").all()
 
   def resolve_all_Bootstrap4CollapseBootstrap4Collapsecontainer(root, info):		
-     return Bootstrap4CollapseBootstrap4Collapsecontainer.objects.select_related("Bootstrap4CollapseBootstrap4Collapsecontainer").all()
+     return Bootstrap4CollapseBootstrap4Collapsecontainer.objects.prefetch_related("Bootstrap4CollapseBootstrap4Collapsecontainer").all()
 
   def resolve_all_Bootstrap4CollapseBootstrap4Collapsetrigger(root, info):		
-     return Bootstrap4CollapseBootstrap4Collapsetrigger.objects.select_related("Bootstrap4CollapseBootstrap4Collapsetrigger").all()
+     return Bootstrap4CollapseBootstrap4Collapsetrigger.objects.prefetch_related("Bootstrap4CollapseBootstrap4Collapsetrigger").all()
 
   def resolve_all_Bootstrap4ContentBootstrap4Blockquote(root, info):		
-     return Bootstrap4ContentBootstrap4Blockquote.objects.select_related("Bootstrap4ContentBootstrap4Blockquote").all()
+     return Bootstrap4ContentBootstrap4Blockquote.objects.prefetch_related("Bootstrap4ContentBootstrap4Blockquote").all()
 
   def resolve_all_Bootstrap4ContentBootstrap4Code(root, info):		
-     return Bootstrap4ContentBootstrap4Code.objects.select_related("Bootstrap4ContentBootstrap4Code").all()
+     return Bootstrap4ContentBootstrap4Code.objects.prefetch_related("Bootstrap4ContentBootstrap4Code").all()
 
   def resolve_all_Bootstrap4ContentBootstrap4Figure(root, info):		
-     return Bootstrap4ContentBootstrap4Figure.objects.select_related("Bootstrap4ContentBootstrap4Figure").all()
+     return Bootstrap4ContentBootstrap4Figure.objects.prefetch_related("Bootstrap4ContentBootstrap4Figure").all()
 
   def resolve_all_Bootstrap4GridBootstrap4Gridcolumn(root, info):		
-     return Bootstrap4GridBootstrap4Gridcolumn.objects.select_related("Bootstrap4GridBootstrap4Gridcolumn").all()
+     return Bootstrap4GridBootstrap4Gridcolumn.objects.prefetch_related("Bootstrap4GridBootstrap4Gridcolumn").all()
 
   def resolve_all_Bootstrap4GridBootstrap4Gridcontainer(root, info):		
-     return Bootstrap4GridBootstrap4Gridcontainer.objects.select_related("Bootstrap4GridBootstrap4Gridcontainer").all()
+     return Bootstrap4GridBootstrap4Gridcontainer.objects.prefetch_related("Bootstrap4GridBootstrap4Gridcontainer").all()
 
   def resolve_all_Bootstrap4GridBootstrap4Gridrow(root, info):		
-     return Bootstrap4GridBootstrap4Gridrow.objects.select_related("Bootstrap4GridBootstrap4Gridrow").all()
+     return Bootstrap4GridBootstrap4Gridrow.objects.prefetch_related("Bootstrap4GridBootstrap4Gridrow").all()
 
   def resolve_all_Bootstrap4JumbotronBootstrap4Jumbotron(root, info):		
-     return Bootstrap4JumbotronBootstrap4Jumbotron.objects.select_related("Bootstrap4JumbotronBootstrap4Jumbotron").all()
+     return Bootstrap4JumbotronBootstrap4Jumbotron.objects.prefetch_related("Bootstrap4JumbotronBootstrap4Jumbotron").all()
 
   def resolve_all_Bootstrap4LinkBootstrap4Link(root, info):		
-     return Bootstrap4LinkBootstrap4Link.objects.select_related("Bootstrap4LinkBootstrap4Link").all()
+     return Bootstrap4LinkBootstrap4Link.objects.prefetch_related("Bootstrap4LinkBootstrap4Link").all()
 
   def resolve_all_Bootstrap4ListgroupBootstrap4Listgroup(root, info):		
-     return Bootstrap4ListgroupBootstrap4Listgroup.objects.select_related("Bootstrap4ListgroupBootstrap4Listgroup").all()
+     return Bootstrap4ListgroupBootstrap4Listgroup.objects.prefetch_related("Bootstrap4ListgroupBootstrap4Listgroup").all()
 
   def resolve_all_Bootstrap4ListgroupBootstrap4Listgroupitem(root, info):		
-     return Bootstrap4ListgroupBootstrap4Listgroupitem.objects.select_related("Bootstrap4ListgroupBootstrap4Listgroupitem").all()
+     return Bootstrap4ListgroupBootstrap4Listgroupitem.objects.prefetch_related("Bootstrap4ListgroupBootstrap4Listgroupitem").all()
 
   def resolve_all_Bootstrap4MediaBootstrap4Media(root, info):		
-     return Bootstrap4MediaBootstrap4Media.objects.select_related("Bootstrap4MediaBootstrap4Media").all()
+     return Bootstrap4MediaBootstrap4Media.objects.prefetch_related("Bootstrap4MediaBootstrap4Media").all()
 
   def resolve_all_Bootstrap4MediaBootstrap4Mediabody(root, info):		
-     return Bootstrap4MediaBootstrap4Mediabody.objects.select_related("Bootstrap4MediaBootstrap4Mediabody").all()
+     return Bootstrap4MediaBootstrap4Mediabody.objects.prefetch_related("Bootstrap4MediaBootstrap4Mediabody").all()
 
   def resolve_all_Bootstrap4PictureBootstrap4Picture(root, info):		
-     return Bootstrap4PictureBootstrap4Picture.objects.select_related("Bootstrap4PictureBootstrap4Picture").all()
+     return Bootstrap4PictureBootstrap4Picture.objects.prefetch_related("Bootstrap4PictureBootstrap4Picture").all()
 
   def resolve_all_Bootstrap4TabsBootstrap4Tab(root, info):		
-     return Bootstrap4TabsBootstrap4Tab.objects.select_related("Bootstrap4TabsBootstrap4Tab").all()
+     return Bootstrap4TabsBootstrap4Tab.objects.prefetch_related("Bootstrap4TabsBootstrap4Tab").all()
 
   def resolve_all_Bootstrap4TabsBootstrap4Tabitem(root, info):		
-     return Bootstrap4TabsBootstrap4Tabitem.objects.select_related("Bootstrap4TabsBootstrap4Tabitem").all()
+     return Bootstrap4TabsBootstrap4Tabitem.objects.prefetch_related("Bootstrap4TabsBootstrap4Tabitem").all()
 
   def resolve_all_Bootstrap4UtilitiesBootstrap4Spacing(root, info):		
-     return Bootstrap4UtilitiesBootstrap4Spacing.objects.select_related("Bootstrap4UtilitiesBootstrap4Spacing").all()
+     return Bootstrap4UtilitiesBootstrap4Spacing.objects.prefetch_related("Bootstrap4UtilitiesBootstrap4Spacing").all()
 
   def resolve_all_CatalogueAttributeoption(root, info):		
-     return CatalogueAttributeoption.objects.select_related("CatalogueAttributeoption").all()
+     return CatalogueAttributeoption.objects.prefetch_related("CatalogueAttributeoption").all()
 
   def resolve_all_CatalogueAttributeoptiongroup(root, info):		
-     return CatalogueAttributeoptiongroup.objects.select_related("CatalogueAttributeoptiongroup").all()
+     return CatalogueAttributeoptiongroup.objects.prefetch_related("CatalogueAttributeoptiongroup").all()
 
   def resolve_all_CatalogueCategory(root, info):		
-     return CatalogueCategory.objects.select_related("CatalogueCategory").all()
+     return CatalogueCategory.objects.prefetch_related("CatalogueCategory").all()
 
   def resolve_all_CatalogueOption(root, info):		
-     return CatalogueOption.objects.select_related("CatalogueOption").all()
+     return CatalogueOption.objects.prefetch_related("CatalogueOption").all()
 
   def resolve_all_CatalogueProduct(root, info):		
-     return CatalogueProduct.objects.select_related("CatalogueProduct").all()
+     return CatalogueProduct.objects.prefetch_related("CatalogueProduct").all()
 
   def resolve_all_CatalogueProductattribute(root, info):		
-     return CatalogueProductattribute.objects.select_related("CatalogueProductattribute").all()
+     return CatalogueProductattribute.objects.prefetch_related("CatalogueProductattribute").all()
 
   def resolve_all_CatalogueProductattributevalue(root, info):		
-     return CatalogueProductattributevalue.objects.select_related("CatalogueProductattributevalue").all()
+     return CatalogueProductattributevalue.objects.prefetch_related("CatalogueProductattributevalue").all()
 
   def resolve_all_CatalogueProductattributevalueValueMultiOption(root, info):		
-     return CatalogueProductattributevalueValueMultiOption.objects.select_related("CatalogueProductattributevalueValueMultiOption").all()
+     return CatalogueProductattributevalueValueMultiOption.objects.prefetch_related("CatalogueProductattributevalueValueMultiOption").all()
 
   def resolve_all_CatalogueProductcategory(root, info):		
-     return CatalogueProductcategory.objects.select_related("CatalogueProductcategory").all()
+     return CatalogueProductcategory.objects.prefetch_related("CatalogueProductcategory").all()
 
   def resolve_all_CatalogueProductclass(root, info):		
-     return CatalogueProductclass.objects.select_related("CatalogueProductclass").all()
+     return CatalogueProductclass.objects.prefetch_related("CatalogueProductclass").all()
 
   def resolve_all_CatalogueProductclassOptions(root, info):		
-     return CatalogueProductclassOptions.objects.select_related("CatalogueProductclassOptions").all()
+     return CatalogueProductclassOptions.objects.prefetch_related("CatalogueProductclassOptions").all()
 
   def resolve_all_CatalogueProductimage(root, info):		
-     return CatalogueProductimage.objects.select_related("CatalogueProductimage").all()
+     return CatalogueProductimage.objects.prefetch_related("CatalogueProductimage").all()
 
   def resolve_all_CatalogueProductProductOptions(root, info):		
-     return CatalogueProductProductOptions.objects.select_related("CatalogueProductProductOptions").all()
+     return CatalogueProductProductOptions.objects.prefetch_related("CatalogueProductProductOptions").all()
 
   def resolve_all_CatalogueProductrecommendation(root, info):		
-     return CatalogueProductrecommendation.objects.select_related("CatalogueProductrecommendation").all()
+     return CatalogueProductrecommendation.objects.prefetch_related("CatalogueProductrecommendation").all()
 
   def resolve_all_Client(root, info):		
-     return Client.objects.select_related("Client").all()
+     return Client.objects.prefetch_related("Client").all()
 
   def resolve_all_CmsAliaspluginmodel(root, info):		
-     return CmsAliaspluginmodel.objects.select_related("CmsAliaspluginmodel").all()
+     return CmsAliaspluginmodel.objects.prefetch_related("CmsAliaspluginmodel").all()
 
   def resolve_all_CmsCmsplugin(root, info):		
-     return CmsCmsplugin.objects.select_related("CmsCmsplugin").all()
+     return CmsCmsplugin.objects.prefetch_related("CmsCmsplugin").all()
 
   def resolve_all_CmsGlobalpagepermission(root, info):		
-     return CmsGlobalpagepermission.objects.select_related("CmsGlobalpagepermission").all()
+     return CmsGlobalpagepermission.objects.prefetch_related("CmsGlobalpagepermission").all()
 
   def resolve_all_CmsGlobalpagepermissionSites(root, info):		
-     return CmsGlobalpagepermissionSites.objects.select_related("CmsGlobalpagepermissionSites").all()
+     return CmsGlobalpagepermissionSites.objects.prefetch_related("CmsGlobalpagepermissionSites").all()
 
   def resolve_all_CmsPage(root, info):		
-     return CmsPage.objects.select_related("CmsPage").all()
+     return CmsPage.objects.prefetch_related("CmsPage").all()
 
   def resolve_all_CmsPagepermission(root, info):		
-     return CmsPagepermission.objects.select_related("CmsPagepermission").all()
+     return CmsPagepermission.objects.prefetch_related("CmsPagepermission").all()
 
   def resolve_all_CmsPagePlaceholders(root, info):		
-     return CmsPagePlaceholders.objects.select_related("CmsPagePlaceholders").all()
+     return CmsPagePlaceholders.objects.prefetch_related("CmsPagePlaceholders").all()
 
   def resolve_all_CmsPageuser(root, info):		
-     return CmsPageuser.objects.select_related("CmsPageuser").all()
+     return CmsPageuser.objects.prefetch_related("CmsPageuser").all()
 
   def resolve_all_CmsPageusergroup(root, info):		
-     return CmsPageusergroup.objects.select_related("CmsPageusergroup").all()
+     return CmsPageusergroup.objects.prefetch_related("CmsPageusergroup").all()
 
   def resolve_all_CmsPlaceholder(root, info):		
-     return CmsPlaceholder.objects.select_related("CmsPlaceholder").all()
+     return CmsPlaceholder.objects.prefetch_related("CmsPlaceholder").all()
 
   def resolve_all_CmsPlaceholderreference(root, info):		
-     return CmsPlaceholderreference.objects.select_related("CmsPlaceholderreference").all()
+     return CmsPlaceholderreference.objects.prefetch_related("CmsPlaceholderreference").all()
 
   def resolve_all_CmsStaticplaceholder(root, info):		
-     return CmsStaticplaceholder.objects.select_related("CmsStaticplaceholder").all()
+     return CmsStaticplaceholder.objects.prefetch_related("CmsStaticplaceholder").all()
 
   def resolve_all_CmsTitle(root, info):		
-     return CmsTitle.objects.select_related("CmsTitle").all()
+     return CmsTitle.objects.prefetch_related("CmsTitle").all()
 
   def resolve_all_CmsTreenode(root, info):		
-     return CmsTreenode.objects.select_related("CmsTreenode").all()
+     return CmsTreenode.objects.prefetch_related("CmsTreenode").all()
 
   def resolve_all_CmsUrlconfrevision(root, info):		
-     return CmsUrlconfrevision.objects.select_related("CmsUrlconfrevision").all()
+     return CmsUrlconfrevision.objects.prefetch_related("CmsUrlconfrevision").all()
 
   def resolve_all_CmsUsersettings(root, info):		
-     return CmsUsersettings.objects.select_related("CmsUsersettings").all()
+     return CmsUsersettings.objects.prefetch_related("CmsUsersettings").all()
 
   def resolve_all_CommunicationCommunicationeventtype(root, info):		
-     return CommunicationCommunicationeventtype.objects.select_related("CommunicationCommunicationeventtype").all()
+     return CommunicationCommunicationeventtype.objects.prefetch_related("CommunicationCommunicationeventtype").all()
 
   def resolve_all_CommunicationEmail(root, info):		
-     return CommunicationEmail.objects.select_related("CommunicationEmail").all()
+     return CommunicationEmail.objects.prefetch_related("CommunicationEmail").all()
 
   def resolve_all_CommunicationNotification(root, info):		
-     return CommunicationNotification.objects.select_related("CommunicationNotification").all()
+     return CommunicationNotification.objects.prefetch_related("CommunicationNotification").all()
 
   def resolve_all_CustomerProductalert(root, info):		
-     return CustomerProductalert.objects.select_related("CustomerProductalert").all()
+     return CustomerProductalert.objects.prefetch_related("CustomerProductalert").all()
 
   def resolve_all_DjangoAdminLog(root, info):		
-     return DjangoAdminLog.objects.select_related("DjangoAdminLog").all()
+     return DjangoAdminLog.objects.prefetch_related("DjangoAdminLog").all()
 
   def resolve_all_DjangocmsBlogAuthorentriesplugin(root, info):		
-     return DjangocmsBlogAuthorentriesplugin.objects.select_related("DjangocmsBlogAuthorentriesplugin").all()
+     return DjangocmsBlogAuthorentriesplugin.objects.prefetch_related("DjangocmsBlogAuthorentriesplugin").all()
 
   def resolve_all_DjangocmsBlogAuthorentriespluginAuthors(root, info):		
-     return DjangocmsBlogAuthorentriespluginAuthors.objects.select_related("DjangocmsBlogAuthorentriespluginAuthors").all()
+     return DjangocmsBlogAuthorentriespluginAuthors.objects.prefetch_related("DjangocmsBlogAuthorentriespluginAuthors").all()
 
   def resolve_all_DjangocmsBlogBlogcategory(root, info):		
-     return DjangocmsBlogBlogcategory.objects.select_related("DjangocmsBlogBlogcategory").all()
+     return DjangocmsBlogBlogcategory.objects.prefetch_related("DjangocmsBlogBlogcategory").all()
 
   def resolve_all_DjangocmsBlogBlogcategoryTranslation(root, info):		
-     return DjangocmsBlogBlogcategoryTranslation.objects.select_related("DjangocmsBlogBlogcategoryTranslation").all()
+     return DjangocmsBlogBlogcategoryTranslation.objects.prefetch_related("DjangocmsBlogBlogcategoryTranslation").all()
 
   def resolve_all_DjangocmsBlogBlogconfig(root, info):		
-     return DjangocmsBlogBlogconfig.objects.select_related("DjangocmsBlogBlogconfig").all()
+     return DjangocmsBlogBlogconfig.objects.prefetch_related("DjangocmsBlogBlogconfig").all()
 
   def resolve_all_DjangocmsBlogBlogconfigTranslation(root, info):		
-     return DjangocmsBlogBlogconfigTranslation.objects.select_related("DjangocmsBlogBlogconfigTranslation").all()
+     return DjangocmsBlogBlogconfigTranslation.objects.prefetch_related("DjangocmsBlogBlogconfigTranslation").all()
 
   def resolve_all_DjangocmsBlogGenericblogplugin(root, info):		
-     return DjangocmsBlogGenericblogplugin.objects.select_related("DjangocmsBlogGenericblogplugin").all()
+     return DjangocmsBlogGenericblogplugin.objects.prefetch_related("DjangocmsBlogGenericblogplugin").all()
 
   def resolve_all_DjangocmsBlogLatestpostsplugin(root, info):		
-     return DjangocmsBlogLatestpostsplugin.objects.select_related("DjangocmsBlogLatestpostsplugin").all()
+     return DjangocmsBlogLatestpostsplugin.objects.prefetch_related("DjangocmsBlogLatestpostsplugin").all()
 
   def resolve_all_DjangocmsBlogLatestpostspluginCategories(root, info):		
-     return DjangocmsBlogLatestpostspluginCategories.objects.select_related("DjangocmsBlogLatestpostspluginCategories").all()
+     return DjangocmsBlogLatestpostspluginCategories.objects.prefetch_related("DjangocmsBlogLatestpostspluginCategories").all()
 
   def resolve_all_DjangocmsBlogPost(root, info):		
-     return DjangocmsBlogPost.objects.select_related("DjangocmsBlogPost").all()
+     return DjangocmsBlogPost.objects.prefetch_related("DjangocmsBlogPost").all()
 
   def resolve_all_DjangocmsBlogPostCategories(root, info):		
-     return DjangocmsBlogPostCategories.objects.select_related("DjangocmsBlogPostCategories").all()
+     return DjangocmsBlogPostCategories.objects.prefetch_related("DjangocmsBlogPostCategories").all()
 
   def resolve_all_DjangocmsBlogPostRelated(root, info):		
-     return DjangocmsBlogPostRelated.objects.select_related("DjangocmsBlogPostRelated").all()
+     return DjangocmsBlogPostRelated.objects.prefetch_related("DjangocmsBlogPostRelated").all()
 
   def resolve_all_DjangocmsBlogPostSites(root, info):		
-     return DjangocmsBlogPostSites.objects.select_related("DjangocmsBlogPostSites").all()
+     return DjangocmsBlogPostSites.objects.prefetch_related("DjangocmsBlogPostSites").all()
 
   def resolve_all_DjangocmsBlogPostTranslation(root, info):		
-     return DjangocmsBlogPostTranslation.objects.select_related("DjangocmsBlogPostTranslation").all()
+     return DjangocmsBlogPostTranslation.objects.prefetch_related("DjangocmsBlogPostTranslation").all()
 
   def resolve_all_DjangocmsFileFile(root, info):		
-     return DjangocmsFileFile.objects.select_related("DjangocmsFileFile").all()
+     return DjangocmsFileFile.objects.prefetch_related("DjangocmsFileFile").all()
 
   def resolve_all_DjangocmsFileFolder(root, info):		
-     return DjangocmsFileFolder.objects.select_related("DjangocmsFileFolder").all()
+     return DjangocmsFileFolder.objects.prefetch_related("DjangocmsFileFolder").all()
 
   def resolve_all_DjangocmsGooglemapGooglemap(root, info):		
-     return DjangocmsGooglemapGooglemap.objects.select_related("DjangocmsGooglemapGooglemap").all()
+     return DjangocmsGooglemapGooglemap.objects.prefetch_related("DjangocmsGooglemapGooglemap").all()
 
   def resolve_all_DjangocmsGooglemapGooglemapmarker(root, info):		
-     return DjangocmsGooglemapGooglemapmarker.objects.select_related("DjangocmsGooglemapGooglemapmarker").all()
+     return DjangocmsGooglemapGooglemapmarker.objects.prefetch_related("DjangocmsGooglemapGooglemapmarker").all()
 
   def resolve_all_DjangocmsGooglemapGooglemaproute(root, info):		
-     return DjangocmsGooglemapGooglemaproute.objects.select_related("DjangocmsGooglemapGooglemaproute").all()
+     return DjangocmsGooglemapGooglemaproute.objects.prefetch_related("DjangocmsGooglemapGooglemaproute").all()
 
   def resolve_all_DjangocmsHistoryPlaceholderaction(root, info):		
-     return DjangocmsHistoryPlaceholderaction.objects.select_related("DjangocmsHistoryPlaceholderaction").all()
+     return DjangocmsHistoryPlaceholderaction.objects.prefetch_related("DjangocmsHistoryPlaceholderaction").all()
 
   def resolve_all_DjangocmsHistoryPlaceholderoperation(root, info):		
-     return DjangocmsHistoryPlaceholderoperation.objects.select_related("DjangocmsHistoryPlaceholderoperation").all()
+     return DjangocmsHistoryPlaceholderoperation.objects.prefetch_related("DjangocmsHistoryPlaceholderoperation").all()
 
   def resolve_all_DjangocmsIconIcon(root, info):		
-     return DjangocmsIconIcon.objects.select_related("DjangocmsIconIcon").all()
+     return DjangocmsIconIcon.objects.prefetch_related("DjangocmsIconIcon").all()
 
   def resolve_all_DjangocmsLinkLink(root, info):		
-     return DjangocmsLinkLink.objects.select_related("DjangocmsLinkLink").all()
+     return DjangocmsLinkLink.objects.prefetch_related("DjangocmsLinkLink").all()
 
   def resolve_all_DjangocmsMapsMaps(root, info):		
-     return DjangocmsMapsMaps.objects.select_related("DjangocmsMapsMaps").all()
+     return DjangocmsMapsMaps.objects.prefetch_related("DjangocmsMapsMaps").all()
 
   def resolve_all_DjangocmsPicturePicture(root, info):		
-     return DjangocmsPicturePicture.objects.select_related("DjangocmsPicturePicture").all()
+     return DjangocmsPicturePicture.objects.prefetch_related("DjangocmsPicturePicture").all()
 
   def resolve_all_DjangocmsStyleStyle(root, info):		
-     return DjangocmsStyleStyle.objects.select_related("DjangocmsStyleStyle").all()
+     return DjangocmsStyleStyle.objects.prefetch_related("DjangocmsStyleStyle").all()
 
   def resolve_all_DjangocmsTextCkeditorText(root, info):		
-     return DjangocmsTextCkeditorText.objects.select_related("DjangocmsTextCkeditorText").all()
+     return DjangocmsTextCkeditorText.objects.prefetch_related("DjangocmsTextCkeditorText").all()
 
   def resolve_all_DjangocmsVideoVideoplayer(root, info):		
-     return DjangocmsVideoVideoplayer.objects.select_related("DjangocmsVideoVideoplayer").all()
+     return DjangocmsVideoVideoplayer.objects.prefetch_related("DjangocmsVideoVideoplayer").all()
 
   def resolve_all_DjangocmsVideoVideosource(root, info):		
-     return DjangocmsVideoVideosource.objects.select_related("DjangocmsVideoVideosource").all()
+     return DjangocmsVideoVideosource.objects.prefetch_related("DjangocmsVideoVideosource").all()
 
   def resolve_all_DjangocmsVideoVideotrack(root, info):		
-     return DjangocmsVideoVideotrack.objects.select_related("DjangocmsVideoVideotrack").all()
+     return DjangocmsVideoVideotrack.objects.prefetch_related("DjangocmsVideoVideotrack").all()
 
   def resolve_all_DjangoContent(root, info):		
-     return DjangoContent.objects.select_related("DjangoContent").all()
+     return DjangoContent.objects.prefetch_related("DjangoContent").all()
 
   def resolve_all_DjangoFlatpage(root, info):		
-     return DjangoFlatpage.objects.select_related("DjangoFlatpage").all()
+     return DjangoFlatpage.objects.prefetch_related("DjangoFlatpage").all()
 
   def resolve_all_DjangoFlatpageSites(root, info):		
-     return DjangoFlatpageSites.objects.select_related("DjangoFlatpageSites").all()
+     return DjangoFlatpageSites.objects.prefetch_related("DjangoFlatpageSites").all()
 
   def resolve_all_DjangoMigrations(root, info):		
-     return DjangoMigrations.objects.select_related("DjangoMigrations").all()
+     return DjangoMigrations.objects.prefetch_related("DjangoMigrations").all()
 
   def resolve_all_DjangoSession(root, info):		
-     return DjangoSession.objects.select_related("DjangoSession").all()
+     return DjangoSession.objects.prefetch_related("DjangoSession").all()
 
   def resolve_all_DjangoSite(root, info):		
-     return DjangoSite.objects.select_related("DjangoSite").all()
+     return DjangoSite.objects.prefetch_related("DjangoSite").all()
 
   def resolve_all_EasyThumbnailsSource(root, info):		
-     return EasyThumbnailsSource.objects.select_related("EasyThumbnailsSource").all()
+     return EasyThumbnailsSource.objects.prefetch_related("EasyThumbnailsSource").all()
 
   def resolve_all_EasyThumbnailsThumbnail(root, info):		
-     return EasyThumbnailsThumbnail.objects.select_related("EasyThumbnailsThumbnail").all()
+     return EasyThumbnailsThumbnail.objects.prefetch_related("EasyThumbnailsThumbnail").all()
 
   def resolve_all_EasyThumbnailsThumbnaildimensions(root, info):		
-     return EasyThumbnailsThumbnaildimensions.objects.select_related("EasyThumbnailsThumbnaildimensions").all()
+     return EasyThumbnailsThumbnaildimensions.objects.prefetch_related("EasyThumbnailsThumbnaildimensions").all()
 
   def resolve_all_FilerClipboard(root, info):		
-     return FilerClipboard.objects.select_related("FilerClipboard").all()
+     return FilerClipboard.objects.prefetch_related("FilerClipboard").all()
 
   def resolve_all_FilerClipboarditem(root, info):		
-     return FilerClipboarditem.objects.select_related("FilerClipboarditem").all()
+     return FilerClipboarditem.objects.prefetch_related("FilerClipboarditem").all()
 
   def resolve_all_FilerFile(root, info):		
-     return FilerFile.objects.select_related("FilerFile").all()
+     return FilerFile.objects.prefetch_related("FilerFile").all()
 
   def resolve_all_FilerFolder(root, info):		
-     return FilerFolder.objects.select_related("FilerFolder").all()
+     return FilerFolder.objects.prefetch_related("FilerFolder").all()
 
   def resolve_all_FilerFolderpermission(root, info):		
-     return FilerFolderpermission.objects.select_related("FilerFolderpermission").all()
+     return FilerFolderpermission.objects.prefetch_related("FilerFolderpermission").all()
 
   def resolve_all_FilerImage(root, info):		
-     return FilerImage.objects.select_related("FilerImage").all()
+     return FilerImage.objects.prefetch_related("FilerImage").all()
 
   def resolve_all_FilerThumbnailoption(root, info):		
-     return FilerThumbnailoption.objects.select_related("FilerThumbnailoption").all()
+     return FilerThumbnailoption.objects.prefetch_related("FilerThumbnailoption").all()
 
   def resolve_all_MenusCachekey(root, info):		
-     return MenusCachekey.objects.select_related("MenusCachekey").all()
+     return MenusCachekey.objects.prefetch_related("MenusCachekey").all()
 
   def resolve_all_OfferBenefit(root, info):		
-     return OfferBenefit.objects.select_related("OfferBenefit").all()
+     return OfferBenefit.objects.prefetch_related("OfferBenefit").all()
 
   def resolve_all_OfferCondition(root, info):		
-     return OfferCondition.objects.select_related("OfferCondition").all()
+     return OfferCondition.objects.prefetch_related("OfferCondition").all()
 
   def resolve_all_OfferConditionaloffer(root, info):		
-     return OfferConditionaloffer.objects.select_related("OfferConditionaloffer").all()
+     return OfferConditionaloffer.objects.prefetch_related("OfferConditionaloffer").all()
 
   def resolve_all_OfferConditionalofferCombinations(root, info):		
-     return OfferConditionalofferCombinations.objects.select_related("OfferConditionalofferCombinations").all()
+     return OfferConditionalofferCombinations.objects.prefetch_related("OfferConditionalofferCombinations").all()
 
   def resolve_all_OfferRange(root, info):		
-     return OfferRange.objects.select_related("OfferRange").all()
+     return OfferRange.objects.prefetch_related("OfferRange").all()
 
   def resolve_all_OfferRangeClasses(root, info):		
-     return OfferRangeClasses.objects.select_related("OfferRangeClasses").all()
+     return OfferRangeClasses.objects.prefetch_related("OfferRangeClasses").all()
 
   def resolve_all_OfferRangeExcludedProducts(root, info):		
-     return OfferRangeExcludedProducts.objects.select_related("OfferRangeExcludedProducts").all()
+     return OfferRangeExcludedProducts.objects.prefetch_related("OfferRangeExcludedProducts").all()
 
   def resolve_all_OfferRangeIncludedCategories(root, info):		
-     return OfferRangeIncludedCategories.objects.select_related("OfferRangeIncludedCategories").all()
+     return OfferRangeIncludedCategories.objects.prefetch_related("OfferRangeIncludedCategories").all()
 
   def resolve_all_OfferRangeproduct(root, info):		
-     return OfferRangeproduct.objects.select_related("OfferRangeproduct").all()
+     return OfferRangeproduct.objects.prefetch_related("OfferRangeproduct").all()
 
   def resolve_all_OfferRangeproductfileupload(root, info):		
-     return OfferRangeproductfileupload.objects.select_related("OfferRangeproductfileupload").all()
+     return OfferRangeproductfileupload.objects.prefetch_related("OfferRangeproductfileupload").all()
 
   def resolve_all_OrderBillingaddress(root, info):		
-     return OrderBillingaddress.objects.select_related("OrderBillingaddress").all()
+     return OrderBillingaddress.objects.prefetch_related("OrderBillingaddress").all()
 
   def resolve_all_OrderCommunicationevent(root, info):		
-     return OrderCommunicationevent.objects.select_related("OrderCommunicationevent").all()
+     return OrderCommunicationevent.objects.prefetch_related("OrderCommunicationevent").all()
 
   def resolve_all_OrderLine(root, info):		
-     return OrderLine.objects.select_related("OrderLine").all()
+     return OrderLine.objects.prefetch_related("OrderLine").all()
 
   def resolve_all_OrderLineattribute(root, info):		
-     return OrderLineattribute.objects.select_related("OrderLineattribute").all()
+     return OrderLineattribute.objects.prefetch_related("OrderLineattribute").all()
 
   def resolve_all_OrderLineprice(root, info):		
-     return OrderLineprice.objects.select_related("OrderLineprice").all()
+     return OrderLineprice.objects.prefetch_related("OrderLineprice").all()
 
   def resolve_all_OrderOrder(root, info):		
-     return OrderOrder.objects.select_related("OrderOrder").all()
+     return OrderOrder.objects.prefetch_related("OrderOrder").all()
 
   def resolve_all_OrderOrderdiscount(root, info):		
-     return OrderOrderdiscount.objects.select_related("OrderOrderdiscount").all()
+     return OrderOrderdiscount.objects.prefetch_related("OrderOrderdiscount").all()
 
   def resolve_all_OrderOrdernote(root, info):		
-     return OrderOrdernote.objects.select_related("OrderOrdernote").all()
+     return OrderOrdernote.objects.prefetch_related("OrderOrdernote").all()
 
   def resolve_all_OrderOrderstatuschange(root, info):		
-     return OrderOrderstatuschange.objects.select_related("OrderOrderstatuschange").all()
+     return OrderOrderstatuschange.objects.prefetch_related("OrderOrderstatuschange").all()
 
   def resolve_all_OrderPaymentevent(root, info):		
-     return OrderPaymentevent.objects.select_related("OrderPaymentevent").all()
+     return OrderPaymentevent.objects.prefetch_related("OrderPaymentevent").all()
 
   def resolve_all_OrderPaymenteventquantity(root, info):		
-     return OrderPaymenteventquantity.objects.select_related("OrderPaymenteventquantity").all()
+     return OrderPaymenteventquantity.objects.prefetch_related("OrderPaymenteventquantity").all()
 
   def resolve_all_OrderPaymenteventtype(root, info):		
-     return OrderPaymenteventtype.objects.select_related("OrderPaymenteventtype").all()
+     return OrderPaymenteventtype.objects.prefetch_related("OrderPaymenteventtype").all()
 
   def resolve_all_OrderShippingaddress(root, info):		
-     return OrderShippingaddress.objects.select_related("OrderShippingaddress").all()
+     return OrderShippingaddress.objects.prefetch_related("OrderShippingaddress").all()
 
   def resolve_all_OrderShippingevent(root, info):		
-     return OrderShippingevent.objects.select_related("OrderShippingevent").all()
+     return OrderShippingevent.objects.prefetch_related("OrderShippingevent").all()
 
   def resolve_all_OrderShippingeventquantity(root, info):		
-     return OrderShippingeventquantity.objects.select_related("OrderShippingeventquantity").all()
+     return OrderShippingeventquantity.objects.prefetch_related("OrderShippingeventquantity").all()
 
   def resolve_all_OrderShippingeventtype(root, info):		
-     return OrderShippingeventtype.objects.select_related("OrderShippingeventtype").all()
+     return OrderShippingeventtype.objects.prefetch_related("OrderShippingeventtype").all()
 
   def resolve_all_OrderSurcharge(root, info):		
-     return OrderSurcharge.objects.select_related("OrderSurcharge").all()
+     return OrderSurcharge.objects.prefetch_related("OrderSurcharge").all()
 
   def resolve_all_OscarapiApikey(root, info):		
-     return OscarapiApikey.objects.select_related("OscarapiApikey").all()
+     return OscarapiApikey.objects.prefetch_related("OscarapiApikey").all()
 
   def resolve_all_OscarInvoicesInvoice(root, info):		
-     return OscarInvoicesInvoice.objects.select_related("OscarInvoicesInvoice").all()
+     return OscarInvoicesInvoice.objects.prefetch_related("OscarInvoicesInvoice").all()
 
   def resolve_all_OscarInvoicesLegalentity(root, info):		
-     return OscarInvoicesLegalentity.objects.select_related("OscarInvoicesLegalentity").all()
+     return OscarInvoicesLegalentity.objects.prefetch_related("OscarInvoicesLegalentity").all()
 
   def resolve_all_OscarInvoicesLegalentityaddress(root, info):		
-     return OscarInvoicesLegalentityaddress.objects.select_related("OscarInvoicesLegalentityaddress").all()
+     return OscarInvoicesLegalentityaddress.objects.prefetch_related("OscarInvoicesLegalentityaddress").all()
 
   def resolve_all_PartnerPartner(root, info):		
-     return PartnerPartner.objects.select_related("PartnerPartner").all()
+     return PartnerPartner.objects.prefetch_related("PartnerPartner").all()
 
   def resolve_all_PartnerPartneraddress(root, info):		
-     return PartnerPartneraddress.objects.select_related("PartnerPartneraddress").all()
+     return PartnerPartneraddress.objects.prefetch_related("PartnerPartneraddress").all()
 
   def resolve_all_PartnerPartnerUsers(root, info):		
-     return PartnerPartnerUsers.objects.select_related("PartnerPartnerUsers").all()
+     return PartnerPartnerUsers.objects.prefetch_related("PartnerPartnerUsers").all()
 
   def resolve_all_PartnerStockalert(root, info):		
-     return PartnerStockalert.objects.select_related("PartnerStockalert").all()
+     return PartnerStockalert.objects.prefetch_related("PartnerStockalert").all()
 
   def resolve_all_PartnerStockrecord(root, info):		
-     return PartnerStockrecord.objects.select_related("PartnerStockrecord").all()
+     return PartnerStockrecord.objects.prefetch_related("PartnerStockrecord").all()
 
   def resolve_all_Payment(root, info):		
-     return Payment.objects.select_related("Payment").all()
+     return Payment.objects.prefetch_related("Payment").all()
 
   def resolve_all_PaymentBankcard(root, info):		
-     return PaymentBankcard.objects.select_related("PaymentBankcard").all()
+     return PaymentBankcard.objects.prefetch_related("PaymentBankcard").all()
 
   def resolve_all_PaymentSource(root, info):		
-     return PaymentSource.objects.select_related("PaymentSource").all()
+     return PaymentSource.objects.prefetch_related("PaymentSource").all()
 
   def resolve_all_PaymentSourcetype(root, info):		
-     return PaymentSourcetype.objects.select_related("PaymentSourcetype").all()
+     return PaymentSourcetype.objects.prefetch_related("PaymentSourcetype").all()
 
   def resolve_all_PaymentTransaction(root, info):		
-     return PaymentTransaction.objects.select_related("PaymentTransaction").all()
+     return PaymentTransaction.objects.prefetch_related("PaymentTransaction").all()
 
   def resolve_all_PaypalExpresstransaction(root, info):		
-     return PaypalExpresstransaction.objects.select_related("PaypalExpresstransaction").all()
+     return PaypalExpresstransaction.objects.prefetch_related("PaypalExpresstransaction").all()
 
   def resolve_all_PaypalPayflowtransaction(root, info):		
-     return PaypalPayflowtransaction.objects.select_related("PaypalPayflowtransaction").all()
+     return PaypalPayflowtransaction.objects.prefetch_related("PaypalPayflowtransaction").all()
 
   def resolve_all_PhotologueGallery(root, info):		
-     return PhotologueGallery.objects.select_related("PhotologueGallery").all()
+     return PhotologueGallery.objects.prefetch_related("PhotologueGallery").all()
 
   def resolve_all_PhotologueGalleryPhotos(root, info):		
-     return PhotologueGalleryPhotos.objects.select_related("PhotologueGalleryPhotos").all()
+     return PhotologueGalleryPhotos.objects.prefetch_related("PhotologueGalleryPhotos").all()
 
   def resolve_all_PhotologueGallerySites(root, info):		
-     return PhotologueGallerySites.objects.select_related("PhotologueGallerySites").all()
+     return PhotologueGallerySites.objects.prefetch_related("PhotologueGallerySites").all()
 
   def resolve_all_PhotologuePhoto(root, info):		
-     return PhotologuePhoto.objects.select_related("PhotologuePhoto").all()
+     return PhotologuePhoto.objects.prefetch_related("PhotologuePhoto").all()
 
   def resolve_all_PhotologuePhotoeffect(root, info):		
-     return PhotologuePhotoeffect.objects.select_related("PhotologuePhotoeffect").all()
+     return PhotologuePhotoeffect.objects.prefetch_related("PhotologuePhotoeffect").all()
 
   def resolve_all_PhotologuePhotoSites(root, info):		
-     return PhotologuePhotoSites.objects.select_related("PhotologuePhotoSites").all()
+     return PhotologuePhotoSites.objects.prefetch_related("PhotologuePhotoSites").all()
 
   def resolve_all_PhotologuePhotosize(root, info):		
-     return PhotologuePhotosize.objects.select_related("PhotologuePhotosize").all()
+     return PhotologuePhotosize.objects.prefetch_related("PhotologuePhotosize").all()
 
   def resolve_all_PhotologueWatermark(root, info):		
-     return PhotologueWatermark.objects.select_related("PhotologueWatermark").all()
+     return PhotologueWatermark.objects.prefetch_related("PhotologueWatermark").all()
 
   def resolve_all_PinaxBadgesBadgeaward(root, info):		
-     return PinaxBadgesBadgeaward.objects.select_related("PinaxBadgesBadgeaward").all()
+     return PinaxBadgesBadgeaward.objects.prefetch_related("PinaxBadgesBadgeaward").all()
 
   def resolve_all_PinaxEventsEvent(root, info):		
-     return PinaxEventsEvent.objects.select_related("PinaxEventsEvent").all()
+     return PinaxEventsEvent.objects.prefetch_related("PinaxEventsEvent").all()
 
   def resolve_all_PinaxMessagesMessage(root, info):		
-     return PinaxMessagesMessage.objects.select_related("PinaxMessagesMessage").all()
+     return PinaxMessagesMessage.objects.prefetch_related("PinaxMessagesMessage").all()
 
   def resolve_all_PinaxMessagesThread(root, info):		
-     return PinaxMessagesThread.objects.select_related("PinaxMessagesThread").all()
+     return PinaxMessagesThread.objects.prefetch_related("PinaxMessagesThread").all()
 
   def resolve_all_PinaxMessagesUserthread(root, info):		
-     return PinaxMessagesUserthread.objects.select_related("PinaxMessagesUserthread").all()
+     return PinaxMessagesUserthread.objects.prefetch_related("PinaxMessagesUserthread").all()
 
   def resolve_all_Product(root, info):		
-     return Product.objects.select_related("Product").all()
+     return Product.objects.prefetch_related("Product").all()
 
   def resolve_all_ReviewsProductreview(root, info):		
-     return ReviewsProductreview.objects.select_related("ReviewsProductreview").all()
+     return ReviewsProductreview.objects.prefetch_related("ReviewsProductreview").all()
 
   def resolve_all_ReviewsVote(root, info):		
-     return ReviewsVote.objects.select_related("ReviewsVote").all()
+     return ReviewsVote.objects.prefetch_related("ReviewsVote").all()
 
   def resolve_all_SalesLineTransaction(root, info):		
-     return SalesLineTransaction.objects.select_related("SalesLineTransaction").all()
+     return SalesLineTransaction.objects.prefetch_related("SalesLineTransaction").all()
 
   def resolve_all_ShippingOrderanditemcharges(root, info):		
-     return ShippingOrderanditemcharges.objects.select_related("ShippingOrderanditemcharges").all()
+     return ShippingOrderanditemcharges.objects.prefetch_related("ShippingOrderanditemcharges").all()
 
   def resolve_all_ShippingOrderanditemchargesCountries(root, info):		
-     return ShippingOrderanditemchargesCountries.objects.select_related("ShippingOrderanditemchargesCountries").all()
+     return ShippingOrderanditemchargesCountries.objects.prefetch_related("ShippingOrderanditemchargesCountries").all()
 
   def resolve_all_ShippingWeightband(root, info):		
-     return ShippingWeightband.objects.select_related("ShippingWeightband").all()
+     return ShippingWeightband.objects.prefetch_related("ShippingWeightband").all()
 
   def resolve_all_ShippingWeightbased(root, info):		
-     return ShippingWeightbased.objects.select_related("ShippingWeightbased").all()
+     return ShippingWeightbased.objects.prefetch_related("ShippingWeightbased").all()
 
   def resolve_all_ShippingWeightbasedCountries(root, info):		
-     return ShippingWeightbasedCountries.objects.select_related("ShippingWeightbasedCountries").all()
+     return ShippingWeightbasedCountries.objects.prefetch_related("ShippingWeightbasedCountries").all()
 
   def resolve_all_TaggitTag(root, info):		
-     return TaggitTag.objects.select_related("TaggitTag").all()
+     return TaggitTag.objects.prefetch_related("TaggitTag").all()
 
   def resolve_all_TaggitTaggeditem(root, info):		
-     return TaggitTaggeditem.objects.select_related("TaggitTaggeditem").all()
+     return TaggitTaggeditem.objects.prefetch_related("TaggitTaggeditem").all()
 
   def resolve_all_TestimonialsTestimonial(root, info):		
-     return TestimonialsTestimonial.objects.select_related("TestimonialsTestimonial").all()
+     return TestimonialsTestimonial.objects.prefetch_related("TestimonialsTestimonial").all()
 
   def resolve_all_ThumbnailKvstore(root, info):		
-     return ThumbnailKvstore.objects.select_related("ThumbnailKvstore").all()
+     return ThumbnailKvstore.objects.prefetch_related("ThumbnailKvstore").all()
 
   def resolve_all_VoucherVoucher(root, info):		
-     return VoucherVoucher.objects.select_related("VoucherVoucher").all()
+     return VoucherVoucher.objects.prefetch_related("VoucherVoucher").all()
 
   def resolve_all_VoucherVoucherapplication(root, info):		
-     return VoucherVoucherapplication.objects.select_related("VoucherVoucherapplication").all()
+     return VoucherVoucherapplication.objects.prefetch_related("VoucherVoucherapplication").all()
 
   def resolve_all_VoucherVoucherOffers(root, info):		
-     return VoucherVoucherOffers.objects.select_related("VoucherVoucherOffers").all()
+     return VoucherVoucherOffers.objects.prefetch_related("VoucherVoucherOffers").all()
 
   def resolve_all_VoucherVoucherset(root, info):		
-     return VoucherVoucherset.objects.select_related("VoucherVoucherset").all()
+     return VoucherVoucherset.objects.prefetch_related("VoucherVoucherset").all()
 
   def resolve_all_WishlistsLine(root, info):		
-     return WishlistsLine.objects.select_related("WishlistsLine").all()
+     return WishlistsLine.objects.prefetch_related("WishlistsLine").all()
 
   def resolve_all_WishlistsWishlist(root, info):		
-     return WishlistsWishlist.objects.select_related("WishlistsWishlist").all()
+     return WishlistsWishlist.objects.prefetch_related("WishlistsWishlist").all()
+
+  def resolve_AddressCountry_by_name(root, info, name):
+     try:
+        return	AddressCountry.objects.get(name=name)
+     except AddressCountry.DoesNotExist:
+        return None
+
+  def resolve_AddressUseraddress_by_name(root, info, name):
+     try:
+        return	AddressUseraddress.objects.get(name=name)
+     except AddressUseraddress.DoesNotExist:
+        return None
+
+  def resolve_AdvancedFiltersAdvancedfilter_by_name(root, info, name):
+     try:
+        return	AdvancedFiltersAdvancedfilter.objects.get(name=name)
+     except AdvancedFiltersAdvancedfilter.DoesNotExist:
+        return None
+
+  def resolve_AdvancedFiltersAdvancedfilterGroups_by_name(root, info, name):
+     try:
+        return	AdvancedFiltersAdvancedfilterGroups.objects.get(name=name)
+     except AdvancedFiltersAdvancedfilterGroups.DoesNotExist:
+        return None
+
+  def resolve_AdvancedFiltersAdvancedfilterUsers_by_name(root, info, name):
+     try:
+        return	AdvancedFiltersAdvancedfilterUsers.objects.get(name=name)
+     except AdvancedFiltersAdvancedfilterUsers.DoesNotExist:
+        return None
+
+  def resolve_AnalyticsProductrecord_by_name(root, info, name):
+     try:
+        return	AnalyticsProductrecord.objects.get(name=name)
+     except AnalyticsProductrecord.DoesNotExist:
+        return None
+
+  def resolve_AnalyticsUserproductview_by_name(root, info, name):
+     try:
+        return	AnalyticsUserproductview.objects.get(name=name)
+     except AnalyticsUserproductview.DoesNotExist:
+        return None
+
+  def resolve_AnalyticsUserrecord_by_name(root, info, name):
+     try:
+        return	AnalyticsUserrecord.objects.get(name=name)
+     except AnalyticsUserrecord.DoesNotExist:
+        return None
+
+  def resolve_AnalyticsUsersearch_by_name(root, info, name):
+     try:
+        return	AnalyticsUsersearch.objects.get(name=name)
+     except AnalyticsUsersearch.DoesNotExist:
+        return None
+
+  def resolve_AnnouncementsAnnouncement_by_name(root, info, name):
+     try:
+        return	AnnouncementsAnnouncement.objects.get(name=name)
+     except AnnouncementsAnnouncement.DoesNotExist:
+        return None
+
+  def resolve_AnnouncementsDismissal_by_name(root, info, name):
+     try:
+        return	AnnouncementsDismissal.objects.get(name=name)
+     except AnnouncementsDismissal.DoesNotExist:
+        return None
+
+  def resolve_AuthGroup_by_name(root, info, name):
+     try:
+        return	AuthGroup.objects.get(name=name)
+     except AuthGroup.DoesNotExist:
+        return None
+
+  def resolve_AuthGroupPermissions_by_name(root, info, name):
+     try:
+        return	AuthGroupPermissions.objects.get(name=name)
+     except AuthGroupPermissions.DoesNotExist:
+        return None
+
+  def resolve_AuthPermission_by_name(root, info, name):
+     try:
+        return	AuthPermission.objects.get(name=name)
+     except AuthPermission.DoesNotExist:
+        return None
+
+  def resolve_AuthUser_by_name(root, info, name):
+     try:
+        return	AuthUser.objects.get(name=name)
+     except AuthUser.DoesNotExist:
+        return None
+
+  def resolve_AuthUserGroups_by_name(root, info, name):
+     try:
+        return	AuthUserGroups.objects.get(name=name)
+     except AuthUserGroups.DoesNotExist:
+        return None
+
+  def resolve_AuthUserUserPermissions_by_name(root, info, name):
+     try:
+        return	AuthUserUserPermissions.objects.get(name=name)
+     except AuthUserUserPermissions.DoesNotExist:
+        return None
+
+  def resolve_BasketBasket_by_name(root, info, name):
+     try:
+        return	BasketBasket.objects.get(name=name)
+     except BasketBasket.DoesNotExist:
+        return None
+
+  def resolve_BasketBasketVouchers_by_name(root, info, name):
+     try:
+        return	BasketBasketVouchers.objects.get(name=name)
+     except BasketBasketVouchers.DoesNotExist:
+        return None
+
+  def resolve_BasketLine_by_name(root, info, name):
+     try:
+        return	BasketLine.objects.get(name=name)
+     except BasketLine.DoesNotExist:
+        return None
+
+  def resolve_BasketLineattribute_by_name(root, info, name):
+     try:
+        return	BasketLineattribute.objects.get(name=name)
+     except BasketLineattribute.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4AlertsBootstrap4Alerts_by_name(root, info, name):
+     try:
+        return	Bootstrap4AlertsBootstrap4Alerts.objects.get(name=name)
+     except Bootstrap4AlertsBootstrap4Alerts.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4BadgeBootstrap4Badge_by_name(root, info, name):
+     try:
+        return	Bootstrap4BadgeBootstrap4Badge.objects.get(name=name)
+     except Bootstrap4BadgeBootstrap4Badge.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4CardBootstrap4Card_by_name(root, info, name):
+     try:
+        return	Bootstrap4CardBootstrap4Card.objects.get(name=name)
+     except Bootstrap4CardBootstrap4Card.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4CardBootstrap4Cardinner_by_name(root, info, name):
+     try:
+        return	Bootstrap4CardBootstrap4Cardinner.objects.get(name=name)
+     except Bootstrap4CardBootstrap4Cardinner.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4CarouselBootstrap4Carousel_by_name(root, info, name):
+     try:
+        return	Bootstrap4CarouselBootstrap4Carousel.objects.get(name=name)
+     except Bootstrap4CarouselBootstrap4Carousel.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4CarouselBootstrap4Carouselslide_by_name(root, info, name):
+     try:
+        return	Bootstrap4CarouselBootstrap4Carouselslide.objects.get(name=name)
+     except Bootstrap4CarouselBootstrap4Carouselslide.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4CollapseBootstrap4Collapse_by_name(root, info, name):
+     try:
+        return	Bootstrap4CollapseBootstrap4Collapse.objects.get(name=name)
+     except Bootstrap4CollapseBootstrap4Collapse.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4CollapseBootstrap4Collapsecontainer_by_name(root, info, name):
+     try:
+        return	Bootstrap4CollapseBootstrap4Collapsecontainer.objects.get(name=name)
+     except Bootstrap4CollapseBootstrap4Collapsecontainer.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4CollapseBootstrap4Collapsetrigger_by_name(root, info, name):
+     try:
+        return	Bootstrap4CollapseBootstrap4Collapsetrigger.objects.get(name=name)
+     except Bootstrap4CollapseBootstrap4Collapsetrigger.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4ContentBootstrap4Blockquote_by_name(root, info, name):
+     try:
+        return	Bootstrap4ContentBootstrap4Blockquote.objects.get(name=name)
+     except Bootstrap4ContentBootstrap4Blockquote.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4ContentBootstrap4Code_by_name(root, info, name):
+     try:
+        return	Bootstrap4ContentBootstrap4Code.objects.get(name=name)
+     except Bootstrap4ContentBootstrap4Code.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4ContentBootstrap4Figure_by_name(root, info, name):
+     try:
+        return	Bootstrap4ContentBootstrap4Figure.objects.get(name=name)
+     except Bootstrap4ContentBootstrap4Figure.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4GridBootstrap4Gridcolumn_by_name(root, info, name):
+     try:
+        return	Bootstrap4GridBootstrap4Gridcolumn.objects.get(name=name)
+     except Bootstrap4GridBootstrap4Gridcolumn.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4GridBootstrap4Gridcontainer_by_name(root, info, name):
+     try:
+        return	Bootstrap4GridBootstrap4Gridcontainer.objects.get(name=name)
+     except Bootstrap4GridBootstrap4Gridcontainer.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4GridBootstrap4Gridrow_by_name(root, info, name):
+     try:
+        return	Bootstrap4GridBootstrap4Gridrow.objects.get(name=name)
+     except Bootstrap4GridBootstrap4Gridrow.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4JumbotronBootstrap4Jumbotron_by_name(root, info, name):
+     try:
+        return	Bootstrap4JumbotronBootstrap4Jumbotron.objects.get(name=name)
+     except Bootstrap4JumbotronBootstrap4Jumbotron.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4LinkBootstrap4Link_by_name(root, info, name):
+     try:
+        return	Bootstrap4LinkBootstrap4Link.objects.get(name=name)
+     except Bootstrap4LinkBootstrap4Link.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4ListgroupBootstrap4Listgroup_by_name(root, info, name):
+     try:
+        return	Bootstrap4ListgroupBootstrap4Listgroup.objects.get(name=name)
+     except Bootstrap4ListgroupBootstrap4Listgroup.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4ListgroupBootstrap4Listgroupitem_by_name(root, info, name):
+     try:
+        return	Bootstrap4ListgroupBootstrap4Listgroupitem.objects.get(name=name)
+     except Bootstrap4ListgroupBootstrap4Listgroupitem.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4MediaBootstrap4Media_by_name(root, info, name):
+     try:
+        return	Bootstrap4MediaBootstrap4Media.objects.get(name=name)
+     except Bootstrap4MediaBootstrap4Media.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4MediaBootstrap4Mediabody_by_name(root, info, name):
+     try:
+        return	Bootstrap4MediaBootstrap4Mediabody.objects.get(name=name)
+     except Bootstrap4MediaBootstrap4Mediabody.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4PictureBootstrap4Picture_by_name(root, info, name):
+     try:
+        return	Bootstrap4PictureBootstrap4Picture.objects.get(name=name)
+     except Bootstrap4PictureBootstrap4Picture.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4TabsBootstrap4Tab_by_name(root, info, name):
+     try:
+        return	Bootstrap4TabsBootstrap4Tab.objects.get(name=name)
+     except Bootstrap4TabsBootstrap4Tab.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4TabsBootstrap4Tabitem_by_name(root, info, name):
+     try:
+        return	Bootstrap4TabsBootstrap4Tabitem.objects.get(name=name)
+     except Bootstrap4TabsBootstrap4Tabitem.DoesNotExist:
+        return None
+
+  def resolve_Bootstrap4UtilitiesBootstrap4Spacing_by_name(root, info, name):
+     try:
+        return	Bootstrap4UtilitiesBootstrap4Spacing.objects.get(name=name)
+     except Bootstrap4UtilitiesBootstrap4Spacing.DoesNotExist:
+        return None
+
+  def resolve_CatalogueAttributeoption_by_name(root, info, name):
+     try:
+        return	CatalogueAttributeoption.objects.get(name=name)
+     except CatalogueAttributeoption.DoesNotExist:
+        return None
+
+  def resolve_CatalogueAttributeoptiongroup_by_name(root, info, name):
+     try:
+        return	CatalogueAttributeoptiongroup.objects.get(name=name)
+     except CatalogueAttributeoptiongroup.DoesNotExist:
+        return None
+
+  def resolve_CatalogueCategory_by_name(root, info, name):
+     try:
+        return	CatalogueCategory.objects.get(name=name)
+     except CatalogueCategory.DoesNotExist:
+        return None
+
+  def resolve_CatalogueOption_by_name(root, info, name):
+     try:
+        return	CatalogueOption.objects.get(name=name)
+     except CatalogueOption.DoesNotExist:
+        return None
+
+  def resolve_CatalogueProduct_by_name(root, info, name):
+     try:
+        return	CatalogueProduct.objects.get(name=name)
+     except CatalogueProduct.DoesNotExist:
+        return None
+
+  def resolve_CatalogueProductattribute_by_name(root, info, name):
+     try:
+        return	CatalogueProductattribute.objects.get(name=name)
+     except CatalogueProductattribute.DoesNotExist:
+        return None
+
+  def resolve_CatalogueProductattributevalue_by_name(root, info, name):
+     try:
+        return	CatalogueProductattributevalue.objects.get(name=name)
+     except CatalogueProductattributevalue.DoesNotExist:
+        return None
+
+  def resolve_CatalogueProductattributevalueValueMultiOption_by_name(root, info, name):
+     try:
+        return	CatalogueProductattributevalueValueMultiOption.objects.get(name=name)
+     except CatalogueProductattributevalueValueMultiOption.DoesNotExist:
+        return None
+
+  def resolve_CatalogueProductcategory_by_name(root, info, name):
+     try:
+        return	CatalogueProductcategory.objects.get(name=name)
+     except CatalogueProductcategory.DoesNotExist:
+        return None
+
+  def resolve_CatalogueProductclass_by_name(root, info, name):
+     try:
+        return	CatalogueProductclass.objects.get(name=name)
+     except CatalogueProductclass.DoesNotExist:
+        return None
+
+  def resolve_CatalogueProductclassOptions_by_name(root, info, name):
+     try:
+        return	CatalogueProductclassOptions.objects.get(name=name)
+     except CatalogueProductclassOptions.DoesNotExist:
+        return None
+
+  def resolve_CatalogueProductimage_by_name(root, info, name):
+     try:
+        return	CatalogueProductimage.objects.get(name=name)
+     except CatalogueProductimage.DoesNotExist:
+        return None
+
+  def resolve_CatalogueProductProductOptions_by_name(root, info, name):
+     try:
+        return	CatalogueProductProductOptions.objects.get(name=name)
+     except CatalogueProductProductOptions.DoesNotExist:
+        return None
+
+  def resolve_CatalogueProductrecommendation_by_name(root, info, name):
+     try:
+        return	CatalogueProductrecommendation.objects.get(name=name)
+     except CatalogueProductrecommendation.DoesNotExist:
+        return None
+
+  def resolve_Client_by_name(root, info, name):
+     try:
+        return	Client.objects.get(name=name)
+     except Client.DoesNotExist:
+        return None
+
+  def resolve_CmsAliaspluginmodel_by_name(root, info, name):
+     try:
+        return	CmsAliaspluginmodel.objects.get(name=name)
+     except CmsAliaspluginmodel.DoesNotExist:
+        return None
+
+  def resolve_CmsCmsplugin_by_name(root, info, name):
+     try:
+        return	CmsCmsplugin.objects.get(name=name)
+     except CmsCmsplugin.DoesNotExist:
+        return None
+
+  def resolve_CmsGlobalpagepermission_by_name(root, info, name):
+     try:
+        return	CmsGlobalpagepermission.objects.get(name=name)
+     except CmsGlobalpagepermission.DoesNotExist:
+        return None
+
+  def resolve_CmsGlobalpagepermissionSites_by_name(root, info, name):
+     try:
+        return	CmsGlobalpagepermissionSites.objects.get(name=name)
+     except CmsGlobalpagepermissionSites.DoesNotExist:
+        return None
+
+  def resolve_CmsPage_by_name(root, info, name):
+     try:
+        return	CmsPage.objects.get(name=name)
+     except CmsPage.DoesNotExist:
+        return None
+
+  def resolve_CmsPagepermission_by_name(root, info, name):
+     try:
+        return	CmsPagepermission.objects.get(name=name)
+     except CmsPagepermission.DoesNotExist:
+        return None
+
+  def resolve_CmsPagePlaceholders_by_name(root, info, name):
+     try:
+        return	CmsPagePlaceholders.objects.get(name=name)
+     except CmsPagePlaceholders.DoesNotExist:
+        return None
+
+  def resolve_CmsPageuser_by_name(root, info, name):
+     try:
+        return	CmsPageuser.objects.get(name=name)
+     except CmsPageuser.DoesNotExist:
+        return None
+
+  def resolve_CmsPageusergroup_by_name(root, info, name):
+     try:
+        return	CmsPageusergroup.objects.get(name=name)
+     except CmsPageusergroup.DoesNotExist:
+        return None
+
+  def resolve_CmsPlaceholder_by_name(root, info, name):
+     try:
+        return	CmsPlaceholder.objects.get(name=name)
+     except CmsPlaceholder.DoesNotExist:
+        return None
+
+  def resolve_CmsPlaceholderreference_by_name(root, info, name):
+     try:
+        return	CmsPlaceholderreference.objects.get(name=name)
+     except CmsPlaceholderreference.DoesNotExist:
+        return None
+
+  def resolve_CmsStaticplaceholder_by_name(root, info, name):
+     try:
+        return	CmsStaticplaceholder.objects.get(name=name)
+     except CmsStaticplaceholder.DoesNotExist:
+        return None
+
+  def resolve_CmsTitle_by_name(root, info, name):
+     try:
+        return	CmsTitle.objects.get(name=name)
+     except CmsTitle.DoesNotExist:
+        return None
+
+  def resolve_CmsTreenode_by_name(root, info, name):
+     try:
+        return	CmsTreenode.objects.get(name=name)
+     except CmsTreenode.DoesNotExist:
+        return None
+
+  def resolve_CmsUrlconfrevision_by_name(root, info, name):
+     try:
+        return	CmsUrlconfrevision.objects.get(name=name)
+     except CmsUrlconfrevision.DoesNotExist:
+        return None
+
+  def resolve_CmsUsersettings_by_name(root, info, name):
+     try:
+        return	CmsUsersettings.objects.get(name=name)
+     except CmsUsersettings.DoesNotExist:
+        return None
+
+  def resolve_CommunicationCommunicationeventtype_by_name(root, info, name):
+     try:
+        return	CommunicationCommunicationeventtype.objects.get(name=name)
+     except CommunicationCommunicationeventtype.DoesNotExist:
+        return None
+
+  def resolve_CommunicationEmail_by_name(root, info, name):
+     try:
+        return	CommunicationEmail.objects.get(name=name)
+     except CommunicationEmail.DoesNotExist:
+        return None
+
+  def resolve_CommunicationNotification_by_name(root, info, name):
+     try:
+        return	CommunicationNotification.objects.get(name=name)
+     except CommunicationNotification.DoesNotExist:
+        return None
+
+  def resolve_CustomerProductalert_by_name(root, info, name):
+     try:
+        return	CustomerProductalert.objects.get(name=name)
+     except CustomerProductalert.DoesNotExist:
+        return None
+
+  def resolve_DjangoAdminLog_by_name(root, info, name):
+     try:
+        return	DjangoAdminLog.objects.get(name=name)
+     except DjangoAdminLog.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogAuthorentriesplugin_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogAuthorentriesplugin.objects.get(name=name)
+     except DjangocmsBlogAuthorentriesplugin.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogAuthorentriespluginAuthors_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogAuthorentriespluginAuthors.objects.get(name=name)
+     except DjangocmsBlogAuthorentriespluginAuthors.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogBlogcategory_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogBlogcategory.objects.get(name=name)
+     except DjangocmsBlogBlogcategory.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogBlogcategoryTranslation_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogBlogcategoryTranslation.objects.get(name=name)
+     except DjangocmsBlogBlogcategoryTranslation.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogBlogconfig_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogBlogconfig.objects.get(name=name)
+     except DjangocmsBlogBlogconfig.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogBlogconfigTranslation_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogBlogconfigTranslation.objects.get(name=name)
+     except DjangocmsBlogBlogconfigTranslation.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogGenericblogplugin_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogGenericblogplugin.objects.get(name=name)
+     except DjangocmsBlogGenericblogplugin.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogLatestpostsplugin_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogLatestpostsplugin.objects.get(name=name)
+     except DjangocmsBlogLatestpostsplugin.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogLatestpostspluginCategories_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogLatestpostspluginCategories.objects.get(name=name)
+     except DjangocmsBlogLatestpostspluginCategories.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogPost_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogPost.objects.get(name=name)
+     except DjangocmsBlogPost.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogPostCategories_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogPostCategories.objects.get(name=name)
+     except DjangocmsBlogPostCategories.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogPostRelated_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogPostRelated.objects.get(name=name)
+     except DjangocmsBlogPostRelated.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogPostSites_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogPostSites.objects.get(name=name)
+     except DjangocmsBlogPostSites.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsBlogPostTranslation_by_name(root, info, name):
+     try:
+        return	DjangocmsBlogPostTranslation.objects.get(name=name)
+     except DjangocmsBlogPostTranslation.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsFileFile_by_name(root, info, name):
+     try:
+        return	DjangocmsFileFile.objects.get(name=name)
+     except DjangocmsFileFile.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsFileFolder_by_name(root, info, name):
+     try:
+        return	DjangocmsFileFolder.objects.get(name=name)
+     except DjangocmsFileFolder.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsGooglemapGooglemap_by_name(root, info, name):
+     try:
+        return	DjangocmsGooglemapGooglemap.objects.get(name=name)
+     except DjangocmsGooglemapGooglemap.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsGooglemapGooglemapmarker_by_name(root, info, name):
+     try:
+        return	DjangocmsGooglemapGooglemapmarker.objects.get(name=name)
+     except DjangocmsGooglemapGooglemapmarker.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsGooglemapGooglemaproute_by_name(root, info, name):
+     try:
+        return	DjangocmsGooglemapGooglemaproute.objects.get(name=name)
+     except DjangocmsGooglemapGooglemaproute.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsHistoryPlaceholderaction_by_name(root, info, name):
+     try:
+        return	DjangocmsHistoryPlaceholderaction.objects.get(name=name)
+     except DjangocmsHistoryPlaceholderaction.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsHistoryPlaceholderoperation_by_name(root, info, name):
+     try:
+        return	DjangocmsHistoryPlaceholderoperation.objects.get(name=name)
+     except DjangocmsHistoryPlaceholderoperation.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsIconIcon_by_name(root, info, name):
+     try:
+        return	DjangocmsIconIcon.objects.get(name=name)
+     except DjangocmsIconIcon.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsLinkLink_by_name(root, info, name):
+     try:
+        return	DjangocmsLinkLink.objects.get(name=name)
+     except DjangocmsLinkLink.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsMapsMaps_by_name(root, info, name):
+     try:
+        return	DjangocmsMapsMaps.objects.get(name=name)
+     except DjangocmsMapsMaps.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsPicturePicture_by_name(root, info, name):
+     try:
+        return	DjangocmsPicturePicture.objects.get(name=name)
+     except DjangocmsPicturePicture.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsStyleStyle_by_name(root, info, name):
+     try:
+        return	DjangocmsStyleStyle.objects.get(name=name)
+     except DjangocmsStyleStyle.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsTextCkeditorText_by_name(root, info, name):
+     try:
+        return	DjangocmsTextCkeditorText.objects.get(name=name)
+     except DjangocmsTextCkeditorText.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsVideoVideoplayer_by_name(root, info, name):
+     try:
+        return	DjangocmsVideoVideoplayer.objects.get(name=name)
+     except DjangocmsVideoVideoplayer.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsVideoVideosource_by_name(root, info, name):
+     try:
+        return	DjangocmsVideoVideosource.objects.get(name=name)
+     except DjangocmsVideoVideosource.DoesNotExist:
+        return None
+
+  def resolve_DjangocmsVideoVideotrack_by_name(root, info, name):
+     try:
+        return	DjangocmsVideoVideotrack.objects.get(name=name)
+     except DjangocmsVideoVideotrack.DoesNotExist:
+        return None
+
+  def resolve_DjangoContent_by_name(root, info, name):
+     try:
+        return	DjangoContent.objects.get(name=name)
+     except DjangoContent.DoesNotExist:
+        return None
+
+  def resolve_DjangoFlatpage_by_name(root, info, name):
+     try:
+        return	DjangoFlatpage.objects.get(name=name)
+     except DjangoFlatpage.DoesNotExist:
+        return None
+
+  def resolve_DjangoFlatpageSites_by_name(root, info, name):
+     try:
+        return	DjangoFlatpageSites.objects.get(name=name)
+     except DjangoFlatpageSites.DoesNotExist:
+        return None
+
+  def resolve_DjangoMigrations_by_name(root, info, name):
+     try:
+        return	DjangoMigrations.objects.get(name=name)
+     except DjangoMigrations.DoesNotExist:
+        return None
+
+  def resolve_DjangoSession_by_name(root, info, name):
+     try:
+        return	DjangoSession.objects.get(name=name)
+     except DjangoSession.DoesNotExist:
+        return None
+
+  def resolve_DjangoSite_by_name(root, info, name):
+     try:
+        return	DjangoSite.objects.get(name=name)
+     except DjangoSite.DoesNotExist:
+        return None
+
+  def resolve_EasyThumbnailsSource_by_name(root, info, name):
+     try:
+        return	EasyThumbnailsSource.objects.get(name=name)
+     except EasyThumbnailsSource.DoesNotExist:
+        return None
+
+  def resolve_EasyThumbnailsThumbnail_by_name(root, info, name):
+     try:
+        return	EasyThumbnailsThumbnail.objects.get(name=name)
+     except EasyThumbnailsThumbnail.DoesNotExist:
+        return None
+
+  def resolve_EasyThumbnailsThumbnaildimensions_by_name(root, info, name):
+     try:
+        return	EasyThumbnailsThumbnaildimensions.objects.get(name=name)
+     except EasyThumbnailsThumbnaildimensions.DoesNotExist:
+        return None
+
+  def resolve_FilerClipboard_by_name(root, info, name):
+     try:
+        return	FilerClipboard.objects.get(name=name)
+     except FilerClipboard.DoesNotExist:
+        return None
+
+  def resolve_FilerClipboarditem_by_name(root, info, name):
+     try:
+        return	FilerClipboarditem.objects.get(name=name)
+     except FilerClipboarditem.DoesNotExist:
+        return None
+
+  def resolve_FilerFile_by_name(root, info, name):
+     try:
+        return	FilerFile.objects.get(name=name)
+     except FilerFile.DoesNotExist:
+        return None
+
+  def resolve_FilerFolder_by_name(root, info, name):
+     try:
+        return	FilerFolder.objects.get(name=name)
+     except FilerFolder.DoesNotExist:
+        return None
+
+  def resolve_FilerFolderpermission_by_name(root, info, name):
+     try:
+        return	FilerFolderpermission.objects.get(name=name)
+     except FilerFolderpermission.DoesNotExist:
+        return None
+
+  def resolve_FilerImage_by_name(root, info, name):
+     try:
+        return	FilerImage.objects.get(name=name)
+     except FilerImage.DoesNotExist:
+        return None
+
+  def resolve_FilerThumbnailoption_by_name(root, info, name):
+     try:
+        return	FilerThumbnailoption.objects.get(name=name)
+     except FilerThumbnailoption.DoesNotExist:
+        return None
+
+  def resolve_MenusCachekey_by_name(root, info, name):
+     try:
+        return	MenusCachekey.objects.get(name=name)
+     except MenusCachekey.DoesNotExist:
+        return None
+
+  def resolve_OfferBenefit_by_name(root, info, name):
+     try:
+        return	OfferBenefit.objects.get(name=name)
+     except OfferBenefit.DoesNotExist:
+        return None
+
+  def resolve_OfferCondition_by_name(root, info, name):
+     try:
+        return	OfferCondition.objects.get(name=name)
+     except OfferCondition.DoesNotExist:
+        return None
+
+  def resolve_OfferConditionaloffer_by_name(root, info, name):
+     try:
+        return	OfferConditionaloffer.objects.get(name=name)
+     except OfferConditionaloffer.DoesNotExist:
+        return None
+
+  def resolve_OfferConditionalofferCombinations_by_name(root, info, name):
+     try:
+        return	OfferConditionalofferCombinations.objects.get(name=name)
+     except OfferConditionalofferCombinations.DoesNotExist:
+        return None
+
+  def resolve_OfferRange_by_name(root, info, name):
+     try:
+        return	OfferRange.objects.get(name=name)
+     except OfferRange.DoesNotExist:
+        return None
+
+  def resolve_OfferRangeClasses_by_name(root, info, name):
+     try:
+        return	OfferRangeClasses.objects.get(name=name)
+     except OfferRangeClasses.DoesNotExist:
+        return None
+
+  def resolve_OfferRangeExcludedProducts_by_name(root, info, name):
+     try:
+        return	OfferRangeExcludedProducts.objects.get(name=name)
+     except OfferRangeExcludedProducts.DoesNotExist:
+        return None
+
+  def resolve_OfferRangeIncludedCategories_by_name(root, info, name):
+     try:
+        return	OfferRangeIncludedCategories.objects.get(name=name)
+     except OfferRangeIncludedCategories.DoesNotExist:
+        return None
+
+  def resolve_OfferRangeproduct_by_name(root, info, name):
+     try:
+        return	OfferRangeproduct.objects.get(name=name)
+     except OfferRangeproduct.DoesNotExist:
+        return None
+
+  def resolve_OfferRangeproductfileupload_by_name(root, info, name):
+     try:
+        return	OfferRangeproductfileupload.objects.get(name=name)
+     except OfferRangeproductfileupload.DoesNotExist:
+        return None
+
+  def resolve_OrderBillingaddress_by_name(root, info, name):
+     try:
+        return	OrderBillingaddress.objects.get(name=name)
+     except OrderBillingaddress.DoesNotExist:
+        return None
+
+  def resolve_OrderCommunicationevent_by_name(root, info, name):
+     try:
+        return	OrderCommunicationevent.objects.get(name=name)
+     except OrderCommunicationevent.DoesNotExist:
+        return None
+
+  def resolve_OrderLine_by_name(root, info, name):
+     try:
+        return	OrderLine.objects.get(name=name)
+     except OrderLine.DoesNotExist:
+        return None
+
+  def resolve_OrderLineattribute_by_name(root, info, name):
+     try:
+        return	OrderLineattribute.objects.get(name=name)
+     except OrderLineattribute.DoesNotExist:
+        return None
+
+  def resolve_OrderLineprice_by_name(root, info, name):
+     try:
+        return	OrderLineprice.objects.get(name=name)
+     except OrderLineprice.DoesNotExist:
+        return None
+
+  def resolve_OrderOrder_by_name(root, info, name):
+     try:
+        return	OrderOrder.objects.get(name=name)
+     except OrderOrder.DoesNotExist:
+        return None
+
+  def resolve_OrderOrderdiscount_by_name(root, info, name):
+     try:
+        return	OrderOrderdiscount.objects.get(name=name)
+     except OrderOrderdiscount.DoesNotExist:
+        return None
+
+  def resolve_OrderOrdernote_by_name(root, info, name):
+     try:
+        return	OrderOrdernote.objects.get(name=name)
+     except OrderOrdernote.DoesNotExist:
+        return None
+
+  def resolve_OrderOrderstatuschange_by_name(root, info, name):
+     try:
+        return	OrderOrderstatuschange.objects.get(name=name)
+     except OrderOrderstatuschange.DoesNotExist:
+        return None
+
+  def resolve_OrderPaymentevent_by_name(root, info, name):
+     try:
+        return	OrderPaymentevent.objects.get(name=name)
+     except OrderPaymentevent.DoesNotExist:
+        return None
+
+  def resolve_OrderPaymenteventquantity_by_name(root, info, name):
+     try:
+        return	OrderPaymenteventquantity.objects.get(name=name)
+     except OrderPaymenteventquantity.DoesNotExist:
+        return None
+
+  def resolve_OrderPaymenteventtype_by_name(root, info, name):
+     try:
+        return	OrderPaymenteventtype.objects.get(name=name)
+     except OrderPaymenteventtype.DoesNotExist:
+        return None
+
+  def resolve_OrderShippingaddress_by_name(root, info, name):
+     try:
+        return	OrderShippingaddress.objects.get(name=name)
+     except OrderShippingaddress.DoesNotExist:
+        return None
+
+  def resolve_OrderShippingevent_by_name(root, info, name):
+     try:
+        return	OrderShippingevent.objects.get(name=name)
+     except OrderShippingevent.DoesNotExist:
+        return None
+
+  def resolve_OrderShippingeventquantity_by_name(root, info, name):
+     try:
+        return	OrderShippingeventquantity.objects.get(name=name)
+     except OrderShippingeventquantity.DoesNotExist:
+        return None
+
+  def resolve_OrderShippingeventtype_by_name(root, info, name):
+     try:
+        return	OrderShippingeventtype.objects.get(name=name)
+     except OrderShippingeventtype.DoesNotExist:
+        return None
+
+  def resolve_OrderSurcharge_by_name(root, info, name):
+     try:
+        return	OrderSurcharge.objects.get(name=name)
+     except OrderSurcharge.DoesNotExist:
+        return None
+
+  def resolve_OscarapiApikey_by_name(root, info, name):
+     try:
+        return	OscarapiApikey.objects.get(name=name)
+     except OscarapiApikey.DoesNotExist:
+        return None
+
+  def resolve_OscarInvoicesInvoice_by_name(root, info, name):
+     try:
+        return	OscarInvoicesInvoice.objects.get(name=name)
+     except OscarInvoicesInvoice.DoesNotExist:
+        return None
+
+  def resolve_OscarInvoicesLegalentity_by_name(root, info, name):
+     try:
+        return	OscarInvoicesLegalentity.objects.get(name=name)
+     except OscarInvoicesLegalentity.DoesNotExist:
+        return None
+
+  def resolve_OscarInvoicesLegalentityaddress_by_name(root, info, name):
+     try:
+        return	OscarInvoicesLegalentityaddress.objects.get(name=name)
+     except OscarInvoicesLegalentityaddress.DoesNotExist:
+        return None
+
+  def resolve_PartnerPartner_by_name(root, info, name):
+     try:
+        return	PartnerPartner.objects.get(name=name)
+     except PartnerPartner.DoesNotExist:
+        return None
+
+  def resolve_PartnerPartneraddress_by_name(root, info, name):
+     try:
+        return	PartnerPartneraddress.objects.get(name=name)
+     except PartnerPartneraddress.DoesNotExist:
+        return None
+
+  def resolve_PartnerPartnerUsers_by_name(root, info, name):
+     try:
+        return	PartnerPartnerUsers.objects.get(name=name)
+     except PartnerPartnerUsers.DoesNotExist:
+        return None
+
+  def resolve_PartnerStockalert_by_name(root, info, name):
+     try:
+        return	PartnerStockalert.objects.get(name=name)
+     except PartnerStockalert.DoesNotExist:
+        return None
+
+  def resolve_PartnerStockrecord_by_name(root, info, name):
+     try:
+        return	PartnerStockrecord.objects.get(name=name)
+     except PartnerStockrecord.DoesNotExist:
+        return None
+
+  def resolve_Payment_by_name(root, info, name):
+     try:
+        return	Payment.objects.get(name=name)
+     except Payment.DoesNotExist:
+        return None
+
+  def resolve_PaymentBankcard_by_name(root, info, name):
+     try:
+        return	PaymentBankcard.objects.get(name=name)
+     except PaymentBankcard.DoesNotExist:
+        return None
+
+  def resolve_PaymentSource_by_name(root, info, name):
+     try:
+        return	PaymentSource.objects.get(name=name)
+     except PaymentSource.DoesNotExist:
+        return None
+
+  def resolve_PaymentSourcetype_by_name(root, info, name):
+     try:
+        return	PaymentSourcetype.objects.get(name=name)
+     except PaymentSourcetype.DoesNotExist:
+        return None
+
+  def resolve_PaymentTransaction_by_name(root, info, name):
+     try:
+        return	PaymentTransaction.objects.get(name=name)
+     except PaymentTransaction.DoesNotExist:
+        return None
+
+  def resolve_PaypalExpresstransaction_by_name(root, info, name):
+     try:
+        return	PaypalExpresstransaction.objects.get(name=name)
+     except PaypalExpresstransaction.DoesNotExist:
+        return None
+
+  def resolve_PaypalPayflowtransaction_by_name(root, info, name):
+     try:
+        return	PaypalPayflowtransaction.objects.get(name=name)
+     except PaypalPayflowtransaction.DoesNotExist:
+        return None
+
+  def resolve_PhotologueGallery_by_name(root, info, name):
+     try:
+        return	PhotologueGallery.objects.get(name=name)
+     except PhotologueGallery.DoesNotExist:
+        return None
+
+  def resolve_PhotologueGalleryPhotos_by_name(root, info, name):
+     try:
+        return	PhotologueGalleryPhotos.objects.get(name=name)
+     except PhotologueGalleryPhotos.DoesNotExist:
+        return None
+
+  def resolve_PhotologueGallerySites_by_name(root, info, name):
+     try:
+        return	PhotologueGallerySites.objects.get(name=name)
+     except PhotologueGallerySites.DoesNotExist:
+        return None
+
+  def resolve_PhotologuePhoto_by_name(root, info, name):
+     try:
+        return	PhotologuePhoto.objects.get(name=name)
+     except PhotologuePhoto.DoesNotExist:
+        return None
+
+  def resolve_PhotologuePhotoeffect_by_name(root, info, name):
+     try:
+        return	PhotologuePhotoeffect.objects.get(name=name)
+     except PhotologuePhotoeffect.DoesNotExist:
+        return None
+
+  def resolve_PhotologuePhotoSites_by_name(root, info, name):
+     try:
+        return	PhotologuePhotoSites.objects.get(name=name)
+     except PhotologuePhotoSites.DoesNotExist:
+        return None
+
+  def resolve_PhotologuePhotosize_by_name(root, info, name):
+     try:
+        return	PhotologuePhotosize.objects.get(name=name)
+     except PhotologuePhotosize.DoesNotExist:
+        return None
+
+  def resolve_PhotologueWatermark_by_name(root, info, name):
+     try:
+        return	PhotologueWatermark.objects.get(name=name)
+     except PhotologueWatermark.DoesNotExist:
+        return None
+
+  def resolve_PinaxBadgesBadgeaward_by_name(root, info, name):
+     try:
+        return	PinaxBadgesBadgeaward.objects.get(name=name)
+     except PinaxBadgesBadgeaward.DoesNotExist:
+        return None
+
+  def resolve_PinaxEventsEvent_by_name(root, info, name):
+     try:
+        return	PinaxEventsEvent.objects.get(name=name)
+     except PinaxEventsEvent.DoesNotExist:
+        return None
+
+  def resolve_PinaxMessagesMessage_by_name(root, info, name):
+     try:
+        return	PinaxMessagesMessage.objects.get(name=name)
+     except PinaxMessagesMessage.DoesNotExist:
+        return None
+
+  def resolve_PinaxMessagesThread_by_name(root, info, name):
+     try:
+        return	PinaxMessagesThread.objects.get(name=name)
+     except PinaxMessagesThread.DoesNotExist:
+        return None
+
+  def resolve_PinaxMessagesUserthread_by_name(root, info, name):
+     try:
+        return	PinaxMessagesUserthread.objects.get(name=name)
+     except PinaxMessagesUserthread.DoesNotExist:
+        return None
+
+  def resolve_Product_by_name(root, info, name):
+     try:
+        return	Product.objects.get(name=name)
+     except Product.DoesNotExist:
+        return None
+
+  def resolve_ReviewsProductreview_by_name(root, info, name):
+     try:
+        return	ReviewsProductreview.objects.get(name=name)
+     except ReviewsProductreview.DoesNotExist:
+        return None
+
+  def resolve_ReviewsVote_by_name(root, info, name):
+     try:
+        return	ReviewsVote.objects.get(name=name)
+     except ReviewsVote.DoesNotExist:
+        return None
+
+  def resolve_SalesLineTransaction_by_name(root, info, name):
+     try:
+        return	SalesLineTransaction.objects.get(name=name)
+     except SalesLineTransaction.DoesNotExist:
+        return None
+
+  def resolve_ShippingOrderanditemcharges_by_name(root, info, name):
+     try:
+        return	ShippingOrderanditemcharges.objects.get(name=name)
+     except ShippingOrderanditemcharges.DoesNotExist:
+        return None
+
+  def resolve_ShippingOrderanditemchargesCountries_by_name(root, info, name):
+     try:
+        return	ShippingOrderanditemchargesCountries.objects.get(name=name)
+     except ShippingOrderanditemchargesCountries.DoesNotExist:
+        return None
+
+  def resolve_ShippingWeightband_by_name(root, info, name):
+     try:
+        return	ShippingWeightband.objects.get(name=name)
+     except ShippingWeightband.DoesNotExist:
+        return None
+
+  def resolve_ShippingWeightbased_by_name(root, info, name):
+     try:
+        return	ShippingWeightbased.objects.get(name=name)
+     except ShippingWeightbased.DoesNotExist:
+        return None
+
+  def resolve_ShippingWeightbasedCountries_by_name(root, info, name):
+     try:
+        return	ShippingWeightbasedCountries.objects.get(name=name)
+     except ShippingWeightbasedCountries.DoesNotExist:
+        return None
+
+  def resolve_TaggitTag_by_name(root, info, name):
+     try:
+        return	TaggitTag.objects.get(name=name)
+     except TaggitTag.DoesNotExist:
+        return None
+
+  def resolve_TaggitTaggeditem_by_name(root, info, name):
+     try:
+        return	TaggitTaggeditem.objects.get(name=name)
+     except TaggitTaggeditem.DoesNotExist:
+        return None
+
+  def resolve_TestimonialsTestimonial_by_name(root, info, name):
+     try:
+        return	TestimonialsTestimonial.objects.get(name=name)
+     except TestimonialsTestimonial.DoesNotExist:
+        return None
+
+  def resolve_ThumbnailKvstore_by_name(root, info, name):
+     try:
+        return	ThumbnailKvstore.objects.get(name=name)
+     except ThumbnailKvstore.DoesNotExist:
+        return None
+
+  def resolve_VoucherVoucher_by_name(root, info, name):
+     try:
+        return	VoucherVoucher.objects.get(name=name)
+     except VoucherVoucher.DoesNotExist:
+        return None
+
+  def resolve_VoucherVoucherapplication_by_name(root, info, name):
+     try:
+        return	VoucherVoucherapplication.objects.get(name=name)
+     except VoucherVoucherapplication.DoesNotExist:
+        return None
+
+  def resolve_VoucherVoucherOffers_by_name(root, info, name):
+     try:
+        return	VoucherVoucherOffers.objects.get(name=name)
+     except VoucherVoucherOffers.DoesNotExist:
+        return None
+
+  def resolve_VoucherVoucherset_by_name(root, info, name):
+     try:
+        return	VoucherVoucherset.objects.get(name=name)
+     except VoucherVoucherset.DoesNotExist:
+        return None
+
+  def resolve_WishlistsLine_by_name(root, info, name):
+     try:
+        return	WishlistsLine.objects.get(name=name)
+     except WishlistsLine.DoesNotExist:
+        return None
+
+  def resolve_WishlistsWishlist_by_name(root, info, name):
+     try:
+        return	WishlistsWishlist.objects.get(name=name)
+     except WishlistsWishlist.DoesNotExist:
+        return None
+
 
 schema = graphene.Schema(query=Query)

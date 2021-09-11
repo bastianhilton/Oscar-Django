@@ -3925,3 +3925,2009 @@ INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\sh
 INFO:django.utils.autoreload:Watching for file changes with StatReloader
 INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
 INFO:django.utils.autoreload:Watching for file changes with StatReloader
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1129, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 474, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 54, in pre_sql_setup
+    self.setup_query()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 45, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 240, in get_select
+    related_klass_infos = self.get_related_selections(select)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 936, in get_related_selections
+    raise FieldError(
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'AddressCountry'. Choices are: addressuseraddress, orderbillingaddress, ordershippingaddress, oscarinvoiceslegalentityaddress, partnerpartneraddress, shippingorderanditemchargescountries, shippingweightbasedcountries
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1129, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 474, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 54, in pre_sql_setup
+    self.setup_query()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 45, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 240, in get_select
+    related_klass_infos = self.get_related_selections(select)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 936, in get_related_selections
+    raise FieldError(
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'AddressCountry'. Choices are: addressuseraddress, orderbillingaddress, ordershippingaddress, oscarinvoiceslegalentityaddress, partnerpartneraddress, shippingorderanditemchargescountries, shippingweightbasedcountries
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1129, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 474, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 54, in pre_sql_setup
+    self.setup_query()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 45, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 240, in get_select
+    related_klass_infos = self.get_related_selections(select)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 936, in get_related_selections
+    raise FieldError(
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'AddressCountry'. Choices are: addressuseraddress, orderbillingaddress, ordershippingaddress, oscarinvoiceslegalentityaddress, partnerpartneraddress, shippingorderanditemchargescountries, shippingweightbasedcountries
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1129, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 474, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 54, in pre_sql_setup
+    self.setup_query()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 45, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 240, in get_select
+    related_klass_infos = self.get_related_selections(select)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 936, in get_related_selections
+    raise FieldError(
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'AddressCountry'. Choices are: addressuseraddress, orderbillingaddress, ordershippingaddress, oscarinvoiceslegalentityaddress, partnerpartneraddress, shippingorderanditemchargescountries, shippingweightbasedcountries
+
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\schema.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+WARNING:django.request:Bad Request: /graphql
+WARNING:django.request:Bad Request: /graphql
+WARNING:django.request:Bad Request: /graphql
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\graphql_settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ...pping_country", "shop_addresscountry"."slug" FROM "shop_addr...
+                                                             ^
+
+
+WARNING:django.request:Bad Request: /graphql
+WARNING:django.request:Bad Request: /graphql
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...untry_id", "shop_orderbillingaddress"."slug" FROM "shop_orde...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...untry_id", "shop_orderbillingaddress"."slug" FROM "shop_orde...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...untry_id", "shop_orderbillingaddress"."slug" FROM "shop_orde...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...untry_id", "shop_orderbillingaddress"."slug" FROM "shop_orde...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...untry_id", "shop_orderbillingaddress"."slug" FROM "shop_orde...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...untry_id", "shop_orderbillingaddress"."slug" FROM "shop_orde...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...untry_id", "shop_orderbillingaddress"."slug" FROM "shop_orde...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...untry_id", "shop_orderbillingaddress"."slug" FROM "shop_orde...
+                                                             ^
+
+
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\models.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...xt", "shop_orderbillingaddress"."country_id" FROM "shop_orde...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...xt", "shop_orderbillingaddress"."country_id" FROM "shop_orde...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...xt", "shop_orderbillingaddress"."country_id" FROM "shop_orde...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...xt", "shop_orderbillingaddress"."country_id" FROM "shop_orde...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...xt", "shop_orderbillingaddress"."country_id" FROM "shop_orde...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...xt", "shop_orderbillingaddress"."country_id" FROM "shop_orde...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...xt", "shop_orderbillingaddress"."country_id" FROM "shop_orde...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...xt", "shop_orderbillingaddress"."country_id" FROM "shop_orde...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...xt", "shop_orderbillingaddress"."country_id" FROM "shop_orde...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...xt", "shop_orderbillingaddress"."country_id" FROM "shop_orde...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...xt", "shop_orderbillingaddress"."country_id" FROM "shop_orde...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_orderbillingaddress" does not exist
+LINE 1: ...xt", "shop_orderbillingaddress"."country_id" FROM "shop_orde...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_djangocmsblogblogcategory" does not exist
+LINE 1: ...p_djangocmsblogblogcategory"."app_config_id" FROM "shop_djan...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ... "shop_addresscountry"."is_shipping_country" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ... "shop_addresscountry"."is_shipping_country" FROM "shop_addr...
+                                                             ^
+
+
+ERROR:graphql.execution.utils:Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "shop_addresscountry" does not exist
+LINE 1: ... "shop_addresscountry"."is_shipping_country" FROM "shop_addr...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\promise\promise.py", line 87, in try_catch
+    return (handler(*args, **kwargs), None)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 531, in <lambda>
+    lambda resolved: complete_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 556, in complete_value
+    return complete_list_value(
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphql\execution\executor.py", line 599, in complete_list_value
+    for item in result:
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 274, in __iter__
+    self._fetch_all()
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 1242, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\query.py", line 55, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\models\sql\compiler.py", line 1142, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 154, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\graphene_django\debug\sql\tracking.py", line 103, in _record
+    return method(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\sehilton\Documents\GitHub\Alternate-CMS\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "shop_addresscountry" does not exist
+LINE 1: ... "shop_addresscountry"."is_shipping_country" FROM "shop_addr...
+                                                             ^
+
+
+INFO:django.utils.autoreload:C:\Users\sehilton\Documents\GitHub\Alternate-CMS\shop\settings.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
