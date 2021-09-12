@@ -23,7 +23,11 @@ from django.conf.urls.i18n import i18n_patterns
 
 admin.autodiscover()
 
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
 urlpatterns = [
+    path('sentry-debug/', trigger_error),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     path("sitemap.xml", sitemap, {"sitemaps": {"cmspages": CMSSitemap}}),
     path('', include(apps.get_app_config('oscar').urls[0])),

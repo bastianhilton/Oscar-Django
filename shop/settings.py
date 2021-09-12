@@ -7,6 +7,8 @@ from django.conf.global_settings import LANGUAGES as DJANGO_LANGUAGES
 from oscar.defaults import *
 import logging
 logging.basicConfig(filename='client_application.log', level=logging.DEBUG)
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -401,3 +403,17 @@ from .graphql_settings import *
 #    from .local_settings import *
 #except ImportError:
 #    pass
+
+sentry_sdk.init(
+    dsn="https://df1b90fab7c44ce8aef097a63b468d61@o996770.ingest.sentry.io/5955273",
+    integrations=[DjangoIntegration()],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)

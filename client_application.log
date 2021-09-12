@@ -1,0 +1,237 @@
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): o996770.ingest.sentry.io:443
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\python39\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py", line 4, in <module>
+    from graphene_django.filter import DjangoFilterConnectionField
+ImportError: cannot import name 'DjangoFilterConnectionField' from 'graphene_django.filter' (C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\filter\__init__.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\sentry_sdk\integrations\django\views.py", line 67, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'shop.schema.schema' for Graphene setting 'SCHEMA'. ImportError: cannot import name 'DjangoFilterConnectionField' from 'graphene_django.filter' (C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\filter\__init__.py).
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/store/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+WARNING:django.request:Not Found: /en/favicon.ico/
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 2
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/store/ HTTP/1.1" 200 41
+ERROR:django.request:Internal Server Error: /graphql
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 74, in import_from_string
+    module = importlib.import_module(module_path)
+  File "c:\python39\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\shop\schema.py", line 4, in <module>
+    from graphene_django.filter import DjangoFilterConnectionField
+ImportError: cannot import name 'DjangoFilterConnectionField' from 'graphene_django.filter' (C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\filter\__init__.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\sentry_sdk\integrations\django\views.py", line 67, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\django\views\generic\base.py", line 62, in view
+    self = cls(**initkwargs)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\views.py", line 70, in __init__
+    schema = graphene_settings.SCHEMA
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 116, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 60, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\settings.py", line 78, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'shop.schema.schema' for Graphene setting 'SCHEMA'. ImportError: cannot import name 'DjangoFilterConnectionField' from 'graphene_django.filter' (C:\Users\Basti\OneDrive\Documents\My Websites\Handmade Sites\Backend-Projects\Alternate-CMS\env\lib\site-packages\graphene_django\filter\__init__.py).
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 2
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): o996770.ingest.sentry.io:443
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 2
+DEBUG:urllib3.connectionpool:Resetting dropped connection: o996770.ingest.sentry.io
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 2
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 2
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 2
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 2
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 2
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 2
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 41
+DEBUG:urllib3.connectionpool:https://o996770.ingest.sentry.io:443 "POST /api/5955273/envelope/ HTTP/1.1" 200 2

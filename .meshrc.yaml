@@ -1,0 +1,64 @@
+## To use any of the graphql sources below, please follow these steps:
+
+## 1) First uncomment (remove the # in-front of the source you want to use)
+## 2) Add your database details, or graphql API if using Graphql.
+## 3) Give your Source a name in the name field
+## 4) Access your query if the connection is successful on port 4000 (http://localhost:4000)
+
+sources:
+## The below source is for Graphql endpoints (usually non database sources)
+
+  #- name: MyGraphQLApi
+  #  handler:
+  #    graphql:
+  #      endpoint: http://my-service-url:3000/graphql
+
+## The below source is for SQLite/Tuql databases (usually only need link to db file in your project)
+
+  - name: alternatecms
+    handler:
+      tuql:
+        db: ./db.sqlite3
+
+## The below source is for Postgraph Databases.
+
+  #- name: AlternateCMS
+  #  handler:
+  #    postgraphile:
+  #      connectionString: postgres://postgres:password@localhost/postgres
+
+## The below source is for MongoDB Databases.
+
+  #- name: AlternateCMS
+  #  handler:
+  #    mongoose:
+  #      connectionString: mongodb://localhost:27017/test
+  #      models:
+  #        - name: User
+  #         path: ./src/models#User
+
+## The below source is for MYSQL Databases.
+
+  #- name: AlternateCMS
+  #  handler:
+  #    mysql:
+  #      host: localhost
+  #      port: 3306
+  #      user: root
+  #      password: passwd
+  #      database: employees
+
+## The below source is for Rest API connections.
+
+  #- name: MyApi
+  #  handler:
+  #    jsonSchema:
+  #      baseUrl: https://some-service-url/endpoint-path/
+  #      operations:
+  #        - type: Query
+  #          field: users
+  #          path: /users
+  #          method: GET
+  #          responseSchema: ./json-schemas/users.json
+
+## To add anymore sources for your application and have them query within AlternateCMS, add them using this guide: https://www.graphql-mesh.com/docs/handlers/handlers-introduction
