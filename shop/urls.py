@@ -20,13 +20,33 @@ from django.contrib.auth.decorators import login_required
 from two_factor.gateways.twilio.urls import urlpatterns as tf_twilio_urls
 from two_factor.urls import urlpatterns as tf_urls
 from django.conf.urls.i18n import i18n_patterns
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
 admin.autodiscover()
 
 def trigger_error(request):
     division_by_zero = 1 / 0
 
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Snippets API",
+      default_version='v1',
+      description="Test description",
+      terms_of_service="https://www.google.com/policies/terms/",
+      contact=openapi.Contact(email="contact@snippets.local"),
+      license=openapi.License(name="BSD License"),
+   ),
+   public=True,
+   permission_classes=[permissions.AllowAny],
+)
+
 urlpatterns = [
+    url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    url(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('sentry-debug/', trigger_error),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     path("sitemap.xml", sitemap, {"sitemaps": {"cmspages": CMSSitemap}}),
@@ -44,6 +64,8 @@ urlpatterns = [
     path('', include(tf_urls)),
     path('', include(tf_twilio_urls)),
     path('__debug__/', include(debug_toolbar.urls)),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^comments/', include('django_comments_xtd.urls')),
 ]
 
 application = URLRouter([

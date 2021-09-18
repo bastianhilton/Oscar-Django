@@ -156,7 +156,21 @@ SIMPLEUI_CONFIG = {
                 'url': 'reviews/vote/'
               },
             ]
-          },  {
+          }, {
+            'name': 'Comments',
+            'models': [
+              {
+                'name': 'Comments',
+                'url': 'django_comments_xtd/xtdcomment/'
+              }, {
+                'name': 'Black Listed Comments',
+                'url': 'django_comments_xtd/blacklisteddomain/'
+              }, {
+                'name': 'Comment Flags',
+                'url': 'django_comments/commentflag/'
+              },
+            ]
+          }, {
             'name': 'Offer',
             'models': [
               {

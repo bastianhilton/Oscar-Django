@@ -7,8 +7,6 @@ from django.conf.global_settings import LANGUAGES as DJANGO_LANGUAGES
 from oscar.defaults import *
 import logging
 logging.basicConfig(filename='client_application.log', level=logging.DEBUG)
-import sentry_sdk
-from sentry_sdk.integrations.django import DjangoIntegration
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -101,7 +99,6 @@ INSTALLED_APPS = [
     'djangocms_googlemap',
     'djangocms_video',
     'djangocms_audio',
-    "graphene_django",
     'shop',
     'django.contrib.flatpages',
 
@@ -137,7 +134,6 @@ INSTALLED_APPS = [
     'oscar.apps.dashboard.shipping.apps.ShippingDashboardConfig',
 
     # 3rd-party apps that oscar depends on
-    'drf_yasg',
     'widget_tweaks',
     'haystack',
     'sorl.thumbnail',   # Default thumbnail backend, can be replaced
@@ -173,9 +169,8 @@ INSTALLED_APPS = [
     'two_factor',
     'otp_yubikey',
     'djangocms_history',
-    'ckeditor_uploader',
-    'django_comments_xtd',
-    'django_comments',
+    "graphene_django",
+    'debug_toolbar',
 ]
 
 TEMPLATES = [
@@ -227,22 +222,13 @@ MIDDLEWARE = [
     'django_otp.middleware.OTPMiddleware',
     'two_factor.middleware.threadlocals.ThreadLocals',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',
     'django.contrib.auth.backends.ModelBackend',
     'pinax.announcements.auth_backends.AnnouncementPermissionsBackend',
-)
-
-ADMINS = (
-    ('John Lennon', 'jlennon@example.com'), # Change this to your Admins
-    ('Paul McCartney', 'pmacca@example.com'), # Change this to your Admins
-)
-
-MANAGERS = (
-    ('George Harrison', 'gharrison@example.com'), # Change this to your Managers
-    ('Ringo Starr', 'ringo@example.com'), # Change this to your Managers
 )
 
 HAYSTACK_CONNECTIONS = {
@@ -274,12 +260,6 @@ CMS_LANGUAGES = {
     },
 }
 
-COMMENTS_APP = 'django_comments_xtd'
-
-COMMENTS_XTD_MAX_THREAD_LEVEL = 'N'
-
-CKEDITOR_UPLOAD_PATH = "uploads/"
-
 CMS_TEMPLATES = (
     ## Customize this
     ('fullwidth.html', 'Fullwidth'),
@@ -294,19 +274,15 @@ CMS_PERMISSION = True
 CMS_PLACEHOLDER_CONF = {}
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'alternatecms', # Please change Me
-        'USER': 'testuser', # Please change Me
-        'PASSWORD': 'Tester2021', # Please change Me
-        'HOST': 'localhost',
-        'PORT': '5432',
-    },
-    'gdpr_log': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'gdpr-log.sqlite3'),
-    },
+  'default': {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+  }
 }
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 DATABASE_ROUTERS = ['gdpr_assist.routers.EventLogRouter']
 
@@ -327,7 +303,7 @@ META_USE_SCHEMAORG_PROPERTIES=True  # django-meta 2.x+
 PINAX_EVENTS_IMAGE_THUMBNAIL_SPEC = "pinax.events.specs.ImageThumbnail"
 PINAX_EVENTS_SECONDARY_IMAGE_THUMBNAIL_SPEC = "pinax.events.specs.SecondaryImageThumbnail"
 
-SIMPLEUI_HOME_INFO = False
+SIMPLEUI_HOME_INFO = True
 SIMPLEUI_HOME_QUICK = True
 SIMPLEUI_HOME_ACTION = True
 SIMPLEUI_HOME_TITLE = 'AlternateCMS'
@@ -408,26 +384,3 @@ GRAPHENE = {
 
 from .customization import *
 from .graphql_settings import *
-
-#try:
-#    from .local_settings import *
-#except ImportError:
-#    pass
-
-sentry_sdk.init(
-    dsn="https://df1b90fab7c44ce8aef097a63b468d61@o996770.ingest.sentry.io/5955273",
-    integrations=[DjangoIntegration()],
-
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    # We recommend adjusting this value in production.
-    traces_sample_rate=1.0,
-
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
-    send_default_pii=True
-)
-
-SWAGGER_SETTINGS = {
-    'VALIDATOR_URL': 'http://localhost:8189',
-}
