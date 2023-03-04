@@ -1,4 +1,4 @@
-# Alternate CMS
+# Oscar-Django
 
 To get started with this project you will need the following on your system:
 
@@ -9,9 +9,9 @@ Postgresql (supports Mysql, SQlite, Mongodb)
 To change database, go to shop/settings.py file and update database section with database you want
 You will also need Git, Text Editor such as Visual Studio Code, and Python 3
 
-git clone https://github.com/bastianhilton/Alternate-CMS.git
+git clone https://github.com/bastianhilton/Oscar-Django.git
 
-cd Alternate-CMS
+cd Oscar-Django
 
 pip install -r requirements.txt
 
